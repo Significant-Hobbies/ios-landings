@@ -30,6 +30,8 @@ Significant Hobbies, Pace).
 
 ## Timeline
 
+- 2026-08-17 — raised the shared engine: light tokens map correctly,
+  screens sit in one device frame, hero shows status and platforms
 - 2026-08-17 — first factory: Kith, Setline, Anchor, Motion, and
   Indulge as `PRODUCT=` builds. Not deployed.
 
@@ -47,6 +49,8 @@ Significant Hobbies, Pace).
 - Gated TestFlight and official App Store badge rules
 - `llms.txt`, `/index.md`, `/api/ai`, robots, and sitemap on every build
 - Indulge on the shared template (static site, no analytics script)
+- Shared `Phone` frame, mapped product tokens for light and dark, and
+  status/platform line in the hero
 
 ## Work queue
 

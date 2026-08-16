@@ -32,8 +32,8 @@
       }
     ],
     "projectCheck": {
-      "command": "replace-with-project-check",
-      "status": "pending"
+      "command": "pnpm check",
+      "status": "passed"
     },
     "critique": {
       "score": 0,

@@ -5,7 +5,7 @@ export type LegalPage = { title: string; lede: string; sections: LegalSection[] 
 export type SiteConfig = {
   name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
   summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string };
+  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
   gallery: { src: string; alt: string }[];
@@ -38,7 +38,7 @@ export const site: SiteConfig = {
   tokens: {
     paper: "#0a0c10", field: "#141922", ink: "#edf1f7", inkSoft: "#94a0b3", inkFaint: "rgba(255,255,255,0.08)",
     accent: "#3b82f6", accentDark: "#2563eb", accentSoft: "#7dd3fc", lanternA: "#3b82f6", lanternB: "#7dd3fc", lanternC: "#fb7185",
-    blush: "#1d2532", inkOnDark: "#edf1f7"
+    blush: "#1d2532", inkOnDark: "#edf1f7", inkOnAccent: "#edf1f7"
   },
   colorScheme: "dark",
   hero: { image: "/images/screens/session.png", alt: "Anchor session with remaining time and lock-a-distraction", caption: "One goal, one ring, one obvious thing to press when something pulls." },

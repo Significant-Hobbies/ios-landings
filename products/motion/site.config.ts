@@ -5,7 +5,7 @@ export type LegalPage = { title: string; lede: string; sections: LegalSection[] 
 export type SiteConfig = {
   name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
   summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string };
+  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
   gallery: { src: string; alt: string }[];
@@ -38,7 +38,7 @@ export const site: SiteConfig = {
   tokens: {
     paper: "#05070d", field: "#0c111a", ink: "#e8eef7", inkSoft: "#8b97a8", inkFaint: "rgba(255,255,255,0.08)",
     accent: "#2dd4bf", accentDark: "#0f766e", accentSoft: "#5eead4", lanternA: "#2dd4bf", lanternB: "#38bdf8", lanternC: "#a78bfa",
-    blush: "#111827", inkOnDark: "#e8eef7"
+    blush: "#111827", inkOnDark: "#e8eef7", inkOnAccent: "#05070d"
   },
   colorScheme: "dark",
   hero: { image: "/images/screens/motion-maker-clean.jpg", alt: "Motion Maker on iPhone", caption: "The phone is the camera, the tracker, and the game." },

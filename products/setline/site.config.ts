@@ -11,7 +11,7 @@ export type LegalPage = { title: string; lede: string; sections: LegalSection[] 
 export type SiteConfig = {
   name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
   summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string };
+  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
   gallery: { src: string; alt: string }[];
@@ -44,7 +44,7 @@ export const site: SiteConfig = {
   tokens: {
     paper: "#ffffff", field: "#f7f6f0", ink: "#18262e", inkSoft: "rgba(24,38,46,0.72)", inkFaint: "rgba(24,38,46,0.12)",
     accent: "#b9e83f", accentDark: "#18262e", accentSoft: "#b9d8e8", lanternA: "#b9e83f", lanternB: "#b9d8e8", lanternC: "#ff614d",
-    blush: "#dde1dc", inkOnDark: "#f7f6f0"
+    blush: "#dde1dc", inkOnDark: "#f7f6f0", inkOnAccent: "#18262e"
   },
   colorScheme: "light",
   hero: { image: "/images/screens/workout-player.jpg", alt: "Setline workout player showing the current set", caption: "The current set owns the screen. Record it, then rest." },

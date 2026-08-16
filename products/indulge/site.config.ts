@@ -27,7 +27,8 @@ export const site: SiteConfig = {
     lanternB: "#fff7cf",
     lanternC: "#78a889",
     blush: "#f4d9dd",
-    inkOnDark: "#fffaf5"
+    inkOnDark: "#fffaf5",
+    inkOnAccent: "#fffaf5"
   },
   colorScheme: "light",
   hero: {
