@@ -1,0 +1,53 @@
+# iOS landings — PROJECT STATUS
+
+Last updated: 2026-08-17
+
+## Why / What
+
+One Astro codebase that builds a separate static site for each
+Significant Hobbies iOS-first app. Each product keeps its own domain,
+privacy URL, support URL, tokens, and screenshots.
+
+In scope: the shared page engine, five product configs, screenshot
+trees, Apple-gated CTAs, and agent surfaces.
+
+Out of scope: a combined five-app homepage, App Store badges without a
+live listing, deploys, blogs, and web-primary products (Calorie,
+Significant Hobbies, Pace).
+
+## Dependencies
+
+### External
+
+- Astro 7 static output and lightningcss
+- Apple marketing rules for privacy, support, TestFlight, and App Store
+  badge use
+
+### Internal
+
+- Copy and screenshots originate in the product repos
+- Fleet catalogs this repo; product domains stay on the product rows
+
+## Timeline
+
+- 2026-08-17 — first factory: Kith, Setline, Anchor, Motion, and
+  Indulge as `PRODUCT=` builds. Not deployed.
+
+## Products
+
+- Local static trees at `dist/kith`, `dist/setline`, `dist/anchor`,
+  `dist/motion`, and `dist/indulge`
+- Intended public hosts remain the product domains
+  (`kith.significanthobbies.com` and the same pattern for the others)
+
+## Features (shipped)
+
+- Shared Astro engine from the Fleet iOS landing template
+- Per-product `site.config.ts` plus screenshots
+- Gated TestFlight and official App Store badge rules
+- `llms.txt`, `/index.md`, `/api/ai`, robots, and sitemap on every build
+- Indulge on the shared template (static site, no analytics script)
+
+## Work queue
+
+https://github.com/Significant-Hobbies/ios-landings/issues
