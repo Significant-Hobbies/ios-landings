@@ -33,8 +33,9 @@ Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 Blogs can be added later as a shared route with optional per-product
 collections. That folder does not exist yet.
 
-Calorie’s journal stays at `/app/` on the same host. This factory only
-builds the front door. The live Worker still serves the SPA at `/`
-until that cutover is explicitly deployed.
+Calorie’s journal stays at `/app/` on the same host. Sync a public
+snapshot into the Calorie repo with
+`./scripts/sync-calorie-marketing.sh`. The live Worker is not switched
+until an explicit Calorie deploy.
 
 Significant Hobbies and Pace keep their own marketing surfaces.
