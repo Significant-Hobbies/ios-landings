@@ -30,6 +30,8 @@ Significant Hobbies, Pace).
 
 ## Timeline
 
+- 2026-08-17 — cinematic product room: phone sits in the headline;
+  CSS scroll/view timelines recede the artifact and film the gallery
 - 2026-08-17 — one product-room homepage: full-height token sky, stacked
   real screens, same page dyed by each config
 - 2026-08-17 — hero phone sheen and float, breathing lanterns, gallery

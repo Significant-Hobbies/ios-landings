@@ -12,9 +12,9 @@ Light or dark comes from the product. Do not invert a light product.
 
 ## First viewport
 
-Full-height field. Headline and CTA on the left. The hero screenshot
-overlaps a second real screen. If someone left after one screen they
-should remember the phone in that color of light.
+Full-height room. The headline is the floor. The real phone sits on the
+words, with a second real screen behind it. The CTA lives under the
+lede, not in a second column.
 
 ## Tokens
 
@@ -26,8 +26,11 @@ Display: SF Pro Rounded. Body: SF Pro Text. Tracking never tighter than
 
 ## Motion
 
-The phone is a lantern. One sheen, then a slow float. Orbs breathe.
-Gallery phones lift on hover. Reduced motion removes loops.
+The phone is a lantern. Load: glass sheen. Idle: a slow float where
+scroll timelines are missing. Scroll (Chrome/Safari): the artifact
+recedes and the sky drifts. Gallery and chapter phones enter on
+`view()`. Firefox and reduced motion keep the still composed room.
+No client JavaScript.
 
 ## Anti-references
 
