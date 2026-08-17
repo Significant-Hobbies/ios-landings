@@ -9,6 +9,6 @@ const cta = primaryCta();
   </a>
 ) : (
   <a class="button" href={cta.href}>
-    {cta.label} <span aria-hidden="true">{cta.kind === "status" ? "→" : "↗"}</span>
+    {cta.label} <span aria-hidden="true">{cta.kind === "testflight" || cta.href.startsWith("https://") ? "↗" : "→"}</span>
   </a>
 )}

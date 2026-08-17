@@ -43,9 +43,11 @@ export type SiteConfig = {
   hero: { image: string; alt: string; caption: string };
   gallery: { src: string; alt: string }[];
   applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store";
+  availability: "unreleased" | "testflight" | "app-store" | "web-app";
   appStoreUrl?: string;
   appStoreId?: string;
+  appUrl?: string;
+  appCtaLabel?: string;
   betaNote: string;
   tension: { statement: string; title: string; copy: string };
   chaptersKicker: string;

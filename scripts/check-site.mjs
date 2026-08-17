@@ -24,8 +24,9 @@ const ai = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
 const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
 if (!home.includes(name)) throw new Error(`${product}: landing does not name the product.`);
-if (!home.includes("See TestFlight status")) {
-  throw new Error(`${product}: landing is missing the gated TestFlight fallback.`);
+const hasInstallCta = home.includes("See TestFlight status") || home.includes("Open the journal") || home.includes("Open the app");
+if (!hasInstallCta) {
+  throw new Error(`${product}: landing is missing a gated install or journal CTA.`);
 }
 
 for (const fragment of [
@@ -64,7 +65,8 @@ if (executableScripts.length !== 0) {
 
 const localHrefs = [...home.matchAll(/href="(\/[^"]*)"/g)]
   .map((match) => match[1].split("#")[0])
-  .filter((href, index, all) => href && all.indexOf(href) === index);
+  .filter((href, index, all) => href && all.indexOf(href) === index)
+  .filter((href) => href !== "/app" && href !== "/app/");
 
 for (const href of localHrefs) {
   const outputPath = href === "/"
@@ -80,7 +82,7 @@ if (!markdown.startsWith(`# ${name}`)) {
   throw new Error(`${product}: index.md does not start with the product name.`);
 }
 
-const others = ["Kith", "Setline", "Anchor", "Motion", "Indulge"].filter((label) => label !== name);
+const others = ["Kith", "Setline", "Anchor", "Motion", "Indulge", "Calorie"].filter((label) => label !== name);
 for (const other of others) {
   if (home.includes(`<title>${other} —`)) {
     throw new Error(`${product}: built homepage is titled as ${other}.`);

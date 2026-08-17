@@ -1,10 +1,11 @@
 import { catalog, resolveProductId } from "./lib/catalog";
+import type { SiteConfig } from "./lib/types";
 
 const envProduct = (import.meta as ImportMeta & { env?: { PRODUCT?: string } }).env
   ?.PRODUCT;
 
 export const productId = resolveProductId(envProduct);
-export const site = catalog[productId];
+export const site: SiteConfig = catalog[productId];
 
 export const links = {
   home: `${site.url}/`,

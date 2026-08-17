@@ -1,6 +1,6 @@
 import { spawnSync } from "node:child_process";
 
-const PRODUCT_IDS = ["kith", "setline", "anchor", "motion", "indulge"];
+const PRODUCT_IDS = ["kith", "setline", "anchor", "motion", "indulge", "calorie"];
 
 for (const product of PRODUCT_IDS) {
   const result = spawnSync("pnpm", ["exec", "astro", "build"], {

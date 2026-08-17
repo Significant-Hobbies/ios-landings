@@ -10,7 +10,23 @@ export function verifiedAppStoreUrl(): string | undefined {
   return url?.startsWith("https://apps.apple.com/") ? url : undefined;
 }
 
-export function primaryCta(): { href: string; label: string; kind: "app-store" | "testflight" | "status" } {
+export function verifiedWebAppUrl(): string | undefined {
+  const url = site.appUrl?.trim();
+  if (!url) return undefined;
+  if (url.startsWith("/app")) return url.endsWith("/") || url === "/app" ? (url.endsWith("/") ? url : `${url}/`) : undefined;
+  if (url.startsWith("https://") && URL.canParse(url)) return url;
+  return undefined;
+}
+
+export function primaryCta(): {
+  href: string;
+  label: string;
+  kind: "app-store" | "testflight" | "status" | "web-app";
+} {
+  const app = verifiedWebAppUrl();
+  if (site.availability === "web-app" && app) {
+    return { href: app, label: site.appCtaLabel ?? "Open the app", kind: "web-app" };
+  }
   const store = verifiedAppStoreUrl();
   if (site.availability === "app-store" && store) {
     return { href: store, label: "View on the App Store", kind: "app-store" };

@@ -124,7 +124,11 @@ const scheme = site.colorScheme ?? "light";
           <a href="/support/">Support</a>
           <a href="/terms/">Terms</a>
           <a href="/accessibility/">Accessibility</a>
-          <a href="/testflight/">TestFlight</a>
+          {cta.kind === "web-app" ? (
+            <a href={cta.href}>{cta.label}</a>
+          ) : (
+            <a href="/testflight/">TestFlight</a>
+          )}
         </nav>
       </div>
     </footer>

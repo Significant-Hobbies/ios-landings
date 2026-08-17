@@ -3,8 +3,10 @@
 - Read `PROJECT_STATUS.md` before broad work.
 - This repo is the marketing factory for five Significant Hobbies iOS
   apps. It is not the apps themselves.
-- One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge`
+- One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge|calorie`
   selects `products/<id>/site.config.ts` and `products/<id>/public`.
+- Calorie is a web-app landing. Its CTA is `/app/`, never an invented
+  TestFlight or App Store badge.
 - Build output is `dist/<id>`. Never merge the five sites into one
   homepage.
 - Do not invent App Store badges, Smart App Banners, or TestFlight URLs.

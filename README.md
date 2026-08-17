@@ -1,14 +1,15 @@
 # iOS landings
 
-One Astro app. Five static sites. Significant Hobbies iOS marketing.
+One Astro app. Separate static sites. Significant Hobbies product marketing.
 
-| Product | `PRODUCT=` | Intended host |
-|---|---|---|
-| Kith | `kith` | https://kith.significanthobbies.com |
-| Setline | `setline` | https://setline.significanthobbies.com |
-| Anchor | `anchor` | https://anchor.significanthobbies.com |
-| Motion | `motion` | https://motion.significanthobbies.com |
-| Indulge | `indulge` | https://indulge.significanthobbies.com |
+| Product | `PRODUCT=` | Intended host | Primary action |
+|---|---|---|---|
+| Kith | `kith` | https://kith.significanthobbies.com | TestFlight when verified |
+| Setline | `setline` | https://setline.significanthobbies.com | TestFlight when verified |
+| Anchor | `anchor` | https://anchor.significanthobbies.com | TestFlight when verified |
+| Motion | `motion` | https://motion.significanthobbies.com | TestFlight when verified |
+| Indulge | `indulge` | https://indulge.significanthobbies.com | TestFlight when verified |
+| Calorie | `calorie` | https://calorie.significanthobbies.com | Opens `/app/` |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -23,7 +24,7 @@ Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 
 ## Rules
 
-- Five sites, not one storefront.
+- One page design, one product per domain. Not a combined storefront.
 - Privacy and support pages are first-class. App Store listings need both.
 - No invented App Store badge or Smart App Banner.
 - TestFlight links must be `https://testflight.apple.com/…`.
@@ -32,5 +33,8 @@ Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 Blogs can be added later as a shared route with optional per-product
 collections. That folder does not exist yet.
 
-Calorie, Significant Hobbies, and Pace keep their own marketing
-surfaces. They are not products here.
+Calorie’s journal stays at `/app/` on the same host. This factory only
+builds the front door. The live Worker still serves the SPA at `/`
+until that cutover is explicitly deployed.
+
+Significant Hobbies and Pace keep their own marketing surfaces.
