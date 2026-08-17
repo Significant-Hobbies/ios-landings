@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { PRODUCT_IDS, PRODUCT_PAGES, ACCOUNT_ID } from "./pages.mjs";
 
-const args = process.argv.slice(2).filter((arg) => arg !== "--all");
+const args = process.argv.slice(2).filter((arg) => arg !== "--all" && !arg.startsWith("--"));
 const products = args.length > 0 ? args : PRODUCT_IDS;
 
 for (const product of products) {
