@@ -14,4 +14,5 @@
 - Product apps stay independently buildable in their own repos. Do not
   make those repos import this one at runtime.
 - Run `pnpm check` after engine or product-config changes.
-- Do not deploy unless explicitly asked.
+- Deploy the five iOS product trees with `pnpm deploy`. Calorie stays on
+  the Calorie Worker. Do not deploy unless explicitly asked.

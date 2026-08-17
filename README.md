@@ -2,14 +2,14 @@
 
 One Astro app. Separate static sites. Significant Hobbies product marketing.
 
-| Product | `PRODUCT=` | Intended host | Primary action |
-|---|---|---|---|
-| Kith | `kith` | https://kith.significanthobbies.com | TestFlight when verified |
-| Setline | `setline` | https://setline.significanthobbies.com | TestFlight when verified |
-| Anchor | `anchor` | https://anchor.significanthobbies.com | TestFlight when verified |
-| Motion | `motion` | https://motion.significanthobbies.com | TestFlight when verified |
-| Indulge | `indulge` | https://indulge.significanthobbies.com | TestFlight when verified |
-| Calorie | `calorie` | https://calorie.significanthobbies.com | Opens `/app/` |
+| Product | `PRODUCT=` | Host | Pages project | Primary action |
+|---|---|---|---|---|
+| Kith | `kith` | https://kith.significanthobbies.com | `kith` | TestFlight when verified |
+| Setline | `setline` | https://setline.significanthobbies.com | `setline` | TestFlight when verified |
+| Anchor | `anchor` | https://anchor.significanthobbies.com | `anchor-landing` | TestFlight when verified |
+| Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
+| Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
+| Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Opens `/app/` |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -21,6 +21,14 @@ pnpm check          # typecheck, build all five, verify each dist/
 ```
 
 Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
+
+```bash
+pnpm deploy          # kith, setline, anchor, motion, indulge
+pnpm deploy:kith     # one product
+```
+
+Each command builds that product and uploads `dist/<id>` to its Cloudflare
+Pages project. Calorie is not in this deploy.
 
 ## Rules
 

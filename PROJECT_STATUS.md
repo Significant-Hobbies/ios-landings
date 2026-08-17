@@ -12,7 +12,8 @@ In scope: the shared page engine, five product configs, screenshot
 trees, Apple-gated CTAs, and agent surfaces.
 
 Out of scope: a combined multi-app homepage, App Store badges without a
-live listing, deploys, blogs, and Pace / Significant Hobbies marketing.
+live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
+`/app/` journal host.
 
 ## Dependencies
 
@@ -29,6 +30,8 @@ live listing, deploys, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-08-17 — Cloudflare Pages for Kith, Setline, Anchor, Motion, and
+  Indulge. Calorie stays on the Calorie Worker.
 - 2026-08-17 — Calorie added as a web-app product; CTA opens `/app/`
 - 2026-08-17 — cinematic product room: phone sits in the headline;
   CSS scroll/view timelines recede the artifact and film the gallery
@@ -43,10 +46,12 @@ live listing, deploys, blogs, and Pace / Significant Hobbies marketing.
 
 ## Products
 
-- Local static trees at `dist/kith`, `dist/setline`, `dist/anchor`,
-  `dist/motion`, `dist/indulge`, and `dist/calorie`
-- Intended public hosts remain the product domains
-  (`kith.significanthobbies.com` and the same pattern for the others)
+- Cloudflare Pages: `kith`, `setline`, `motion`, `indulge`,
+  `anchor-landing`
+- Public hosts: `kith.significanthobbies.com`,
+  `setline.significanthobbies.com`, `anchor.significanthobbies.com`,
+  `motion.significanthobbies.com`, `indulge.significanthobbies.com`
+- Local trees also at `dist/<id>`, including Calorie for the Worker snapshot
 
 ## Features (shipped)
 

@@ -16,15 +16,25 @@
     "build:one": "astro build",
     "check": "astro check && node scripts/build-all.mjs && node scripts/check-all.mjs",
     "check:one": "astro check && astro build && node scripts/check-site.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "deploy": "node scripts/deploy.mjs",
+    "deploy:kith": "node scripts/deploy.mjs kith",
+    "deploy:setline": "node scripts/deploy.mjs setline",
+    "deploy:anchor": "node scripts/deploy.mjs anchor",
+    "deploy:motion": "node scripts/deploy.mjs motion",
+    "deploy:indulge": "node scripts/deploy.mjs indulge"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",
     "astro": "7.2.0",
     "lightningcss": "1.33.0",
-    "typescript": "6.0.3"
+    "typescript": "6.0.3",
+    "wrangler": "4.121.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd"
+    ]
   }
 }
