@@ -3,17 +3,21 @@
   "version": 1,
   "project": "ios-landings",
   "target": "Shared iOS landing homepage",
-  "mode": "preserve",
+  "mode": "overhaul",
   "register": "product",
   "context": {
     "product": "PRODUCT.md",
     "design": "DESIGN.md"
   },
   "direction": {
-    "references": [],
+    "references": [
+      "Apple product marketing (one device, full-bleed color)",
+      "Indulge Life Room landing (atmosphere from product color)",
+      "Owner brief: one customizable pretty page, not five template variants"
+    ],
     "probes": [],
-    "selected": "existing-design",
-    "approval": "not-required",
+    "selected": "product-room",
+    "approval": "delegated",
     "before": "artifacts/design/before.png"
   },
   "evidence": {

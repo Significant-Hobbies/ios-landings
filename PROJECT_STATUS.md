@@ -30,6 +30,8 @@ Significant Hobbies, Pace).
 
 ## Timeline
 
+- 2026-08-17 — one product-room homepage: full-height token sky, stacked
+  real screens, same page dyed by each config
 - 2026-08-17 — hero phone sheen and float, breathing lanterns, gallery
   hover lift; all CSS, gated by reduced motion
 - 2026-08-17 — raised the shared engine: light tokens map correctly,
