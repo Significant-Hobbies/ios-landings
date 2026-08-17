@@ -1,5 +1,5 @@
 .device { margin: 0; }
-.device.hero { width: 100%; max-width: 200px; height: auto; min-height: 0; }
+.device.hero { width: 100%; max-width: 188px; height: auto; min-height: 0; }
 .device.echo { width: 100%; }
 .device.gallery { flex: 0 0 min(268px, 72vw); transition: transform 400ms var(--ease-out); }
 .device.chapter { width: min(100%, 288px); justify-self: center; }

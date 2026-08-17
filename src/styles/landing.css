@@ -19,7 +19,7 @@ Budget: no JS, composited props only, pause via reduced-motion.
   isolation: isolate;
   overflow: hidden;
   min-height: 100svh;
-  padding: 108px 0 0;
+  padding: 92px 0 0;
   background:
     radial-gradient(1200px 640px at 82% 12%, color-mix(in srgb, var(--lantern-a) 30%, transparent), transparent 64%),
     radial-gradient(900px 520px at 6% 92%, color-mix(in srgb, var(--lantern-b) 20%, transparent), transparent 72%),
@@ -57,31 +57,33 @@ Budget: no JS, composited props only, pause via reduced-motion.
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  min-height: calc(100svh - 108px);
-  padding-bottom: 36px;
+  min-height: calc(100svh - 92px);
+  padding-bottom: 40px;
 }
-.hero-room > * { flex: 0 0 auto; }
+.hero-copy { display: contents; }
+.hero-intro { order: 1; }
+.hero-artifact { order: 2; }
+.hero-foot { order: 3; }
 .hero-kicker {
-  margin-bottom: 18px;
+  margin-bottom: 12px;
   color: var(--accent-dark);
   font-family: var(--display);
   font-size: clamp(1rem, 1.6vw, 1.18rem);
   font-weight: 760;
 }
-.hero-lead { position: relative; }
 .hero h1 {
   position: relative;
   z-index: 1;
   max-width: 11ch;
   font-size: clamp(3.1rem, 12vw, 4.6rem);
-  line-height: 0.84;
+  line-height: 0.86;
   letter-spacing: -0.03em;
 }
 .hero-artifact {
   position: relative;
   z-index: 2;
-  width: min(58%, 220px);
-  margin: 22px 0 0 auto;
+  width: min(58%, 210px);
+  margin: 22px 0 8px auto;
 }
 .hero-echo { display: none; }
 .hero-artifact .device.hero {
@@ -90,19 +92,22 @@ Budget: no JS, composited props only, pause via reduced-motion.
   width: 100%;
   max-width: none;
 }
-.hero-foot { max-width: 38ch; margin-top: 28px; }
+.hero-artifact .device.hero figcaption { display: none; }
+.hero-foot { max-width: 38ch; }
 .hero-lede {
+  max-width: 34ch;
+  margin-top: 16px;
   color: var(--ink-soft);
-  font-size: clamp(1.06rem, 1.7vw, 1.24rem);
-  line-height: 1.55;
+  font-size: clamp(1.04rem, 1.6vw, 1.18rem);
+  line-height: 1.5;
 }
-.hero-meta { margin-top: 14px; color: var(--ink-soft); font-size: 0.86rem; font-weight: 650; }
+.hero-meta { margin-top: 10px; color: var(--ink-soft); font-size: 0.84rem; font-weight: 650; }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 16px 24px;
-  margin-top: 26px;
+  gap: 12px 22px;
+  margin-top: 20px;
 }
 .text-link {
   display: inline-flex;
@@ -327,45 +332,51 @@ blockquote {
 }
 
 @media (min-width: 901px) {
-  .hero-lead {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 200px;
-    align-items: end;
-    align-content: end;
-    column-gap: 12px;
-    height: auto;
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 18px;
+    max-width: 38ch;
   }
-  .hero-artifact,
+  .hero-intro { order: 0; }
+  .hero-foot { order: 0; }
+  .hero-artifact { order: 0; }
+  .hero-room {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 188px;
+    column-gap: 36px;
+    align-items: end;
+  }
+  .hero-lede { margin-top: 0; }
+  .hero-artifact {
+    width: 188px;
+    margin: 0;
+    justify-self: end;
+    align-self: end;
+    height: auto;
+    min-height: 0;
+  }
   .hero-artifact .device.hero {
     height: auto;
     min-height: 0;
-    max-height: none;
-  }
-  .hero-artifact .device.hero .device-screen img {
-    width: 100%;
-    height: auto;
+    max-width: 100%;
   }
   .hero h1 {
-    margin-right: -36px;
-    font-size: clamp(3.5rem, 9vw, 5.8rem);
-  }
-  .hero-artifact {
-    width: 200px;
-    margin: 0;
-    justify-self: end;
+    margin-right: -28px;
+    font-size: clamp(3.4rem, 7.2vw, 5.4rem);
   }
   .hero-echo {
     display: block;
     position: absolute;
     z-index: 0;
-    right: 58%;
-    bottom: 16%;
-    width: 72%;
-    transform: rotate(-12deg);
-    opacity: 0.38;
+    right: 64%;
+    bottom: 18%;
+    width: 68%;
+    transform: rotate(-11deg);
+    opacity: 0.32;
     pointer-events: none;
   }
-  .hero-artifact .device.hero { max-width: 100%; }
 }
 
 @media (max-width: 900px) {
@@ -374,8 +385,8 @@ blockquote {
   .fit-grid,
   .faq,
   .founder-grid { grid-template-columns: 1fr; }
-  .hero { min-height: 0; padding-top: 112px; }
-  .hero-room { min-height: 0; }
+  .hero { min-height: 0; padding-top: 96px; }
+  .hero-room { min-height: 0; padding-bottom: 28px; }
   .hero-foot { max-width: 40ch; }
   .tension,
   .chapter-intro { padding-top: 76px; padding-bottom: 68px; }
