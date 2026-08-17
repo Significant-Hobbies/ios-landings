@@ -39,8 +39,12 @@ collapse under reduced motion.
 
 ## Motion
 
-One ease (`--ease-out`). Hover lift on the primary button only. No
-entrance choreography on every section. No client JavaScript.
+The phone is a lantern. One authored moment: a glass sheen across the
+hero device, then a slow float. Background lanterns breathe out of
+phase. Gallery phones lift on hover. Nothing else enters on scroll.
+
+One ease (`--ease-out`). No client JavaScript. Reduced motion removes
+loops, sheen, tilt, and hover lift.
 
 ## Anti-references
 
