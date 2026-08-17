@@ -78,7 +78,7 @@ async function attachDomain(project, domain) {
     return;
   }
   const errors = JSON.stringify(body.errors || body);
-  if (/already exists|already been added|duplicate/i.test(errors)) {
+  if (/already exists|already been added|already added|duplicate/i.test(errors)) {
     console.log(`${domain} already on ${project}`);
     return;
   }

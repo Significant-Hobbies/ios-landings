@@ -63,6 +63,7 @@ live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
 - Shared `Phone` frame, mapped product tokens for light and dark, and
   status/platform line in the hero
 - CSS-only hero sheen and float, breathing lanterns, gallery hover lift
+- Cloudflare Pages deploy for Kith, Setline, Anchor, Motion, and Indulge
 
 ## Work queue
 

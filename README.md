@@ -23,8 +23,8 @@ pnpm check          # typecheck, build all five, verify each dist/
 Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 
 ```bash
-pnpm deploy          # kith, setline, anchor, motion, indulge
-pnpm deploy:kith     # one product
+pnpm run deploy          # kith, setline, anchor, motion, indulge
+pnpm run deploy:kith     # one product
 ```
 
 Each command builds that product and uploads `dist/<id>` to its Cloudflare
