@@ -19,7 +19,7 @@ Budget: no JS, composited props only, pause via reduced-motion.
   isolation: isolate;
   overflow: hidden;
   min-height: 100svh;
-  padding: 120px 0 0;
+  padding: 108px 0 0;
   background:
     radial-gradient(1200px 640px at 82% 12%, color-mix(in srgb, var(--lantern-a) 30%, transparent), transparent 64%),
     radial-gradient(900px 520px at 6% 92%, color-mix(in srgb, var(--lantern-b) 20%, transparent), transparent 72%),
@@ -54,11 +54,13 @@ Budget: no JS, composited props only, pause via reduced-motion.
 
 .hero-room {
   position: relative;
-  display: grid;
-  align-content: end;
-  min-height: calc(100svh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: calc(100svh - 108px);
   padding-bottom: 36px;
 }
+.hero-room > * { flex: 0 0 auto; }
 .hero-kicker {
   margin-bottom: 18px;
   color: var(--accent-dark);
@@ -66,36 +68,27 @@ Budget: no JS, composited props only, pause via reduced-motion.
   font-size: clamp(1rem, 1.6vw, 1.18rem);
   font-weight: 760;
 }
-.hero-lead { position: relative; min-height: min(64vh, 680px); }
+.hero-lead { position: relative; }
 .hero h1 {
   position: relative;
   z-index: 1;
   max-width: 11ch;
-  padding-right: min(30vw, 260px);
-  font-size: clamp(3.5rem, 9vw, 5.8rem);
+  font-size: clamp(3.1rem, 12vw, 4.6rem);
   line-height: 0.84;
   letter-spacing: -0.03em;
 }
 .hero-artifact {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  right: 0;
-  bottom: 0;
-  width: min(24vw, 230px);
+  width: min(58%, 220px);
+  margin: 22px 0 0 auto;
 }
-.hero-echo {
-  position: absolute;
-  z-index: 0;
-  top: 6%;
-  right: 48%;
-  width: 70%;
-  transform: rotate(-12deg);
-  opacity: 0.38;
-}
+.hero-echo { display: none; }
 .hero-artifact .device.hero {
   position: relative;
   z-index: 1;
   width: 100%;
+  max-width: none;
 }
 .hero-foot { max-width: 38ch; margin-top: 28px; }
 .hero-lede {
@@ -296,7 +289,7 @@ blockquote {
 .closing .store-badge { margin-top: 28px; }
 
 @supports (animation-timeline: scroll()) {
-  .hero-artifact {
+  .hero-artifact .device-shell {
     animation: phone-recede linear both;
     animation-timeline: scroll();
     animation-range: 0vh 55vh;
@@ -333,6 +326,48 @@ blockquote {
   to { transform: none; opacity: 1; }
 }
 
+@media (min-width: 901px) {
+  .hero-lead {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 200px;
+    align-items: end;
+    align-content: end;
+    column-gap: 12px;
+    height: auto;
+  }
+  .hero-artifact,
+  .hero-artifact .device.hero {
+    height: auto;
+    min-height: 0;
+    max-height: none;
+  }
+  .hero-artifact .device.hero .device-screen img {
+    width: 100%;
+    height: auto;
+  }
+  .hero h1 {
+    margin-right: -36px;
+    font-size: clamp(3.5rem, 9vw, 5.8rem);
+  }
+  .hero-artifact {
+    width: 200px;
+    margin: 0;
+    justify-self: end;
+  }
+  .hero-echo {
+    display: block;
+    position: absolute;
+    z-index: 0;
+    right: 58%;
+    bottom: 16%;
+    width: 72%;
+    transform: rotate(-12deg);
+    opacity: 0.38;
+    pointer-events: none;
+  }
+  .hero-artifact .device.hero { max-width: 100%; }
+}
+
 @media (max-width: 900px) {
   .tension,
   .chapter-intro,
@@ -341,16 +376,6 @@ blockquote {
   .founder-grid { grid-template-columns: 1fr; }
   .hero { min-height: 0; padding-top: 112px; }
   .hero-room { min-height: 0; }
-  .hero h1 { padding-right: 0; font-size: clamp(3.1rem, 12vw, 4.6rem); }
-  .hero-lead { padding-bottom: 0; min-height: 0; }
-  .hero-artifact {
-    position: relative;
-    width: min(58%, 250px);
-    margin: 22px 0 0 auto;
-    right: auto;
-    bottom: auto;
-  }
-  .hero-echo { display: none; }
   .hero-foot { max-width: 40ch; }
   .tension,
   .chapter-intro { padding-top: 76px; padding-bottom: 68px; }
@@ -369,7 +394,7 @@ blockquote {
 
 @media (prefers-reduced-motion: reduce) {
   .orb,
-  .hero-artifact,
+  .hero-artifact .device-shell,
   .t-a,
   .t-b,
   .gallery-track .device.gallery,
