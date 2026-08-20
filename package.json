@@ -24,7 +24,9 @@
     "deploy:setline": "node scripts/deploy.mjs setline",
     "deploy:anchor": "node scripts/deploy.mjs anchor",
     "deploy:motion": "node scripts/deploy.mjs motion",
-    "deploy:indulge": "node scripts/deploy.mjs indulge"
+    "deploy:indulge": "node scripts/deploy.mjs indulge",
+    "deploy:journal": "node scripts/deploy.mjs journal",
+    "deploy:habits": "node scripts/deploy.mjs habits"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.10",

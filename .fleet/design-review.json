@@ -18,7 +18,7 @@
     "probes": [],
     "selected": "existing product-room template",
     "approval": "not-required",
-    "before": "artifacts/design/before.png"
+    "before": "artifacts/design/after-1440.png"
   },
   "evidence": {
     "screenshots": [
@@ -53,7 +53,7 @@
     ],
     "projectCheck": {
       "command": "pnpm check",
-      "status": "passed"
+      "status": "pass"
     },
     "critique": {
       "score": 36,

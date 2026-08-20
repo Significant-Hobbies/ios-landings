@@ -15,5 +15,5 @@
   make those repos import this one at runtime.
 - Run `pnpm check` after engine or product-config changes.
 - Deploy only the product trees listed in `scripts/pages.mjs` with
-  `pnpm deploy`. Calorie stays on its existing Worker; Journal and Habits
-  have no Pages projects yet. Do not deploy unless explicitly asked.
+  `pnpm deploy`. Calorie stays on its existing Worker. Do not deploy unless
+  explicitly asked.

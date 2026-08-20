@@ -21,6 +21,14 @@ export const PRODUCT_PAGES = {
   indulge: {
     project: "indulge",
     domain: "indulge.significanthobbies.com"
+  },
+  journal: {
+    project: "journal",
+    domain: "journal.significanthobbies.com"
+  },
+  habits: {
+    project: "habits",
+    domain: "habits.significanthobbies.com"
   }
 };
 
