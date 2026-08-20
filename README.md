@@ -10,6 +10,9 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
 | Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
 | Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Opens `/app/` |
+| Live | `live` | https://live.significanthobbies.com | Significant Hobbies Worker | Opens the current web app |
+| Journal | `journal` | https://journal.significanthobbies.com | Not created | Native app in preparation |
+| Habits | `habits` | https://habits.significanthobbies.com | Not created | Native app in preparation |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -28,7 +31,7 @@ pnpm run deploy:kith     # one product
 ```
 
 Each command builds that product and uploads `dist/<id>` to its Cloudflare
-Pages project. Calorie is not in this deploy.
+Pages project. Calorie, Live, Journal, and Habits are not in this deploy.
 
 ## Rules
 
@@ -46,4 +49,7 @@ snapshot into the Calorie repo with
 `./scripts/sync-calorie-marketing.sh`. The live Worker is not switched
 until an explicit Calorie deploy.
 
-Significant Hobbies and Pace keep their own marketing surfaces.
+Significant Hobbies and Pace keep their own application surfaces.
+
+Live, Journal, and Habits reuse this engine during the Significant Hobbies
+split. Their domain cutovers and native releases remain separate, manual work.

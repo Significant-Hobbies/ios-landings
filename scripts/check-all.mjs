@@ -1,6 +1,16 @@
 import { spawnSync } from "node:child_process";
 
-const PRODUCT_IDS = ["kith", "setline", "anchor", "motion", "indulge", "calorie"];
+const PRODUCT_IDS = [
+  "kith",
+  "setline",
+  "anchor",
+  "motion",
+  "indulge",
+  "calorie",
+  "journal",
+  "habits",
+  "live"
+];
 
 for (const product of PRODUCT_IDS) {
   const result = spawnSync("node", ["scripts/check-site.mjs"], {

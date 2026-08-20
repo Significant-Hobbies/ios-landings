@@ -8,25 +8,25 @@ web
 
 ## Users
 
-Someone who found one Significant Hobbies iPhone app and needs to decide
-whether it is for them, whether it is private, and how to join a
-TestFlight or open the App Store listing.
+Someone who found one Significant Hobbies personal app and needs to decide
+whether it is for them, whether it is private, and how to open the web app,
+join a TestFlight, or open the App Store listing.
 
-Inferred from the owner brief: the same page set is reused for Kith,
-Setline, Anchor, Motion, and Indulge. Each visitor sees one product.
+The same page set is reused for Kith, Setline, Anchor, Motion, Indulge,
+Calorie, Live, Journal, and Habits. Each visitor sees one product.
 
 ## Product Purpose
 
-Render a finished, Apple-compliant marketing site for one iOS-first app
+Render a finished, Apple-compliant marketing site for one focused app
 from a config file and real screenshots. Success is a visitor who
 understands the job, sees the real screens, and can reach privacy,
 support, and the gated install path.
 
 ## Positioning
 
-One shared page engine, five separate sites. Domain, tokens, copy, and
-screenshots come from `products/<id>/`. A combined five-app homepage is
-out of scope.
+One shared page engine, separate product sites. Domain, tokens, copy, and
+screenshots come from `products/<id>/`. The Significant Hobbies Hub is a
+separate read-only application surface, not another copy of this landing.
 
 ## Operating Context
 
