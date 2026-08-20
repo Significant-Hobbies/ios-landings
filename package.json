@@ -14,7 +14,6 @@
     "dev:calorie": "PRODUCT=calorie astro dev",
     "dev:journal": "PRODUCT=journal astro dev",
     "dev:habits": "PRODUCT=habits astro dev",
-    "dev:live": "PRODUCT=live astro dev",
     "build": "node scripts/build-all.mjs",
     "build:one": "astro build",
     "check": "astro check && node scripts/build-all.mjs && node scripts/check-all.mjs",

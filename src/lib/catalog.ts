@@ -4,7 +4,6 @@ import { site as habits } from "../../products/habits/site.config";
 import { site as indulge } from "../../products/indulge/site.config";
 import { site as journal } from "../../products/journal/site.config";
 import { site as kith } from "../../products/kith/site.config";
-import { site as live } from "../../products/live/site.config";
 import { site as motion } from "../../products/motion/site.config";
 import { site as setline } from "../../products/setline/site.config";
 import type { SiteConfig } from "./types";
@@ -17,8 +16,7 @@ export const catalog = {
   indulge,
   calorie,
   journal,
-  habits,
-  live
+  habits
 } as const satisfies Record<string, SiteConfig>;
 
 export type ProductId = keyof typeof catalog;

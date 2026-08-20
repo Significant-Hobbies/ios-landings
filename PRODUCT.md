@@ -13,7 +13,7 @@ whether it is for them, whether it is private, and how to open the web app,
 join a TestFlight, or open the App Store listing.
 
 The same page set is reused for Kith, Setline, Anchor, Motion, Indulge,
-Calorie, Live, Journal, and Habits. Each visitor sees one product.
+Calorie, Journal, and Habits. Each visitor sees one product.
 
 ## Product Purpose
 

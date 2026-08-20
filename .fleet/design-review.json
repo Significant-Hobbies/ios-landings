@@ -2,7 +2,7 @@
   "$schema": "fleet.design-review.v1",
   "version": 1,
   "project": "ios-landings",
-  "target": "Shared landing additions for Live, Journal, and Habits",
+  "target": "Shared landing additions for Journal and Habits",
   "mode": "preserve",
   "register": "product",
   "context": {
@@ -12,7 +12,7 @@
   "direction": {
     "references": [
       "Existing shared product-room landing engine",
-      "Real Live web captures and Journal and Habits native product screens",
+      "Real Journal and Habits native product screens",
       "Owner brief: all personal apps use the same landing language"
     ],
     "probes": [],
@@ -33,14 +33,6 @@
       {
         "width": 1440,
         "path": "artifacts/design/after-1440.png"
-      },
-      {
-        "width": 390,
-        "path": "artifacts/design/live/after-390.png"
-      },
-      {
-        "width": 1440,
-        "path": "artifacts/design/live/after-1440.png"
       },
       {
         "width": 390,
@@ -78,8 +70,8 @@
     "detector": {
       "posture": "advisory",
       "findings": [
-        "Live, Journal, and Habits use the existing shared page engine with product-specific config and real screens rather than new layouts.",
-        "Live is truthfully presented as web-only; Journal and Habits are truthfully marked as native apps in preparation.",
+        "Journal and Habits use the existing shared page engine with product-specific config and real screens rather than new layouts.",
+        "Journal and Habits are truthfully marked as native apps in preparation.",
         "Phone and desktop review found no unresolved P0 or P1 visual issues."
       ]
     }

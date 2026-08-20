@@ -10,7 +10,6 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
 | Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
 | Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Opens `/app/` |
-| Live | `live` | https://live.significanthobbies.com | Significant Hobbies Worker | Opens the current web app |
 | Journal | `journal` | https://journal.significanthobbies.com | Not created | Native app in preparation |
 | Habits | `habits` | https://habits.significanthobbies.com | Not created | Native app in preparation |
 
@@ -20,7 +19,7 @@ A product is a `site.config.ts` plus screenshots in
 ```bash
 pnpm install
 PRODUCT=kith pnpm dev
-pnpm check          # typecheck, build all five, verify each dist/
+pnpm check          # typecheck, build every configured product, verify each dist/
 ```
 
 Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
@@ -31,7 +30,7 @@ pnpm run deploy:kith     # one product
 ```
 
 Each command builds that product and uploads `dist/<id>` to its Cloudflare
-Pages project. Calorie, Live, Journal, and Habits are not in this deploy.
+Pages project. Calorie, Journal, and Habits are not in this deploy.
 
 ## Rules
 
@@ -51,5 +50,6 @@ until an explicit Calorie deploy.
 
 Significant Hobbies and Pace keep their own application surfaces.
 
-Live, Journal, and Habits reuse this engine during the Significant Hobbies
-split. Their domain cutovers and native releases remain separate, manual work.
+Live keeps its existing Significant Hobbies landing. Journal and Habits reuse
+this engine; their domain cutovers and native releases remain separate, manual
+work.
