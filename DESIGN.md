@@ -1,6 +1,6 @@
 # Design
 
-One landing page. Product config dyes it. Five domains, one room.
+One landing page. Product config dyes it. Separate domains, one room.
 
 ## World
 

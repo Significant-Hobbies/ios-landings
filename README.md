@@ -10,6 +10,8 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
 | Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
 | Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Opens `/app/` |
+| Journal | `journal` | https://journal.significanthobbies.com | `journal` | Native app in preparation |
+| Habits | `habits` | https://habits.significanthobbies.com | `habits` | Native app in preparation |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -17,18 +19,20 @@ A product is a `site.config.ts` plus screenshots in
 ```bash
 pnpm install
 PRODUCT=kith pnpm dev
-pnpm check          # typecheck, build all five, verify each dist/
+pnpm check          # typecheck, build every configured product, verify each dist/
 ```
 
 Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 
 ```bash
-pnpm run deploy          # kith, setline, anchor, motion, indulge
+pnpm run deploy          # every Pages-backed product, including Journal and Habits
 pnpm run deploy:kith     # one product
+pnpm run deploy:journal  # one product
+pnpm run deploy:habits   # one product
 ```
 
 Each command builds that product and uploads `dist/<id>` to its Cloudflare
-Pages project. Calorie is not in this deploy.
+Pages project. Calorie is not in this deploy because it remains on its Worker.
 
 ## Rules
 
@@ -46,4 +50,8 @@ snapshot into the Calorie repo with
 `./scripts/sync-calorie-marketing.sh`. The live Worker is not switched
 until an explicit Calorie deploy.
 
-Significant Hobbies and Pace keep their own marketing surfaces.
+Significant Hobbies and Pace keep their own application surfaces.
+
+Live keeps its existing Significant Hobbies landing. Journal and Habits reuse
+this engine; their domain cutovers and native releases remain separate, manual
+work.

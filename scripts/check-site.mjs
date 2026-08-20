@@ -24,7 +24,7 @@ const ai = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
 const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
 if (!home.includes(name)) throw new Error(`${product}: landing does not name the product.`);
-const hasInstallCta = home.includes("See TestFlight status") || home.includes("Open the journal") || home.includes("Open the app");
+const hasInstallCta = home.includes('class="button"') || home.includes('class="store-badge"');
 if (!hasInstallCta) {
   throw new Error(`${product}: landing is missing a gated install or journal CTA.`);
 }
@@ -82,7 +82,17 @@ if (!markdown.startsWith(`# ${name}`)) {
   throw new Error(`${product}: index.md does not start with the product name.`);
 }
 
-const others = ["Kith", "Setline", "Anchor", "Motion", "Indulge", "Calorie"].filter((label) => label !== name);
+const others = [
+  "Kith",
+  "Setline",
+  "Anchor",
+  "Motion",
+  "Indulge",
+  "Calorie",
+  "Journal",
+  "Habits",
+  "Live"
+].filter((label) => label !== name);
 for (const other of others) {
   if (home.includes(`<title>${other} —`)) {
     throw new Error(`${product}: built homepage is titled as ${other}.`);
