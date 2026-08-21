@@ -12,8 +12,7 @@ In scope: the shared page engine, eight product configs, screenshot
 trees, Apple-gated CTAs, and agent surfaces.
 
 Out of scope: a combined multi-app homepage, App Store badges without a
-live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
-`/app/` journal host.
+live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Dependencies
 
@@ -30,13 +29,15 @@ live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
 
 ## Timeline
 
+- 2026-08-21 — Calorie became a native-only product landing; the retired web
+  journal is no longer linked and the internal TestFlight beta remains
+  accurately described without inventing a public invitation URL.
 - 2026-08-20 — Added Journal and Habits with real product screenshots, honest
   native-preparation status, and direct-upload Pages targets. Live keeps the
   existing cinematic Significant Hobbies landing rather than joining this
   factory.
 - 2026-08-17 — Cloudflare Pages for Kith, Setline, Anchor, Motion, and
   Indulge. Calorie stays on the Calorie Worker.
-- 2026-08-17 — Calorie added as a web-app product; CTA opens `/app/`
 - 2026-08-17 — cinematic product room: phone sits in the headline;
   CSS scroll/view timelines recede the artifact and film the gallery
 - 2026-08-17 — one product-room homepage: full-height token sky, stacked
@@ -56,7 +57,8 @@ live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
   `setline.significanthobbies.com`, `anchor.significanthobbies.com`,
   `motion.significanthobbies.com`, `indulge.significanthobbies.com`,
   `journal.significanthobbies.com`, `habits.significanthobbies.com`
-- Local trees also at `dist/<id>`, including Calorie for the Worker snapshot
+- Local trees also at `dist/<id>`, including Calorie for its Worker-hosted
+  native product landing
 
 ## Features (shipped)
 
@@ -69,6 +71,8 @@ live listing, blogs, Pace / Significant Hobbies marketing, and Calorie’s
   status/platform line in the hero
 - Journal and Habits configurations with real screenshots and no invented
   App Store or TestFlight claims
+- Native-only Calorie landing with an honest internal-beta status and no web
+  journal CTA
 - CSS-only hero sheen and float, breathing lanterns, gallery hover lift
 - Cloudflare Pages deploy for Kith, Setline, Anchor, Motion, and Indulge
 

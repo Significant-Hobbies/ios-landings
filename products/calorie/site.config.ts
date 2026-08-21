@@ -5,12 +5,12 @@ export const site: SiteConfig = {
   url: "https://calorie.significanthobbies.com",
   tagline: "A little log for feeling good.",
   headline: ["A little log", "for feeling good."],
-  lede: "Log the bowl. See the timing. Food, water, medicine, and weight stay on your device unless you choose a private cloud journal.",
+  lede: "Log the bowl. See the timing. Food, water, medicine, and weight stay on your iPhone or iPad unless you choose private Cloudflare sync.",
   kicker: "Private. Local-first.",
   summary:
     "A private, local-first food, water, and weight journal with transparent timing guidance. Optional Google or Apple sign-in can add private Cloudflare sync.",
-  status: "Live on the web. iPhone app in preparation.",
-  platforms: ["Web", "iPhone"],
+  status: "Internal TestFlight beta. Not publicly distributed.",
+  platforms: ["iPhone", "iPad"],
   themeColor: "#47743a",
   mark: "/images/brand/mark.png",
   socialImage: "/images/brand/social.png",
@@ -44,10 +44,8 @@ export const site: SiteConfig = {
     { src: "/images/screens/you.png", alt: "Calorie You settings" }
   ],
   applicationCategory: "HealthApplication",
-  availability: "web-app",
-  appUrl: "/app/",
-  appCtaLabel: "Open the journal",
-  betaNote: "The journal is live on the web. No account required to start on this device.",
+  availability: "unreleased",
+  betaNote: "The native journal is available to invited internal testers. There is no public TestFlight or App Store link yet.",
   tension: {
     statement: "A calorie total is not a day.",
     title: "Show the working.",
@@ -82,7 +80,7 @@ export const site: SiteConfig = {
   fit: {
     kicker: "An honest fit",
     title: "A journal. Not a diet.",
-    yes: "Calorie may fit if you want a private log and timing you can audit, on the phone or in the browser.",
+    yes: "Calorie may fit if you want a private iPhone or iPad log with timing you can audit.",
     no: "It is not medical care, not a barcode scanner, and not a social feed. It will not prescribe a deficit."
   },
   privacy: {
@@ -93,11 +91,11 @@ export const site: SiteConfig = {
   faqs: [
     {
       question: "Do I need an account?",
-      answer: "No. The journal works on this device without one. Google or Sign in with Apple is optional private sync."
+      answer: "No. The native journal works on this device without one. Sign in with Apple is optional private sync."
     },
     {
       question: "Where do I actually use it?",
-      answer: "Open the journal at /app on this same site. This page is the public front door."
+      answer: "In the native iPhone or iPad app. This website is only the public product page."
     },
     {
       question: "Is it medical advice?",
@@ -126,7 +124,7 @@ export const site: SiteConfig = {
     "Default data is local-first; optional private cloud sync",
     "No App Store listing yet"
   ],
-  lastUpdated: "2026-08-17",
+  lastUpdated: "2026-08-21",
   legal: {
     privacy: {
       title: "Your journal stays yours.",
@@ -169,19 +167,19 @@ export const site: SiteConfig = {
     },
     accessibility: {
       title: "Access is part of the journal.",
-      lede: "The web app targets WCAG 2.2 AA. The iPhone client uses native accessibility.",
+      lede: "The iPhone and iPad app uses native accessibility throughout the journal.",
       sections: [
         {
           title: "Current support",
-          body: "44px targets, visible focus, 200% zoom, and status that does not rely on color alone."
+          body: "Native Dynamic Type, VoiceOver labels, comfortable touch targets, and status that does not rely on color alone."
         }
       ]
     },
     testflight: {
-      title: "The journal is this way.",
-      lede: "Calorie’s live product is the web journal. This page will not invent a TestFlight link.",
-      testing: "Open /app, log a familiar food, and confirm Today updates. Try local-only first.",
-      notIncluded: "An App Store listing and barcode scanning are not in this product.",
+      title: "The native beta is private.",
+      lede: "Calorie has an internal TestFlight build, but no public invitation link. This page will not invent one.",
+      testing: "Invited testers can log a familiar food on iPhone or iPad and confirm Today updates, first locally and then with optional sync.",
+      notIncluded: "A public TestFlight invitation, App Store listing, and barcode scanning are not in this beta.",
       sections: []
     }
   },

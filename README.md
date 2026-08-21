@@ -9,7 +9,7 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Anchor | `anchor` | https://anchor.significanthobbies.com | `anchor-landing` | TestFlight when verified |
 | Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
 | Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
-| Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Opens `/app/` |
+| Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Internal beta status |
 | Journal | `journal` | https://journal.significanthobbies.com | `journal` | Native app in preparation |
 | Habits | `habits` | https://habits.significanthobbies.com | `habits` | Native app in preparation |
 
@@ -45,7 +45,7 @@ Pages project. Calorie is not in this deploy because it remains on its Worker.
 Blogs can be added later as a shared route with optional per-product
 collections. That folder does not exist yet.
 
-Calorie’s journal stays at `/app/` on the same host. Sync a public
+Calorie’s native product landing stays on its existing Worker. Sync a public
 snapshot into the Calorie repo with
 `./scripts/sync-calorie-marketing.sh`. The live Worker is not switched
 until an explicit Calorie deploy.
