@@ -5,8 +5,8 @@
   It is not the apps themselves.
 - One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge|calorie|journal|habits`
   selects `products/<id>/site.config.ts` and `products/<id>/public`.
-- Calorie is a web-app landing. Its CTA is `/app/`, never an invented
-  TestFlight or App Store badge.
+- Calorie is a native-app landing. Its internal TestFlight build has no public
+  invitation URL, so its CTA stays on the honest beta-status page.
 - Build output is `dist/<id>`. Never merge the five sites into one
   homepage.
 - Do not invent App Store badges, Smart App Banners, or TestFlight URLs.
