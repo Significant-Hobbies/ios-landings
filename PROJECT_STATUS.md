@@ -29,6 +29,10 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-08-21 — Redeployed Journal, Kith, Setline, Habits, and Anchor from the
+  current shared factory after the complete eight-product landing check passed.
+  All five custom domains return 200; Calorie remains on its Worker and Live
+  remains on the Significant Hobbies Worker.
 - 2026-08-21 — Calorie became a native-only product landing; the retired web
   journal is no longer linked and the internal TestFlight beta remains
   accurately described without inventing a public invitation URL.
