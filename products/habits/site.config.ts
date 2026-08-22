@@ -32,14 +32,14 @@ export const site: SiteConfig = {
   },
   colorScheme: "light",
   hero: {
-    image: "/images/screens/life.jpg",
+    image: "/images/screens/life.webp",
     alt: "The Habits Life screen, with a character resting in a soft blue room",
     caption: "Your Life room changes with the choices you make."
   },
   gallery: [
-    { src: "/images/screens/life.jpg", alt: "Habits Life room on iPhone" },
-    { src: "/images/screens/trade.jpg", alt: "Habits Trade screen on iPhone" },
-    { src: "/images/screens/history.jpg", alt: "Habits History on iPhone" }
+    { src: "/images/screens/life.webp", alt: "Habits Life room on iPhone" },
+    { src: "/images/screens/trade.webp", alt: "Habits Trade screen on iPhone" },
+    { src: "/images/screens/history.webp", alt: "Habits History on iPhone" }
   ],
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
@@ -57,21 +57,21 @@ export const site: SiteConfig = {
       name: "Life",
       title: "See what you are making room for.",
       copy: "Your room becomes a quiet picture of the creativity, movement, people, and rest you want more of.",
-      image: "/images/screens/life.jpg",
+      image: "/images/screens/life.webp",
       alt: "Habits Life room on iPhone"
     },
     {
       name: "Trade",
       title: "Make one honest exchange.",
       copy: "Keep the pleasure you chose. Redirect only a small pocket of time that started running on its own.",
-      image: "/images/screens/trade.jpg",
+      image: "/images/screens/trade.webp",
       alt: "Habits Trade screen on iPhone"
     },
     {
       name: "History",
       title: "Remember the choices you made.",
       copy: "Completed trades remain visible without turning the record into points, streaks, or a verdict on the day.",
-      image: "/images/screens/history.jpg",
+      image: "/images/screens/history.webp",
       alt: "Habits History on iPhone"
     }
   ],

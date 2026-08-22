@@ -103,13 +103,13 @@ export const site: SiteConfig = {
   },
   colorScheme: "light",
   hero: {
-    image: "/images/screens/constellation.png",
+    image: "/images/screens/constellation.webp",
     alt: "Kith’s constellation of people as warm lanterns of different sizes",
     caption: "Closer people take more space. Size is something you set."
   },
   gallery: [
-    { src: "/images/screens/constellation.png", alt: "Kith constellation of people as warm lanterns" },
-    { src: "/images/screens/person.png", alt: "Kith person page with standing notes and a hangout log" }
+    { src: "/images/screens/constellation.webp", alt: "Kith constellation of people as warm lanterns" },
+    { src: "/images/screens/person.webp", alt: "Kith person page with standing notes and a hangout log" }
   ],
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
@@ -127,14 +127,14 @@ export const site: SiteConfig = {
       name: "Field",
       title: "See who is close.",
       copy: "People you add float as lanterns. Family and close friends sit larger than a colleague you barely know.",
-      image: "/images/screens/constellation.png",
+      image: "/images/screens/constellation.webp",
       alt: "Kith home screen with floating people of different sizes"
     },
     {
       name: "Person",
       title: "Keep the facts that matter.",
       copy: "How you met, a birthday, the thing they always order. A dated log of hangouts, calls, gifts, and notes to remember.",
-      image: "/images/screens/person.png",
+      image: "/images/screens/person.webp",
       alt: "Kith person page for Maya with standing notes and a hangout log"
     }
   ],

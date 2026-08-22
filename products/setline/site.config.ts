@@ -47,13 +47,13 @@ export const site: SiteConfig = {
     blush: "#dde1dc", inkOnDark: "#f7f6f0", inkOnAccent: "#18262e"
   },
   colorScheme: "light",
-  hero: { image: "/images/screens/workout-player.jpg", alt: "Setline workout player showing the current set", caption: "The current set owns the screen. Record it, then rest." },
+  hero: { image: "/images/screens/workout-player.webp", alt: "Setline workout player showing the current set", caption: "The current set owns the screen. Record it, then rest." },
   gallery: [
-    { src: "/images/screens/today.jpg", alt: "Setline Today screen with the session for this day" },
-    { src: "/images/screens/workout-player.jpg", alt: "Setline recording the current set" },
-    { src: "/images/screens/rest-timer.jpg", alt: "Setline rest timer after a completed set" },
-    { src: "/images/screens/plan.jpg", alt: "Setline plan for the authored programme" },
-    { src: "/images/screens/history.jpg", alt: "Setline history of recorded sessions" }
+    { src: "/images/screens/today.webp", alt: "Setline Today screen with the session for this day" },
+    { src: "/images/screens/workout-player.webp", alt: "Setline recording the current set" },
+    { src: "/images/screens/rest-timer.webp", alt: "Setline rest timer after a completed set" },
+    { src: "/images/screens/plan.webp", alt: "Setline plan for the authored programme" },
+    { src: "/images/screens/history.webp", alt: "Setline history of recorded sessions" }
   ],
   applicationCategory: "HealthApplication",
   availability: "unreleased",
@@ -63,9 +63,9 @@ export const site: SiteConfig = {
   chaptersTitle: "Play the workout you wrote.",
   chaptersLede: "Today, the player, and rest. History is the receipt.",
   chapters: [
-    { name: "Today", title: "See the session.", copy: "The day resolves to the authored work. Start it without opening another document.", image: "/images/screens/today.jpg", alt: "Setline Today" },
-    { name: "Player", title: "Record the set.", copy: "Target, actuals, and the completion control stay visible together. Multi-segment sets stay one set.", image: "/images/screens/workout-player.jpg", alt: "Setline player" },
-    { name: "Rest", title: "Rest on the clock.", copy: "Rest is a wall-clock end time, not a suggestion. Then the next target is already there.", image: "/images/screens/rest-timer.jpg", alt: "Setline rest" }
+    { name: "Today", title: "See the session.", copy: "The day resolves to the authored work. Start it without opening another document.", image: "/images/screens/today.webp", alt: "Setline Today" },
+    { name: "Player", title: "Record the set.", copy: "Target, actuals, and the completion control stay visible together. Multi-segment sets stay one set.", image: "/images/screens/workout-player.webp", alt: "Setline player" },
+    { name: "Rest", title: "Rest on the clock.", copy: "Rest is a wall-clock end time, not a suggestion. Then the next target is already there.", image: "/images/screens/rest-timer.webp", alt: "Setline rest" }
   ],
   fit: { kicker: "An honest fit", title: "Execution. Not a coach.", yes: "Setline fits if you already have a programme and need to run it precisely, one set at a time.", no: "It does not write your programme, count calories, or live on a social feed." },
   privacy: { kicker: "Device first", title: "The workout never waits on a server.", copy: "There is no Setline account in the workout path. The training document lives on the iPhone. Optional private iCloud sync is separate from recording a set." },

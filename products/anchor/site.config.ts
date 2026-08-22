@@ -41,12 +41,12 @@ export const site: SiteConfig = {
     blush: "#1d2532", inkOnDark: "#edf1f7", inkOnAccent: "#edf1f7"
   },
   colorScheme: "dark",
-  hero: { image: "/images/screens/session.png", alt: "Anchor session with remaining time and lock-a-distraction", caption: "One goal, one ring, one obvious thing to press when something pulls." },
+  hero: { image: "/images/screens/session.webp", alt: "Anchor session with remaining time and lock-a-distraction", caption: "One goal, one ring, one obvious thing to press when something pulls." },
   gallery: [
-    { src: "/images/screens/session.png", alt: "Anchor running a focus session" },
-    { src: "/images/screens/resume-capture.png", alt: "Anchor asking what pulled you away" },
-    { src: "/images/screens/insights.png", alt: "Anchor insights on focus and interruptions" },
-    { src: "/images/screens/mini-timer.png", alt: "Anchor compact timer" }
+    { src: "/images/screens/session.webp", alt: "Anchor running a focus session" },
+    { src: "/images/screens/resume-capture.webp", alt: "Anchor asking what pulled you away" },
+    { src: "/images/screens/insights.webp", alt: "Anchor insights on focus and interruptions" },
+    { src: "/images/screens/mini-timer.webp", alt: "Anchor compact timer" }
   ],
   applicationCategory: "ProductivityApplication",
   availability: "unreleased",
@@ -56,9 +56,9 @@ export const site: SiteConfig = {
   chaptersTitle: "Keep the thread.",
   chaptersLede: "Start, park, resume, then see what actually cost you the hour.",
   chapters: [
-    { name: "Session", title: "Stay with the goal.", copy: "A cobalt ring, a named goal, and one control when something pulls.", image: "/images/screens/session.png", alt: "Anchor session" },
-    { name: "Resume", title: "Name what pulled.", copy: "Coming back captures the interruption. “Nothing, just a break” is one key away.", image: "/images/screens/resume-capture.png", alt: "Anchor resume capture" },
-    { name: "Insights", title: "See the losses too.", copy: "World-came-to-you versus you-went-to-it. One is settings. The other is habit.", image: "/images/screens/insights.png", alt: "Anchor insights" }
+    { name: "Session", title: "Stay with the goal.", copy: "A cobalt ring, a named goal, and one control when something pulls.", image: "/images/screens/session.webp", alt: "Anchor session" },
+    { name: "Resume", title: "Name what pulled.", copy: "Coming back captures the interruption. “Nothing, just a break” is one key away.", image: "/images/screens/resume-capture.webp", alt: "Anchor resume capture" },
+    { name: "Insights", title: "See the losses too.", copy: "World-came-to-you versus you-went-to-it. One is settings. The other is habit.", image: "/images/screens/insights.webp", alt: "Anchor insights" }
   ],
   fit: { kicker: "An honest fit", title: "A timer that takes interruptions seriously.", yes: "Anchor fits if you already sit down to work and lose the thread to a ping or a tab.", no: "It is not a website blocker, a social productivity feed, or an App Store listing yet." },
   privacy: { kicker: "On your devices", title: "Focus data stays with you.", copy: "Anchor stores sessions locally. Supported signed builds may use private iCloud. There is no Anchor account server." },

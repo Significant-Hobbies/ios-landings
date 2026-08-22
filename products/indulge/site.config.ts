@@ -32,16 +32,16 @@ export const site: SiteConfig = {
   },
   colorScheme: "light",
   hero: {
-    image: "/images/screens/life.jpg",
+    image: "/images/screens/life.webp",
     alt: "The Indulge Life screen, with a character resting in a soft blue room",
     caption: "Your Life room changes with the choices you make."
   },
   gallery: [
-    { src: "/images/screens/onboarding.jpg", alt: "Indulge onboarding on iPhone" },
-    { src: "/images/screens/life.jpg", alt: "Indulge Life room on iPhone" },
-    { src: "/images/screens/trade.jpg", alt: "Indulge Trade screen on iPhone" },
-    { src: "/images/screens/focus.jpg", alt: "Indulge scene entry on iPhone" },
-    { src: "/images/screens/history.jpg", alt: "Indulge History on iPhone" }
+    { src: "/images/screens/onboarding.webp", alt: "Indulge onboarding on iPhone" },
+    { src: "/images/screens/life.webp", alt: "Indulge Life room on iPhone" },
+    { src: "/images/screens/trade.webp", alt: "Indulge Trade screen on iPhone" },
+    { src: "/images/screens/focus.webp", alt: "Indulge scene entry on iPhone" },
+    { src: "/images/screens/history.webp", alt: "Indulge History on iPhone" }
   ],
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
@@ -59,21 +59,21 @@ export const site: SiteConfig = {
       name: "Life",
       title: "See what you’re making room for.",
       copy: "Your room becomes a quiet picture of the creativity, movement, people, and rest you want more of.",
-      image: "/images/screens/life.jpg",
+      image: "/images/screens/life.webp",
       alt: "Indulge Life screen showing a blue living room assembled around a seated character"
     },
     {
       name: "Trade",
       title: "Make one honest trade.",
       copy: "Keep the pleasure you chose. Reclaim a small pocket of the time that tends to disappear, then give it somewhere to go.",
-      image: "/images/screens/trade.jpg",
+      image: "/images/screens/trade.webp",
       alt: "Indulge Trade screen showing an intentional time exchange"
     },
     {
       name: "History",
       title: "Notice what changes.",
       copy: "Look back at the choices you actually made, without streaks, shame, or a scoreboard for your life.",
-      image: "/images/screens/history.jpg",
+      image: "/images/screens/history.webp",
       alt: "Indulge History screen showing completed trades"
     }
   ],
