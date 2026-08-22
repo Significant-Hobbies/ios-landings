@@ -13,6 +13,7 @@ const requiredFiles = [
   `${dist}/index.md`,
   `${dist}/llms.txt`,
   `${dist}/api/ai`,
+  `${dist}/openapi.json`,
   `${dist}/robots.txt`,
   `${dist}/sitemap.xml`
 ];
