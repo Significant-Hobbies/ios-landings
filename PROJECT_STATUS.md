@@ -29,6 +29,14 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-08-22 — Restored Anchor's full privacy and support copy from the retired
+  `anchor/landing` tree. The template legal pages had dropped the CloudKit
+  private-database, Apple-Intelligence-with-local-fallback, local MCP server,
+  export, deletion and children disclosures; privacy went 185 → 637 words and
+  support 165 → 531. Anchor is mid App Store submission with CloudKit sync and
+  an MCP server, so those were material omissions rather than a shorter house
+  style. The other six products still carry the thin template — worth the same
+  pass before each submission.
 - 2026-08-21 — Redeployed Journal, Kith, Setline, Habits, and Anchor from the
   current shared factory after the complete eight-product landing check passed.
   All five custom domains return 200; Calorie remains on its Worker and Live
