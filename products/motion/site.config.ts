@@ -17,7 +17,9 @@ export type SiteConfig = {
   fit: { kicker: string; title: string; yes: string; no: string };
   privacy: { kicker: string; title: string; copy: string };
   faqs: Faq[]; founder: { quote: string; credit: string; note: string }; closingTitle: [string, string];
-  footerFinePrint: string; capabilities: string[]; boundaries: string[]; lastUpdated: string;
+  footerFinePrint: string; capabilities: string[]; boundaries: string[];
+  agentFit?: { bestFit: string[]; notAFit: string[] }; agentCli?: string[];
+  lastUpdated: string;
   legal: { privacy: LegalPage; support: LegalPage; terms: LegalPage; accessibility: LegalPage; testflight: LegalPage & { testing: string; notIncluded: string } };
   requiredHomeCopy: string[]; prohibitedClaims: string[];
 };
@@ -67,6 +69,21 @@ export const site: SiteConfig = {
   footerFinePrint: "A game experiment, not a console. © 2026 Sarthak Agrawal.",
   capabilities: ["On-device pose tracking", "Phone-hosted game", "Optional screen mirroring"],
   boundaries: ["No Motion account", "No uploaded camera stream", "Not listed on the App Store", "Physical-device validation still open"],
+  agentFit: {
+    bestFit: [
+      "body-controlled games where an iPhone reads movement on-device and turns it into game input",
+      "screen-mirroring phone gameplay to a larger display without uploading camera frames"
+    ],
+    notAFit: [
+      "cloud-based motion capture or remote pose processing",
+      "games that require transmitting or storing camera frames"
+    ]
+  },
+  agentCli: [
+    "Local development: `pnpm install && pnpm run dev` (relay :1999 + web :5173)",
+    "Debug game: `http://localhost:5173/?debug=1` (keyboard/mouse, no phone required)",
+    "Quality gate: `pnpm check` (TypeScript, formatting, debt ratchets)"
+  ],
   lastUpdated: "2026-08-17",
   legal: {
     privacy: { title: "The camera stays on the phone.", lede: "Motion is a local-first game experiment.", sections: [

@@ -62,6 +62,15 @@ export type SiteConfig = {
   footerFinePrint: string;
   capabilities: string[];
   boundaries: string[];
+  /**
+   * Override the generic "When to use this" lines in llms.txt. Without this a
+   * product gets boilerplate derived from its tagline, which tells an agent
+   * nothing it could not read off the page. State what the product is actually
+   * good for and what it is not.
+   */
+  agentFit?: { bestFit: string[]; notAFit: string[] };
+  /** Local commands worth exposing to an agent, rendered as a `## CLI` block. */
+  agentCli?: string[];
   lastUpdated: string;
   legal: {
     privacy: LegalPage;

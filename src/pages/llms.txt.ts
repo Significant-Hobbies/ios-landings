@@ -8,10 +8,17 @@ export function GET() {
     `> ${site.summary}`,
     "",
     "## When to use this",
-    `- Best fit: learning about ${site.name} — ${site.tagline}`,
-    `- Best fit: checking ${site.name} availability, privacy, and support on the public landing`,
-    "- Not a fit: accessing product functionality or user data (the app is native and private)",
-    "- Not a fit: API integrations beyond the read-only agent surfaces listed here",
+    ...(site.agentFit
+      ? [
+          ...site.agentFit.bestFit.map((item) => `- Best fit: ${item}`),
+          ...site.agentFit.notAFit.map((item) => `- Not a fit: ${item}`)
+        ]
+      : [
+          `- Best fit: learning about ${site.name} — ${site.tagline}`,
+          `- Best fit: checking ${site.name} availability, privacy, and support on the public landing`,
+          "- Not a fit: accessing product functionality or user data (the app is native and private)",
+          "- Not a fit: API integrations beyond the read-only agent surfaces listed here"
+        ]),
     "",
     "## Primary",
     `- [Product overview](${links.home}index.md): Canonical Markdown summary of ${site.name}.`,
@@ -25,6 +32,7 @@ export function GET() {
     `- [Sitemap](${site.url}/sitemap.xml): XML sitemap of all public pages`,
     `- [This index](${site.url}/llms.txt)`,
     "",
+    ...(site.agentCli ? ["## CLI", ...site.agentCli.map((item) => `- ${item}`), ""] : []),
     "## Machine surfaces",
     `- [Agent catalog](${site.url}/api/ai)`,
     `- [OpenAPI spec](${site.url}/openapi.json)`,
