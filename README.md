@@ -8,10 +8,10 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Setline | `setline` | https://setline.significanthobbies.com | `setline` | TestFlight when verified |
 | Anchor | `anchor` | https://anchor.significanthobbies.com | `anchor-landing` | TestFlight when verified |
 | Motion | `motion` | https://motion.significanthobbies.com | `motion` | TestFlight when verified |
-| Indulge | `indulge` | https://indulge.significanthobbies.com | `indulge` | TestFlight when verified |
+| Indulge compatibility | `indulge` | https://indulge.significanthobbies.com | `indulge` | Continue with Anchor |
 | Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Internal beta status |
 | Journal | `journal` | https://journal.significanthobbies.com | `journal` | Native app in preparation |
-| Habits | `habits` | https://habits.significanthobbies.com | `habits` | Native app in preparation |
+| Habits compatibility | `habits` | https://habits.significanthobbies.com | `habits` | Continue with Anchor |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -52,6 +52,7 @@ until an explicit Calorie deploy.
 
 Significant Hobbies and Pace keep their own application surfaces.
 
-Live keeps its existing Significant Hobbies landing. Journal and Habits reuse
-this engine; their domain cutovers and native releases remain separate, manual
-work.
+Live keeps its existing Significant Hobbies landing. Journal reuses this engine.
+Habits and Indulge remain buildable only as compatibility pages that direct new
+product interest to Anchor; changing or removing their domains is separate,
+manual work.

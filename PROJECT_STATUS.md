@@ -1,6 +1,6 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-08-20
+Last updated: 2026-08-24
 
 ## Why / What
 
@@ -8,8 +8,8 @@ One Astro codebase that builds a separate static site for each
 Significant Hobbies iOS-first app. Each product keeps its own domain,
 privacy URL, support URL, tokens, and screenshots.
 
-In scope: the shared page engine, eight product configs, screenshot
-trees, Apple-gated CTAs, and agent surfaces.
+In scope: the shared page engine, six maintained product configs, two retired
+compatibility configs, screenshot trees, Apple-gated CTAs, and agent surfaces.
 
 Out of scope: a combined multi-app homepage, App Store badges without a
 live listing, blogs, and Pace / Significant Hobbies marketing.
@@ -28,6 +28,12 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 - Fleet catalogs this repo; product domains stay on the product rows
 
 ## Timeline
+
+- 2026-08-24 — Changed the Habits and Indulge source trees into explicit
+  compatibility pages after Anchor became their maintained successor. Both now
+  direct people to Anchor and state that no data migration or deletion occurred.
+  Their Pages projects and domains remain intact; this source change was not
+  deployed.
 
 - 2026-08-22 — Restored Anchor's full privacy and support copy from the retired
   `anchor/landing` tree. The template legal pages had dropped the CloudKit
@@ -81,8 +87,10 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 - Indulge on the shared template (static site, no analytics script)
 - Shared `Phone` frame, mapped product tokens for light and dark, and
   status/platform line in the hero
-- Journal and Habits configurations with real screenshots and no invented
-  App Store or TestFlight claims
+- Journal configuration with real screenshots and no invented App Store or
+  TestFlight claims
+- Habits and Indulge compatibility configurations that point to Anchor without
+  pretending a separate native release remains planned
 - Native-only Calorie landing with an honest internal-beta status and no web
   journal CTA
 - CSS-only hero sheen and float, breathing lanterns, gallery hover lift
