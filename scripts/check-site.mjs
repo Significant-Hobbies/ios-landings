@@ -60,7 +60,27 @@ const executableScripts = [...home.matchAll(/<script\b([^>]*)>/gi)].filter((matc
   const attrs = match[1] ?? "";
   return !/type=["']application\/ld\+json["']/i.test(attrs);
 });
-if (executableScripts.length !== 0) {
+const approvedFooterScripts = [
+  "https://sassmaker.com/project-strip.js",
+  "https://sassmaker.com/ai-chat-footer.js"
+];
+for (const src of approvedFooterScripts) {
+  const matches = executableScripts.filter((match) => {
+    const attrs = match[1] ?? "";
+    return attrs.includes(`src="${src}"`) || attrs.includes(`src='${src}'`);
+  });
+  if (matches.length !== 1) {
+    throw new Error(`${product}: expected exactly one approved footer loader for ${src}.`);
+  }
+}
+
+const unexpectedScripts = executableScripts.filter((match) => {
+  const attrs = match[1] ?? "";
+  return !approvedFooterScripts.some((src) =>
+    attrs.includes(`src="${src}"`) || attrs.includes(`src='${src}'`)
+  );
+});
+if (unexpectedScripts.length !== 0) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);
 }
 

@@ -403,6 +403,18 @@ blockquote {
   .closing { min-height: 0; }
 }
 
+@media (max-width: 520px) {
+  .chapter-grid,
+  .chapter-reverse .chapter-grid {
+    grid-template-columns: 1fr;
+  }
+  .chapter-reverse .chapter-copy { order: 0; }
+  .chapter .device.chapter {
+    width: min(72vw, 210px);
+    max-width: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .orb,
   .hero-artifact .device-shell,

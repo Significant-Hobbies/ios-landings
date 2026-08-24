@@ -1,7 +1,7 @@
 ---
 import "../styles/global.css";
 import { primaryCta, verifiedAppStoreUrl } from "../lib/distribution";
-import { site } from "../site.config";
+import { productId, site } from "../site.config";
 
 interface Props {
   title?: string;
@@ -77,6 +77,7 @@ const tokenStyle = [
   `--site-ink-on-accent:${t.inkOnAccent ?? "#ffffff"}`
 ].join(";");
 const scheme = site.colorScheme ?? "light";
+const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 ---
 <!doctype html>
 <html lang="en" data-scheme={scheme} style={tokenStyle}>
@@ -147,5 +148,17 @@ const scheme = site.colorScheme ?? "light";
         </nav>
       </div>
     </footer>
+    <script
+      is:inline
+      src="https://sassmaker.com/project-strip.js"
+      data-project={portfolioProjectId}
+      defer
+    ></script>
+    <script
+      is:inline
+      src="https://sassmaker.com/ai-chat-footer.js"
+      data-name={site.name}
+      defer
+    ></script>
   </body>
 </html>
