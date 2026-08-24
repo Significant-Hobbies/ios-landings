@@ -277,6 +277,20 @@ export const onRequest: PagesFunction = async (context) => {
   const response = await context.next();
   const contentType = response.headers.get("content-type") ?? "";
 
+  // Astro prerenders this extensionless endpoint as a static asset, so Pages
+  // otherwise serves it as application/octet-stream and browsers download it.
+  if (pathname === "/api/ai" && response.status === 200) {
+    const headers = new Headers(response.headers);
+    headers.set("content-type", "application/json; charset=utf-8");
+    headers.set("access-control-allow-origin", "*");
+    addRateLimitHeaders(headers);
+    return new Response(request.method === "HEAD" ? null : response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+
   // Agent-friendly 404 with markdown recovery body.
   if (response.status === 404 && !pathname.startsWith("/api/")) {
     if (wantsMarkdown(request)) {
