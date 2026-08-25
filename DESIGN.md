@@ -1,20 +1,22 @@
 # Design
 
-One landing page. Product config dyes it. Separate domains, one room.
+One landing page. Product config authors it. Separate domains, one system.
 
 ## World
 
-A product room: the real iPhone sits in the product’s own light. Tokens
-own whole regions (hero sky, blush founder band, ink privacy). Atmosphere
-is layered orbs, not furniture and not a card grid.
+A quiet editorial sketchbook: one authored product gesture, one real phone,
+and the product’s own tokens. Light rules, a restrained grid, and deliberately
+imperfect annotations make the page feel made by the same person as the app.
+There is no generic orb field and no horizontal screenshot carousel.
 
 Light or dark comes from the product. Do not invert a light product.
 
 ## First viewport
 
-Full-height room. The headline is the floor. The real phone sits on the
-words, with a second real screen behind it. The CTA lives under the
-lede, not in a second column.
+Mobile first. The promise, plain-language explanation, CTA, and real phone all
+arrive in one readable column. Wider screens become a two-part editorial spread:
+copy on the left and a product sketchboard on the right. The optional product
+illustration supports the phone; it never replaces real product evidence.
 
 ## Tokens
 
@@ -26,11 +28,16 @@ Display: SF Pro Rounded. Body: SF Pro Text. Tracking never tighter than
 
 ## Motion
 
-The phone is a lantern. Load: glass sheen. Idle: a slow float where
-scroll timelines are missing. Scroll (Chrome/Safari): the artifact
-recedes and the sky drifts. Gallery and chapter phones enter on
-`view()`. Firefox and reduced motion keep the still composed room.
-No client JavaScript.
+The phone keeps the existing brief sheen and very slow fallback float. Nothing
+else loops. Reduced Motion keeps the complete still composition. No client
+JavaScript.
+
+## Doodle rule
+
+Product-owned illustration is optional and comes from config. Use one scene in
+the hero, plus at most one hand-drawn underline or note per region. Doodles add
+personality and explain the product’s mental model; they are never interactive,
+never the sole carrier of meaning, and never allowed to crowd the real screens.
 
 ## Anti-references
 

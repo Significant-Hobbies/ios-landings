@@ -2,8 +2,8 @@
   "$schema": "fleet.design-review.v1",
   "version": 1,
   "project": "ios-landings",
-  "target": "Shared landing additions for Journal and Habits",
-  "mode": "preserve",
+  "target": "Shared Significant Hobbies product landing template",
+  "mode": "overhaul",
   "register": "product",
   "context": {
     "product": "PRODUCT.md",
@@ -11,13 +11,13 @@
   },
   "direction": {
     "references": [
-      "Existing shared product-room landing engine",
-      "Real Journal and Habits native product screens",
-      "Owner brief: all personal apps use the same landing language"
+      "Anchor day-overlay direction study",
+      "Current native product evidence",
+      "Things first-party cross-device product presentation"
     ],
     "probes": [],
-    "selected": "existing product-room template",
-    "approval": "not-required",
+    "selected": "",
+    "approval": "pending",
     "before": "artifacts/design/after-1440.png"
   },
   "evidence": {
@@ -33,34 +33,18 @@
       {
         "width": 1440,
         "path": "artifacts/design/after-1440.png"
-      },
-      {
-        "width": 390,
-        "path": "artifacts/design/journal/after-390.png"
-      },
-      {
-        "width": 1440,
-        "path": "artifacts/design/journal/after-1440.png"
-      },
-      {
-        "width": 390,
-        "path": "artifacts/design/habits/after-390.png"
-      },
-      {
-        "width": 1440,
-        "path": "artifacts/design/habits/after-1440.png"
       }
     ],
     "projectCheck": {
-      "command": "pnpm check",
-      "status": "pass"
+      "command": "replace-with-project-check",
+      "status": "pending"
     },
     "critique": {
-      "score": 36,
+      "score": 0,
       "maximum": 40
     },
     "audit": {
-      "score": 19,
+      "score": 0,
       "maximum": 20
     },
     "unresolved": {
@@ -69,15 +53,11 @@
     },
     "detector": {
       "posture": "advisory",
-      "findings": [
-        "Journal and Habits use the existing shared page engine with product-specific config and real screens rather than new layouts.",
-        "Journal and Habits are truthfully marked as native apps in preparation.",
-        "Phone and desktop review found no unresolved P0 or P1 visual issues."
-      ]
+      "findings": []
     }
   },
   "ownerFeedback": {
-    "decision": "delegated",
-    "note": "The owner explicitly chose one landing language for the full personal-app family and asked the agent to maximize sharing while finishing the seven products."
+    "decision": "pending",
+    "note": ""
   }
 }

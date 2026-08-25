@@ -41,6 +41,7 @@ export type SiteConfig = {
   };
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
+  illustration?: { src: string; alt: string };
   gallery: { src: string; alt: string }[];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store" | "web-app";

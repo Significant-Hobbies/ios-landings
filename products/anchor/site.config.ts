@@ -8,6 +8,7 @@ export type SiteConfig = {
   tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
+  illustration?: { src: string; alt: string };
   gallery: { src: string; alt: string }[];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store";
@@ -42,6 +43,7 @@ export const site: SiteConfig = {
   },
   colorScheme: "dark",
   hero: { image: "/images/screens/session.webp", alt: "Anchor focus session with remaining time and interruption capture", caption: "The current block, one focus ring, and one obvious thing to press when reality moves." },
+  illustration: { src: "/images/brand/day-doodle.svg", alt: "A hand-drawn character arranging the day while distractions wait in a basket" },
   gallery: [
     { src: "/images/screens/session.webp", alt: "Anchor running a focus session" },
     { src: "/images/screens/resume-capture.webp", alt: "Anchor asking what pulled you away" },

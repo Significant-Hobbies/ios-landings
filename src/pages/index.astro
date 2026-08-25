@@ -5,57 +5,50 @@ import SiteLayout from "../layouts/SiteLayout.astro";
 import { site } from "../site.config";
 import "../styles/landing.css";
 
-const echo = site.gallery.find((shot) => shot.src !== site.hero.image) ?? site.gallery[1];
+const illustration = site.illustration;
 ---
 <SiteLayout>
   <section class="hero">
-    <div class="hero-sky" aria-hidden="true">
-      <span class="orb-track t-a"><span class="orb orb-a"></span></span>
-      <span class="orb-track t-b"><span class="orb orb-b"></span></span>
-      <span class="orb-track t-c"><span class="orb orb-c"></span></span>
-      <span class="orb-track t-d"><span class="orb orb-d"></span></span>
-      <span class="horizon"></span>
-    </div>
-    <div class="shell hero-room">
+    <div class="shell hero-grid">
       <div class="hero-copy">
-        <div class="hero-intro">
-          <p class="hero-kicker">{site.kicker}</p>
-          <h1><span style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0">{site.name}</span>{site.headline[0]}<br />{site.headline[1]}</h1>
+        <p class="hero-kicker">{site.kicker}</p>
+        <h1><span class="sr-only">{site.name}: </span>{site.headline[0]}<br />{site.headline[1]}</h1>
+        <p class="hero-lede">{site.lede}</p>
+        <div class="hero-actions">
+          <Cta />
+          <a class="text-link" href="#look-inside">See the real app <span aria-hidden="true">↓</span></a>
         </div>
-        <div class="hero-foot">
-          <p class="hero-lede">{site.lede}</p>
-          <p class="hero-meta">{site.status} · {site.platforms.join(" · ")}</p>
-          <div class="hero-actions">
-            <Cta />
-            <a class="text-link" href="#look-inside">See the screens <span aria-hidden="true">↓</span></a>
-          </div>
-          <p class="beta-note">{site.betaNote}</p>
-        </div>
+        <p class="hero-meta">{site.status}<br />{site.platforms.join(" · ")}</p>
       </div>
-      <div class="hero-artifact">
-        {echo ? (
-          <div class="hero-echo" aria-hidden="true">
-            <Phone src={echo.src} alt="" size="echo" tilt="left" />
-          </div>
-        ) : null}
+      <div class:list={["hero-stage", illustration && "has-illustration"]}>
+        {illustration ? <img class="hero-doodle" src={illustration.src} alt={illustration.alt} /> : <span class="stage-label" aria-hidden="true">Real product screen</span>}
         <Phone
           src={site.hero.image}
           alt={site.hero.alt}
-          caption={site.hero.caption}
           size="hero"
           tilt="right"
           priority
         />
+        <p class="stage-note">{site.hero.caption}</p>
       </div>
+    </div>
+    <div class="shell proof-rail" aria-label="Product overview">
+      {site.chapters.slice(0, 3).map((chapter, index) => (
+        <div class="proof-item">
+          <span aria-hidden="true">0{index + 1}</span>
+          <p><strong>{chapter.name}</strong>{chapter.title}</p>
+        </div>
+      ))}
     </div>
   </section>
 
   <section id="look-inside" class="gallery" aria-labelledby="gallery-title">
     <div class="shell gallery-head">
       <p class="chapter-kicker">Look inside</p>
-      <h2 id="gallery-title">The real product screens.</h2>
+      <h2 id="gallery-title">No mockups.<br />The real product.</h2>
+      <p>{site.betaNote}</p>
     </div>
-    <div class="gallery-track">
+    <div class="shell gallery-grid">
       {site.gallery.map((shot) => (
         <Phone src={shot.src} alt={shot.alt} size="gallery" />
       ))}
@@ -63,7 +56,7 @@ const echo = site.gallery.find((shot) => shot.src !== site.hero.image) ?? site.g
   </section>
 
   <section class="tension shell" aria-labelledby="tension-title">
-    <p class="statement">{site.tension.statement}</p>
+    <p class="statement"><span>{site.tension.statement}</span></p>
     <div class="tension-copy">
       <h2 id="tension-title">{site.tension.title}</h2>
       <p>{site.tension.copy}</p>

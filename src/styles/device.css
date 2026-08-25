@@ -66,8 +66,8 @@
   background-size: 240% 100%;
   animation: phone-sheen 1.35s var(--ease-out) 0.35s both;
 }
-.gallery-track .device.gallery:hover,
-.gallery-track .device.gallery:focus-within {
+.gallery-grid .device.gallery:hover,
+.gallery-grid .device.gallery:focus-within {
   transform: translateY(-10px);
 }
 .device figcaption {
@@ -105,6 +105,6 @@
   .device.tilt-left,
   .device.tilt-right { transform: none; }
   .device.gallery { transition: none; }
-  .gallery-track .device.gallery:hover,
-  .gallery-track .device.gallery:focus-within { transform: none; }
+  .gallery-grid .device.gallery:hover,
+  .gallery-grid .device.gallery:focus-within { transform: none; }
 }
