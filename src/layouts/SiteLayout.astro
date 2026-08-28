@@ -8,15 +8,23 @@ interface Props {
   description?: string;
   canonicalPath?: string;
   image?: string;
+  robots?: string;
+  markdownAlternatePath?: string;
+  includeStructuredData?: boolean;
 }
 
 const {
   title = `${site.name} — ${site.tagline}`,
   description = site.lede,
   canonicalPath = "/",
-  image = site.socialImage
+  image = site.socialImage,
+  robots = "index,follow",
+  markdownAlternatePath,
+  includeStructuredData = true
 } = Astro.props;
 const canonical = new URL(canonicalPath, Astro.site);
+const markdownPath = markdownAlternatePath ?? (canonicalPath === "/" ? "/index.md" : `${canonicalPath}index.md`);
+const markdownAlternate = new URL(markdownPath, Astro.site);
 const socialImage = new URL(image, Astro.site);
 const cta = primaryCta();
 const storeUrl = verifiedAppStoreUrl();
@@ -27,17 +35,7 @@ const jsonLd = {
     {
       "@type": "Organization",
       name: "Significant Hobbies",
-      url: "https://significanthobbies.com",
-      contactPoint: {
-        "@type": "ContactPoint",
-        contactType: "customer support",
-        email: "support@significanthobbies.com",
-        url: `${site.url}/support/`
-      },
-      address: {
-        "@type": "PostalAddress",
-        addressCountry: "US"
-      }
+      url: "https://significanthobbies.com"
     },
     {
       "@type": "SoftwareApplication",
@@ -47,8 +45,7 @@ const jsonLd = {
       operatingSystem: site.platforms.join(", "),
       description: site.summary,
       image: new URL(site.socialImage, site.url).href,
-      screenshot: site.gallery.map((shot) => new URL(shot.src, site.url).href),
-      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" }
+      screenshot: site.gallery.map((shot) => new URL(shot.src, site.url).href)
     },
     {
       "@type": "FAQPage",
@@ -88,6 +85,7 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
     <meta name="description" content={description} />
     <meta name="theme-color" content={site.themeColor} />
     <link rel="canonical" href={canonical} />
+    <link rel="alternate" type="text/markdown" href={markdownAlternate} />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
     <meta property="og:type" content="website" />
@@ -103,11 +101,13 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={socialImage} />
-    <meta name="robots" content="index,follow" />
+    <meta name="robots" content={robots} />
     {site.appStoreId && storeUrl ? (
       <meta name="apple-itunes-app" content={`app-id=${site.appStoreId}`} />
     ) : null}
-    <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    {includeStructuredData ? (
+      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    ) : null}
     <title>{title}</title>
   </head>
   <body>
@@ -140,7 +140,7 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
           <a href="/support/">Support</a>
           <a href="/terms/">Terms</a>
           <a href="/accessibility/">Accessibility</a>
-          {cta.kind === "web-app" ? (
+          {cta.kind === "web-app" || cta.kind === "successor" ? (
             <a href={cta.href}>{cta.label}</a>
           ) : (
             <a href="/testflight/">TestFlight</a>

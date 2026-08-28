@@ -2,21 +2,27 @@
 import Cta from "../components/Cta.astro";
 import Phone from "../components/Phone.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
+import { verifiedMacDownloadUrl } from "../lib/distribution";
 import { site } from "../site.config";
 import "../styles/landing.css";
 
 const illustration = site.illustration;
+const macDownload = verifiedMacDownloadUrl();
 ---
 <SiteLayout>
   <section class="hero">
     <div class="shell hero-grid">
       <div class="hero-copy">
         <p class="hero-kicker">{site.kicker}</p>
-        <h1><span class="sr-only">{site.name}: </span>{site.headline[0]}<br />{site.headline[1]}</h1>
+        <h1><span class="sr-only">{site.name}: </span>{site.headline[0]}<br /> {site.headline[1]}</h1>
         <p class="hero-lede">{site.lede}</p>
         <div class="hero-actions">
           <Cta />
-          <a class="text-link" href="#look-inside">See the real app <span aria-hidden="true">↓</span></a>
+          {macDownload ? (
+            <a class="text-link" href={macDownload}>{site.macDownloadLabel ?? "Download for Mac"} <span aria-hidden="true">↓</span></a>
+          ) : (
+            <a class="text-link" href="#look-inside">See the real app <span aria-hidden="true">↓</span></a>
+          )}
         </div>
         <p class="hero-meta">{site.status}<br />{site.platforms.join(" · ")}</p>
       </div>
@@ -25,6 +31,8 @@ const illustration = site.illustration;
         <Phone
           src={site.hero.image}
           alt={site.hero.alt}
+          width={site.hero.width}
+          height={site.hero.height}
           size="hero"
           tilt="right"
           priority
@@ -50,7 +58,7 @@ const illustration = site.illustration;
     </div>
     <div class="shell gallery-grid">
       {site.gallery.map((shot) => (
-        <Phone src={shot.src} alt={shot.alt} size="gallery" />
+        <Phone src={shot.src} alt={shot.alt} caption={shot.alt} width={shot.width} height={shot.height} size="gallery" />
       ))}
     </div>
   </section>
@@ -82,6 +90,8 @@ const illustration = site.illustration;
           <Phone
             src={chapter.image}
             alt={chapter.alt}
+            width={chapter.width}
+            height={chapter.height}
             size="chapter"
             tilt={index % 2 === 1 ? "right" : "left"}
             priority={index === 0}
@@ -144,6 +154,7 @@ const illustration = site.illustration;
     <div class="shell">
       <h2>{site.closingTitle[0]}<br />{site.closingTitle[1]}</h2>
       <Cta />
+      {macDownload && <a class="text-link closing-download" href={macDownload}>{site.macDownloadLabel ?? "Download for Mac"} <span aria-hidden="true">↓</span></a>}
     </div>
   </section>
 </SiteLayout>

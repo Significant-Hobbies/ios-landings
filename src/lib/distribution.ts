@@ -18,12 +18,34 @@ export function verifiedWebAppUrl(): string | undefined {
   return undefined;
 }
 
+export function verifiedMacDownloadUrl(): string | undefined {
+  const configured = site.macDownloadUrl?.trim();
+  if (!configured) return undefined;
+  try {
+    const download = new URL(configured);
+    const product = new URL(site.url);
+    if (
+      download.protocol === "https:" &&
+      download.origin === product.origin &&
+      download.pathname.toLowerCase().endsWith(".dmg")
+    ) {
+      return download.toString();
+    }
+  } catch {
+    return undefined;
+  }
+  return undefined;
+}
+
 export function primaryCta(): {
   href: string;
   label: string;
-  kind: "app-store" | "testflight" | "status" | "web-app";
+  kind: "app-store" | "testflight" | "status" | "web-app" | "successor";
 } {
   const app = verifiedWebAppUrl();
+  if (site.availability === "successor" && app) {
+    return { href: app, label: site.appCtaLabel ?? "Continue with the maintained product", kind: "successor" };
+  }
   if (site.availability === "web-app" && app) {
     return { href: app, label: site.appCtaLabel ?? "Open the app", kind: "web-app" };
   }

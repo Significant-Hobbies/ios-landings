@@ -31,7 +31,7 @@ export const site: SiteConfig = {
     { src: "/images/screens/trade.webp", alt: "Former Indulge Trade screen" }
   ],
   applicationCategory: "ProductivityApplication",
-  availability: "web-app",
+  availability: "successor",
   appUrl: "https://anchor.significanthobbies.com",
   appCtaLabel: "Continue with Anchor",
   betaNote: "Indulge has no separate roadmap or new build. Existing Apple and Hub data identities are retained for compatibility.",

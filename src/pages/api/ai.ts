@@ -10,17 +10,17 @@ export function GET() {
     llms: `${site.url}/llms.txt`,
     llmsFull: null,
     sitemap: `${site.url}/sitemap.xml`,
-    markdown: { suffix: ".md", negotiation: true },
+    markdown: { suffix: ".md", negotiation: false },
     openapi: `${site.url}/openapi.json`,
     surfaces: [
       { id: "home", url: "/", md: "/index.md", kind: "static" },
-      { id: "privacy", url: "/privacy/", kind: "static" },
-      { id: "support", url: "/support/", kind: "static" },
-      { id: "terms", url: "/terms/", kind: "static" },
-      { id: "accessibility", url: "/accessibility/", kind: "static" },
-      { id: "testflight", url: "/testflight/", kind: "static" }
+      { id: "privacy", url: "/privacy/", md: "/privacy/index.md", kind: "static" },
+      { id: "support", url: "/support/", md: "/support/index.md", kind: "static" },
+      { id: "terms", url: "/terms/", md: "/terms/index.md", kind: "static" },
+      { id: "accessibility", url: "/accessibility/", md: "/accessibility/index.md", kind: "static" },
+      { id: "testflight", url: "/testflight/", md: "/testflight/index.md", kind: "static" }
     ],
-    auth: { public: true, notes: "No product account." },
+    auth: { public: true, notes: "Public discovery requires no account. Product account behavior is described in the privacy page and product boundaries." },
     product: {
       name: site.name,
       tagline: site.tagline,

@@ -4,6 +4,8 @@ export type Chapter = {
   copy: string;
   image: string;
   alt: string;
+  width?: number;
+  height?: number;
 };
 
 export type Faq = { question: string; answer: string };
@@ -40,15 +42,17 @@ export type SiteConfig = {
     inkOnAccent?: string;
   };
   colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string };
+  hero: { image: string; alt: string; caption: string; width?: number; height?: number };
   illustration?: { src: string; alt: string };
-  gallery: { src: string; alt: string }[];
+  gallery: { src: string; alt: string; width?: number; height?: number }[];
   applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store" | "web-app";
+  availability: "unreleased" | "testflight" | "app-store" | "web-app" | "successor";
   appStoreUrl?: string;
   appStoreId?: string;
   appUrl?: string;
   appCtaLabel?: string;
+  macDownloadUrl?: string;
+  macDownloadLabel?: string;
   betaNote: string;
   tension: { statement: string; title: string; copy: string };
   chaptersKicker: string;

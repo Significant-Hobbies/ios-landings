@@ -3,13 +3,13 @@ import type { SiteConfig } from "../../src/lib/types";
 export const site: SiteConfig = {
   name: "Calorie",
   url: "https://calorie.significanthobbies.com",
-  tagline: "A little log for feeling good.",
-  headline: ["A little log", "for feeling good."],
-  lede: "Log the bowl. See the timing. Food, water, medicine, and weight stay on your iPhone or iPad unless you choose private Cloudflare sync.",
-  kicker: "Private. Local-first.",
+  tagline: "A private food journal for weight loss.",
+  headline: ["A private food journal for weight loss", "with math you can inspect."],
+  lede: "Log meals, four nutrients, water, weight, and routines in seconds. See transparent fasting, exercise, and sleep estimates from your timestamps and targets.",
+  kicker: "Native food & body journal",
   summary:
-    "A private, local-first food, water, and weight journal with transparent timing guidance. Optional Google or Apple sign-in can add private Cloudflare sync.",
-  status: "Internal TestFlight beta. Not publicly distributed.",
+    "A private, local-first iPhone and iPad journal for food, four core nutrients, water, weight, routines, and transparent timing guidance. Optional Apple sign-in can add private Cloudflare sync.",
+  status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone", "iPad"],
   themeColor: "#47743a",
   mark: "/images/brand/mark.png",
@@ -47,32 +47,32 @@ export const site: SiteConfig = {
   availability: "unreleased",
   betaNote: "The native journal is available to invited internal testers. There is no public TestFlight or App Store link yet.",
   tension: {
-    statement: "A calorie total is not a day.",
-    title: "Show the working.",
-    copy: "Calorie turns four macros, water, medicine, and weight into timing you can check. It is not a coach and not medical advice."
+    statement: "A calorie total cannot explain your day.",
+    title: "Every estimate shows its inputs.",
+    copy: "Calorie uses food timestamps, four nutrients, water, routines, weight, and your own targets to estimate fasting, exercise, and sleep windows. The rules stay visible, and the result is never medical advice."
   },
-  chaptersKicker: "One quiet loop",
-  chaptersTitle: "Log it. See what the day is doing.",
-  chaptersLede: "Today, a fast log, and progress that does not scold.",
+  chaptersKicker: "One practical loop",
+  chaptersTitle: "Log the meal. See the timing. Keep the trend.",
+  chaptersLede: "Fast enough for the moment after eating; transparent enough to audit later.",
   chapters: [
     {
       name: "Today",
-      title: "The day is the product.",
-      copy: "Food, water, and medicine for this date. Timing estimates sit next to the inputs that made them.",
+      title: "See what today is doing.",
+      copy: "Food, four nutrients, water, routines, and weight share one daily view. Fasting, exercise, and sleep estimates sit beside the inputs and rules that produced them.",
       image: "/images/screens/today.png",
       alt: "Calorie Today"
     },
     {
       name: "Log",
-      title: "One hand, after lunch.",
-      copy: "A familiar food, a one-off, or a quick amount. The journal is built to be used immediately after eating.",
+      title: "Log a familiar meal in seconds.",
+      copy: "Reuse a saved food, add a one-off, choose an amount, and keep the real eating time. The journal is designed for one-handed logging immediately after a meal.",
       image: "/images/screens/quick-log.png",
       alt: "Calorie quick log"
     },
     {
       name: "Progress",
-      title: "Trends, not a verdict.",
-      copy: "Seven and thirty days, side by side, with the sample size visible. No streak scoreboard.",
+      title: "Compare seven and thirty days.",
+      copy: "Review intake, eating rhythm, timing, and weight with the sample size and missing days visible. Progress is context, not a streak or a moral score.",
       image: "/images/screens/progress.png",
       alt: "Calorie progress"
     }
@@ -80,13 +80,13 @@ export const site: SiteConfig = {
   fit: {
     kicker: "An honest fit",
     title: "A journal. Not a diet.",
-    yes: "Calorie may fit if you want a private iPhone or iPad log with timing you can audit.",
+    yes: "Calorie may fit if you are pursuing weight loss and want a private iPhone or iPad journal with fast logging and timing you can audit.",
     no: "It is not medical care, not a barcode scanner, and not a social feed. It will not prescribe a deficit."
   },
   privacy: {
     kicker: "Private by default",
     title: "The journal stays yours.",
-    copy: "The default journal lives on the device. Optional sign-in syncs a private copy to Cloudflare D1 that only you can read. This marketing page is static."
+    copy: "The default journal lives on the device and needs no account. Optional Sign in with Apple can keep a private, user-scoped copy in Cloudflare D1. This marketing page is static."
   },
   faqs: [
     {
@@ -104,19 +104,23 @@ export const site: SiteConfig = {
     {
       question: "Is the iPhone app on the App Store?",
       answer: "Not yet. This site will not show Apple’s badge until a live apps.apple.com listing exists."
+    },
+    {
+      question: "Is Calorie paid?",
+      answer: "There is no paid plan or checkout. Access is currently limited to invited internal TestFlight testers, and no permanent free or paid model has been announced."
     }
   ],
   founder: {
-    quote: "I wanted the next meal written down before I had to think, and the timing to show its work.",
+    quote: "I was trying to lose weight, so I built this.",
     credit: "— Sarthak Agrawal, creator of Calorie",
-    note: "An independent journal from Significant Hobbies."
+    note: "A simple personal tracker for food, fasting, exercise windows, and how each day went."
   },
-  closingTitle: ["Log the bowl.", "Keep it yours."],
-  footerFinePrint: "A food journal, not medical care. © 2026 Sarthak Agrawal.",
+  closingTitle: ["Log the meal.", "See the timing."],
+  footerFinePrint: "Private iPhone and iPad journal. Internal TestFlight only; no public invite, App Store listing, paid plan, or checkout. Timing estimates are informational, not medical advice. © 2026 Sarthak Agrawal.",
   capabilities: [
-    "Today: food, water, medicine, and timing for this date",
-    "Foods: reusable items per 100 g or per unit",
-    "Progress: 7- and 30-day trends without streak scoring"
+    "Today: food, calories, carbs, protein, fibre, water, routines, weight, and transparent timing for this date",
+    "Foods: fast one-off entries and reusable items per 100 g or per unit",
+    "Progress: visible-sample 7- and 30-day trends without streak scoring"
   ],
   boundaries: [
     "No social feed",
@@ -124,23 +128,47 @@ export const site: SiteConfig = {
     "Default data is local-first; optional private cloud sync",
     "No App Store listing yet"
   ],
-  lastUpdated: "2026-08-21",
+  agentFit: {
+    bestFit: [
+      "Understanding Calorie as a private native food and body journal",
+      "Checking how food timestamps and personal targets produce transparent fasting, exercise, and sleep estimates",
+      "Confirming current access, privacy, TestFlight, and non-medical boundaries"
+    ],
+    notAFit: [
+      "Medical, nutrition, or weight-loss prescriptions",
+      "Barcode scanning, social feeds, wearable sync, or workout programming",
+      "Public App Store or TestFlight installation links"
+    ]
+  },
+  lastUpdated: "2026-08-28",
   legal: {
     privacy: {
       title: "Your journal stays yours.",
       lede: "How Calorie handles local journal data, optional private cloud sync, and deletion.",
       sections: [
         {
-          title: "What the app stores",
-          body: "Foods, entries, water, medicine, weight, and profile fields you enter. The default journal is on the device. Optional signed-in mode stores a private copy in Cloudflare D1."
+          title: "The default journal stays on your device",
+          body: "Foods, entries, calories, carbs, protein, fibre, water, routine check-offs, weight, goals, and profile fields are stored locally on your iPhone or iPad. You can use the journal without creating an account."
         },
         {
-          title: "What we collect",
-          body: "Without an account, the developer does not receive your journal. Signed-in sync is scoped to your user. This marketing page does not run analytics."
+          title: "Optional private sync",
+          body: "If you choose Sign in with Apple, Calorie can keep a private, user-scoped copy in Cloudflare D1. The service verifies the native app identity and does not expose one person’s foods or entries to another person. Sync is optional and is not required to open or use the local journal."
+        },
+        {
+          title: "Account and service data",
+          body: "Signed-in mode stores the account identifier and service records needed for authentication, synchronization, reliability, and abuse prevention. The static marketing pages do not receive the contents of a local-only journal and do not run a product analytics script."
+        },
+        {
+          title: "Your controls",
+          body: "The native app includes local data export and deletion controls. Signing out does not silently delete a local journal. If you use sync, account and cloud-data deletion are handled through the app’s account controls or the support route. Exported files are your responsibility once they leave the app."
+        },
+        {
+          title: "Sensitive information and estimates",
+          body: "Calorie is a personal tracking tool, not medical care. Do not use it for diagnosis, treatment, dosage instructions, or emergencies. Timing and target estimates are derived from the information you enter and visible rules; they can be incomplete or wrong."
         },
         {
           title: "Effective date",
-          body: "Last updated 17 August 2026."
+          body: "Last updated 28 August 2026. Material privacy changes will be reflected on this page before a public App Store release."
         }
       ]
     },
@@ -151,6 +179,18 @@ export const site: SiteConfig = {
         {
           title: "What to include",
           body: "Say whether you were on Today, the log sheet, Foods, or Progress, and whether you were local-only or signed in. Do not send food logs with someone else’s private details."
+        },
+        {
+          title: "Before reporting a sync issue",
+          body: "Confirm that the local journal still opens, note whether Sign in with Apple succeeds, and say whether the issue affects one entry or the whole account. Do not delete local data as a troubleshooting step unless you already have an export you can verify."
+        },
+        {
+          title: "Current availability",
+          body: "Calorie is available only to invited internal TestFlight testers. There is no public TestFlight invitation, App Store listing, paid support plan, or guaranteed response time. The public roadmap is maintained in the Calorie GitHub repository."
+        },
+        {
+          title: "Safety boundary",
+          body: "Support can help with the software and your data controls. It cannot interpret symptoms, prescribe a diet, change medication guidance, or provide urgent medical help."
         }
       ]
     },
@@ -159,10 +199,22 @@ export const site: SiteConfig = {
       lede: "Personal use of the Calorie journal.",
       sections: [
         {
-          title: "Not medical care",
-          body: "Calorie records what you enter and shows estimates. It does not diagnose or treat."
+          title: "Personal tracking software",
+          body: "Calorie records information you choose to enter and presents calculations, trends, and timing estimates. You remain responsible for what you enter, how you interpret it, and any decisions you make outside the app."
         },
-        { title: "Changes", body: "Last updated 17 August 2026." }
+        {
+          title: "Not medical care",
+          body: "Calorie does not diagnose, treat, prescribe, or replace a qualified professional. Do not use it for emergencies, medication dosage, eating-disorder treatment, or clinical nutrition decisions."
+        },
+        {
+          title: "Availability and changes",
+          body: "The app is currently an internal TestFlight beta and may change, stop working, or lose beta access. There is no public distribution promise, paid plan, service-level commitment, or warranty that estimates will be complete or accurate."
+        },
+        {
+          title: "Your data",
+          body: "Keep an export if the journal matters to you. You must not use Calorie to access another person’s account or upload information you do not have permission to store. Optional sync remains subject to the privacy policy."
+        },
+        { title: "Changes", body: "Last updated 28 August 2026." }
       ]
     },
     accessibility: {
@@ -171,18 +223,35 @@ export const site: SiteConfig = {
       sections: [
         {
           title: "Current support",
-          body: "Native Dynamic Type, VoiceOver labels, comfortable touch targets, and status that does not rely on color alone."
+          body: "The native app supports Dynamic Type, VoiceOver labels and reading order, comfortable touch targets, keyboard-contained sheets, and status cues that do not rely on color alone."
+        },
+        {
+          title: "Motion, appearance, and charts",
+          body: "Calorie respects Reduce Motion and offers Light, Dark, and System appearance choices. Progress charts include textual context and visible sample counts so the result is not conveyed by a shape or color alone."
+        },
+        {
+          title: "Known scope",
+          body: "Accessibility is tested across the maintained iPhone and iPad experience, but the internal beta may still contain defects. Report the screen, text size, assistive technology, and action that failed through the support route without including private journal details."
         }
       ]
     },
     testflight: {
       title: "The native beta is private.",
       lede: "Calorie has an internal TestFlight build, but no public invitation link. This page will not invent one.",
-      testing: "Invited testers can log a familiar food on iPhone or iPad and confirm Today updates, first locally and then with optional sync.",
-      notIncluded: "A public TestFlight invitation, App Store listing, and barcode scanning are not in this beta.",
-      sections: []
+      testing: "Invited testers can complete onboarding, log a familiar food on iPhone or iPad, verify Today totals and timing, review Progress, and optionally confirm private Apple-sign-in sync without replacing the local journal.",
+      notIncluded: "A public TestFlight invitation, App Store listing, paid plan, barcode scanning, social feed, wearable sync, and medical guidance are not in this beta.",
+      sections: [
+        {
+          title: "Keep local data recoverable",
+          body: "Beta software can change. Use the native export before deleting the app, clearing data, or testing account reconciliation. Do not assume TestFlight installation alone backs up a local journal."
+        },
+        {
+          title: "Send bounded feedback",
+          body: "Report the screen, action, device class, and whether you were local-only or signed in. Avoid screenshots or exports containing food, weight, routine, or account details you do not want included in a bug report."
+        }
+      ]
     }
   },
-  requiredHomeCopy: ["A little log", "private", "journal"],
+  requiredHomeCopy: ["private food journal", "fasting", "exercise", "internal TestFlight"],
   prohibitedClaims: ["diagnose", "guaranteed", "available on the app store"]
 };

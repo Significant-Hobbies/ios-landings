@@ -10,10 +10,15 @@ const webApp = verifiedWebAppUrl();
 const page = site.legal.testflight;
 ---
 <LegalPage title={page.title} lede={page.lede} path="/testflight/">
-  {site.availability === "web-app" && webApp ? (
+  {site.availability === "successor" && webApp ? (
     <section>
-      <h2>Open the journal</h2>
-      <p>The live product is the web journal. <a href={webApp}>{site.appCtaLabel ?? "Open the app"}</a>.</p>
+      <h2>{site.appCtaLabel ?? "Continue with the maintained product"}</h2>
+      <p>This product is no longer released separately. <a href={webApp}>Open its maintained successor</a>.</p>
+    </section>
+  ) : site.availability === "web-app" && webApp ? (
+    <section>
+      <h2>{site.appCtaLabel ?? "Open the app"}</h2>
+      <p>The live product is available on the web. <a href={webApp}>{site.appCtaLabel ?? "Open the app"}</a>.</p>
     </section>
   ) : hasVerifiedBetaUrl ? (
     <section>

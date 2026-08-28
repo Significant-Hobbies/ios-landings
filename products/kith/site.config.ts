@@ -1,86 +1,16 @@
-export type Chapter = {
-  name: string;
-  title: string;
-  copy: string;
-  image: string;
-  alt: string;
-};
-
-export type Faq = { question: string; answer: string };
-export type LegalSection = { title: string; body: string };
-export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
-
-export type SiteConfig = {
-  name: string;
-  url: string;
-  tagline: string;
-  headline: [string, string];
-  lede: string;
-  kicker: string;
-  summary: string;
-  status: string;
-  platforms: string[];
-  themeColor: string;
-  mark: string;
-  socialImage: string;
-  tokens: {
-    paper: string;
-    field: string;
-    ink: string;
-    inkSoft: string;
-    inkFaint: string;
-    accent: string;
-    accentDark: string;
-    accentSoft: string;
-    lanternA: string;
-    lanternB: string;
-    lanternC: string;
-    blush: string;
-    inkOnDark: string;
-    inkOnAccent?: string;
-  };
-  colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string };
-  gallery: { src: string; alt: string }[];
-  applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store";
-  appStoreUrl?: string;
-  appStoreId?: string;
-  betaNote: string;
-  tension: { statement: string; title: string; copy: string };
-  chaptersKicker: string;
-  chaptersTitle: string;
-  chaptersLede: string;
-  chapters: Chapter[];
-  fit: { kicker: string; title: string; yes: string; no: string };
-  privacy: { kicker: string; title: string; copy: string };
-  faqs: Faq[];
-  founder: { quote: string; credit: string; note: string };
-  closingTitle: [string, string];
-  footerFinePrint: string;
-  capabilities: string[];
-  boundaries: string[];
-  lastUpdated: string;
-  legal: {
-    privacy: LegalPage;
-    support: LegalPage;
-    terms: LegalPage;
-    accessibility: LegalPage;
-    testflight: LegalPage & { testing: string; notIncluded: string };
-  };
-  requiredHomeCopy: string[];
-  prohibitedClaims: string[];
-};
+import type { SiteConfig } from "../../src/lib/types";
 
 export const site: SiteConfig = {
   name: "Kith",
   url: "https://kith.significanthobbies.com",
-  tagline: "The people you keep close.",
-  headline: ["The people", "you keep close."],
-  lede: "They float as lanterns. Closer people are larger. Tap someone and write down what just happened.",
-  kicker: "Private. On your iPhone.",
-  summary: "A private iPhone app for the people you want to stay close to. They float as bubbles sized by closeness, and each person has a dated log of hangouts, calls, gifts, and the small facts that make someone feel known.",
-  status: "Invite-only TestFlight beta preparation",
+  tagline: "Private notes for people you keep close.",
+  headline: ["Remember the people", "you want to stay close to."],
+  lede:
+    "Kith gives each person a place for how you met, what matters now, and the dated moments you do not want to forget—without turning care into a CRM.",
+  kicker: "A private relationship-memory app for iPhone",
+  summary:
+    "A device-first iPhone app where explicit closeness shapes a warm constellation, and each person has standing notes and a chronological memory log.",
+  status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#f4e6d4",
   mark: "/images/brand/mark.png",
@@ -99,191 +29,261 @@ export const site: SiteConfig = {
     lanternC: "#e0b04a",
     blush: "#f3ddd0",
     inkOnDark: "#fff6ea",
-    inkOnAccent: "#fff6ea"
+    inkOnAccent: "#fff6ea",
   },
   colorScheme: "light",
   hero: {
     image: "/images/screens/constellation.webp",
-    alt: "Kith’s constellation of people as warm lanterns of different sizes",
-    caption: "Closer people take more space. Size is something you set."
+    alt: "Kith on iPhone showing a warm constellation of five people sized by chosen closeness",
+    caption: "Closer people take more space because you set their closeness. Kith never infers it.",
+    width: 603,
+    height: 1311,
   },
   gallery: [
-    { src: "/images/screens/constellation.webp", alt: "Kith constellation of people as warm lanterns" },
-    { src: "/images/screens/person.webp", alt: "Kith person page with standing notes and a hangout log" }
+    {
+      src: "/images/screens/constellation.webp",
+      alt: "Kith constellation with search, list view, and people sized by explicit closeness",
+      width: 603,
+      height: 1311,
+    },
+    {
+      src: "/images/screens/person.webp",
+      alt: "Kith person page with how-you-met context, standing notes, birthday, and dated memories",
+      width: 603,
+      height: 1311,
+    },
+    {
+      src: "/images/screens/onboarding.webp",
+      alt: "Kith onboarding for adding one real person and choosing closeness without inference",
+      width: 603,
+      height: 1311,
+    },
   ],
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
-  betaNote: "Invite-only iPhone testing. No account. Notes stay on your phone and, if you want, your iCloud.",
+  betaNote:
+    "Version 1.0.0 build 3 is the latest build verified as processed and assigned to the owner's internal Personal Testing group. Current source is build 7; there is no public enrollment link.",
   tension: {
-    statement: "A contact list is not a relationship.",
-    title: "No pipeline. No score.",
-    copy: "Kith is for the people you already care about. Closeness is a choice you make, not a number the app infers from how often you text."
+    statement: "A name in a phone is not the context of a relationship.",
+    title: "Keep what helps you show up well.",
+    copy: "Kith holds how you met, a birthday, standing notes, and the dated calls, dinners, gifts, milestones, and small facts you would otherwise trust yourself to remember. It does not rank attention or turn people into work.",
   },
-  chaptersKicker: "One quiet loop",
-  chaptersTitle: "See them. Write it down.",
-  chaptersLede: "Open the field, tap someone, leave a few words. That is the whole product.",
+  chaptersKicker: "One thoughtful loop",
+  chaptersTitle: "See them. Remember. Add the moment.",
+  chaptersLede:
+    "The constellation is orientation, not a score. Open one person, recover the useful context, write a short dated note, and leave.",
   chapters: [
     {
-      name: "Field",
-      title: "See who is close.",
-      copy: "People you add float as lanterns. Family and close friends sit larger than a colleague you barely know.",
+      name: "Constellation",
+      title: "See closeness the way you chose it.",
+      copy: "Every person becomes a warm lantern. Its size comes only from the 1–5 closeness value you set—not recency, message volume, circle, or an algorithm. Searchable list view remains available for speed and VoiceOver.",
       image: "/images/screens/constellation.webp",
-      alt: "Kith home screen with floating people of different sizes"
+      alt: "Kith home with warm lanterns sized by the user's explicit closeness values",
+      width: 603,
+      height: 1311,
     },
     {
       name: "Person",
-      title: "Keep the facts that matter.",
-      copy: "How you met, a birthday, the thing they always order. A dated log of hangouts, calls, gifts, and notes to remember.",
+      title: "Keep the context that makes care specific.",
+      copy: "A person can hold their circle, birthday, how you met, standing notes, and a chronological log. Each dated entry stays a note, hangout, call, message, gift, milestone, or something to remember.",
       image: "/images/screens/person.webp",
-      alt: "Kith person page for Maya with standing notes and a hangout log"
-    }
+      alt: "Kith person page with standing context and a chronological dated log",
+      width: 603,
+      height: 1311,
+    },
+    {
+      name: "Begin",
+      title: "Start with one real person, not an import.",
+      copy: "First-run onboarding asks for a name, the circle and closeness you choose, and one thing worth remembering. It writes through the same local person and log services used by the rest of the app.",
+      image: "/images/screens/onboarding.webp",
+      alt: "Kith first-run flow asking for one real person and a chosen closeness",
+      width: 603,
+      height: 1311,
+    },
   ],
   fit: {
     kicker: "An honest fit",
-    title: "Made for remembering people. Not managing them.",
-    yes: "Kith may fit if you want a warm, private place to remember dinners, calls, and the details that make someone feel known.",
-    no: "It is not a CRM, not a contact book, and not a social network. There are no reminders-as-a-product, no imported address book, and no public graph."
+    title: "For tending a few relationships. Not managing a database.",
+    yes: "Kith may fit if you want to retain the small facts and dated moments that help you be more thoughtful with family, close friends, and other people who matter.",
+    no: "It is not a contact book, social network, sales pipeline, messaging app, attention score, or reminder-notification product. It does not import your address book or infer who deserves care.",
   },
   privacy: {
-    kicker: "Private by default",
-    title: "Your people stay yours.",
-    copy: "There is no Kith account and no Kith server. Notes live on the phone. When you are signed into iCloud, they can also sit in your private CloudKit database on your personal Apple team."
+    kicker: "Useful before sign-in",
+    title: "The iPhone remains the working copy.",
+    copy: "Every edit lands first in one local JSON document and remains usable offline. A private CloudKit mirror stays available during the transition. If you choose a Significant Hobbies account with Apple or Google, structured people and dated notes also synchronize through the private Hub; sign-in never blocks local use.",
   },
   faqs: [
     {
       question: "Do I need an account?",
-      answer: "No. Kith does not have accounts. The core app works on the phone. iCloud is optional and uses your Apple ID, not a Kith login."
+      answer:
+        "No. Adding people, setting closeness, searching, opening a person, and writing dated notes work from the local iPhone document. A Significant Hobbies account is optional and adds private Hub synchronization.",
     },
     {
-      question: "Where is my data stored?",
-      answer: "In a local JSON document on the iPhone. Signed builds may also mirror that document to your private iCloud database. The developer cannot read it."
+      question: "What is stored where?",
+      answer:
+        "The iPhone holds the immediate full document. A private CloudKit mirror remains enabled during the sync transition. If you connect the optional account, Kith synchronizes structured person fields and dated interaction records through the private Significant Hobbies Hub, while preserving the local working copy and durable waiting changes.",
     },
     {
-      question: "Will it import my contacts?",
-      answer: "No. You add people yourself. That is the point."
+      question: "Does Kith decide who I am closest to?",
+      answer:
+        "No. Closeness is an explicit value from 1 to 5 that you set. Bubble size reflects that value only; Kith does not infer it from note recency, log volume, messages, or circle.",
     },
     {
-      question: "Can I join now?",
-      answer: "Invite-only TestFlight is being prepared. The verified Apple link will appear on the TestFlight page when it exists. This site will not invent one."
-    }
+      question: "Will it import my contacts or remind me to message people?",
+      answer:
+        "No. You add people deliberately. Contact-book import, messaging, photos, and notification reminders are not in the current product.",
+    },
+    {
+      question: "Can I download or pay for Kith?",
+      answer:
+        "Not publicly. Kith is in internal TestFlight with no public invitation, App Store listing, paid plan, subscription, or checkout. No permanent free or paid model has been announced.",
+    },
   ],
   founder: {
-    quote: "I wanted to remember people without turning them into a spreadsheet.",
+    quote: "I wanted a beautiful personal relationship-memory app that helps me stay more thoughtful about the people in my life.",
     credit: "— Sarthak Agrawal, creator of Kith",
-    note: "Kith is an independent app from Significant Hobbies. The word is the old one for the people around you."
+    note: "Kith is being shaped through real personal use, with closeness kept explicit and private context kept useful.",
   },
-  closingTitle: ["Keep them close.", "Write what happened."],
-  footerFinePrint: "A private relationship log, not a CRM. © 2026 Sarthak Agrawal.",
+  closingTitle: ["Remember what mattered.", "Show up with the context."],
+  footerFinePrint:
+    "Private, device-first iPhone relationship-memory app. Internal TestFlight only; no public invite, App Store listing, paid plan, subscription, or checkout. © 2026 Sarthak Agrawal.",
   capabilities: [
-    "Field: a floating constellation sized by explicit closeness",
-    "Person: standing notes, birthday, how you met",
-    "Log: hangout, call, message, gift, milestone, remember"
+    "Warm constellation sized only by explicit 1–5 closeness",
+    "Searchable list and a person page with standing context",
+    "Chronological dated notes across seven concrete memory kinds",
+    "Offline local document, transition CloudKit mirror, and optional private Hub sync",
   ],
   boundaries: [
-    "No Kith account",
-    "No advertising, cross-app tracking, or third-party analytics",
-    "No contact-book import",
-    "Not a CRM or social network",
-    "Core data is local-first; signed builds may use private iCloud storage"
+    "No contact-book import, messaging, photos, or reminder notifications",
+    "No inferred closeness, attention score, social graph, or public profile",
+    "Optional account sync never replaces or blocks the local working copy",
+    "No public TestFlight invitation or App Store release",
+    "Current source targets iPhone and does not claim an iPad or web client",
   ],
-  lastUpdated: "2026-08-17",
+  agentFit: {
+    bestFit: [
+      "Explaining Kith as a private native iPhone memory app for people, chosen closeness, standing context, and dated moments",
+      "Understanding its local JSON working copy, transition CloudKit mirror, optional Significant Hobbies Hub sync, and offline behavior",
+      "Checking current internal TestFlight access or the boundary between intentional relationship memory and CRM-style automation",
+    ],
+    notAFit: [
+      "Claiming Kith imports contacts, infers closeness, scores relationship health, sends reminders, messages people, or creates a social graph",
+      "Claiming a public TestFlight, App Store release, web client, iPad app, payment plan, subscription, or permanent free access",
+      "Treating the optional Significant Hobbies account as mandatory or describing Hub synchronization as the only copy of the user's data",
+    ],
+  },
+  lastUpdated: "2026-08-28",
   legal: {
     privacy: {
-      title: "Your people stay yours.",
-      lede: "Kith is a private, local-first iPhone app. This policy explains the current build in plain language.",
+      title: "The people and notes stay private.",
+      lede: "How Kith separates the immediate iPhone document, transition CloudKit mirror, and optional Significant Hobbies Hub copy.",
       sections: [
         {
-          title: "What the app stores",
-          body: "Kith stores the people you add and the notes you write, using Apple’s app storage. Signed builds may synchronize that private document through your iCloud account on the personal Apple team that signs the app."
+          title: "The local working copy",
+          body: "Kith stores the people you add, explicit closeness, circle, birthday, how-you-met context, standing notes, colours, and dated log entries in one local JSON document. The app reads and writes that document first and remains useful offline.",
         },
         {
-          title: "What we collect",
-          body: "Kith does not operate an account system, advertising SDK, cross-app tracking, or third-party analytics. The developer does not receive your people, notes, or history."
+          title: "CloudKit during transition",
+          body: "Signed builds may mirror the full Kith document through the private CloudKit container associated with the user's iCloud account. This mirror remains available as migration rollback while the shared Hub path is validated.",
         },
         {
-          title: "Apple services and TestFlight",
-          body: "When you install a beta through TestFlight, Apple may process beta diagnostics and feedback under Apple’s own terms. Optional iCloud mirroring uses your Apple ID and private CloudKit database."
+          title: "Optional private Hub synchronization",
+          body: "If you connect a Significant Hobbies account with Apple or Google, Kith synchronizes structured person fields and dated interaction records through the private Cloudflare Hub. Authentication and a successful sync are shown separately; offline or service failures leave local edits usable and retain waiting changes for retry.",
         },
         {
-          title: "Retention and deletion",
-          body: "Your data remains until you remove a person or delete the app. There is no Kith account or developer-operated profile server to delete."
+          title: "No advertising profile",
+          body: "The native app uses no advertising, IDFA, third-party analytics SDK, contact-book import, or cross-app tracking. Apple, Google, Cloudflare, TestFlight, and the static marketing site may process service-level data under their own policies.",
         },
         {
-          title: "Changes and contact",
-          body: "If a future version adds a server or an account, this policy will be updated before that version is distributed. Questions can be sent through the support page."
+          title: "Deletion and care",
+          body: "Removing a person also removes that person's notes from the local document. Because Kith is beta software with more than one private copy during transition, keep independent notes for information you cannot afford to lose and avoid including other people's private details in support screenshots.",
         },
-        { title: "Effective date", body: "Last updated 17 August 2026." }
-      ]
+        { title: "Effective date", body: "Last updated 28 August 2026." },
+      ],
     },
     support: {
-      title: "Support, without a maze.",
-      lede: "Kith is in an early, invite-only TestFlight beta. Here is the fastest way to report a problem.",
+      title: "Support, without exposing someone else's story.",
+      lede: "Report the behavior, build, and sync state—not the private note itself.",
       sections: [
         {
-          title: "Before reporting a problem",
-          body: "Confirm that you are using the newest TestFlight build, then relaunch Kith once. If a visual detail looks wrong, say whether Larger Text, VoiceOver, or Reduce Motion is on."
+          title: "Send useful context",
+          body: "Use TestFlight's Send Beta Feedback action. Name the screen, action, current build, whether you were offline, and whether the Connection screen showed signed in, syncing, waiting changes, a last success, or an error. Replace names and note text with neutral examples.",
         },
         {
-          title: "What to include",
-          body: "Tell us whether you were in the constellation, a person page, or the add-person sheet, what you expected, and what happened instead. Do not include other people’s private notes in screenshots."
+          title: "Protect the local copy",
+          body: "Do not remove a person, delete the app, or clear device data as a first troubleshooting step. A failed CloudKit or Hub sync should not stop local use; record the visible recovery guidance and try Sync now after connectivity returns.",
         },
         {
-          title: "Send feedback",
-          body: "Use TestFlight’s Send Beta Feedback action. It keeps feedback tied to the exact beta build."
-        }
-      ]
+          title: "Current availability",
+          body: "Kith is available only to internal TestFlight testers. There is no public invitation, App Store listing, paid support plan, or guaranteed response time. Public work remains tracked in the GitHub repository.",
+        },
+      ],
     },
     terms: {
       title: "Simple beta terms.",
-      lede: "These terms apply to the invite-only Kith TestFlight beta. By installing the beta, you agree to use it as pre-release software.",
+      lede: "Personal evaluation of a private, device-first relationship-memory app.",
       sections: [
         {
+          title: "Your content and judgment",
+          body: "The people and notes you add remain your responsibility. Kith helps you remember context; it does not verify a memory, judge a relationship, decide who deserves attention, or act on your behalf.",
+        },
+        {
           title: "Beta software",
-          body: "Kith is under active development. Features may change, data may need to be reset between builds, and the beta may contain defects. Keep anything you cannot afford to lose somewhere else."
+          body: "The app is an internal TestFlight beta and may change, stop working, or lose beta access. Keep information you cannot afford to lose somewhere you independently control.",
         },
         {
           title: "Personal use",
-          body: "You may use the beta for personal evaluation through Apple TestFlight. Do not redistribute the app."
+          body: "You may use the beta for personal evaluation through Apple TestFlight. Do not redistribute the app or use it as a professional CRM, safety system, or source of automated relationship decisions.",
         },
-        {
-          title: "Your content",
-          body: "Your notes remain yours. The current app stores them locally and may mirror them to your private iCloud database. The developer does not receive a server-side copy."
-        },
-        {
-          title: "Apple terms",
-          body: "Your access to the beta is also governed by the agreements that apply to Apple TestFlight and your Apple account."
-        },
-        { title: "Changes", body: "Last updated 17 August 2026." }
-      ]
+        { title: "Changes", body: "Last updated 28 August 2026." },
+      ],
     },
     accessibility: {
-      title: "Access is part of the experience.",
-      lede: "Kith is being built with Apple’s native accessibility tools, not as a separate mode.",
+      title: "Closeness is never colour alone.",
+      lede: "The constellation has a searchable alternative and the important relationship fields remain named in text.",
       sections: [
         {
           title: "Current support",
-          body: "The constellation lanterns have spoken names, closeness, and circle. Reduce Motion freezes the field. A list with search exists for finding someone quickly and for VoiceOver."
+          body: "Lanterns expose spoken names, circle, and closeness; the searchable list provides a direct alternative to the spatial field. Closeness is represented by a numeric value and size as well as colour. Native controls, Dynamic Type, and semantic labels support the principal flows.",
         },
         {
-          title: "What we test",
-          body: "We test the principal flows in the iOS Simulator, including reduced motion. TestFlight feedback is especially useful for combinations of settings we have not run."
+          title: "Motion",
+          body: "Reduce Motion freezes the constellation rather than removing its people or hierarchy. The app remains usable through the static field and searchable list.",
         },
         {
           title: "Report a barrier",
-          body: "Use TestFlight’s Send Beta Feedback action and begin the message with Accessibility. Include the screen and intended action. Please omit other people’s notes from screenshots."
-        }
-      ]
+          body: "Use TestFlight feedback and begin the message with Accessibility. Include the screen, text size or assistive technology, and intended action, while omitting real names and private notes from screenshots.",
+        },
+      ],
     },
     testflight: {
-      title: "The beta is taking shape.",
-      lede: "Kith is moving through invite-only TestFlight testing. We will only link to Apple after the enrollment URL is verified.",
-      testing: "Add someone, set closeness, open their lantern, and write a short hangout or remember note. Confirm the note is still there after relaunching.",
-      notIncluded: "Contact import, photos, and reminder notifications are not in this beta.",
-      sections: []
-    }
+      title: "Internal TestFlight is active.",
+      lede: "Build 1.0.0 (3) is the latest build verified as processed and assigned to internal Personal Testing; current source is build 7 and has no public enrollment link.",
+      testing:
+        "Add one real person, choose circle and closeness, write a dated memory, relaunch, search in list view, inspect the Connection state, and verify that a failed network path does not prevent local use.",
+      notIncluded:
+        "A public invitation, App Store listing, iPad or web client, contact import, messaging, photos, reminder notifications, inferred closeness, paid plan, or checkout is not available.",
+      sections: [],
+    },
   },
-  requiredHomeCopy: ["The people", "lanterns", "private", "TestFlight"],
-  prohibitedClaims: ["guaranteed", "import your contacts"]
+  requiredHomeCopy: [
+    "closeness",
+    "private",
+    "Internal TestFlight",
+    "No public invite",
+    "Significant Hobbies account",
+    "local JSON document",
+  ],
+  prohibitedClaims: [
+    "No Kith account",
+    "invite-only TestFlight beta preparation",
+    "available on the app store",
+    "public TestFlight",
+    "Kith web app",
+    "Kith for iPad",
+    "automatically scores relationships",
+    "imports your contacts",
+  ],
 };
 
 export const links = {
@@ -292,5 +292,5 @@ export const links = {
   support: `${site.url}/support/`,
   terms: `${site.url}/terms/`,
   accessibility: `${site.url}/accessibility/`,
-  testflight: `${site.url}/testflight/`
+  testflight: `${site.url}/testflight/`,
 };

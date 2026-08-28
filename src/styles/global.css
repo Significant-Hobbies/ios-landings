@@ -74,6 +74,7 @@
   .site-header .shell { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
   .wordmark {
     display: inline-flex;
+    min-height: 44px;
     align-items: center;
     gap: 10px;
     font-family: var(--display);
@@ -114,7 +115,7 @@
   .site-footer { padding: 46px 0; border-top: 1px solid var(--line); background: var(--paper); }
   .site-footer .shell { display: flex; align-items: start; justify-content: space-between; gap: 30px; }
   .footer-links { display: flex; flex-wrap: wrap; justify-content: end; gap: 10px 22px; font-size: .88rem; }
-  .footer-links a { display: inline-flex; min-height: 44px; align-items: center; text-underline-offset: 3px; }
+  .footer-links a { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; text-underline-offset: 3px; }
   .fine-print { max-width: 58ch; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }
   .legal-main { padding: 128px 0 88px; }
   .legal-main h1 { max-width: 14ch; font-size: clamp(3rem, 8vw, 5.6rem); line-height: .94; letter-spacing: -.03em; }

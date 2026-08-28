@@ -10,7 +10,14 @@ const requiredFiles = [
   `${dist}/terms/index.html`,
   `${dist}/accessibility/index.html`,
   `${dist}/testflight/index.html`,
+  `${dist}/404.html`,
   `${dist}/index.md`,
+  `${dist}/privacy/index.md`,
+  `${dist}/support/index.md`,
+  `${dist}/terms/index.md`,
+  `${dist}/accessibility/index.md`,
+  `${dist}/testflight/index.md`,
+  `${dist}/404.md`,
   `${dist}/llms.txt`,
   `${dist}/api/ai`,
   `${dist}/openapi.json`,
@@ -28,6 +35,13 @@ if (!home.includes(name)) throw new Error(`${product}: landing does not name the
 const hasInstallCta = home.includes('class="button"') || home.includes('class="store-badge"');
 if (!hasInstallCta) {
   throw new Error(`${product}: landing is missing a gated install or journal CTA.`);
+}
+
+if (product === "anchor") {
+  await access(`${dist}/downloads/Anchor-1.0.dmg`);
+  if (!home.includes('href="https://anchor.significanthobbies.com/downloads/Anchor-1.0.dmg"')) {
+    throw new Error("anchor: landing is missing the verified notarized Mac download.");
+  }
 }
 
 for (const fragment of [
@@ -101,6 +115,17 @@ for (const href of localHrefs) {
 const markdown = await readFile(`${dist}/index.md`, "utf8");
 if (!markdown.startsWith(`# ${name}`)) {
   throw new Error(`${product}: index.md does not start with the product name.`);
+}
+
+for (const surface of ai.surfaces) {
+  if (!surface.url || !surface.md) {
+    throw new Error(`${product}: agent catalog surface ${surface.id ?? "unknown"} is missing url or md.`);
+  }
+  const markdownPath = `${dist}${surface.md}`;
+  const body = await readFile(markdownPath, "utf8");
+  if (!body.includes(name)) {
+    throw new Error(`${product}: ${surface.md} does not identify ${name}.`);
+  }
 }
 
 const others = [

@@ -3,6 +3,7 @@
   "version": 1,
   "project": "ios-landings",
   "target": "Shared Significant Hobbies product landing template",
+  "surfaceMode": "persuade",
   "mode": "overhaul",
   "register": "product",
   "context": {
@@ -16,35 +17,49 @@
       "Things first-party cross-device product presentation"
     ],
     "probes": [],
-    "selected": "",
-    "approval": "pending",
-    "before": "artifacts/design/after-1440.png"
+    "selected": "editorial-sketchbook-day-doodle",
+    "approval": "agent-selected",
+    "before": "artifacts/design/after-1440.png",
+    "contract": {
+      "purpose": "Help a visitor decide whether one Significant Hobbies app fits them, see real product evidence, understand its privacy boundary, and reach the honest install path.",
+      "purposeSource": "PRODUCT.md and site-health publicDirectory.projects.anchor.purposeContract",
+      "canonicalPurpose": "Anchor helps a person plan a realistic day, follow the current intention, and learn why the day lived differed from the day planned.",
+      "purposeAlignment": "match",
+      "driftNote": "",
+      "audience": "A person moving between Mac, iPhone, and Apple Watch who wants a deliberate day rather than another task list.",
+      "job": "Understand Anchor's plan, focus, interruption, and review loop; verify its privacy promise; and check the truthful beta path.",
+      "thesis": "A quiet editorial sketchbook makes Anchor's real plan-to-review loop feel authored without competing with product proof.",
+      "system": "Dark paper and charcoal fields, cobalt focus actions, cyan annotations, real native captures, rounded display type, fine rules, and one hand-drawn planning scene.",
+      "signature": "A day-planning doodle frames the real Anchor screen, then the page follows the same plan, focus, capture, and history sequence as the app.",
+      "risk": "The long proof sequence can become repetitive on mobile, so captions and a visible first-viewport product screen must carry recognition without relying on decoration."
+    }
   },
   "evidence": {
     "screenshots": [
       {
         "width": 390,
-        "path": "artifacts/design/after-390.png"
+        "path": "artifacts/design/anchor-final-390.png"
       },
       {
         "width": 768,
-        "path": "artifacts/design/after-768.png"
+        "path": "artifacts/design/anchor-final-768.png"
       },
       {
         "width": 1440,
-        "path": "artifacts/design/after-1440.png"
+        "path": "artifacts/design/anchor-final-1440.png"
       }
     ],
     "projectCheck": {
-      "command": "replace-with-project-check",
-      "status": "pending"
+      "command": "pnpm check",
+      "status": "pass",
+      "note": "All eight products build with 0 Astro errors or warnings and pass 12 required public-surface checks. Fresh Anchor renders at 390, 768, and 1440 pixels show the real Today day plan in the hero and the Plan to Focus to Capture to History sequence; browser measurements found zero horizontal overflow and zero console errors at all three widths."
     },
     "critique": {
-      "score": 0,
+      "score": 33,
       "maximum": 40
     },
     "audit": {
-      "score": 0,
+      "score": 18,
       "maximum": 20
     },
     "unresolved": {
@@ -53,11 +68,36 @@
     },
     "detector": {
       "posture": "advisory",
-      "findings": []
+      "findings": [
+        "Static detector: 0 findings; runtime palette, eyebrow, heading-size, repeated-kicker, quote-leading, glow, and grid warnings were reviewed as advisory design-context findings.",
+        "Residual P2: the mobile proof sequence remains long and repeats Focus, Capture, and History after the captioned gallery."
+      ]
+    },
+    "comprehension": {
+      "status": "pass",
+      "reviewer": "Independent fresh-visitor review by Parfit, cross-checked against Harvey's browser measurements",
+      "answers": {
+        "product": "Anchor is a private day planner and focus timer for Mac, iPhone, and Apple Watch.",
+        "audience": "It is for someone who wants to plan a deliberate day across Apple devices and understand why reality diverged.",
+        "value": "It protects the current intention while preserving useful, non-moralizing evidence about interruptions and plan changes.",
+        "mechanism": "The page demonstrates the loop from planning to focus, interruption capture, and planned-versus-lived History.",
+        "proof": "Real Anchor captures, explicit privacy copy, fit boundaries, and honest beta status substantiate the claims.",
+        "nextAction": "Use See TestFlight status to check the gated beta path without implying a public build exists."
+      },
+      "purposeScore": {
+        "product": 25,
+        "audience": 14,
+        "value": 15,
+        "mechanism": 15,
+        "proof": 14,
+        "nextAction": 13,
+        "total": 96
+      },
+      "mismatches": []
     }
   },
   "ownerFeedback": {
-    "decision": "pending",
-    "note": ""
+    "decision": "approved-for-release",
+    "note": "The operator explicitly approved pushing and releasing the completed work on 28 August 2026."
   }
 }
