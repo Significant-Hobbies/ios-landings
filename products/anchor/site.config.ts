@@ -54,7 +54,7 @@ export const site: SiteConfig = {
   availability: "unreleased",
   macDownloadUrl: "https://anchor.significanthobbies.com/downloads/Anchor-1.0.dmg",
   macDownloadLabel: "Download notarized Mac beta",
-  betaNote: "Build 18 is available as a notarized Mac beta and through invite-only TestFlight. It is also waiting for App Review, but there is no public App Store listing yet. Distraction notes never enter the Hub, analytics, telemetry, or a cloud model.",
+  betaNote: "Build 18 is available as a notarized Mac beta and through invite-only TestFlight. The first App Store submission is still waiting for review, but there is no public listing yet. Distraction notes never enter the Hub, analytics, telemetry, or a cloud model.",
   tension: { statement: "A plan is only useful if it can survive reality.", title: "The gap is the useful part.", copy: "Anchor schedules the day, protects the current block, captures what changed, and gives that evidence back when you plan tomorrow." },
   chaptersKicker: "One daily loop",
   chaptersTitle: "Plan it. Live it. Learn.",
