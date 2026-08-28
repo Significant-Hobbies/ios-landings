@@ -29,14 +29,17 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
-- 2026-08-28 — Prepared the proof-led shared landing overhaul across all eight
+- 2026-08-28 — Released the proof-led shared landing overhaul across all eight
   product builds. The engine now produces HTML and Markdown versions of every
   public surface, stronger agent metadata, explicit maintained-successor CTAs,
   real product evidence, and refreshed Anchor, Calorie, Journal, Kith, and
   Setline presentations. `pnpm check` passes with zero Astro diagnostics and all
-  required routes for every product. Anchor now includes the exact Apple-
-  notarized 1.0 (14) Mac beta and a same-origin download gate; this source has
-  not yet been deployed.
+  required routes for every product. Exact-source CI passed for `4766470`.
+  Anchor Pages deployment `07b153d3` is live on the custom domain with the exact
+  Apple-notarized 1.0 (14) Mac beta and a same-origin download gate. A fresh
+  public download returned 20,470,704 bytes with SHA-256
+  `ad7cccda712aa6eb05306868fe224d428e3e5b7ab5ba68bee5a87f7aa4d13b8f`,
+  byte-for-byte matching the stapled release artifact.
 
 - 2026-08-24 — Changed the Habits and Indulge source trees into explicit
   compatibility pages after Anchor became their maintained successor. Both now
