@@ -29,6 +29,15 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-08-28 — Published Anchor `1.0 (17)` from isolated release commit
+  `b010889` and deployed that exact source to the `anchor-landing-ejy` Pages
+  project. The custom domain and download both return 200. The fresh public DMG
+  is 20,473,219 bytes with SHA-256
+  `dcab7bbf132ad1b7d40e96284eacace97c46bfc8ea93d8af8b5fafc8e941bd5f`,
+  byte-for-byte matching the accepted, stapled, Gatekeeper-approved Developer ID
+  artifact. `PRODUCT=anchor pnpm check:one` passes with zero Astro diagnostics,
+  19 required surfaces, and eight checked links.
+
 - 2026-08-28 — Released the proof-led shared landing overhaul across all eight
   product builds. The engine now produces HTML and Markdown versions of every
   public surface, stronger agent metadata, explicit maintained-successor CTAs,
