@@ -41,7 +41,7 @@ export const site: SiteConfig = {
   status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#f7f6f0",
-  mark: "/images/brand/mark.png",
+  mark: "/images/brand/mark.webp",
   socialImage: "/images/brand/social.png",
   tokens: {
     paper: "#ffffff", field: "#f7f6f0", ink: "#18262e", inkSoft: "rgba(24,38,46,0.72)", inkFaint: "rgba(24,38,46,0.12)",

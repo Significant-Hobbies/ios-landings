@@ -13,7 +13,7 @@ export const site: SiteConfig = {
   status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#f4e6d4",
-  mark: "/images/brand/mark.png",
+  mark: "/images/brand/mark.webp",
   socialImage: "/images/brand/social.png",
   tokens: {
     paper: "#fff6ea",
@@ -142,7 +142,7 @@ export const site: SiteConfig = {
   founder: {
     quote: "I wanted a beautiful personal relationship-memory app that helps me stay more thoughtful about the people in my life.",
     credit: "— Sarthak Agrawal, creator of Kith",
-    note: "Kith is being shaped through real personal use, with closeness kept explicit and private context kept useful.",
+    note: "Real use decides what I add next. Closeness stays explicit, and the private context has to stay useful.",
   },
   closingTitle: ["Remember what mattered.", "Show up with the context."],
   footerFinePrint:

@@ -9,6 +9,7 @@ export type SiteConfig = {
   colorScheme: "light" | "dark";
   hero: { image: string; alt: string; caption: string };
   gallery: { src: string; alt: string }[];
+  galleryTitle?: [string, string];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store";
   appStoreUrl?: string; appStoreId?: string; betaNote: string;
@@ -29,10 +30,10 @@ export const site: SiteConfig = {
   url: "https://motion.significanthobbies.com",
   tagline: "Your body is the controller.",
   headline: ["Move.", "Play."],
-  lede: "An iPhone reads movement on-device and turns it into a game. Camera frames stay on the phone.",
-  kicker: "A body-controlled game experiment.",
-  summary: "Motion is an iPhone-hosted game experiment: on-device pose tracking turns movement into play and can mirror to a larger screen without uploading the camera stream.",
-  status: "Game experiment. Not listed on the App Store.",
+  lede: "A held iPhone prototype reads movement on-device and turns it into game input. Camera frames stay on the phone.",
+  kicker: "A held body-controlled game prototype.",
+  summary: "Motion is a held iPhone-hosted game prototype: on-device pose tracking turns movement into play and can mirror the rendered game to a larger screen without uploading camera frames.",
+  status: "Held internal prototype. No public TestFlight invite or App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#05070d",
   mark: "/images/brand/mark.png",
@@ -43,32 +44,33 @@ export const site: SiteConfig = {
     blush: "#111827", inkOnDark: "#e8eef7", inkOnAccent: "#05070d"
   },
   colorScheme: "dark",
-  hero: { image: "/images/screens/motion-maker-clean.jpg", alt: "Motion Maker on iPhone", caption: "The phone is the camera, the tracker, and the game." },
+  hero: { image: "/images/screens/motion-maker-clean.webp", alt: "Motion Maker running in the internal iPhone build", caption: "The phone tracks the body and renders the game. Only that rendered screen is mirrored to a TV." },
   gallery: [
-    { src: "/images/screens/motion-maker-clean.jpg", alt: "Motion Maker game on iPhone" }
+    { src: "/images/screens/motion-maker-clean.webp", alt: "Motion Maker running in the internal iPhone build" }
   ],
+  galleryTitle: ["A working build.", "An unproven control loop."],
   applicationCategory: "GameApplication",
   availability: "unreleased",
-  betaNote: "Physical-device validation is still open. No App Store badge until a live listing exists.",
-  tension: { statement: "Most motion games upload the room.", title: "The camera stays on the phone.", copy: "Vision runs on-device. The game can mirror to a TV. The stream does not go to us." },
+  betaNote: "The internal build runs on an iPhone, but physical control feel and fun remain unproven. Work is on hold until one control loop can be tested properly on a real device.",
+  tension: { statement: "The room should stay off a server.", title: "Camera frames stay on the phone.", copy: "Vision extracts pose on-device. Screen mirroring sends the rendered game to a TV; Motion does not upload the camera stream." },
   chaptersKicker: "One mechanic",
   chaptersTitle: "Move, and the game answers.",
   chaptersLede: "You should not need to understand pose estimation before it makes sense.",
   chapters: [
-    { name: "Play", title: "The body is the controller.", copy: "The iPhone reads pose locally and drives the game. A keyboard debug path exists for the web renderer, not as the product.", image: "/images/screens/motion-maker-clean.jpg", alt: "Motion Maker" }
+    { name: "Play", title: "The body is the controller.", copy: "The iPhone reads pose locally and drives the game. A keyboard debug path exists for the web renderer, not as the product.", image: "/images/screens/motion-maker-clean.webp", alt: "Motion Maker" }
   ],
-  fit: { kicker: "An honest fit", title: "An experiment, not a console.", yes: "Motion fits if you want to try a more physical way to play with a phone you already have.", no: "It is not a shipped App Store game, a wearable sensor kit, or a cloud camera service." },
+  fit: { kicker: "An honest fit", title: "A held prototype, not a console.", yes: "Motion is for iPhone owners interested in active, social play on a larger screen without buying a dedicated motion-console system—and who understand that the control loop is unfinished.", no: "It is not a public beta, a shipped App Store game, a wearable sensor kit, or a cloud camera service." },
   privacy: { kicker: "On the phone", title: "Frames do not leave the device.", copy: "Pose is extracted on-device. There is no Motion account and no uploaded camera stream." },
   faqs: [
     { question: "Does video go to a server?", answer: "No. Tracking runs on the iPhone. Mirroring uses the system screen, not our servers." },
     { question: "Is it on the App Store?", answer: "Not yet. This site will not show Apple’s App Store badge until a live apps.apple.com page exists." },
     { question: "Do I need extra hardware?", answer: "An iPhone. A TV is optional if you already know how to mirror a screen." }
   ],
-  founder: { quote: "I wanted the room to stay in the room.", credit: "— Sarthak Agrawal, creator of Motion", note: "An independent experiment from Significant Hobbies." },
+  founder: { quote: "I wanted the room to stay in the room.", credit: "— Sarthak Agrawal, creator of Motion", note: "A held independent prototype from Significant Hobbies." },
   closingTitle: ["Move.", "Keep the camera."],
-  footerFinePrint: "A game experiment, not a console. © 2026 Sarthak Agrawal.",
+  footerFinePrint: "A held internal game prototype, not a public beta or console. © 2026 Sarthak Agrawal.",
   capabilities: ["On-device pose tracking", "Phone-hosted game", "Optional screen mirroring"],
-  boundaries: ["No Motion account", "No uploaded camera stream", "Not listed on the App Store", "Physical-device validation still open"],
+  boundaries: ["No Motion account", "No uploaded camera stream", "No public TestFlight invite or App Store listing", "Physical-device control feel and fun remain unproven"],
   agentFit: {
     bestFit: [
       "body-controlled games where an iPhone reads movement on-device and turns it into game input",

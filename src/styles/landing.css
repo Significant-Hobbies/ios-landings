@@ -236,6 +236,33 @@ blockquote { max-width: 17ch; font-family: var(--display); font-size: clamp(2.2r
 .closing .store-badge { margin-top: 28px; }
 .closing-download { margin-top: 18px; }
 
+/* Anchor's trust and resolution sections need distinct jobs, not one long dark run. */
+html[data-product="anchor"] .fit-section {
+  background:
+    linear-gradient(115deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 48%),
+    var(--paper);
+}
+html[data-product="anchor"] .privacy-section {
+  border-block: 1px solid color-mix(in srgb, var(--accent-soft) 18%, transparent);
+  background:
+    radial-gradient(circle at 12% 50%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 35%),
+    var(--field);
+}
+html[data-product="anchor"] .founder-note {
+  padding-block: 72px;
+  border-block: 1px solid var(--line);
+  background: color-mix(in srgb, var(--field) 72%, var(--paper));
+}
+html[data-product="anchor"] .closing {
+  background:
+    radial-gradient(circle at 82% 36%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 34%),
+    linear-gradient(135deg, var(--paper), var(--field));
+}
+
+@media (max-width: 699px) {
+  html[data-product="anchor"] .chapter .device.chapter { width: min(78vw, 280px); }
+}
+
 @media (min-width: 700px) {
   .hero { padding-top: 138px; }
   .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(300px, .72fr); gap: 54px; align-items: end; }
@@ -269,6 +296,10 @@ blockquote { max-width: 17ch; font-family: var(--display); font-size: clamp(2.2r
   .hero-actions { flex-direction: row; align-items: center; gap: 12px 20px; }
   .hero-actions .button { width: auto; }
   .hero-actions .text-link { justify-content: flex-start; }
+}
+
+@media (min-width: 700px) and (max-width: 899px) {
+  .fit-grid { grid-template-columns: 1fr; gap: 42px; }
 }
 
 @media (min-width: 1080px) {

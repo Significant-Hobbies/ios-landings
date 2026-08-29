@@ -45,6 +45,7 @@ export type SiteConfig = {
   hero: { image: string; alt: string; caption: string; width?: number; height?: number };
   illustration?: { src: string; alt: string };
   gallery: { src: string; alt: string; width?: number; height?: number }[];
+  galleryTitle?: [string, string];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store" | "web-app" | "successor";
   appStoreUrl?: string;

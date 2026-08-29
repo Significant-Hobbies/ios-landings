@@ -32,16 +32,16 @@ export const site: SiteConfig = {
   },
   colorScheme: "light",
   hero: {
-    image: "/images/screens/today.png",
+    image: "/images/screens/today.webp",
     alt: "Calorie Today on iPhone, with the day’s log and timing guidance",
     caption: "Log what you ate. The timing is just math you can see."
   },
   gallery: [
-    { src: "/images/screens/today.png", alt: "Calorie Today" },
-    { src: "/images/screens/quick-log.png", alt: "Calorie quick log" },
-    { src: "/images/screens/foods.png", alt: "Calorie foods" },
-    { src: "/images/screens/progress.png", alt: "Calorie progress" },
-    { src: "/images/screens/you.png", alt: "Calorie You settings" }
+    { src: "/images/screens/today.webp", alt: "Calorie Today" },
+    { src: "/images/screens/quick-log.webp", alt: "Calorie quick log" },
+    { src: "/images/screens/foods.webp", alt: "Calorie foods" },
+    { src: "/images/screens/progress.webp", alt: "Calorie progress" },
+    { src: "/images/screens/you.webp", alt: "Calorie You settings" }
   ],
   applicationCategory: "HealthApplication",
   availability: "unreleased",
@@ -59,21 +59,21 @@ export const site: SiteConfig = {
       name: "Today",
       title: "See what today is doing.",
       copy: "Food, four nutrients, water, routines, and weight share one daily view. Fasting, exercise, and sleep estimates sit beside the inputs and rules that produced them.",
-      image: "/images/screens/today.png",
+      image: "/images/screens/today.webp",
       alt: "Calorie Today"
     },
     {
       name: "Log",
       title: "Log a familiar meal in seconds.",
       copy: "Reuse a saved food, add a one-off, choose an amount, and keep the real eating time. The journal is designed for one-handed logging immediately after a meal.",
-      image: "/images/screens/quick-log.png",
+      image: "/images/screens/quick-log.webp",
       alt: "Calorie quick log"
     },
     {
       name: "Progress",
       title: "Compare seven and thirty days.",
       copy: "Review intake, eating rhythm, timing, and weight with the sample size and missing days visible. Progress is context, not a streak or a moral score.",
-      image: "/images/screens/progress.png",
+      image: "/images/screens/progress.webp",
       alt: "Calorie progress"
     }
   ],

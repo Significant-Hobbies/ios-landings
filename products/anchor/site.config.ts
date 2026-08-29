@@ -28,7 +28,7 @@ export const site: SiteConfig = {
   url: "https://anchor.significanthobbies.com",
   tagline: "Plan the day. Protect the present. Learn what moved it.",
   headline: ["Plan the day.", "Learn what moved it."],
-  lede: "A private day planner and focus timer for Mac, iPhone and Apple Watch that compares the day you planned with the day you actually lived.",
+  lede: "A private day planner and focus timer for people moving between Mac, iPhone and Apple Watch who want to learn why the day they lived differed from the plan.",
   kicker: "Plan. Focus. Adapt.",
   summary: "A local-first day planner and focus timer for Mac, iPhone and Apple Watch that schedules the day, captures what pulled you away, and explains the gap between plan and reality.",
   status: "Invite-only TestFlight and notarized Mac beta",

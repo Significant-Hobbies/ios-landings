@@ -12,7 +12,7 @@ export const site: SiteConfig = {
   status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#8d70ad",
-  mark: "/images/brand/mark.png",
+  mark: "/images/brand/mark.webp",
   socialImage: "/images/brand/mark.png",
   tokens: {
     paper: "#faf8f1",
@@ -64,8 +64,8 @@ export const site: SiteConfig = {
     },
     {
       name: "Begin",
-      title: "Your first page is real, not a tutorial.",
-      copy: "Choose a writing invitation or start with a blank page. Saving during onboarding writes the entry into the same local archive the app uses every day.",
+      title: "Start with writing, not a tutorial.",
+      copy: "Pick a writing invitation or open a blank page. Your first save goes straight into the same local archive you use every day.",
       image: "/images/screens/writing.webp",
       alt: "Journal onboarding invitation for a first private entry",
     },
@@ -118,7 +118,7 @@ export const site: SiteConfig = {
   founder: {
     quote: "I wanted a journal that could become a durable habit and fit naturally inside the Hub.",
     credit: "— Sarthak Agrawal, creator of Journal",
-    note: "Features follow real writing practice; private ownership remains the boundary.",
+    note: "I add features after they prove useful in real writing. The words stay private.",
   },
   closingTitle: ["Write the honest page.", "Keep the archive yours."],
   footerFinePrint:

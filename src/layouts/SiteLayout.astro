@@ -13,8 +13,10 @@ interface Props {
   includeStructuredData?: boolean;
 }
 
+const productTitle = `${site.name} — ${site.tagline}`;
+const conciseProductTitle = `${site.name} — ${site.headline.join(" ")}`;
 const {
-  title = `${site.name} — ${site.tagline}`,
+  title = productTitle.length <= 60 ? productTitle : conciseProductTitle,
   description = site.lede,
   canonicalPath = "/",
   image = site.socialImage,
@@ -77,7 +79,7 @@ const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 ---
 <!doctype html>
-<html lang="en" data-scheme={scheme} style={tokenStyle}>
+<html lang="en" data-product={productId} data-scheme={scheme} style={tokenStyle}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -158,6 +160,7 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
       is:inline
       src="https://sassmaker.com/ai-chat-footer.js"
       data-name={site.name}
+      data-compose="false"
       defer
     ></script>
   </body>
