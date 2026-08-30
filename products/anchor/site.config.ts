@@ -54,7 +54,7 @@ export const site: SiteConfig = {
   availability: "unreleased",
   macDownloadUrl: "https://anchor.significanthobbies.com/downloads/Anchor-1.0.dmg",
   macDownloadLabel: "Download notarized Mac beta",
-  betaNote: "Build 18 is available as a notarized Mac beta and through invite-only TestFlight. The first App Store submission is still waiting for review, but there is no public listing yet. Distraction notes never enter the Hub, analytics, telemetry, or a cloud model.",
+  betaNote: "Build 20 is available as a notarized Mac beta. Invite-only TestFlight remains on its separately processed build, and there is no public App Store listing yet. Distraction notes never enter the Hub, analytics, telemetry, or a cloud model.",
   tension: { statement: "A plan is only useful if it can survive reality.", title: "The gap is the useful part.", copy: "Anchor schedules the day, protects the current block, captures what changed, and gives that evidence back when you plan tomorrow." },
   chaptersKicker: "One daily loop",
   chaptersTitle: "Plan it. Live it. Learn.",
@@ -78,7 +78,7 @@ export const site: SiteConfig = {
   footerFinePrint: "A private day planner and focus timer, not a blocker. © 2026 Sarthak Agrawal.",
   capabilities: ["Today: one-off and recurring plans", "Focus: wall-clock sessions and interruption capture", "Habits: patterns and concrete replacements", "History: planned-versus-lived review and export"],
   boundaries: ["No account required", "No distraction-note egress", "No analytics or advertising SDK", "Not a website blocker", "Mac beta; not listed on the App Store yet"],
-  lastUpdated: "2026-08-29",
+  lastUpdated: "2026-08-31",
   legal: {
     privacy: { title: "Your private notes are not our data.", lede: "Anchor is local-first, uses no analytics or advertising SDK, and never sends distraction notes to Significant Hobbies, a cloud model, or telemetry.", sections: [
       { title: "What Anchor stores", body: "Anchor stores your one-off and recurring plans, behavior selections and replacements, focus sessions, outcomes, and the distractions you write down. This is written to a database on your device." },
