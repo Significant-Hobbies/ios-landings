@@ -1,6 +1,6 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-08-24
+Last updated: 2026-08-31
 
 ## Why / What
 
@@ -28,6 +28,15 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 - Fleet catalogs this repo; product domains stay on the product rows
 
 ## Timeline
+
+- 2026-08-31 — Published Anchor Mac `1.0 (20)` from landing source commit
+  `4eaadf2` to Pages deployment `e6c41d03`. The custom domain and download
+  return 200, the homepage identifies build 20, and the 20,718,422-byte public
+  DMG has SHA-256
+  `cbc431905f3a22ed85aad56a5ba489631dabd47be364f2288e394076ebeed781`,
+  byte-for-byte matching the notarized, stapled, Gatekeeper-approved Developer
+  ID artifact. The isolated Anchor check and both pull-request and post-merge CI
+  runs passed.
 
 - 2026-08-28 — Published Anchor `1.0 (17)` from isolated release commit
   `b010889` and deployed that exact source to the `anchor-landing-ejy` Pages
