@@ -1,9 +1,23 @@
 ---
 import LegalPage from "../components/LegalPage.astro";
+import { clarityProjectIdFor } from "../lib/clarity";
 import { site } from "../site.config";
+import { productId } from "../site.config";
 const page = site.legal.privacy;
+const clarityProjectId = clarityProjectIdFor(productId);
 ---
 <LegalPage title={page.title} lede={page.lede} path="/privacy/">
+  {clarityProjectId ? (
+    <section>
+      <h2>Marketing-site analytics</h2>
+      <p>
+        This static marketing site uses Microsoft Clarity to understand aggregate page use,
+        heatmaps, and session replays. Clarity may process interaction and device data under
+        Microsoft's privacy terms; sensitive page content is masked. This tracking is limited
+        to the website and is not included in the native app.
+      </p>
+    </section>
+  ) : null}
   {page.sections.map((section) => (
     <section>
       <h2>{section.title}</h2>

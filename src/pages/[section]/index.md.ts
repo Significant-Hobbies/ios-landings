@@ -1,4 +1,5 @@
-import { site } from "../../site.config";
+import { clarityProjectIdFor } from "../../lib/clarity";
+import { productId, site } from "../../site.config";
 
 const sections = ["privacy", "support", "terms", "accessibility", "testflight"] as const;
 type Section = (typeof sections)[number];
@@ -46,6 +47,15 @@ export function GET({ params }: { params: { section: string } }) {
       "## Not included",
       "",
       testflight.notIncluded,
+      ""
+    );
+  }
+
+  if (section === "privacy" && clarityProjectIdFor(productId)) {
+    lines.push(
+      "## Marketing-site analytics",
+      "",
+      "This static marketing site uses Microsoft Clarity to understand aggregate page use, heatmaps, and session replays. Clarity may process interaction and device data under Microsoft's privacy terms; sensitive page content is masked. This tracking is limited to the website and is not included in the native app.",
       ""
     );
   }

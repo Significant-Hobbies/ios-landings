@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import { clarityProjectIdFor } from "../lib/clarity";
 import { primaryCta, verifiedAppStoreUrl } from "../lib/distribution";
 import { productId, site } from "../site.config";
 
@@ -77,6 +78,7 @@ const tokenStyle = [
 ].join(";");
 const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "indulge" : productId;
+const clarityProjectId = clarityProjectIdFor(productId);
 ---
 <!doctype html>
 <html lang="en" data-product={productId} data-scheme={scheme} style={tokenStyle}>
@@ -109,6 +111,19 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
     ) : null}
     {includeStructuredData ? (
       <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    ) : null}
+    {clarityProjectId ? (
+      <script is:inline define:vars={{ clarityProjectId, productId }}>
+        (function(c, l, a, r, i, t, y) {
+          c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments); };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = "https://www.clarity.ms/tag/" + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        })(window, document, "clarity", "script", clarityProjectId);
+        window.clarity("set", "project_id", productId);
+      </script>
     ) : null}
     <title>{title}</title>
   </head>
@@ -160,7 +175,6 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
       is:inline
       src="https://sassmaker.com/ai-chat-footer.js"
       data-name={site.name}
-      data-compose="false"
       defer
     ></script>
   </body>

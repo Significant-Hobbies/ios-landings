@@ -29,6 +29,13 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-09-01 — Added Journal's dedicated Microsoft Clarity project through the
+  shared factory after confirming the product is a private writing/reflection
+  app, not a health service. Its HTML and Markdown privacy surfaces disclose
+  website analytics; Habits and Indulge remain script-free. The existing
+  Anchor, Calorie, Kith, Motion, and Setline projects remain independently
+  wired. No site was deployed in this source change.
+
 - 2026-08-31 — Published Anchor Mac `1.0 (20)` from landing source commit
   `4eaadf2` to Pages deployment `e6c41d03`. The custom domain and download
   return 200, the homepage identifies build 20, and the 20,718,422-byte public
@@ -123,6 +130,9 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
   pretending a separate native release remains planned
 - Native-only Calorie landing with an honest internal-beta status and no web
   journal CTA
+- Per-product Clarity project selection for Anchor, Calorie, Kith, Motion, and
+  Setline, with matching privacy disclosures and no analytics on the other
+  factory products
 - CSS-only hero sheen and float, breathing lanterns, gallery hover lift
 - Cloudflare Pages deploy for Kith, Setline, Anchor, Motion, and Indulge
 

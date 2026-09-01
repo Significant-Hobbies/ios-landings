@@ -156,7 +156,7 @@ export const site: SiteConfig = {
         },
         {
           title: "Account and service data",
-          body: "Signed-in mode stores the account identifier and service records needed for authentication, synchronization, reliability, and abuse prevention. The static marketing pages do not receive the contents of a local-only journal and do not run a product analytics script."
+          body: "Signed-in mode stores the account identifier and service records needed for authentication, synchronization, reliability, and abuse prevention. The static marketing pages never receive the contents of a local-only journal. Website analytics is disclosed separately and is not included in the native app."
         },
         {
           title: "Your controls",

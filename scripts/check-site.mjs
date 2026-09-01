@@ -2,6 +2,15 @@ import { access, readFile } from "node:fs/promises";
 
 const product = process.env.PRODUCT ?? "kith";
 const dist = `dist/${product}`;
+const clarityProjectIds = {
+  anchor: "y6bwr0anyd",
+  calorie: "y6bultfwvf",
+  journal: "ybcifeb3uv",
+  kith: "y6bus3owf7",
+  motion: "y6bvl31bna",
+  setline: "y6bunkz9vz"
+};
+const expectedClarityId = clarityProjectIds[product];
 
 const requiredFiles = [
   `${dist}/index.html`,
@@ -94,7 +103,29 @@ const unexpectedScripts = executableScripts.filter((match) => {
     attrs.includes(`src="${src}"`) || attrs.includes(`src='${src}'`)
   );
 });
-if (unexpectedScripts.length !== 0) {
+if (expectedClarityId) {
+  if (unexpectedScripts.length !== 1) {
+    throw new Error(`${product}: expected exactly one inline Clarity loader.`);
+  }
+  for (const fragment of [
+    `const clarityProjectId = "${expectedClarityId}"`,
+    "https://www.clarity.ms/tag/",
+    `const productId = "${product}"`,
+    'window.clarity("set", "project_id", productId)'
+  ]) {
+    if (!home.includes(fragment)) {
+      throw new Error(`${product}: Clarity output is missing ${fragment}.`);
+    }
+  }
+  const privacy = await readFile(`${dist}/privacy/index.html`, "utf8");
+  const privacyMarkdown = await readFile(`${dist}/privacy/index.md`, "utf8");
+  if (!privacy.includes("Marketing-site analytics") || !privacy.includes("Microsoft Clarity")) {
+    throw new Error(`${product}: privacy page does not disclose Clarity website analytics.`);
+  }
+  if (!privacyMarkdown.includes("Marketing-site analytics") || !privacyMarkdown.includes("Microsoft Clarity")) {
+    throw new Error(`${product}: Markdown privacy page does not disclose Clarity website analytics.`);
+  }
+} else if (unexpectedScripts.length !== 0 || home.includes("www.clarity.ms/tag")) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);
 }
 
