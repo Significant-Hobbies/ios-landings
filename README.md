@@ -56,3 +56,7 @@ Live keeps its existing Significant Hobbies landing. Journal reuses this engine.
 Habits and Indulge remain buildable only as compatibility pages that direct new
 product interest to Anchor; changing or removing their domains is separate,
 manual work.
+
+## Design references
+
+- [patterncraft.store](https://patterncraft.store/) — landing page pattern reference for future iOS landing iterations (from issue #11)
