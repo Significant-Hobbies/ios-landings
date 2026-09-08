@@ -27,6 +27,7 @@ Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 ```bash
 pnpm run deploy          # every Pages-backed product, including Journal and Habits
 pnpm run deploy:kith     # one product
+pnpm deploy kith --existing-only # content update; no project/domain provisioning
 pnpm run deploy:journal  # one product
 pnpm run deploy:habits   # one product
 ```
@@ -60,3 +61,10 @@ manual work.
 ## Design references
 
 - [patterncraft.store](https://patterncraft.store/) — landing page pattern reference for future iOS landing iterations (from issue #11)
+
+For routine content updates, use `--existing-only` with explicit product names.
+It checks that every target already exists before publishing any product and
+skips domain attachment. Unknown options, `--all`, and missing target names are
+rejected in this mode. Run `node --test scripts/deploy.test.mjs` to verify the
+deployment boundaries without cloud access. CI runs `pnpm check:one` for each
+of the eight configured products.

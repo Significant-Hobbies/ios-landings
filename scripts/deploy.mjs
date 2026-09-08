@@ -3,7 +3,16 @@ import { readFileSync } from "node:fs";
 import { homedir } from "node:os";
 import { PRODUCT_IDS, PRODUCT_PAGES, ACCOUNT_ID } from "./pages.mjs";
 
-const args = process.argv.slice(2).filter((arg) => arg !== "--all" && !arg.startsWith("--"));
+const rawArgs = process.argv.slice(2);
+const existingOnly = rawArgs.includes("--existing-only");
+const unknownFlag = rawArgs.find((arg) => arg.startsWith("--") && !["--all", "--existing-only"].includes(arg));
+if (unknownFlag) {
+  throw new Error(`Unknown option: ${unknownFlag}`);
+}
+const args = rawArgs.filter((arg) => !arg.startsWith("--"));
+if (existingOnly && (args.length === 0 || rawArgs.includes("--all"))) {
+  throw new Error("--existing-only requires explicit product names and cannot use --all.");
+}
 const products = args.length > 0 ? args : PRODUCT_IDS;
 
 for (const product of products) {
@@ -90,6 +99,13 @@ const existing = new Set(
     (row) => row.name || row["Project Name"]
   )
 );
+if (existingOnly) {
+  for (const product of products) {
+    if (!existing.has(PRODUCT_PAGES[product].project)) {
+      throw new Error(`Existing Pages project required: ${PRODUCT_PAGES[product].project}`);
+    }
+  }
+}
 const sha = capture("git", ["rev-parse", "HEAD"]);
 const message = capture("git", ["log", "-1", "--pretty=%s"]);
 
@@ -120,7 +136,7 @@ for (const product of products) {
     message
   ]);
 
-  await attachDomain(project, domain);
+  if (!existingOnly) await attachDomain(project, domain);
 }
 
 console.log("\nDeployed:", products.join(", "));

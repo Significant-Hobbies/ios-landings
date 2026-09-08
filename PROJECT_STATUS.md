@@ -1,6 +1,6 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-08-31
+Last updated: 2026-09-08
 
 ## Why / What
 
@@ -28,6 +28,14 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 - Fleet catalogs this repo; product domains stay on the product rows
 
 ## Timeline
+
+- 2026-09-08 — Added explicit per-product CI for all eight factory outputs and
+  `pnpm deploy kith --existing-only` for scoped content publication. This option
+  requires named, existing Pages projects, aborts before any deployment if a
+  target is missing, and skips project creation and domain attachment. Four
+  synthetic CLI tests cover scoping, invalid inputs, missing targets and build
+  failure. Kith beta-copy correction is prepared; live publication remains
+  pending the exact-source CI and deploy guard (issue 13).
 
 - 2026-09-01 — Added Journal's dedicated Microsoft Clarity project through the
   shared factory after confirming the product is a private writing/reflection

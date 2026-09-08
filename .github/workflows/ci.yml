@@ -11,6 +11,12 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        product: [kith, setline, anchor, motion, indulge, calorie, journal, habits]
+    env:
+      PRODUCT: ${{ matrix.product }}
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -21,4 +27,5 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: pnpm check
+      - run: node --test scripts/deploy.test.mjs
+      - run: pnpm check:one
