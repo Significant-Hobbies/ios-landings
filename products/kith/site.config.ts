@@ -62,7 +62,7 @@ export const site: SiteConfig = {
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
   betaNote:
-    "Version 1.0.0 build 3 is the latest build verified as processed and assigned to the owner's internal Personal Testing group. Current source is build 7; there is no public enrollment link.",
+    "Kith is in private beta for invited internal testers. Public TestFlight enrollment and an App Store listing are not available.",
   tension: {
     statement: "A name in a phone is not the context of a relationship.",
     title: "Keep what helps you show up well.",
@@ -258,7 +258,7 @@ export const site: SiteConfig = {
     },
     testflight: {
       title: "Internal TestFlight is active.",
-      lede: "Build 1.0.0 (3) is the latest build verified as processed and assigned to internal Personal Testing; current source is build 7 and has no public enrollment link.",
+      lede: "Kith is available to invited internal testers. There is no public TestFlight enrollment link or App Store listing.",
       testing:
         "Add one real person, choose circle and closeness, write a dated memory, relaunch, search in list view, inspect the Connection state, and verify that a failed network path does not prevent local use.",
       notIncluded:
