@@ -9,6 +9,15 @@ permissions:
   contents: read
 
 jobs:
+  deploy-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --test scripts/deploy.test.mjs
+
   check:
     runs-on: ubuntu-latest
     strategy:
@@ -27,5 +36,4 @@ jobs:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - run: node --test scripts/deploy.test.mjs
       - run: pnpm check:one
