@@ -1,6 +1,6 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-09-08
+Last updated: 2026-09-12
 
 ## Why / What
 
@@ -28,6 +28,14 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 - Fleet catalogs this repo; product domains stay on the product rows
 
 ## Timeline
+
+- 2026-09-12 — Corrected Anchor's public agent metadata and Apple Intelligence
+  privacy text to match the downloadable build 20: distraction notes can live
+  in the user's private iCloud database, while tagging and summaries run on
+  device. The earlier blanket no-egress statement was inaccurate for that
+  release. The download artifact is unchanged. All eight builds and link
+  checks pass with zero Astro diagnostics. Browser automation is unavailable
+  in this check; no fresh visual or native-release acceptance is claimed.
 
 - 2026-09-08 — Added explicit per-product CI for all eight factory outputs and
   `pnpm deploy kith --existing-only` for scoped content publication. This option
