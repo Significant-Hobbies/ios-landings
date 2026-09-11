@@ -29,6 +29,12 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-09-12 — Added accessible repository icons for Anchor, Kith, Setline and
+  Motion after verifying their source repositories are public. Their Markdown
+  summaries and agent metadata expose the same repository URL. This does not
+  change native availability or the existing download and TestFlight gates.
+  Publication receipts belong to the named product deployment records.
+
 - 2026-09-12 — Corrected Anchor's public agent metadata and Apple Intelligence
   privacy text to match the downloadable build 20: distraction notes can live
   in the user's private iCloud database, while tagging and summaries run on
