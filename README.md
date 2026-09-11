@@ -27,7 +27,7 @@ Preview one built tree with `PRODUCT=<id> pnpm preview` after a build.
 ```bash
 pnpm run deploy          # every Pages-backed product, including Journal and Habits
 pnpm run deploy:kith     # one product
-pnpm deploy kith --existing-only # content update; no project/domain provisioning
+pnpm run deploy kith --existing-only # content update; no project/domain provisioning
 pnpm run deploy:journal  # one product
 pnpm run deploy:habits   # one product
 ```

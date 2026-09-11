@@ -33,12 +33,16 @@ live listing, blogs, and Pace / Significant Hobbies marketing.
   privacy text to match the downloadable build 20: distraction notes can live
   in the user's private iCloud database, while tagging and summaries run on
   device. The earlier blanket no-egress statement was inaccurate for that
-  release. The download artifact is unchanged. All eight builds and link
-  checks pass with zero Astro diagnostics. Browser automation is unavailable
-  in this check; no fresh visual or native-release acceptance is claimed.
+  release. Source `4135729` passed all nine CI jobs and the deployment guard,
+  then shipped only to `anchor-landing` as deployment `155ccf31`. Live HTML,
+  Markdown and agent metadata carry the correction. The download artifact is
+  unchanged. All eight builds and link checks pass with zero Astro diagnostics.
+  Browser automation is unavailable in this check; no fresh visual or native
+  release acceptance is claimed. Deployment examples now use `pnpm run deploy`
+  because pnpm 10 reserves the bare `deploy` command for workspace packaging.
 
 - 2026-09-08 — Added explicit per-product CI for all eight factory outputs and
-  `pnpm deploy kith --existing-only` for scoped content publication. This option
+  `pnpm run deploy kith --existing-only` for scoped content publication. This option
   requires named, existing Pages projects, aborts before any deployment if a
   target is missing, and skips project creation and domain attachment. Four
   synthetic CLI tests cover scoping, invalid inputs, missing targets and build
