@@ -41,14 +41,11 @@ const jsonLd = {
       url: "https://significanthobbies.com"
     },
     {
-      "@type": "SoftwareApplication",
+      "@type": "WebSite",
       name: site.name,
       url: site.url,
-      applicationCategory: site.applicationCategory,
-      operatingSystem: site.platforms.join(", "),
       description: site.summary,
-      image: new URL(site.socialImage, site.url).href,
-      screenshot: site.gallery.map((shot) => new URL(shot.src, site.url).href)
+      image: new URL(site.socialImage, site.url).href
     },
     {
       "@type": "FAQPage",
