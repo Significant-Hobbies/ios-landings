@@ -67,8 +67,8 @@ if (home.includes("testflight.apple.com")) {
   throw new Error(`${product}: a public TestFlight URL appeared without a verified build-time configuration.`);
 }
 
-if (!home.includes("SoftwareApplication")) {
-  throw new Error(`${product}: landing is missing SoftwareApplication structured data.`);
+if (!home.includes('"@type":"WebSite"')) {
+  throw new Error(`${product}: landing is missing WebSite structured data.`);
 }
 
 if (!home.includes('id="look-inside"') && !home.includes("id='look-inside'")) {

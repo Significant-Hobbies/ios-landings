@@ -10,7 +10,7 @@ export const site: SiteConfig = {
   kicker: "A private relationship-memory app for iPhone",
   summary:
     "A device-first iPhone app where explicit closeness shapes a warm constellation, and each person has standing notes and a chronological memory log.",
-  status: "Internal TestFlight only. No public invite or App Store listing.",
+  status: "TestFlight beta. No App Store listing.",
   platforms: ["iPhone"],
   themeColor: "#f4e6d4",
   mark: "/images/brand/mark.webp",
@@ -62,7 +62,7 @@ export const site: SiteConfig = {
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
   betaNote:
-    "Kith is in private beta for invited internal testers. Public TestFlight enrollment and an App Store listing are not available.",
+    "Kith is in TestFlight beta. Access and available builds are managed through Apple TestFlight; there is no App Store listing.",
   tension: {
     statement: "A name in a phone is not the context of a relationship.",
     title: "Keep what helps you show up well.",
@@ -105,7 +105,7 @@ export const site: SiteConfig = {
     kicker: "An honest fit",
     title: "For tending a few relationships. Not managing a database.",
     yes: "Kith may fit if you want to retain the small facts and dated moments that help you be more thoughtful with family, close friends, and other people who matter.",
-    no: "It is not a contact book, social network, sales pipeline, messaging app, attention score, or reminder-notification product. It does not import your address book or infer who deserves care.",
+    no: "It is not a contact book, social network, sales pipeline, messaging app, attention score, or reminder-notification product. You may select individual people with Apple’s contact picker; Kith does not browse the address book or infer who deserves care.",
   },
   privacy: {
     kicker: "Useful before sign-in",
@@ -131,12 +131,12 @@ export const site: SiteConfig = {
     {
       question: "Will it import my contacts or remind me to message people?",
       answer:
-        "No. You add people deliberately. Contact-book import, messaging, photos, and notification reminders are not in the current product.",
+        "You can add people by hand or choose individual contacts with Apple’s system picker. Only your selections are shared with Kith. Messaging, photos, and notification reminders are not included.",
     },
     {
       question: "Can I download or pay for Kith?",
       answer:
-        "Not publicly. Kith is in internal TestFlight with no public invitation, App Store listing, paid plan, subscription, or checkout. No permanent free or paid model has been announced.",
+        "Kith is a TestFlight beta, with access managed through Apple. There is no App Store listing, paid plan, subscription, or checkout. No permanent free or paid model has been announced.",
     },
   ],
   founder: {
@@ -146,7 +146,7 @@ export const site: SiteConfig = {
   },
   closingTitle: ["Remember what mattered.", "Show up with the context."],
   footerFinePrint:
-    "Private, device-first iPhone relationship-memory app. Internal TestFlight only; no public invite, App Store listing, paid plan, subscription, or checkout. © 2026 Sarthak Agrawal.",
+    "Private, device-first iPhone relationship-memory app. TestFlight beta; no App Store listing, paid plan, subscription, or checkout. © 2026 Sarthak Agrawal.",
   capabilities: [
     "Warm constellation sized only by explicit 1–5 closeness",
     "Searchable list and a person page with standing context",
@@ -154,25 +154,25 @@ export const site: SiteConfig = {
     "Offline local document, transition CloudKit mirror, and optional private Hub sync",
   ],
   boundaries: [
-    "No contact-book import, messaging, photos, or reminder notifications",
+    "No background address-book access, messaging, photos, or reminder notifications",
     "No inferred closeness, attention score, social graph, or public profile",
     "Optional account sync never replaces or blocks the local working copy",
-    "No public TestFlight invitation or App Store release",
+    "No App Store release",
     "Current source targets iPhone and does not claim an iPad or web client",
   ],
   agentFit: {
     bestFit: [
       "Explaining Kith as a private native iPhone memory app for people, chosen closeness, standing context, and dated moments",
       "Understanding its local JSON working copy, transition CloudKit mirror, optional Significant Hobbies Hub sync, and offline behavior",
-      "Checking current internal TestFlight access or the boundary between intentional relationship memory and CRM-style automation",
+      "Checking current TestFlight access or the boundary between intentional relationship memory and CRM-style automation",
     ],
     notAFit: [
-      "Claiming Kith imports contacts, infers closeness, scores relationship health, sends reminders, messages people, or creates a social graph",
-      "Claiming a public TestFlight, App Store release, web client, iPad app, payment plan, subscription, or permanent free access",
+      "Claiming Kith browses the full address book, infers closeness, scores relationship health, sends reminders, messages people, or creates a social graph",
+      "Claiming an App Store release, web client, iPad app, payment plan, subscription, or permanent free access",
       "Treating the optional Significant Hobbies account as mandatory or describing Hub synchronization as the only copy of the user's data",
     ],
   },
-  lastUpdated: "2026-08-28",
+  lastUpdated: "2026-09-19",
   legal: {
     privacy: {
       title: "The people and notes stay private.",
@@ -192,13 +192,13 @@ export const site: SiteConfig = {
         },
         {
           title: "No advertising profile",
-          body: "The native app uses no advertising, IDFA, third-party analytics SDK, contact-book import, or cross-app tracking. Apple, Google, Cloudflare, TestFlight, and the static marketing site may process service-level data under their own policies.",
+          body: "The native app uses no advertising, IDFA, third-party analytics SDK, background address-book access, or cross-app tracking. If you use Apple’s contact picker, only the people you select are imported. Their names, birthdays, selected phone/email, organization and location details become local Kith content; approved content may also be copied to your signed-in Hub account. Apple, Google, Cloudflare, TestFlight, and the static marketing site may process service-level data under their own policies.",
         },
         {
           title: "Deletion and care",
           body: "Removing a person also removes that person's notes from the local document. Because Kith is beta software with more than one private copy during transition, keep independent notes for information you cannot afford to lose and avoid including other people's private details in support screenshots.",
         },
-        { title: "Effective date", body: "Last updated 28 August 2026." },
+        { title: "Effective date", body: "Last updated 19 September 2026." },
       ],
     },
     support: {
@@ -215,7 +215,7 @@ export const site: SiteConfig = {
         },
         {
           title: "Current availability",
-          body: "Kith is available only to internal TestFlight testers. There is no public invitation, App Store listing, paid support plan, or guaranteed response time. Public work remains tracked in the GitHub repository.",
+          body: "Kith is available through Apple TestFlight. There is no App Store listing, paid support plan, or guaranteed response time. Public work remains tracked in the GitHub repository.",
         },
       ],
     },
@@ -229,13 +229,13 @@ export const site: SiteConfig = {
         },
         {
           title: "Beta software",
-          body: "The app is an internal TestFlight beta and may change, stop working, or lose beta access. Keep information you cannot afford to lose somewhere you independently control.",
+          body: "The app is a TestFlight beta and may change, stop working, or lose beta access. Keep information you cannot afford to lose somewhere you independently control.",
         },
         {
           title: "Personal use",
           body: "You may use the beta for personal evaluation through Apple TestFlight. Do not redistribute the app or use it as a professional CRM, safety system, or source of automated relationship decisions.",
         },
-        { title: "Changes", body: "Last updated 28 August 2026." },
+        { title: "Changes", body: "Last updated 19 September 2026." },
       ],
     },
     accessibility: {
@@ -257,20 +257,19 @@ export const site: SiteConfig = {
       ],
     },
     testflight: {
-      title: "Internal TestFlight is active.",
-      lede: "Kith is available to invited internal testers. There is no public TestFlight enrollment link or App Store listing.",
+      title: "TestFlight beta is active.",
+      lede: "Kith beta access is managed through Apple TestFlight. Available builds vary by testing group; there is no App Store listing.",
       testing:
         "Add one real person, choose circle and closeness, write a dated memory, relaunch, search in list view, inspect the Connection state, and verify that a failed network path does not prevent local use.",
       notIncluded:
-        "A public invitation, App Store listing, iPad or web client, contact import, messaging, photos, reminder notifications, inferred closeness, paid plan, or checkout is not available.",
+        "An App Store listing, iPad or web client, messaging, photos, reminder notifications, inferred closeness, paid plan, or checkout is not available.",
       sections: [],
     },
   },
   requiredHomeCopy: [
     "closeness",
     "private",
-    "Internal TestFlight",
-    "No public invite",
+    "TestFlight",
     "Significant Hobbies account",
     "local JSON document",
   ],
@@ -278,11 +277,9 @@ export const site: SiteConfig = {
     "No Kith account",
     "invite-only TestFlight beta preparation",
     "available on the app store",
-    "public TestFlight",
     "Kith web app",
     "Kith for iPad",
     "automatically scores relationships",
-    "imports your contacts",
   ],
 };
 
