@@ -27,7 +27,8 @@ export function verifiedMacDownloadUrl(): string | undefined {
     if (
       download.protocol === "https:" &&
       download.origin === product.origin &&
-      download.pathname.toLowerCase().endsWith(".dmg")
+      (download.pathname.toLowerCase().endsWith(".dmg") ||
+        (site.device === "desktop" && download.pathname === "/download"))
     ) {
       return download.toString();
     }
@@ -40,8 +41,14 @@ export function verifiedMacDownloadUrl(): string | undefined {
 export function primaryCta(): {
   href: string;
   label: string;
-  kind: "app-store" | "testflight" | "status" | "web-app" | "successor";
+  kind: "app-store" | "testflight" | "status" | "web-app" | "successor" | "mac-download";
 } {
+  if (site.device === "desktop") {
+    const download = verifiedMacDownloadUrl();
+    return download
+      ? { href: download, label: site.macDownloadLabel ?? "Download for Mac", kind: "mac-download" }
+      : { href: "/release/", label: "See release status", kind: "status" };
+  }
   const app = verifiedWebAppUrl();
   if (site.availability === "successor" && app) {
     return { href: app, label: site.appCtaLabel ?? "Continue with the maintained product", kind: "successor" };

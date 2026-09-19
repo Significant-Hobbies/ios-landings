@@ -1,8 +1,15 @@
 .device { margin: 0; }
-.device.hero { width: 100%; max-width: 188px; height: auto; min-height: 0; }
-.device.echo { width: 100%; }
-.device.gallery { flex: 0 0 min(268px, 72vw); transition: transform 400ms var(--ease-out); }
-.device.chapter { width: min(100%, 288px); justify-self: center; }
+.device.desktop .device-shell { padding: 1px; border-radius: 12px; border: 1px solid var(--line); }
+.device.desktop .device-screen { border-radius: 10px; }
+.device.desktop { animation: none !important; transform: none; }
+.device.desktop.device--chapter { width: min(100%, 640px); }
+.device.desktop.device--gallery { width: 100%; }
+.device.desktop figcaption { max-width: 65ch; }
+.screen-link { display: flex; min-height: 44px; align-items: center; justify-content: center; gap: 6px; margin-top: 8px; color: var(--accent-soft); font-size: .85rem; text-underline-offset: 4px; }
+.device.device--hero { width: 100%; max-width: 188px; height: auto; min-height: 0; }
+.device.device--echo { width: 100%; }
+.device.device--gallery { flex: 0 0 min(268px, 72vw); transition: transform 400ms var(--ease-out); }
+.device.device--chapter { width: min(100%, 288px); justify-self: center; }
 .device-shell {
   position: relative;
   padding: 10px;
@@ -48,9 +55,9 @@
 .device.tilt-left { transform: rotate(-1.8deg); }
 .device.tilt-right { transform: rotate(2deg); }
 @supports not (animation-timeline: scroll()) {
-  .device.hero { animation: phone-float 7.2s var(--ease-out) infinite; }
-  .device.hero.tilt-right { animation-name: phone-float-right; }
-  .device.hero.tilt-left { animation-name: phone-float-left; }
+  .device.device--hero { animation: phone-float 7.2s var(--ease-out) infinite; }
+  .device.device--hero.tilt-right { animation-name: phone-float-right; }
+  .device.device--hero.tilt-left { animation-name: phone-float-left; }
 }
 .device-sheen {
   position: absolute;
@@ -66,8 +73,8 @@
   background-size: 240% 100%;
   animation: phone-sheen 1.35s var(--ease-out) 0.35s both;
 }
-.gallery-grid .device.gallery:hover,
-.gallery-grid .device.gallery:focus-within {
+.gallery-grid .device.device--gallery:hover,
+.gallery-grid .device.device--gallery:focus-within {
   transform: translateY(-10px);
 }
 .device figcaption {
@@ -98,13 +105,13 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .device.hero,
-  .device.hero.tilt-left,
-  .device.hero.tilt-right,
+  .device.device--hero,
+  .device.device--hero.tilt-left,
+  .device.device--hero.tilt-right,
   .device-sheen { animation: none; }
   .device.tilt-left,
   .device.tilt-right { transform: none; }
-  .device.gallery { transition: none; }
-  .gallery-grid .device.gallery:hover,
-  .gallery-grid .device.gallery:focus-within { transform: none; }
+  .device.device--gallery { transition: none; }
+  .gallery-grid .device.device--gallery:hover,
+  .gallery-grid .device.device--gallery:focus-within { transform: none; }
 }

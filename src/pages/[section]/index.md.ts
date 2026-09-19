@@ -1,7 +1,7 @@
 import { clarityProjectIdFor } from "../../lib/clarity";
 import { productId, site } from "../../site.config";
 
-const sections = ["privacy", "support", "terms", "accessibility", "testflight"] as const;
+const sections = ["privacy", "support", "terms", "accessibility", "testflight", "release"] as const;
 type Section = (typeof sections)[number];
 
 export const prerender = true;
@@ -16,7 +16,7 @@ export function GET({ params }: { params: { section: string } }) {
   }
 
   const section = params.section as Section;
-  const page = site.legal[section];
+  const page = site.legal[section === "release" ? "testflight" : section];
   const lines = [
     "---",
     `title: ${JSON.stringify(`${page.title} — ${site.name}`)}`,
@@ -33,7 +33,7 @@ export function GET({ params }: { params: { section: string } }) {
     ""
   ];
 
-  if (section === "testflight") {
+  if (section === "testflight" || section === "release") {
     const testflight = site.legal.testflight;
     lines.push(
       "## Current access",

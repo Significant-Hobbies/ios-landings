@@ -1,0 +1,50 @@
+/* Owner-selected Editorial composition. Product tokens and content remain local. */
+.hero { padding-top: 56px; background: var(--paper); overflow: visible; }
+.hero::before, .hero-stage::after { display: none; }
+.hero-grid { padding-bottom: 48px; align-items: center; }
+.hero h1 { max-width: 16ch; font-weight: 600; line-height: 1.04; }
+.hero-stage, html[data-device="desktop"] .hero-stage {
+  min-height: 0; padding: 20px 0 0; gap: 16px; border: 0;
+  border-top: 1px solid var(--line); border-radius: 0; background: none;
+  align-content: start; overflow: visible;
+}
+.stage-label, html[data-device="desktop"] .stage-label {
+  position: static; justify-self: start; transform: none; font-size: .68rem;
+}
+.hero-stage .device.device--hero { width: min(76vw, 290px); margin: 0; align-self: start; }
+.hero-doodle { position: static; width: min(100%, 260px); max-height: 120px; }
+.hero-artwork { width: min(100%, 420px); height: auto; justify-self: center; }
+.stage-note, html[data-device="desktop"] .stage-note {
+  position: static; width: 100%; max-width: 55ch; padding: 0; border: 0;
+  background: none; transform: none; font-size: .85rem; line-height: 1.6;
+}
+.gallery-head h2, .chapter-intro h2, .fit-section h2, .privacy-section h2,
+.faq h2, .closing h2 { font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; font-weight: 600; }
+.chapter-copy h3 { max-width: 18ch; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; font-weight: 600; }
+.hero-actions { flex-wrap: wrap; }
+.hero-actions .button, .hero-actions .text-link { white-space: normal; }
+.statement { font-size: clamp(2.3rem, 5vw, 3.8rem); line-height: 1.1; font-weight: 600; }
+.statement span::after { display: none; }
+.closing { min-height: 0; padding-block: 80px; }
+@media (min-width: 700px) {
+  .hero-grid { grid-template-columns: minmax(0, 1fr) minmax(260px, .85fr); gap: 40px; }
+  .hero h1 { font-size: clamp(3.2rem, 5.8vw, 5.2rem); }
+  .hero-stage .device.device--hero { width: min(100%, 290px); }
+}
+@media (min-width: 1080px) {
+  html[data-device="desktop"] .hero-grid { grid-template-columns: .85fr 1.15fr; gap: 56px; }
+}
+/* Landing evidence and motion. Shared page chrome is owned by global.css. */
+.hero-kicker, .chapter-kicker, .chapter-name, .screen-link { color: var(--ink-soft); }
+.device.desktop .device-shell { box-shadow: none; }
+.device.device--hero { animation: none; }
+.device-sheen { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy, .hero-stage { animation: editorial-arrive .6s var(--ease-out) both; }
+  .hero-stage { animation-delay: .1s; }
+  @keyframes editorial-arrive { from { opacity: 0; translate: 0 12px; } to { opacity: 1; translate: 0 0; } }
+}
+@media (max-width: 699px) {
+  .hero { padding-top: 36px; }
+  .hero h1 { font-size: clamp(2.5rem, 10vw, 3.8rem); }
+}

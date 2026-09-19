@@ -108,6 +108,7 @@ if (existingOnly) {
 }
 const sha = capture("git", ["rev-parse", "HEAD"]);
 const message = capture("git", ["log", "-1", "--pretty=%s"]);
+const dirty = Boolean(capture("git", ["status", "--porcelain"]));
 
 for (const product of products) {
   const { project, domain } = PRODUCT_PAGES[product];
@@ -133,7 +134,9 @@ for (const product of products) {
     "--commit-hash",
     sha,
     "--commit-message",
-    message
+    dirty ? `Local working-tree deployment based on ${sha}: ${message}` : message,
+    "--commit-dirty",
+    String(dirty)
   ]);
 
   if (!existingOnly) await attachDomain(project, domain);

@@ -18,12 +18,14 @@ export type SiteConfig = {
   tagline: string;
   headline: [string, string];
   lede: string;
+  seoDescription?: string;
   kicker: string;
   summary: string;
   status: string;
   platforms: string[];
   themeColor: string;
   mark: string;
+  artwork?: string;
   socialImage: string;
   tokens: {
     paper: string;
@@ -42,7 +44,8 @@ export type SiteConfig = {
     inkOnAccent?: string;
   };
   colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string; width?: number; height?: number };
+  device?: "phone" | "desktop";
+  hero: { image: string; alt: string; caption: string; width?: number; height?: number; kind?: "screenshot" | "artwork" };
   illustration?: { src: string; alt: string };
   gallery: { src: string; alt: string; width?: number; height?: number }[];
   galleryTitle?: [string, string];

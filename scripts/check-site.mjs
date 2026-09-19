@@ -1,4 +1,5 @@
 import { access, readFile } from "node:fs/promises";
+import { imageMetadata } from "astro/assets/utils";
 
 const product = process.env.PRODUCT ?? "kith";
 const dist = `dist/${product}`;
@@ -31,7 +32,8 @@ const requiredFiles = [
   `${dist}/api/ai`,
   `${dist}/openapi.json`,
   `${dist}/robots.txt`,
-  `${dist}/sitemap.xml`
+  `${dist}/sitemap.xml`,
+  `${dist}/blog/index.html`, `${dist}/blog/index.md`, `${dist}/blog/rss.xml`
 ];
 
 await Promise.all(requiredFiles.map((file) => access(file)));
@@ -42,6 +44,24 @@ const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
 if (!home.includes(name)) throw new Error(`${product}: landing does not name the product.`);
 const hasInstallCta = home.includes('class="button"') || home.includes('class="store-badge"');
+const desktopProducts = ["storagedaddy", "performancedaddy"];
+if (desktopProducts.includes(product)) {
+  for (const path of ["release/index.html", "release/index.md"]) await access(`${dist}/${path}`);
+  if (!home.includes('data-device="desktop"') || home.includes('class="device-island"')) {
+    throw new Error(`${product}: desktop screenshots must not render phone hardware.`);
+  }
+  if (home.includes('href="/testflight/"') || home.includes("See iPhone and Watch")) {
+    throw new Error(`${product}: Mac landing must use its release path, not mobile distribution.`);
+  }
+  const release = await readFile(`${dist}/release/index.html`, "utf8");
+  if (product === "storagedaddy" && !home.includes('href="https://storagedaddy.significanthobbies.com/download"')) {
+    throw new Error("storagedaddy: preserve the existing download service.");
+  }
+  if (product === "performancedaddy" && (!home.includes("no public download yet") || !release.includes("not publicly downloadable yet") || home.includes(".dmg"))) {
+    throw new Error("performancedaddy: local preview must not imply a public release.");
+  }
+  if (!ai.surfaces.some((surface) => surface.id === "release")) throw new Error(`${product}: missing agent release surface.`);
+}
 if (!hasInstallCta) {
   throw new Error(`${product}: landing is missing a gated install or journal CTA.`);
 }
@@ -69,6 +89,14 @@ if (home.includes("testflight.apple.com")) {
 
 if (!home.includes('"@type":"WebSite"')) {
   throw new Error(`${product}: landing is missing WebSite structured data.`);
+}
+if (product === "browserdaddy") {
+  if (!home.includes("App artwork") || !home.includes("not a screenshot")) {
+    throw new Error("browserdaddy: artwork must not masquerade as product screenshot proof");
+  }
+  for (const unsupported of ["Real product screen", "View full-size screenshot", "/Users/", "permissions.png"]) {
+    if (home.includes(unsupported)) throw new Error(`browserdaddy: unexpected private or screenshot material: ${unsupported}`);
+  }
 }
 
 if (!home.includes('id="look-inside"') && !home.includes("id='look-inside'")) {
@@ -143,6 +171,26 @@ for (const href of localHrefs) {
   await access(outputPath);
 }
 
+// All shipped product images must resolve locally, including real desktop captures.
+for (const match of home.matchAll(/<img\b[^>]*src="(\/[^"?#]+)"/g)) {
+  await access(`${dist}${match[1]}`);
+}
+
+for (const match of home.matchAll(/<div class="device-screen">\s*(<img\b[^>]*>)/g)) {
+  const attrs = match[1];
+  const src = attrs.match(/src="([^"]+)"/)?.[1];
+  const width = Number(attrs.match(/width="(\d+)"/)?.[1]);
+  const height = Number(attrs.match(/height="(\d+)"/)?.[1]);
+  if (!src?.startsWith("/images/")) throw new Error(`${product}: screenshot must use a local asset.`);
+  const actual = await imageMetadata(await readFile(`${dist}${src}`), src);
+  if (width !== actual.width || height !== actual.height) {
+    throw new Error(`${product}: incorrect screenshot dimensions for ${src}: ${width}x${height}, actual ${actual.width}x${actual.height}.`);
+  }
+}
+if (/<figure\b[^>]*class="[^"]*\bdevice (?:hero|gallery|chapter)\b/.test(home)) {
+  throw new Error(`${product}: screenshot must not inherit a page-section class.`);
+}
+
 const markdown = await readFile(`${dist}/index.md`, "utf8");
 if (!markdown.startsWith(`# ${name}`)) {
   throw new Error(`${product}: index.md does not start with the product name.`);
@@ -176,4 +224,27 @@ for (const other of others) {
   }
 }
 
+const blog = await readFile(`${dist}/blog/index.html`, "utf8");
+const feed = await readFile(`${dist}/blog/rss.xml`, "utf8");
+const sitemap = await readFile(`${dist}/sitemap.xml`, "utf8");
+if (product === "performancedaddy") {
+  const article = await readFile(`${dist}/blog/background-apps/index.html`, "utf8");
+  const articleMd = await readFile(`${dist}/blog/background-apps/index.md`, "utf8");
+  for (const body of [blog, feed, sitemap]) {
+    if (!body.includes("/blog/background-apps/")) throw new Error("Missing article discovery surface");
+  }
+  for (const fragment of ["BlogPosting", "In this note", 'href="/blog/"', "What is still running"]) {
+    if (!article.includes(fragment)) throw new Error(`Missing article feature: ${fragment}`);
+  }
+  if (!articleMd.includes("PerformanceDaddy")) throw new Error("Missing article Markdown identity");
+} else {
+  if (blog.includes("/blog/background-apps/") || sitemap.includes("/blog/background-apps/")) {
+    throw new Error(`${product}: cross-product blog leakage`);
+  }
+  try { await access(`${dist}/blog/background-apps/index.html`); throw new Error(`${product}: foreign article emitted`); }
+  catch (error) { if (error.code !== "ENOENT") throw error; }
+}
+if (!feed.includes("<item>") && !blog.includes('content="noindex,follow"')) {
+  throw new Error(`${product}: empty journal should not be indexed`);
+}
 console.log(`Checked ${product}: ${requiredFiles.length} public surfaces and ${localHrefs.length} internal links.`);

@@ -39,7 +39,7 @@ test("existing-only publishes just the selected product without provisioning or 
   assert.deepEqual(result.calls, [
     ["exec", "wrangler", "pages", "project", "list", "--json"],
     ["exec", "astro", "build"],
-    ["exec", "wrangler", "pages", "deploy", "dist/kith", "--project-name", "kith", "--branch", "main", "--commit-hash", "synthetic-source", "--commit-message", "synthetic-source"]
+    ["exec", "wrangler", "pages", "deploy", "dist/kith", "--project-name", "kith", "--branch", "main", "--commit-hash", "synthetic-source", "--commit-message", "Local working-tree deployment based on synthetic-source: synthetic-source", "--commit-dirty", "true"]
   ]);
 });
 
@@ -61,5 +61,24 @@ test("content-only requires explicit targets and rejects unsupported flags", () 
     const result = attempt(args);
     assert.notEqual(result.status, 0, args.join(" "));
     assert.deepEqual(result.calls, []);
+  }
+});
+
+test("StorageDaddy stays build-only without changing its existing download infrastructure", () => {
+  for (const product of ["storagedaddy"]) {
+    const result = attempt([product, "--existing-only"]);
+    assert.notEqual(result.status, 0);
+    assert.deepEqual(result.calls, [], "must reject before provider calls or builds");
+  }
+});
+
+test("new Daddy deployments are individually scoped to approved projects", () => {
+  for (const product of ["browserdaddy", "performancedaddy"]) {
+    const result = attempt([product, "--existing-only"], [`${product}-landing`]);
+    assert.equal(result.status, 0, result.stderr);
+    const upload = result.calls.find(call => call[3] === "deploy");
+    assert.equal(upload[4], `dist/${product}`);
+    assert.equal(upload[6], `${product}-landing`);
+    assert.equal(result.calls.length, 3);
   }
 });

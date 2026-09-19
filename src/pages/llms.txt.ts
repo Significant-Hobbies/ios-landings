@@ -26,7 +26,7 @@ export function GET() {
     `- [Support](${links.support}index.md): Support and feedback in Markdown.`,
     `- [Terms](${links.terms}index.md): Current terms in Markdown.`,
     `- [Accessibility](${links.accessibility}index.md): Accessibility support in Markdown.`,
-    `- [TestFlight](${links.testflight}index.md): Current beta availability in Markdown.`,
+    `- [Release status](${site.url}/${site.device === "desktop" ? "release" : "testflight"}/index.md): Current availability in Markdown.`,
     "",
     "## Developer docs",
     `- [OpenAPI spec](${site.url}/openapi.json): OpenAPI 3.1 specification for the public API`,

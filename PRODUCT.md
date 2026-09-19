@@ -13,7 +13,8 @@ whether it is for them, whether it is private, and how to open the web app,
 join a TestFlight, or open the App Store listing.
 
 The same page set is reused for Kith, Setline, Anchor, Motion, Indulge,
-Calorie, Journal, and Habits. Each visitor sees one product.
+Calorie, Journal, Habits, StorageDaddy and PerformanceDaddy. Each visitor sees
+one product. Mac-only products show uncropped desktop captures and release status.
 
 ## Product Purpose
 
@@ -41,6 +42,9 @@ Product app repos stay independently buildable. Deploys are manual.
 - No executable client JavaScript on the landing
 - Screenshots must be the real app
 - Product copy, legal text, and tokens live in each product config
+- Per-product Markdown journals provide HTML, Markdown, RSS, sitemap and agent
+  discovery. Drafts default to hidden; future dates are excluded at build time.
+  The first PerformanceDaddy note is included in local output, not deployed.
 
 ## Brand Commitments
 
