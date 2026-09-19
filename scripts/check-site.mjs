@@ -91,6 +91,9 @@ if (!home.includes('"@type":"WebSite"')) {
   throw new Error(`${product}: landing is missing WebSite structured data.`);
 }
 if (product === "browserdaddy") {
+  for (const asset of ["browserdaddy-icon-v1.png", "browserdaddy-scout-v1.png"]) {
+    if (!home.includes(asset)) throw new Error(`browserdaddy: missing own-brand asset ${asset}`);
+  }
   if (!home.includes("App artwork") || !home.includes("not a screenshot")) {
     throw new Error("browserdaddy: artwork must not masquerade as product screenshot proof");
   }

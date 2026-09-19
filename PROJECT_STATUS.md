@@ -2,6 +2,16 @@
 
 Last updated: 2026-09-20
 
+## BrowserDaddy Tab Scout identity
+
+The owner delegated selection from three directions. BrowserDaddy now uses its
+own Tab Scout mascot and compact browser-tab icon, with versioned asset URLs;
+the shared Editorial layout is unchanged. Artwork is clearly labeled, never
+presented as a real browsing-history screenshot. All 21 regression tests and all
+eleven product builds/site checks passed. Local branding inspected at 390, 768
+and 1440px. Native release and classifier qualification remain separate.
+Tracking: https://github.com/sarthakagrawal927/browserdaddy/issues/2
+
 ## Why / What
 
 One Astro codebase that builds a separate static site for each
