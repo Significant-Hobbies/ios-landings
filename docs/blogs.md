@@ -41,3 +41,18 @@ Empty journals are noindex and are not advertised in navigation or the sitemap.
 
 Run `pnpm check` before handoff. It checks every product, product isolation,
 draft/future filtering, image handling and contrast. Building never deploys.
+
+## Syncing product-repo article drafts
+
+Product repos keep SEO drafts under `marketing/articles/<product-id>/` with
+working sections (Outline, Internal-Link Suggestions, Source Notes) that must
+not be published. Convert them with:
+
+```bash
+node scripts/sync-articles.mjs <product-id> <path-to-drafts-dir>
+```
+
+The script rewrites frontmatter into the journal schema (`meta_description`
+becomes `description`, `published` is the sync date), drops every working
+section, and writes `products/<product-id>/blog/<slug>.md` with `draft: false`.
+Review the output, then run `pnpm check` before handoff.
