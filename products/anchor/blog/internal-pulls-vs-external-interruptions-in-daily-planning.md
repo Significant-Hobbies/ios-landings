@@ -15,7 +15,6 @@ For many, schedule divergence is treated as a failure of focus. The instinct is 
 
 Understanding divergence requires looking at the events that caused the departure. These events fall into two broad categories: external interruptions and internal pulls. Distinguishing between these two is the first step toward diagnosing the plan and building a more realistic schedule.
 
-*(Internal link suggestion: Link "plan a day" to an article on setting up daily routines.)*
 
 ## Defining External Interruptions
 
@@ -41,7 +40,6 @@ Internal pulls are varied in their intent. Some are automatic habits you might w
 
 The critical characteristic of an internal pull is that it is a choice—even if automatic. Unlike external interruptions, internal pulls reflect your own state of mind, energy levels, and changing priorities throughout the day.
 
-*(Internal link suggestion: Link "intentional enjoyment" to an article discussing the role of hobbies.)*
 
 ## The Trap of Adherence Scores
 
@@ -73,7 +71,6 @@ When an interruption occurs, the ideal response is a swift capture of the curren
 
 The goal is to turn the ordinary habit of pausing or abandoning a task into data. If you capture the distraction or interruption exactly when it happens, you build a reliable historical record. It is about honesty, not extensive journaling.
 
-*(Internal link suggestion: Link "capturing the evidence" to a guide on how to record activities.)*
 
 ## The Recovery and Return
 

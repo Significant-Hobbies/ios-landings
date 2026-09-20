@@ -21,7 +21,7 @@ if (!product || !/^[a-z][a-z0-9-]*$/.test(product) || !draftsDir) {
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const HEADING = /^#{1,4} /;
 const SKIP_HEADING = /^(outline|internal[- ]link\w*|source notes)\b/i;
-const INLINE_NOTE = /\*?\[Internal Link Suggestions?:[^\]]*\]\*?/gi;
+const INLINE_NOTE = /\*?[([]\s*Internal[- ]Link\s*Suggestions?:[^)\]]*[)\]]\*?/gi;
 const today = new Date().toISOString().slice(0, 10);
 const outDir = new URL(`../products/${product}/blog/`, import.meta.url).pathname;
 
