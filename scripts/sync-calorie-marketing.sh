@@ -11,7 +11,12 @@ if [[ ! -d "$ROOT/../calorie" ]]; then
 fi
 
 (cd "$ROOT" && PRODUCT=calorie pnpm exec astro build)
-rm -rf "$DEST"
 mkdir -p "$DEST"
-rsync -a --delete "$ROOT/dist/calorie/" "$DEST/"
+# marketing/ mixes the generated snapshot with manual additions (draft
+# sources, Cloudflare headers, telemetry) — exclude them from --delete.
+rsync -a --delete \
+  --exclude='/articles/' \
+  --exclude='/_headers' \
+  --exclude='/app-health-log.js' \
+  "$ROOT/dist/calorie/" "$DEST/"
 echo "Synced Calorie landing into $DEST"
