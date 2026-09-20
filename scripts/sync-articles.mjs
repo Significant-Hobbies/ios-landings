@@ -20,9 +20,9 @@ if (!product || !/^[a-z][a-z0-9-]*$/.test(product) || !draftsDir) {
 
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const HEADING = /^#{1,4} /;
-const SKIP_HEADING = /^(outline|internal[- ]link\w*|source notes)\b/i;
+const SKIP_HEADING = /^(outline|.*internal[- ]link.*|source notes)\b/i;
 const INLINE_NOTE = /\*?\[Internal[- ]Link\s*Suggestions?:[^\]]*\]\*?/gi;
-const INLINE_NOTE_LINE = /^[ \t]*\*?\(\s*Internal[- ]Link\s*Suggestions?:.*\)\s*\*?[ \t]*$/gim;
+const INLINE_NOTE_LINE = /\*?[([]\s*Internal[- ]Link\s*Suggestions?:[^\n]*$/gim;
 const DRAFT_COMMENT = /<!--[\s\S]*?(?:source notes|do not publish)[\s\S]*?-->/gi;
 const today = new Date().toISOString().slice(0, 10);
 const outDir = new URL(`../products/${product}/blog/`, import.meta.url).pathname;
@@ -70,7 +70,7 @@ mkdirSync(outDir, { recursive: true });
 let count = 0;
 for (const file of readdirSync(draftsDir).filter((f) => f.endsWith(".md")).sort()) {
   const { data, body } = parseFrontmatter(readFileSync(join(draftsDir, file), "utf8"));
-  const slug = data.slug || basename(file, ".md");
+  const slug = (data.slug || basename(file, ".md")).split("/").filter(Boolean).pop();
   for (const [field, value, max] of [["title", data.title, 120], ["description", data.meta_description, 240]]) {
     if (!value || !value.trim() || value.trim().length > max) throw new Error(`${file}: bad ${field}`);
   }
