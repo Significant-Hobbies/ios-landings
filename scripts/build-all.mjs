@@ -8,7 +8,10 @@ const PRODUCT_IDS = [
   "indulge",
   "calorie",
   "journal",
-  "habits"
+  "habits",
+  "storagedaddy",
+  "performancedaddy",
+  "browserdaddy"
 ];
 
 for (const product of PRODUCT_IDS) {

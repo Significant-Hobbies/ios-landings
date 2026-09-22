@@ -3,6 +3,9 @@ import "../styles/global.css";
 import { clarityProjectIdFor } from "../lib/clarity";
 import { primaryCta, verifiedAppStoreUrl } from "../lib/distribution";
 import { links, productId, site } from "../site.config";
+import { getPublishedPosts } from "../lib/blog";
+import { actionColors } from "../lib/contrast.mjs";
+import { screenshotMetadata } from "../lib/screenshot-metadata.mjs";
 
 interface Props {
   title?: string;
@@ -18,7 +21,7 @@ const productTitle = `${site.name} — ${site.tagline}`;
 const conciseProductTitle = `${site.name} — ${site.headline.join(" ")}`;
 const {
   title = productTitle.length <= 60 ? productTitle : conciseProductTitle,
-  description = site.lede,
+  description = site.seoDescription ?? site.lede,
   canonicalPath = "/",
   image = site.socialImage,
   robots = "index,follow",
@@ -29,9 +32,11 @@ const canonical = new URL(canonicalPath, Astro.site);
 const markdownPath = markdownAlternatePath ?? (canonicalPath === "/" ? "/index.md" : `${canonicalPath}index.md`);
 const markdownAlternate = new URL(markdownPath, Astro.site);
 const socialImage = new URL(image, Astro.site);
+const socialDimensions = image.startsWith("/images/") ? await screenshotMetadata(productId, image) : { width: 1200, height: 630 };
 const cta = primaryCta();
 const storeUrl = verifiedAppStoreUrl();
 const t = site.tokens;
+const action = actionColors(t);
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -47,17 +52,21 @@ const jsonLd = {
       description: site.summary,
       image: new URL(site.socialImage, site.url).href
     },
-    {
+    ...(canonicalPath === "/" ? [{
       "@type": "FAQPage",
       mainEntity: site.faqs.map((faq) => ({
         "@type": "Question",
         name: faq.question,
         acceptedAnswer: { "@type": "Answer", text: faq.answer }
       }))
-    }
+    }] : [])
   ]
 };
 const tokenStyle = [
+  `--button-bg:${action.background}`,
+  `--button-fg:${action.foreground}`,
+  `--button-hover-bg:${action.hoverBackground}`,
+  `--button-hover-fg:${action.hoverForeground}`,
   `--site-paper:${t.paper}`,
   `--site-field:${t.field}`,
   `--site-ink:${t.ink}`,
@@ -76,9 +85,10 @@ const tokenStyle = [
 const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 const clarityProjectId = clarityProjectIdFor(productId);
+const hasBlog = (await getPublishedPosts()).length > 0;
 ---
 <!doctype html>
-<html lang="en" data-product={productId} data-scheme={scheme} style={tokenStyle}>
+<html lang="en" data-product={productId} data-device={site.device ?? "phone"} data-scheme={scheme} style={tokenStyle}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -87,16 +97,19 @@ const clarityProjectId = clarityProjectIdFor(productId);
     <meta name="theme-color" content={site.themeColor} />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" type="text/markdown" href={markdownAlternate} />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+    {hasBlog && <link rel="alternate" type="application/rss+xml" title={`${site.name} journal`} href="/blog/rss.xml" />}
+    {site.device === "desktop" ? <link rel="icon" type="image/png" href={site.mark} /> : <>
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+      <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
+    </>}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
+    <meta property="og:image:width" content={String(socialDimensions.width)} />
+    <meta property="og:image:height" content={String(socialDimensions.height)} />
     <meta property="og:locale" content="en_US" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
@@ -135,7 +148,8 @@ const clarityProjectId = clarityProjectIdFor(productId);
         <nav class="nav-links" aria-label="Primary navigation">
           <a href="/#how-it-works">How it works</a>
           <a href="/#privacy">Privacy</a>
-          <a class="header-beta" href={cta.href}>{cta.kind === "status" ? "Beta status" : cta.label}</a>
+          {hasBlog && <a href="/blog/">Journal</a>}
+          <a class="header-beta" href={cta.href}>{cta.kind === "status" ? (site.device === "desktop" ? "Release status" : "Beta status") : cta.label}</a>
         </nav>
       </div>
     </header>
@@ -154,6 +168,7 @@ const clarityProjectId = clarityProjectIdFor(productId);
           <a href="/support/">Support</a>
           <a href="/terms/">Terms</a>
           <a href="/accessibility/">Accessibility</a>
+          {hasBlog && <a href="/blog/">Journal</a>}
           {links.repository && (
             <a href={links.repository} aria-label={`${site.name} source code on GitHub`} target="_blank" rel="noopener noreferrer">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
@@ -161,7 +176,9 @@ const clarityProjectId = clarityProjectIdFor(productId);
               </svg>
             </a>
           )}
-          {cta.kind === "web-app" || cta.kind === "successor" ? (
+          {site.device === "desktop" ? (
+            <a href="/release/">Release status</a>
+          ) : cta.kind === "web-app" || cta.kind === "successor" ? (
             <a href={cta.href}>{cta.label}</a>
           ) : (
             <a href="/testflight/">TestFlight</a>

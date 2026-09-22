@@ -1,5 +1,7 @@
 ---
 import "../styles/device.css";
+import { productId, site } from "../site.config";
+import { screenshotMetadata } from "../lib/screenshot-metadata.mjs";
 
 interface Props {
   src: string;
@@ -16,20 +18,22 @@ const {
   src,
   alt,
   caption,
-  width = 660,
-  height = 1434,
   priority = false,
   tilt = "none",
   size = "chapter"
 } = Astro.props;
+const { width, height, frame } = await screenshotMetadata(productId, src);
+const desktop = site.device === "desktop" || frame === "desktop";
 ---
-<figure class:list={["device", size, tilt !== "none" && `tilt-${tilt}`]}>
+<figure class:list={["device", `device--${size}`, desktop && "desktop", !desktop && tilt !== "none" && `tilt-${tilt}`]} data-frame={desktop ? "desktop" : "phone"}>
   <div class="device-shell">
+    {!desktop && <>
     <span class="device-island" aria-hidden="true"></span>
     <span class="device-side silent" aria-hidden="true"></span>
     <span class="device-side vol-up" aria-hidden="true"></span>
     <span class="device-side vol-down" aria-hidden="true"></span>
     <span class="device-side power" aria-hidden="true"></span>
+    </>}
     <div class="device-screen">
       {priority ? (
         <img src={src} width={width} height={height} alt={alt} fetchpriority="high" />
@@ -37,7 +41,8 @@ const {
         <img src={src} width={width} height={height} alt={alt} loading="lazy" decoding="async" />
       )}
     </div>
-    {size === "hero" ? <span class="device-sheen" aria-hidden="true"></span> : null}
+    {size === "hero" && !desktop ? <span class="device-sheen" aria-hidden="true"></span> : null}
   </div>
   {caption ? <figcaption>{caption}</figcaption> : null}
+  <a class="screen-link" href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${alt} (new tab)`}>View full-size screenshot <span aria-hidden="true">↗</span></a>
 </figure>

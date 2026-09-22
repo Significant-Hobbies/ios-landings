@@ -5,6 +5,12 @@
   It is not the apps themselves.
 - One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge|calorie|journal|habits`
   selects `products/<id>/site.config.ts` and `products/<id>/public`.
+  `storagedaddy`, `performancedaddy` and `browserdaddy` are Mac-only factory products; use their
+  desktop frames and `/release/` status, not iPhone frames or TestFlight CTAs.
+  BrowserDaddy uses app artwork only, not private browsing screenshots.
+  BrowserDaddy and PerformanceDaddy have explicitly scoped Pages targets.
+  StorageDaddy has no deploy target here. Its existing Worker owns
+  `/download` and `/updates/*`; a future landing cutover must preserve those routes.
 - Calorie is a native-app landing. Its internal TestFlight build has no public
   invitation URL, so its CTA stays on the honest beta-status page.
 - Build output is `dist/<id>`. Never merge the five sites into one

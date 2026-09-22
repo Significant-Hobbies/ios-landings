@@ -10,7 +10,12 @@ const webApp = verifiedWebAppUrl();
 const page = site.legal.testflight;
 ---
 <LegalPage title={page.title} lede={page.lede} path="/testflight/">
-  {site.availability === "successor" && webApp ? (
+  {site.device === "desktop" ? (
+    <section>
+      <h2>Mac distribution</h2>
+      <p>{site.betaNote} <a href="/release/">See release status</a>.</p>
+    </section>
+  ) : site.availability === "successor" && webApp ? (
     <section>
       <h2>{site.appCtaLabel ?? "Continue with the maintained product"}</h2>
       <p>This product is no longer released separately. <a href={webApp}>Open its maintained successor</a>.</p>

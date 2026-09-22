@@ -2,41 +2,13 @@ import { site } from "../site.config";
 
 export const prerender = true;
 
-const errorSchema = {
-  type: "object",
-  properties: {
-    error: {
-      type: "object",
-      properties: {
-        code: { type: "string", description: "Machine-readable error code" },
-        message: { type: "string", description: "Human-readable error message" },
-        path: { type: "string", description: "Request path that caused the error" },
-      },
-      required: ["code", "message"],
-    },
-  },
-  required: ["error"],
-};
-
-const versionParam = {
-  name: "Api-Version",
-  in: "header",
-  description: "API version. Current version is 1. Deprecated versions are announced via Sunset response headers.",
-  schema: { type: "string", default: "1" },
-};
-
-const errorResponse = (description: string) => ({
-  description,
-  content: { "application/json": { schema: errorSchema } },
-});
-
 export function GET() {
   const spec = {
     openapi: "3.1.0",
     info: {
       title: `${site.name} public API`,
       version: "1.0.0",
-      description: `${site.name} — ${site.tagline}. The public web API exposes read-only agent surfaces: the agent catalog, sitemap, llms.txt, and per-page markdown alternates. The API is versioned via the Api-Version header; the current version is 1. Breaking changes require a new version and are announced via Sunset response headers.`,
+      description: `${site.name} — ${site.tagline}. Static read-only documents: the agent catalog, sitemap, llms.txt and explicit per-page Markdown alternates. The catalog version describes its document schema; requests do not negotiate API versions or Markdown via headers.`,
       contact: { name: site.name, url: site.url },
     },
     servers: [{ url: site.url }],
@@ -48,7 +20,6 @@ export function GET() {
           tags: ["agent-surfaces"],
           summary: "Agent catalog",
           description: "JSON inventory of public agent surfaces.",
-          parameters: [versionParam],
           responses: {
             "200": {
               description: "Agent catalog",
@@ -73,7 +44,7 @@ export function GET() {
                             md: { type: "string" },
                             kind: { type: "string" },
                           },
-                          required: ["id", "url", "kind"],
+                          required: ["id", "url", "md", "kind"],
                         },
                       },
                     },
@@ -82,7 +53,6 @@ export function GET() {
                 },
               },
             },
-            "429": errorResponse("Rate limit exceeded"),
           },
         },
       },
@@ -92,7 +62,6 @@ export function GET() {
           tags: ["agent-surfaces"],
           summary: "llms.txt index",
           description: "Markdown index of agent surfaces and product context for LLM consumption.",
-          parameters: [versionParam],
           responses: {
             "200": {
               description: "Markdown index",
@@ -107,7 +76,6 @@ export function GET() {
           tags: ["agent-surfaces"],
           summary: "Sitemap",
           description: "XML sitemap listing all public pages.",
-          parameters: [versionParam],
           responses: {
             "200": {
               description: "XML sitemap",
@@ -122,7 +90,6 @@ export function GET() {
           tags: ["agent-surfaces"],
           summary: "OpenAPI specification",
           description: "This document — the OpenAPI 3.1 specification for the public API.",
-          parameters: [versionParam],
           responses: {
             "200": {
               description: "OpenAPI 3.1 spec",

@@ -1,6 +1,10 @@
 # iOS landings
 
-One Astro app. Separate static sites. Significant Hobbies product marketing.
+One approved Editorial template. Separate static sites. Significant Hobbies product marketing.
+
+The shared design is ready for reuse; native signing and a product's release are
+separate gates. Change product content and assets, not a copy of the page.
+See [adding a product](docs/adding-a-product.md) and [writing blog posts](docs/blogs.md).
 
 | Product | `PRODUCT=` | Host | Pages project | Primary action |
 |---|---|---|---|---|
@@ -12,6 +16,9 @@ One Astro app. Separate static sites. Significant Hobbies product marketing.
 | Calorie | `calorie` | https://calorie.significanthobbies.com | Calorie Worker | Internal beta status |
 | Journal | `journal` | https://journal.significanthobbies.com | `journal` | Native app in preparation |
 | Habits compatibility | `habits` | https://habits.significanthobbies.com | `habits` | Continue with Anchor |
+| StorageDaddy | `storagedaddy` | Local factory preview | None here | Existing Mac download |
+| PerformanceDaddy | `performancedaddy` | https://performancedaddy.significanthobbies.com | `performancedaddy-landing` | Release status |
+| BrowserDaddy | `browserdaddy` | https://browserdaddy.significanthobbies.com | `browserdaddy-landing` | Development status |
 
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
@@ -42,9 +49,11 @@ Pages project. Calorie is not in this deploy because it remains on its Worker.
 - No invented App Store badge or Smart App Banner.
 - TestFlight links must be `https://testflight.apple.com/…`.
 - Screenshots must be the real app.
+- BrowserDaddy currently uses app artwork only, explicitly labelled as artwork;
+  do not publish private browsing captures or imply the artwork is UI evidence.
 
-Blogs can be added later as a shared route with optional per-product
-collections. That folder does not exist yet.
+Per-product Markdown journals share one index and article design. Drafts and
+future posts are excluded from HTML, Markdown, RSS, sitemap and agent discovery.
 
 Calorie’s native product landing stays on its existing Worker. Sync a public
 snapshot into the Calorie repo with
@@ -67,4 +76,9 @@ It checks that every target already exists before publishing any product and
 skips domain attachment. Unknown options, `--all`, and missing target names are
 rejected in this mode. Run `node --test scripts/deploy.test.mjs` to verify the
 deployment boundaries without cloud access. CI runs `pnpm check:one` for each
-of the eight configured products.
+of the eleven configured products. Factory build coverage does not authorize deployment.
+
+BrowserDaddy and PerformanceDaddy are live on their custom subdomains. Their
+Google sitemaps and 14 IndexNow URLs were submitted on 2026-09-20. Neither
+landing deployment publishes a native app download. StorageDaddy's existing
+Worker and update/download routes are unchanged.

@@ -1,6 +1,6 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-09-12
+Last updated: 2026-09-20
 
 ## Why / What
 
@@ -8,11 +8,53 @@ One Astro codebase that builds a separate static site for each
 Significant Hobbies iOS-first app. Each product keeps its own domain,
 privacy URL, support URL, tokens, and screenshots.
 
-In scope: the shared page engine, six maintained product configs, two retired
-compatibility configs, screenshot trees, Apple-gated CTAs, and agent surfaces.
+In scope: the shared page engine, eleven product configs (including two retired
+compatibility configs), artwork/screenshot trees, Apple-gated CTAs, and agent surfaces.
 
 Out of scope: a combined multi-app homepage, App Store badges without a
-live listing, blogs, and Pace / Significant Hobbies marketing.
+live listing, and Pace / Significant Hobbies marketing.
+
+## Editorial factory and Daddy landing launch
+
+- The shared Editorial landing and journal template is ready for reuse across
+  the eleven configured products. Header, buttons and legal/release pages now share
+  one style owner; adding a product is documented in `docs/adding-a-product.md`.
+  Native signing and individual product launch readiness are separate gates,
+  not blockers for using the template.
+
+- StorageDaddy and PerformanceDaddy now build locally in the shared factory,
+  with desktop frames and truthful release paths. Existing StorageDaddy
+  download/update services are unchanged. PerformanceDaddy copy covers
+  background apps, helpers, duration, startup clues and bounded post-stop
+  observations without claiming every match proves an automatic restart.
+- Shared screenshot fixes use actual asset dimensions, separate device classes
+  from page-section classes, enlarge mobile galleries and link full-size images.
+- Owner selected A — Editorial. Shared landings now use a compact split hero,
+  quieter typography, captions below real images and reduced-motion-aware
+  entrance animation. Light Kith and dark PerformanceDaddy were browser-checked
+  at 390, 768 and 1440px; screenshots are in `artifacts/design/editorial/`.
+- Journals now include HTML, Markdown, RSS, sitemap/agent discovery and checked
+  cover files. Draft-by-default and future-date filtering apply to every output.
+  The first PerformanceDaddy background-app article is included in its deployment.
+  Authoring instructions: `docs/blogs.md`.
+- BrowserDaddy now uses the approved Editorial layout with app artwork only,
+  per the owner's explicit choice. No browsing screenshots are published.
+  Copy distinguishes history from measured foreground attention and discloses
+  optional classifier.dev transmission of domains, selected URL paths and titles.
+  Private-window filtering is not claimed as release-qualified.
+- BrowserDaddy and PerformanceDaddy are live on their Significant Hobbies
+  subdomains. Owner-approved proxied CNAMEs were added through Cloudflare after
+  sign-in; valid TLS and HTTPS 200 verified. Catalog marks the landings live,
+  not native releases. Google accepted both sitemap submissions; IndexNow
+  accepted 6 BrowserDaddy and 8 PerformanceDaddy URLs. Actual indexing is not
+  implied by submission. Both live SEO audits pass 19 checks and both Fleet
+  agent-readability audits score 100%; live link graphs are clean.
+- Validation: eleven builds/site checks, SEO and local link-graph checks;
+  regression coverage includes screenshot/blog/contrast, edge middleware and
+  scoped deployment guards. Release evidence records final verification results.
+- Tracking: https://github.com/Significant-Hobbies/ios-landings/issues/16
+  Owner authorized deployment of these two landings only. No commit, push,
+  native binary release or StorageDaddy cutover in this work.
 
 ## Dependencies
 

@@ -2,6 +2,14 @@ export const ACCOUNT_ID = "7d048325699a5acddb44d3be31cf6ba9";
 
 /** Product id → Cloudflare Pages project. Calorie stays on its Worker. */
 export const PRODUCT_PAGES = {
+  browserdaddy: {
+    project: "browserdaddy-landing",
+    domain: "browserdaddy.significanthobbies.com"
+  },
+  performancedaddy: {
+    project: "performancedaddy-landing",
+    domain: "performancedaddy.significanthobbies.com"
+  },
   kith: {
     project: "kith",
     domain: "kith.significanthobbies.com"
