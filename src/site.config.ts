@@ -9,9 +9,11 @@ export const site: SiteConfig = catalog[productId];
 
 const repositories: Partial<Record<ProductId, string>> = {
   storagedaddy: "https://github.com/sarthakagrawal927/storagedaddy",
+  performancedaddy: "https://github.com/sarthakagrawal927/performancedaddy",
   anchor: "https://github.com/Significant-Hobbies/anchor",
   kith: "https://github.com/Significant-Hobbies/kith",
   setline: "https://github.com/Significant-Hobbies/setline",
+  calorie: "https://github.com/Significant-Hobbies/calorie",
   motion: "https://github.com/Significant-Hobbies/motion"
 };
 
