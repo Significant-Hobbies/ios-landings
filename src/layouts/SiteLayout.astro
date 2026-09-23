@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { clarityProjectIdFor } from "../lib/clarity";
+import { appHealthConfigFor } from "../lib/app-health.mjs";
 import { primaryCta, verifiedAppStoreUrl } from "../lib/distribution";
 import { links, productId, site } from "../site.config";
 import { getPublishedPosts } from "../lib/blog";
@@ -85,6 +86,7 @@ const tokenStyle = [
 const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 const clarityProjectId = clarityProjectIdFor(productId);
+const appHealth = appHealthConfigFor(productId);
 const hasBlog = (await getPublishedPosts()).length > 0;
 ---
 <!doctype html>
@@ -134,6 +136,17 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         })(window, document, "clarity", "script", clarityProjectId);
         window.clarity("set", "project_id", productId);
       </script>
+    ) : null}
+    {appHealth ? (
+      <script
+        is:inline
+        defer
+        src="https://health.sassmaker.com/tracker.js"
+        data-key={appHealth.publicKey}
+        data-project={appHealth.projectId}
+        data-identity="persistent"
+        data-endpoint="https://ingest.sassmaker.com/v1/browser"
+      />
     ) : null}
     <title>{title}</title>
   </head>

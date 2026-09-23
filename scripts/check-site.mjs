@@ -1,5 +1,6 @@
 import { access, readFile } from "node:fs/promises";
 import { imageMetadata } from "astro/assets/utils";
+import { appHealthConfigFor } from "../src/lib/app-health.mjs";
 
 const product = process.env.PRODUCT ?? "kith";
 const dist = `dist/${product}`;
@@ -12,6 +13,7 @@ const clarityProjectIds = {
   setline: "y6bunkz9vz"
 };
 const expectedClarityId = clarityProjectIds[product];
+const expectedAppHealth = appHealthConfigFor(product);
 
 const requiredFiles = [
   `${dist}/index.html`,
@@ -118,6 +120,7 @@ const approvedFooterScripts = [
   "https://sassmaker.com/project-strip.js",
   "https://sassmaker.com/ai-chat-footer.js"
 ];
+const appHealthTracker = "https://health.sassmaker.com/tracker.js";
 for (const src of approvedFooterScripts) {
   const matches = executableScripts.filter((match) => {
     const attrs = match[1] ?? "";
@@ -130,10 +133,35 @@ for (const src of approvedFooterScripts) {
 
 const unexpectedScripts = executableScripts.filter((match) => {
   const attrs = match[1] ?? "";
-  return !approvedFooterScripts.some((src) =>
+  const isApprovedFooter = approvedFooterScripts.some((src) =>
     attrs.includes(`src="${src}"`) || attrs.includes(`src='${src}'`)
   );
+  const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
+    attrs.includes(`src='${appHealthTracker}'`);
+  return !isApprovedFooter && !isAppHealth;
 });
+const appHealthScripts = executableScripts.filter((match) => {
+  const attrs = match[1] ?? "";
+  return attrs.includes(`src="${appHealthTracker}"`) ||
+    attrs.includes(`src='${appHealthTracker}'`);
+});
+if (expectedAppHealth) {
+  if (appHealthScripts.length !== 1) {
+    throw new Error(`${product}: expected exactly one App Health tracker.`);
+  }
+  for (const fragment of [
+    `data-key="${expectedAppHealth.publicKey}"`,
+    `data-project="${expectedAppHealth.projectId}"`,
+    'data-identity="persistent"',
+    'data-endpoint="https://ingest.sassmaker.com/v1/browser"'
+  ]) {
+    if (!home.includes(fragment)) {
+      throw new Error(`${product}: App Health output is missing ${fragment}.`);
+    }
+  }
+} else if (appHealthScripts.length !== 0) {
+  throw new Error(`${product}: the static landing unexpectedly ships App Health.`);
+}
 if (expectedClarityId) {
   if (unexpectedScripts.length !== 1) {
     throw new Error(`${product}: expected exactly one inline Clarity loader.`);
