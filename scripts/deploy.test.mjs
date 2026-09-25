@@ -73,7 +73,7 @@ test("StorageDaddy stays build-only without changing its existing download infra
 });
 
 test("new Daddy deployments are individually scoped to approved projects", () => {
-  for (const product of ["browserdaddy", "performancedaddy"]) {
+  for (const product of ["browserdaddy", "performancedaddy", "contextdaddy"]) {
     const result = attempt([product, "--existing-only"], [`${product}-landing`]);
     assert.equal(result.status, 0, result.stderr);
     const upload = result.calls.find(call => call[3] === "deploy");

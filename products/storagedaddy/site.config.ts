@@ -2,7 +2,7 @@ import type { SiteConfig } from "../../src/lib/types";
 
 export const site: SiteConfig = {
   name: "StorageDaddy",
-  url: "https://storagedaddy.significanthobbies.com",
+  url: "https://storage.daddyrad.com",
   tagline: "Make room. Keep building.",
   headline: ["Make room.", "Keep building."],
   lede: "A Mac storage analyzer for developers. Find the caches, builds and AI files taking up space, inspect what matters, then review every cleanup before anything moves to Trash.",
@@ -28,7 +28,7 @@ export const site: SiteConfig = {
   ],
   applicationCategory: "UtilitiesApplication",
   availability: "unreleased",
-  macDownloadUrl: "https://storagedaddy.significanthobbies.com/download",
+  macDownloadUrl: "https://storage.daddyrad.com/download",
   macDownloadLabel: "Download for Mac",
   betaNote: "The public beta is signed and notarized for Apple silicon Macs on macOS 14 or later. Early-access downloads include future versions free forever, with no trial expiry, account or checkout. The download uses StorageDaddy’s existing release service.",
   tension: { statement: "Know what is there before deciding what goes.", title: "Space has a backstory.", copy: "Builds, caches, installed packages and agent histories accumulate quietly. StorageDaddy brings their sizes and locations into one native workspace. A scan deletes nothing." },

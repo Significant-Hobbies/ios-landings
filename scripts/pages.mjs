@@ -4,11 +4,15 @@ export const ACCOUNT_ID = "7d048325699a5acddb44d3be31cf6ba9";
 export const PRODUCT_PAGES = {
   browserdaddy: {
     project: "browserdaddy-landing",
-    domain: "browserdaddy.significanthobbies.com"
+    domain: "browser.daddyrad.com"
+  },
+  contextdaddy: {
+    project: "contextdaddy-landing",
+    domain: "context.daddyrad.com"
   },
   performancedaddy: {
     project: "performancedaddy-landing",
-    domain: "performancedaddy.significanthobbies.com"
+    domain: "performance.daddyrad.com"
   },
   kith: {
     project: "kith",

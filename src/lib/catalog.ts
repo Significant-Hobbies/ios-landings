@@ -9,6 +9,7 @@ import { site as setline } from "../../products/setline/site.config";
 import { site as storagedaddy } from "../../products/storagedaddy/site.config";
 import { site as performancedaddy } from "../../products/performancedaddy/site.config";
 import { site as browserdaddy } from "../../products/browserdaddy/site.config";
+import { site as contextdaddy } from "../../products/contextdaddy/site.config";
 import type { SiteConfig } from "./types";
 
 export const catalog = {
@@ -22,7 +23,8 @@ export const catalog = {
   habits,
   storagedaddy,
   performancedaddy,
-  browserdaddy
+  browserdaddy,
+  contextdaddy
 } as const satisfies Record<string, SiteConfig>;
 
 export type ProductId = keyof typeof catalog;

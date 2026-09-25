@@ -11,7 +11,8 @@ const PRODUCT_IDS = [
   "habits",
   "storagedaddy",
   "performancedaddy",
-  "browserdaddy"
+  "browserdaddy",
+  "contextdaddy"
 ];
 
 for (const product of PRODUCT_IDS) {

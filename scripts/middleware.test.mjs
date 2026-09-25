@@ -17,14 +17,18 @@ function contextFor(req, next, assets) {
   return { request: req, next: async () => next, env: assets ? { ASSETS: { fetch: assets } } : {} };
 }
 
-test("only the two production Daddy aliases redirect, preserving path and query", async () => {
-  for (const id of ["browserdaddy", "performancedaddy"]) {
+test("the production Daddy aliases redirect, preserving path and query", async () => {
+  const canonical = { browserdaddy: "browser.daddyrad.com", performancedaddy: "performance.daddyrad.com", contextdaddy: "context.daddyrad.com" };
+  for (const id of ["browserdaddy", "performancedaddy", "contextdaddy"]) {
     for (const method of ["GET", "HEAD"]) {
       const response = await onRequest(contextFor(new Request(`https://${id}-landing.pages.dev/privacy/?from=share`, { method }), new Response("unused")));
       assert.equal(response.status, 301);
-      assert.equal(response.headers.get("location"), `https://${id}.significanthobbies.com/privacy/?from=share`);
+      assert.equal(response.headers.get("location"), `https://${canonical[id]}/privacy/?from=share`);
       assert.equal(await response.text(), "");
     }
+    const proxied = await onRequest(contextFor(new Request(`https://${id}-landing.pages.dev/`, { headers: { "x-daddy-proxy": "1" } }), new Response("page")));
+    assert.equal(proxied.status, 200);
+    assert.equal(proxied.headers.get("location"), null);
     for (const host of [`hash.${id}-landing.pages.dev`, `${id}.significanthobbies.com`, "kith.pages.dev"]) {
       const response = await onRequest(contextFor(new Request(`https://${host}/`), new Response("page", { headers: { "content-type": "text/html" } })));
       assert.equal(response.status, 200);

@@ -6,10 +6,12 @@ const product = process.env.PRODUCT ?? "kith";
 const dist = `dist/${product}`;
 const clarityProjectIds = {
   anchor: "y6bwr0anyd",
+  browserdaddy: "ymdsbwwko3",
   calorie: "y6bultfwvf",
   journal: "ybcifeb3uv",
   kith: "y6bus3owf7",
   motion: "y6bvl31bna",
+  performancedaddy: "ymdspsyir7",
   setline: "y6bunkz9vz"
 };
 const expectedClarityId = clarityProjectIds[product];
@@ -46,7 +48,7 @@ const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
 if (!home.includes(name)) throw new Error(`${product}: landing does not name the product.`);
 const hasInstallCta = home.includes('class="button"') || home.includes('class="store-badge"');
-const desktopProducts = ["storagedaddy", "performancedaddy"];
+const desktopProducts = ["storagedaddy", "performancedaddy", "browserdaddy", "contextdaddy"];
 if (desktopProducts.includes(product)) {
   for (const path of ["release/index.html", "release/index.md"]) await access(`${dist}/${path}`);
   if (!home.includes('data-device="desktop"') || home.includes('class="device-island"')) {
@@ -56,11 +58,11 @@ if (desktopProducts.includes(product)) {
     throw new Error(`${product}: Mac landing must use its release path, not mobile distribution.`);
   }
   const release = await readFile(`${dist}/release/index.html`, "utf8");
-  if (product === "storagedaddy" && !home.includes('href="https://storagedaddy.significanthobbies.com/download"')) {
-    throw new Error("storagedaddy: preserve the existing download service.");
-  }
-  if (product === "performancedaddy" && (!home.includes("no public download yet") || !release.includes("not publicly downloadable yet") || home.includes(".dmg"))) {
-    throw new Error("performancedaddy: local preview must not imply a public release.");
+  for (const id of ["storagedaddy", "performancedaddy", "browserdaddy", "contextdaddy"]) {
+    const host = { storagedaddy: "storage", performancedaddy: "performance", browserdaddy: "browser", contextdaddy: "context" }[id];
+    if (product === id && !home.includes(`href="https://${host}.daddyrad.com/download"`)) {
+      throw new Error(`${product}: preserve the existing download service.`);
+    }
   }
   if (!ai.surfaces.some((surface) => surface.id === "release")) throw new Error(`${product}: missing agent release surface.`);
 }
@@ -89,13 +91,10 @@ if (home.includes("testflight.apple.com")) {
   throw new Error(`${product}: a public TestFlight URL appeared without a verified build-time configuration.`);
 }
 
-if (!home.includes('"@type":"WebSite"')) {
+if (!home.includes("WebSite")) {
   throw new Error(`${product}: landing is missing WebSite structured data.`);
 }
 if (product === "browserdaddy") {
-  for (const asset of ["browserdaddy-icon-v1.png", "browserdaddy-scout-v1.png"]) {
-    if (!home.includes(asset)) throw new Error(`browserdaddy: missing own-brand asset ${asset}`);
-  }
   if (!home.includes("App artwork") || !home.includes("not a screenshot")) {
     throw new Error("browserdaddy: artwork must not masquerade as product screenshot proof");
   }

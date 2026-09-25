@@ -90,12 +90,13 @@ export const onRequest: PagesFunction = async (context) => {
   const url = new URL(request.url);
   // Pages Functions do not apply static _redirects rules to handled routes.
   // Keep hash previews available; redirect only these production aliases.
-  const canonicalHost = url.hostname === "browserdaddy-landing.pages.dev"
-    ? "browserdaddy.significanthobbies.com"
-    : url.hostname === "performancedaddy-landing.pages.dev"
-      ? "performancedaddy.significanthobbies.com"
-      : null;
-  if (canonicalHost) {
+  const daddyCanonical: Record<string, string> = {
+    "browserdaddy-landing.pages.dev": "browser.daddyrad.com",
+    "performancedaddy-landing.pages.dev": "performance.daddyrad.com",
+    "contextdaddy-landing.pages.dev": "context.daddyrad.com",
+  };
+  const canonicalHost = daddyCanonical[url.hostname] ?? null;
+  if (canonicalHost && !request.headers.has("x-daddy-proxy")) {
     url.protocol = "https:";
     url.host = canonicalHost;
     return Response.redirect(url.toString(), 301);
