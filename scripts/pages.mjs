@@ -34,14 +34,6 @@ export const PRODUCT_PAGES = {
     project: "indulge",
     domain: "indulge.significanthobbies.com"
   },
-  journal: {
-    project: "journal",
-    domain: "journal.significanthobbies.com"
-  },
-  habits: {
-    project: "habits",
-    domain: "habits.significanthobbies.com"
-  }
 };
 
 export const PRODUCT_IDS = Object.keys(PRODUCT_PAGES);
