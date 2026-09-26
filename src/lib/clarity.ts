@@ -4,6 +4,7 @@ const clarityProjectIds: Partial<Record<ProductId, string>> = {
   anchor: "y6bwr0anyd",
   browserdaddy: "ymdsbwwko3",
   calorie: "y6bultfwvf",
+  contextdaddy: "yoig7ab0eb",
   journal: "ybcifeb3uv",
   kith: "y6bus3owf7",
   motion: "y6bvl31bna",
