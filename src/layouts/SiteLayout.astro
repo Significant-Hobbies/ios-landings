@@ -36,8 +36,35 @@ const socialImage = new URL(image, Astro.site);
 const socialDimensions = image.startsWith("/images/") ? await screenshotMetadata(productId, image) : { width: 1200, height: 630 };
 const cta = primaryCta();
 const storeUrl = verifiedAppStoreUrl();
+// Sibling Significant Hobbies apps — cross-linking the family gives each
+// product's name an authoritative external anchor on the shared domain.
+const SIBLING_APPS: { id: string; name: string }[] = [
+  { id: "anchor", name: "Anchor" },
+  { id: "browserdaddy", name: "BrowserDaddy" },
+  { id: "calorie", name: "Calorie" },
+  { id: "habits", name: "Habits" },
+  { id: "indulge", name: "Indulge" },
+  { id: "journal", name: "Journal" },
+  { id: "kith", name: "Kith" },
+  { id: "motion", name: "Motion" },
+  { id: "performancedaddy", name: "PerformanceDaddy" },
+  { id: "setline", name: "Setline" },
+  { id: "storagedaddy", name: "StorageDaddy" },
+];
+const siblingApps = SIBLING_APPS.filter((s) => s.id !== productId);
 const t = site.tokens;
 const action = actionColors(t);
+const PLATFORM_OS: Record<string, string> = {
+  "iPhone": "iOS", "iPad": "iOS", "Mac": "macOS", "Apple Watch": "watchOS",
+};
+const productOperatingSystems = [...new Set(
+  (site.platforms ?? [])
+    .map((p) => PLATFORM_OS[p] ?? (p.startsWith("macOS") ? "macOS" : undefined))
+    .filter((os): os is string => Boolean(os)),
+)];
+if (productOperatingSystems.length === 0) {
+  productOperatingSystems.push(site.device === "desktop" ? "macOS" : "iOS");
+}
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -52,6 +79,16 @@ const jsonLd = {
       url: site.url,
       description: site.summary,
       image: new URL(site.socialImage, site.url).href
+    },
+    {
+      "@type": "SoftwareApplication",
+      name: site.name,
+      url: site.url,
+      description: site.summary,
+      applicationCategory: "LifestyleApplication",
+      operatingSystem: productOperatingSystems.join(", "),
+      isAccessibleForFree: true,
+      publisher: { "@type": "Organization", name: "Significant Hobbies", url: "https://significanthobbies.com" }
     },
     ...(canonicalPath === "/" ? [{
       "@type": "FAQPage",
@@ -196,6 +233,12 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           ) : (
             <a href="/testflight/">TestFlight</a>
           )}
+        </nav>
+        <nav class="footer-links" aria-label="More Significant Hobbies apps" style="margin-top: 18px; opacity: 0.7">
+          {siblingApps.map((s) => (
+            <a href={`https://${s.id}.significanthobbies.com/`} target="_blank" rel="noopener noreferrer">{s.name}</a>
+          ))}
+          <a href="https://significanthobbies.com/" target="_blank" rel="noopener noreferrer">Significant Hobbies</a>
         </nav>
       </div>
     </footer>
