@@ -34,8 +34,8 @@ export const site: SiteConfig = {
   status: "Invite-only TestFlight and notarized Mac beta",
   platforms: ["iPhone", "Mac", "Apple Watch"],
   themeColor: "#0a0c10",
-  mark: "/images/brand/mark.png",
-  socialImage: "/images/brand/social.png",
+  mark: "/images/brand/anchor-mark-v29.png",
+  socialImage: "/images/brand/anchor-social-v29.png",
   tokens: {
     paper: "#0a0c10", field: "#141922", ink: "#edf1f7", inkSoft: "#94a0b3", inkFaint: "rgba(255,255,255,0.08)",
     accent: "#3b82f6", accentDark: "#60a5fa", accentSoft: "#7dd3fc", lanternA: "#3b82f6", lanternB: "#7dd3fc", lanternC: "#fb7185",
