@@ -5,6 +5,8 @@
   It is not the apps themselves.
 - One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge|calorie|journal|habits|contextdaddy`
   selects `products/<id>/site.config.ts` and `products/<id>/public`.
+  `journal` and `habits` are retained for source history only — they are not in
+  `scripts/pages.mjs` (`PRODUCT_PAGES`) and must not be deployed.
   `storagedaddy`, `performancedaddy` and `browserdaddy` are Mac-only factory products; use their
   desktop frames and `/release/` status, not iPhone frames or TestFlight CTAs.
   BrowserDaddy uses app artwork only, not private browsing screenshots.
