@@ -17,6 +17,6 @@ test("each released native landing has a distinct App Health browser identity", 
 });
 
 test("unconfigured factory products do not inherit another product's tracker", () => {
-  assert.equal(appHealthConfigFor("motion"), null);
+  assert.equal(appHealthConfigFor("storagedaddy"), null);
   assert.equal(appHealthConfigFor("unknown"), null);
 });
