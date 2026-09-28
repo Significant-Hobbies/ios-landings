@@ -9,7 +9,6 @@ const clarityProjectIds = {
   browserdaddy: "ymdsbwwko3",
   calorie: "y6bultfwvf",
   contextdaddy: "yoig7ab0eb",
-  journal: "ybcifeb3uv",
   kith: "y6bus3owf7",
   motion: "y6bvl31bna",
   performancedaddy: "ymdspsyir7",
@@ -168,7 +167,7 @@ if (expectedAppHealth) {
     const expectedCtaEvents = {
       anchor: ["mac_beta_downloaded", "testflight_status_opened"],
       browserdaddy: ["mac_download_clicked", "release_status_opened"],
-      contextdaddy: ["download_opened"],
+      contextdaddy: ["download_opened", "release_details_opened"],
       performancedaddy: ["mac_download_clicked", "source_opened"]
     }[product];
     for (const event of expectedCtaEvents) {
