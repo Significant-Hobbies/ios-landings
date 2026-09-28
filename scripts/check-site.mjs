@@ -8,6 +8,7 @@ const clarityProjectIds = {
   anchor: "y6bwr0anyd",
   browserdaddy: "ymdsbwwko3",
   calorie: "y6bultfwvf",
+  contextdaddy: "yoig7ab0eb",
   journal: "ybcifeb3uv",
   kith: "y6bus3owf7",
   motion: "y6bvl31bna",
@@ -163,6 +164,24 @@ if (expectedAppHealth) {
       throw new Error(`${product}: App Health output is missing ${fragment}.`);
     }
   }
+  if (["anchor", "browserdaddy", "contextdaddy", "performancedaddy"].includes(product)) {
+    const expectedCtaEvents = {
+      anchor: ["mac_beta_downloaded", "testflight_status_opened"],
+      browserdaddy: ["mac_download_clicked", "release_status_opened"],
+      contextdaddy: ["download_opened"],
+      performancedaddy: ["mac_download_clicked", "source_opened"]
+    }[product];
+    for (const event of expectedCtaEvents) {
+      if (!home.includes(event)) throw new Error(`${product}: CTA event ${event} is not tracked.`);
+    }
+    const privacy = await readFile(`${dist}/privacy/index.html`, "utf8");
+    const privacyMarkdown = await readFile(`${dist}/privacy/index.md`, "utf8");
+    for (const [surface, content] of [["HTML", privacy], ["Markdown", privacyMarkdown]]) {
+      if (!content.includes("App Health") || !content.includes("page views") || !content.includes("Mac download")) {
+        throw new Error(`${product}: ${surface} privacy page does not disclose App Health page views and download clicks.`);
+      }
+    }
+  }
 } else if (appHealthScripts.length !== 0) {
   throw new Error(`${product}: the static landing unexpectedly ships App Health.`);
 }
@@ -199,8 +218,9 @@ if (["setline", "kith", "motion"].includes(product)) {
   throw new Error(`${product}: the landing unexpectedly ships a newsletter capture form.`);
 }
 if (expectedClarityId) {
-  if (unexpectedScripts.length !== 1) {
-    throw new Error(`${product}: expected exactly one inline Clarity loader.`);
+  const expectedInlineScripts = 1 + Number(Boolean(expectedAppHealth));
+  if (unexpectedScripts.length !== expectedInlineScripts) {
+    throw new Error(`${product}: expected ${expectedInlineScripts} inline analytics loaders.`);
   }
   for (const fragment of [
     `const clarityProjectId = "${expectedClarityId}"`,
@@ -228,7 +248,7 @@ if (expectedClarityId) {
       if (!privacyMarkdown.includes(fragment)) throw new Error(`setline: Markdown privacy page is missing ${fragment}.`);
     }
   }
-} else if (unexpectedScripts.length !== 0 || home.includes("www.clarity.ms/tag")) {
+} else if (unexpectedScripts.length !== Number(Boolean(expectedAppHealth)) || home.includes("www.clarity.ms/tag")) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);
 }
 

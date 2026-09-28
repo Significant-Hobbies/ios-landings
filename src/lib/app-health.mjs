@@ -16,16 +16,16 @@ const APP_HEALTH_CONFIG = Object.freeze({
     publicKey: "ahk_pub_35d2981dfd952d8c2649871054c150d96208fb70493217b2126461fe177e61b9",
   }),
   browserdaddy: Object.freeze({
-    projectId: "app-7d828d30-f44d-4628-9663-d3f87eada8d3",
-    publicKey: "ahk_pub_42216c0ca7f202cd386c7e2fd953cf0053b00ba55e35d042d26d771ff3b776d2",
+    projectId: "app-import-8aef29b798cf1e1685b401324903b7ac54768a4eee220ee4d10a5a2fe4ff52b5",
+    publicKey: "ahk_pub_d05c2f5acde4c6055857b517ffcb8a0d5a7e50aebebec85eebe6ff2045beac0f",
   }),
   contextdaddy: Object.freeze({
-    projectId: "app-2136b619-369a-4a5a-8f0f-6644b2be9e23",
-    publicKey: "ahk_pub_a77558c571c9d02410f778d894e4b60237a3af14eb0339ddadf7c5ad6083722d",
+    projectId: "app-import-2b4e7910da0dbabd63ec5e732ba5ec8c31e6d561ea94c8add7a13d041f62bb7d",
+    publicKey: "ahk_pub_e6a45ae53b2f34b5ddb929160487b00dff788d022b9d118be4c45b6223e3ff25",
   }),
   performancedaddy: Object.freeze({
-    projectId: "app-0353c754-9016-4d8a-86cc-34577cf20895",
-    publicKey: "ahk_pub_6f35554244952944cbd1bfc24d87190639c3b9786ee7180117a01f4220aba245",
+    projectId: "app-import-74da467c34f82d570ec0ac77254d171ac255942e060232e0fde27d22b1fb47f1",
+    publicKey: "ahk_pub_06237a91cc8013927192836ea4397e6e0753bcd85278789e20ed46033c8256c8",
   }),
   motion: Object.freeze({
     projectId: "app-import-60cb3bd9053732d2e6f2d4c47381a65bc2378249b995225f739b16e1075646fd",

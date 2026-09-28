@@ -137,41 +137,54 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", clarityProjectId);
         window.clarity("set", "project_id", productId);
-        if (["setline", "kith", "motion"].includes(productId)) {
-          const trackAppHealthEvent = (name) => {
-            if (window.appHealth && typeof window.appHealth.track === "function") {
-              window.appHealth.track(name);
-            } else {
-              document.getElementById("app-health-tracker")?.addEventListener("load", () => {
-                if (window.appHealth && typeof window.appHealth.track === "function") {
-                  window.appHealth.track(name);
-                }
-              }, { once: true });
-            }
-          };
-          document.addEventListener("click", (event) => {
-            const path = event.composedPath();
-            const link = path.find((target) => target instanceof HTMLAnchorElement);
-            if (link?.getAttribute("href") === "/testflight/") {
-              trackAppHealthEvent("testflight_status_opened");
-            } else if (link?.getAttribute("href") === "/#how-it-works" && productId !== "setline") {
-              trackAppHealthEvent("how_it_works_opened");
-            } else if (link?.getAttribute("href") === "#look-inside" && productId === "setline") {
-              trackAppHealthEvent("product_preview_opened");
-            }
-            const newsletterSubmit = path.some((target) =>
-              target instanceof HTMLButtonElement && target.type === "submit"
-            );
-            const newsletterHost = path.find((target) =>
-              target instanceof Element && target.localName === "saas-maker-newsletter-capture"
-            );
-            const consent = newsletterHost?.shadowRoot?.querySelector("input[name='consent']");
-            const email = newsletterHost?.shadowRoot?.querySelector("input[type='email']");
-            if (newsletterSubmit && consent?.checked && email?.validity.valid) {
-              trackAppHealthEvent("newsletter_signup_clicked");
-            }
-          });
-        }
+      </script>
+    ) : null}
+    {appHealth ? (
+      <script is:inline define:vars={{ productId, macDownloadUrl: site.macDownloadUrl ?? "", repositoryUrl: links.repository ?? "" }}>
+        const trackAppHealthEvent = (name) => {
+          if (window.appHealth && typeof window.appHealth.track === "function") {
+            window.appHealth.track(name);
+          } else {
+            document.getElementById("app-health-tracker")?.addEventListener("load", () => {
+              if (window.appHealth && typeof window.appHealth.track === "function") {
+                window.appHealth.track(name);
+              }
+            }, { once: true });
+          }
+        };
+        document.addEventListener("click", (event) => {
+          const path = event.composedPath();
+          const link = path.find((target) => target instanceof HTMLAnchorElement);
+          const href = link?.getAttribute("href");
+          if (href === "/testflight/" && ["anchor", "kith", "motion", "setline"].includes(productId)) {
+            trackAppHealthEvent("testflight_status_opened");
+          } else if (href === "/#how-it-works" && productId !== "setline") {
+            trackAppHealthEvent("how_it_works_opened");
+          } else if (href === "#look-inside" && productId === "setline") {
+            trackAppHealthEvent("product_preview_opened");
+          } else if (productId === "anchor" && macDownloadUrl && href === macDownloadUrl) {
+            trackAppHealthEvent("mac_beta_downloaded");
+          } else if (productId === "browserdaddy" && href === "/release/") {
+            trackAppHealthEvent("release_status_opened");
+          } else if (productId === "performancedaddy" && repositoryUrl && href === repositoryUrl) {
+            trackAppHealthEvent("source_opened");
+          } else if (productId === "contextdaddy" && macDownloadUrl && href === macDownloadUrl) {
+            trackAppHealthEvent("download_opened");
+          } else if (["browserdaddy", "performancedaddy"].includes(productId) && macDownloadUrl && href === macDownloadUrl) {
+            trackAppHealthEvent("mac_download_clicked");
+          }
+          const newsletterSubmit = path.some((target) =>
+            target instanceof HTMLButtonElement && target.type === "submit"
+          );
+          const newsletterHost = path.find((target) =>
+            target instanceof Element && target.localName === "saas-maker-newsletter-capture"
+          );
+          const consent = newsletterHost?.shadowRoot?.querySelector("input[name='consent']");
+          const email = newsletterHost?.shadowRoot?.querySelector("input[type='email']");
+          if (newsletterSubmit && consent?.checked && email?.validity.valid) {
+            trackAppHealthEvent("newsletter_signup_clicked");
+          }
+        });
       </script>
     ) : null}
     {appHealth ? (
