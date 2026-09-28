@@ -174,6 +174,9 @@ if (expectedAppHealth) {
     for (const event of expectedCtaEvents) {
       if (!home.includes(event)) throw new Error(`${product}: CTA event ${event} is not tracked.`);
     }
+    for (const fragment of ["event.preventDefault();", "tracker.flush()", "window.location.assign(link.href)"]) {
+      if (!home.includes(fragment)) throw new Error(`${product}: tracked navigation does not wait for its event receipt (${fragment}).`);
+    }
     const privacy = await readFile(`${dist}/privacy/index.html`, "utf8");
     const privacyMarkdown = await readFile(`${dist}/privacy/index.md`, "utf8");
     for (const [surface, content] of [["HTML", privacy], ["Markdown", privacyMarkdown]]) {
