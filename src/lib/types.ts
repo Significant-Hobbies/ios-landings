@@ -51,6 +51,7 @@ export type SiteConfig = {
   galleryTitle?: [string, string];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store" | "web-app" | "successor";
+  newsletterCapture?: boolean;
   appStoreUrl?: string;
   appStoreId?: string;
   appUrl?: string;

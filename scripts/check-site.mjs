@@ -119,6 +119,7 @@ const approvedFooterScripts = [
   "https://sassmaker.com/project-strip.js",
   "https://sassmaker.com/ai-chat-footer.js"
 ];
+const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js";
 const appHealthTracker = "https://health.sassmaker.com/tracker.js";
 for (const src of approvedFooterScripts) {
   const matches = executableScripts.filter((match) => {
@@ -137,7 +138,11 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  return !isApprovedFooter && !isAppHealth;
+  const isNewsletterCapture = product === "setline" && (
+    attrs.includes(`src="${newsletterCaptureScript}"`) ||
+    attrs.includes(`src='${newsletterCaptureScript}'`)
+  );
+  return !isApprovedFooter && !isAppHealth && !isNewsletterCapture;
 });
 const appHealthScripts = executableScripts.filter((match) => {
   const attrs = match[1] ?? "";
@@ -161,6 +166,31 @@ if (expectedAppHealth) {
 } else if (appHealthScripts.length !== 0) {
   throw new Error(`${product}: the static landing unexpectedly ships App Health.`);
 }
+const newsletterScripts = executableScripts.filter((match) => {
+  const attrs = match[1] ?? "";
+  return attrs.includes(`src="${newsletterCaptureScript}"`) ||
+    attrs.includes(`src='${newsletterCaptureScript}'`);
+});
+const hasNewsletterElement = home.includes("<saas-maker-newsletter-capture");
+if (product === "setline") {
+  if (newsletterScripts.length !== 1 || !hasNewsletterElement) {
+    throw new Error("setline: expected one shared newsletter capture element and loader.");
+  }
+  for (const fragment of [
+    'catalog-id="setline"',
+    'kind="newsletter"',
+    'source="footer"',
+    'privacy-url="https://setline.significanthobbies.com/privacy/"',
+    'data-clarity-mask="true"',
+    "testflight_status_opened",
+    "product_preview_opened",
+    "newsletter_signup_clicked"
+  ]) {
+    if (!home.includes(fragment)) throw new Error(`setline: landing is missing ${fragment}.`);
+  }
+} else if (newsletterScripts.length !== 0 || hasNewsletterElement) {
+  throw new Error(`${product}: the landing unexpectedly ships Setline's newsletter capture.`);
+}
 if (expectedClarityId) {
   if (unexpectedScripts.length !== 1) {
     throw new Error(`${product}: expected exactly one inline Clarity loader.`);
@@ -182,6 +212,14 @@ if (expectedClarityId) {
   }
   if (!privacyMarkdown.includes("Marketing-site analytics") || !privacyMarkdown.includes("Microsoft Clarity")) {
     throw new Error(`${product}: Markdown privacy page does not disclose Clarity website analytics.`);
+  }
+  if (product === "setline") {
+    for (const fragment of ["Setline website analytics", "Email updates", "SaaS Maker privacy policy"]) {
+      if (!privacy.includes(fragment)) throw new Error(`setline: privacy page is missing ${fragment}.`);
+    }
+    for (const fragment of ["App Health", "Email updates", "SaaS Maker privacy policy"]) {
+      if (!privacyMarkdown.includes(fragment)) throw new Error(`setline: Markdown privacy page is missing ${fragment}.`);
+    }
   }
 } else if (unexpectedScripts.length !== 0 || home.includes("www.clarity.ms/tag")) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);

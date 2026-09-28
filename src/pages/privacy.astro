@@ -24,4 +24,10 @@ const clarityProjectId = clarityProjectIdFor(productId);
       <p>{section.body}</p>
     </section>
   ))}
+  {productId === "setline" ? (
+    <section>
+      <h2>Newsletter service privacy</h2>
+      <p>The shared form is operated by SaaS Maker. See the <a href="https://sassmaker.com/privacy">SaaS Maker privacy policy</a> for details.</p>
+    </section>
+  ) : null}
 </LegalPage>

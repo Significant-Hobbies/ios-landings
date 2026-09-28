@@ -64,6 +64,15 @@ export function GET({ params }: { params: { section: string } }) {
     lines.push(`## ${entry.title}`, "", entry.body, "");
   }
 
+  if (section === "privacy" && productId === "setline") {
+    lines.push(
+      "## Newsletter service privacy",
+      "",
+      "The shared form is operated by SaaS Maker. See the [SaaS Maker privacy policy](https://sassmaker.com/privacy) for details.",
+      ""
+    );
+  }
+
   lines.push(
     "## Product boundaries",
     "",

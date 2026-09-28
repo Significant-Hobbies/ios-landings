@@ -87,6 +87,7 @@ const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 const clarityProjectId = clarityProjectIdFor(productId);
 const appHealth = appHealthConfigFor(productId);
+const newsletterCapture = site.newsletterCapture === true;
 const hasBlog = (await getPublishedPosts()).length > 0;
 ---
 <!doctype html>
@@ -135,6 +136,31 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", clarityProjectId);
         window.clarity("set", "project_id", productId);
+        if (productId === "setline") {
+          const trackSetlineAction = (name) => {
+            if (window.appHealth && typeof window.appHealth.track === "function") {
+              window.appHealth.track(name);
+            }
+          };
+          document.addEventListener("click", (event) => {
+            const path = event.composedPath();
+            const link = path.find((target) => target instanceof HTMLAnchorElement);
+            if (link?.matches(".header-beta[href='/testflight/'], .hero-actions > .button[href='/testflight/'], .closing .button[href='/testflight/'], .footer-links a[href='/testflight/']")) {
+              trackSetlineAction("testflight_status_opened");
+            } else if (link?.matches(".hero-actions .text-link[href='#look-inside']")) {
+              trackSetlineAction("product_preview_opened");
+            }
+            const newsletterSubmit = path.some((target) =>
+              target instanceof HTMLButtonElement && target.type === "submit"
+            );
+            const newsletterCapture = path.some((target) =>
+              target instanceof Element && target.localName === "saas-maker-newsletter-capture"
+            );
+            if (newsletterSubmit && newsletterCapture) {
+              trackSetlineAction("newsletter_signup_clicked");
+            }
+          });
+        }
       </script>
     ) : null}
     {appHealth ? (
@@ -147,6 +173,9 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         data-identity="persistent"
         data-endpoint="https://ingest.sassmaker.com/v1/browser"
       />
+    ) : null}
+    {newsletterCapture ? (
+      <script is:inline type="module" src="https://sassmaker.com/newsletter-capture.js"></script>
     ) : null}
     <title>{title}</title>
   </head>
@@ -168,7 +197,21 @@ const hasBlog = (await getPublishedPosts()).length > 0;
     </header>
     <main id="content"><slot /></main>
     <footer class="site-footer">
-      <div class="shell">
+      <div class:list={["shell", newsletterCapture && "has-newsletter"]}>
+        {newsletterCapture ? (
+          <section class="footer-newsletter" aria-label="Setline email updates">
+            <saas-maker-newsletter-capture
+              product-name={site.name}
+              catalog-id={productId}
+              kind="newsletter"
+              source="footer"
+              privacy-url={links.privacy}
+              theme="light"
+              data-clarity-mask="true"
+            ></saas-maker-newsletter-capture>
+            <p>Occasional notes on Setline product changes and public availability. No update schedule is promised.</p>
+          </section>
+        ) : null}
         <div>
           <a class="wordmark" href="/">
             <img src={site.mark} width="38" height="38" alt="" loading="lazy" decoding="async" />

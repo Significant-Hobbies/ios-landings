@@ -17,6 +17,7 @@ export type SiteConfig = {
   gallery: { src: string; alt: string }[];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store";
+  newsletterCapture?: boolean;
   appStoreUrl?: string; appStoreId?: string; betaNote: string;
   tension: { statement: string; title: string; copy: string };
   chaptersKicker: string; chaptersTitle: string; chaptersLede: string; chapters: Chapter[];
@@ -59,6 +60,7 @@ export const site: SiteConfig = {
   ],
   applicationCategory: "HealthApplication",
   availability: "unreleased",
+  newsletterCapture: true,
   betaNote: "A processed internal build has been installed and launched on a physical iPhone. Current source is still being refined; there is no public download link.",
   tension: { statement: "The gym is the wrong place to decide.", title: "Write the session before it starts.", copy: "Use the bundled twelve-week programme or author a bounded plan of your own. Setline keeps its order, targets, and rest close at hand without silently changing the next workout." },
   chaptersKicker: "One session",
@@ -95,7 +97,7 @@ export const site: SiteConfig = {
       "Providing a public TestFlight, App Store, payment, or subscription link"
     ]
   },
-  lastUpdated: "2026-08-28",
+  lastUpdated: "2026-09-28",
   legal: {
     privacy: { title: "Your training starts on the iPhone.", lede: "How local workouts, optional iCloud continuity, Hub summaries, and export stay separate.", sections: [
       { title: "The active workout is local", body: "Setline stores the programme, templates, targets, active session, completed history, and settings in the app container. Planning, recording, rest timing, recovery after relaunch, and export do not require an account or network request." },
@@ -103,7 +105,9 @@ export const site: SiteConfig = {
       { title: "Significant Hobbies Hub", body: "If you connect a private Significant Hobbies account with Apple or Google, Setline can share completed-workout summaries after the local write succeeds. A summary contains the workout name, start time, duration, and completed-step count. It does not include set-by-set details, targets, templates, plans, or an active workout." },
       { title: "Export and deletion", body: "Export writes the complete local Setline document to a JSON file you choose. Import previews a whole-state replacement before it happens. Reset local data or deleting the app removes the local copy; neither action silently erases a separate iCloud copy or a Hub account." },
       { title: "App telemetry", body: "The native app contains no advertising, product analytics, or tracking SDK. Apple and any connected account provider process their own service data under their policies. This static marketing site is separate from the workout app." },
-      { title: "Effective date", body: "Last updated 28 August 2026. Material changes will be reflected here before a public App Store release." }
+      { title: "Setline website analytics", body: "This site uses App Health to count page visits and named actions such as opening TestFlight details, exploring product screens, and clicking the newsletter button. The browser tracker stores a random, site-scoped identifier in local storage (not a cookie) and sends page paths without query strings or fragments, plus referrer hostnames. It does not send workout data, email addresses, or the contents of forms to App Health." },
+      { title: "Email updates", body: "If you opt in through the footer form, SaaS Maker receives your email address, newsletter type, footer source, and consent record to manage Setline updates. Unsubscribing marks your address as unsubscribed." },
+      { title: "Effective date", body: "Last updated 28 September 2026. Material changes will be reflected here before a public App Store release." }
     ]},
     support: { title: "Support, without a maze.", lede: "How to report a problem in the internal TestFlight build.", sections: [
       { title: "Send useful context", body: "Use TestFlight’s Send Beta Feedback action. Say whether the problem happened in Today, the player, rest, History, planning, iCloud, or Hub, and whether an active workout was in progress." },
