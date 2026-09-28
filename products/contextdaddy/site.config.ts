@@ -19,6 +19,7 @@ export const site: SiteConfig = {
   tokens: storage.tokens,
   colorScheme: "dark",
   device: "desktop",
+  newsletterCapture: true,
   hero: { kind: "artwork", image: "/images/context-cart.png", alt: "ContextDaddy's context cart artwork: the bean mascot hauling skill and context documents", caption: "Meet the ContextDaddy cart: every skill and context file your agents can reach, gathered in one place. Product artwork, not a screenshot.", width: 700, height: 466 },
   gallery: [],
   galleryTitle: ["Discovery is not invocation.", "Keep the difference visible."],
@@ -51,6 +52,7 @@ export const site: SiteConfig = {
     privacy: { title: "Privacy", lede: "ContextDaddy inspects local agent metadata. It does not read prompt bodies or credentials.", sections: [
       { title: "Local inspection", body: "The app reads bounded local metadata and configuration structure for supported coding agents. It does not copy prompt bodies, tool arguments or credential values into its dashboards. An explicit document preview opens only the selected eligible text file." },
       { title: "Helpers and telemetry", body: "The bundled ccusage helper reads local history offline. Provider allowance checks run through installed provider CLIs only when requested or after you opt in to automatic checks. OpenTelemetry signals come only from a compatible local loopback collector." },
+      { title: "Email updates", body: "Email updates are optional and sent through SaaS Maker. Signing up sends your email address and explicit consent, which SaaS Maker stores as subscription records to manage occasional ContextDaddy product updates. The form does not send agent metadata, local usage history or native app data. You can unsubscribe at any time." },
       { title: "This website", body: "The landing page does not access your agent data. App Health collects website page views and named clicks on the Mac download link, with basic referral and campaign information; it does not receive agent data. Hosting requests include ordinary connection data. AI-assistant links open a question about the public product when clicked. The download button serves the app bundle directly; no account creation is offered." }
     ] },
     support: { title: "Support", lede: "Report problems with version, macOS release and the agent runtime involved.", sections: [{ title: "Report an issue", body: "Use https://github.com/sarthakagrawal927/contextdaddy/issues/new. Include your app version, macOS version and which view or source was wrong. Remove skill contents, prompt text and personal paths before sharing screenshots." }] },

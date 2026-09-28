@@ -120,6 +120,14 @@ const approvedFooterScripts = [
   "https://sassmaker.com/ai-chat-footer.js"
 ];
 const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js";
+const newsletterProducts = new Set([
+  "setline",
+  "kith",
+  "motion",
+  "browserdaddy",
+  "contextdaddy",
+  "performancedaddy"
+]);
 const appHealthTracker = "https://health.sassmaker.com/tracker.js";
 for (const src of approvedFooterScripts) {
   const matches = executableScripts.filter((match) => {
@@ -138,7 +146,7 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  const isNewsletterCapture = ["setline", "kith", "motion"].includes(product) && (
+  const isNewsletterCapture = newsletterProducts.has(product) && (
     attrs.includes(`src="${newsletterCaptureScript}"`) ||
     attrs.includes(`src='${newsletterCaptureScript}'`)
   );
@@ -201,7 +209,7 @@ const newsletterScripts = executableScripts.filter((match) => {
     attrs.includes(`src='${newsletterCaptureScript}'`);
 });
 const hasNewsletterElement = home.includes("<saas-maker-newsletter-capture");
-if (["setline", "kith", "motion"].includes(product)) {
+if (newsletterProducts.has(product)) {
   if (newsletterScripts.length !== 1 || !hasNewsletterElement) {
     throw new Error(`${product}: expected one shared newsletter capture element and loader.`);
   }

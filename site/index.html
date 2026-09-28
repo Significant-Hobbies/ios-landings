@@ -17,6 +17,8 @@
   a.card:hover { border-color:var(--accent); }
   a.card strong { font-size:1.15rem; }
   a.card span { color:var(--ink-soft); font-size:.9rem; }
+  .email-updates { margin-top:48px; }
+  .email-note { margin:12px 12px 0; color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
   footer { margin-top:56px; color:var(--ink-soft); font-size:.85rem; }
 </style>
 </head>
@@ -34,7 +36,12 @@
     <li><a class="card" href="https://performance.daddyrad.com"><strong>PerformanceDaddy</strong><span>Mac performance investigator</span></a></li>
     <li><a class="card" href="https://indulge.significanthobbies.com"><strong>Indulge</strong><span>Earlier planner build (archived)</span></a></li>
   </ul>
+  <section class="email-updates" aria-label="iOS Landings email updates">
+    <saas-maker-newsletter-capture product-name="iOS Landings" catalog-id="ios-landings" kind="newsletter" source="footer" privacy-url="https://sassmaker.com/privacy"></saas-maker-newsletter-capture>
+    <p class="email-note">Occasional notes when the factory adds a product landing or shared capability. No update schedule is promised.</p>
+  </section>
   <footer>A Significant Hobbies project.</footer>
 </main>
+<script type="module" src="https://sassmaker.com/newsletter-capture.js"></script>
 </body>
 </html>
