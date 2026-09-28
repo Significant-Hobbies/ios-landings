@@ -143,9 +143,11 @@ const hasBlog = (await getPublishedPosts()).length > 0;
       <script is:inline define:vars={{ productId, macDownloadUrl: site.macDownloadUrl ?? "", repositoryUrl: links.repository ?? "" }}>
         const trackAppHealthEvent = (name, afterFlush) => {
           let continued = false;
+          let navigationTimer;
           const continueOnce = () => {
             if (continued) return;
             continued = true;
+            if (navigationTimer !== undefined) window.clearTimeout(navigationTimer);
             afterFlush?.();
           };
           const send = () => {
@@ -171,8 +173,8 @@ const hasBlog = (await getPublishedPosts()).length > 0;
             }
             trackerScript.addEventListener("load", send, { once: true });
             trackerScript.addEventListener("error", continueOnce, { once: true });
-            if (afterFlush) window.setTimeout(continueOnce, 2000);
           }
+          if (afterFlush && !continued) navigationTimer = window.setTimeout(continueOnce, 3000);
         };
         document.addEventListener("click", (event) => {
           const path = event.composedPath();

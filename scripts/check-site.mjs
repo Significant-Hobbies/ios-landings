@@ -174,7 +174,15 @@ if (expectedAppHealth) {
     for (const event of expectedCtaEvents) {
       if (!home.includes(event)) throw new Error(`${product}: CTA event ${event} is not tracked.`);
     }
-    for (const fragment of ["event.preventDefault();", "tracker.flush()", "window.location.assign(link.href)"]) {
+    for (const fragment of [
+      "event.preventDefault();",
+      "tracker.flush()",
+      "window.location.assign(link.href)",
+      "navigationTimer = window.setTimeout(continueOnce, 3000)",
+      "window.clearTimeout(navigationTimer)",
+      "event.button === 0",
+      "!event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey",
+    ]) {
       if (!home.includes(fragment)) throw new Error(`${product}: tracked navigation does not wait for its event receipt (${fragment}).`);
     }
     const privacy = await readFile(`${dist}/privacy/index.html`, "utf8");
