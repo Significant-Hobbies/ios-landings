@@ -28,8 +28,8 @@ const APP_HEALTH_CONFIG = Object.freeze({
     publicKey: "ahk_pub_6f35554244952944cbd1bfc24d87190639c3b9786ee7180117a01f4220aba245",
   }),
   motion: Object.freeze({
-    projectId: "app-5f75a787-65e1-462a-a5c8-4799bda0025a",
-    publicKey: "ahk_pub_331dd5b3fe1413a10cf5f613248bb136350e943c368bcf1e0dcfa9d31e52bc3d",
+    projectId: "app-import-60cb3bd9053732d2e6f2d4c47381a65bc2378249b995225f739b16e1075646fd",
+    publicKey: "ahk_pub_8e1a0c74f74de2ce27e6bc7fd33cf9bde268c5770dc298aa08d14084f78c38d1",
   }),
   indulge: Object.freeze({
     projectId: "app-f5f71a17-e02f-4862-ba46-9b46a1ba3fbd",
