@@ -118,11 +118,18 @@
   .site-footer .shell.has-newsletter { flex-wrap: wrap; }
   .footer-newsletter { flex: 1 0 100%; }
   .footer-newsletter p { max-width: 72rem; margin: 0 auto; padding: 0 clamp(1rem, 3vw, 2rem); color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
-  html[data-product="setline"] .footer-newsletter saas-maker-newsletter-capture {
+  html[data-product="setline"] .footer-newsletter saas-maker-newsletter-capture,
+  html[data-product="kith"] .footer-newsletter saas-maker-newsletter-capture {
     --newsletter-capture-action: var(--accent);
     --newsletter-capture-action-text: var(--ink-on-accent);
     --newsletter-capture-focus: var(--ink);
     --newsletter-capture-success: #176b43;
+  }
+  html[data-product="motion"] .footer-newsletter saas-maker-newsletter-capture {
+    --newsletter-capture-action: var(--accent);
+    --newsletter-capture-action-text: var(--ink-on-accent);
+    --newsletter-capture-focus: var(--ink);
+    --newsletter-capture-success: #a8e2bd;
   }
   .footer-links { display: flex; flex-wrap: wrap; justify-content: end; gap: 10px 22px; font-size: .88rem; }
   .footer-links a { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; text-underline-offset: 3px; }

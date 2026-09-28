@@ -12,6 +12,7 @@ export type SiteConfig = {
   galleryTitle?: [string, string];
   applicationCategory: string;
   availability: "unreleased" | "testflight" | "app-store";
+  newsletterCapture?: boolean;
   appStoreUrl?: string; appStoreId?: string; betaNote: string;
   tension: { statement: string; title: string; copy: string };
   chaptersKicker: string; chaptersTitle: string; chaptersLede: string; chapters: Chapter[];
@@ -51,6 +52,7 @@ export const site: SiteConfig = {
   galleryTitle: ["A working build.", "An unproven control loop."],
   applicationCategory: "GameApplication",
   availability: "unreleased",
+  newsletterCapture: true,
   betaNote: "The internal build runs on an iPhone, but physical control feel and fun remain unproven. Work is on hold until one control loop can be tested properly on a real device.",
   tension: { statement: "The room should stay off a server.", title: "Camera frames stay on the phone.", copy: "Vision extracts pose on-device. Screen mirroring sends the rendered game to a TV; Motion does not upload the camera stream." },
   chaptersKicker: "One mechanic",
@@ -60,7 +62,7 @@ export const site: SiteConfig = {
     { name: "Play", title: "The body is the controller.", copy: "The iPhone reads pose locally and drives the game. A keyboard debug path exists for the web renderer, not as the product.", image: "/images/screens/motion-maker-clean.webp", alt: "Motion Maker" }
   ],
   fit: { kicker: "An honest fit", title: "A held prototype, not a console.", yes: "Motion is for iPhone owners interested in active, social play on a larger screen without buying a dedicated motion-console system—and who understand that the control loop is unfinished.", no: "It is not a public beta, a shipped App Store game, a wearable sensor kit, or a cloud camera service." },
-  privacy: { kicker: "On the phone", title: "Frames do not leave the device.", copy: "Pose is extracted on-device. There is no Motion account and no uploaded camera stream." },
+  privacy: { kicker: "On the phone", title: "Frames do not leave the device.", copy: "Pose is extracted on-device. There is no Motion account and no uploaded camera stream. Separate from the app, this site uses App Health for page visits and named actions, and offers optional email updates only after explicit consent." },
   faqs: [
     { question: "Does video go to a server?", answer: "No. Tracking runs on the iPhone. Mirroring uses the system screen, not our servers." },
     { question: "Is it on the App Store?", answer: "Not yet. This site will not show Apple’s App Store badge until a live apps.apple.com page exists." },
@@ -86,12 +88,14 @@ export const site: SiteConfig = {
     "Debug game: `http://localhost:5173/?debug=1` (keyboard/mouse, no phone required)",
     "Quality gate: `pnpm check` (TypeScript, formatting, debt ratchets)"
   ],
-  lastUpdated: "2026-08-17",
+  lastUpdated: "2026-09-28",
   legal: {
     privacy: { title: "The camera stays on the phone.", lede: "Motion is a local-first game experiment.", sections: [
       { title: "What the app stores", body: "Game settings and local recordings you choose to save. Pose is computed on-device." },
-      { title: "What we collect", body: "There is no Motion account and no camera upload." },
-      { title: "Effective date", body: "Last updated 17 August 2026." }
+      { title: "What we collect", body: "There is no Motion account and no camera upload. Pose is processed on the iPhone and camera frames are not sent to Motion servers." },
+      { title: "Motion website analytics", body: "The marketing site uses App Health to count page visits and named actions such as opening the product guide or TestFlight status. It records a newsletter signup click only after a valid email and the separate explicit newsletter consent checkbox are present. Its browser tracker stores a random site-scoped identifier in local storage (not a cookie) and sends page paths without query strings or fragments, plus referrer hostnames. App Health does not receive camera frames, pose data, game state, email addresses, form values, or subscription records." },
+      { title: "Email updates", body: "If you opt in through the footer form, SaaS Maker receives your email address, newsletter type, footer source, and explicit consent record to manage Motion updates. The required checkbox starts unchecked; you can unsubscribe at any time." },
+      { title: "Effective date", body: "Last updated 28 September 2026." }
     ]},
     support: { title: "Support, without a maze.", lede: "How to report a problem in the experiment.", sections: [
       { title: "Send feedback", body: "Use TestFlight’s Send Beta Feedback when a build exists. Describe the game, lighting, and what the body input did." }

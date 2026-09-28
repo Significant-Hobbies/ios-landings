@@ -61,6 +61,7 @@ export const site: SiteConfig = {
   ],
   applicationCategory: "LifestyleApplication",
   availability: "unreleased",
+  newsletterCapture: true,
   betaNote:
     "Kith is in private beta for invited internal testers. Public TestFlight enrollment and an App Store listing are not available.",
   tension: {
@@ -110,7 +111,7 @@ export const site: SiteConfig = {
   privacy: {
     kicker: "Useful before sign-in",
     title: "The iPhone remains the working copy.",
-    copy: "Every edit lands first in one local JSON document and remains usable offline. A private CloudKit mirror stays available during the transition. If you choose a Significant Hobbies account with Apple or Google, structured people and dated notes also synchronize through the private Hub; sign-in never blocks local use.",
+    copy: "Every edit lands first in one local JSON document and remains usable offline. A private CloudKit mirror stays available during the transition. If you choose a Significant Hobbies account with Apple or Google, structured people and dated notes also synchronize through the private Hub; sign-in never blocks local use. Separate from the app, this site uses App Health for page visits and named actions, and offers optional email updates only after explicit consent.",
   },
   faqs: [
     {
@@ -172,7 +173,7 @@ export const site: SiteConfig = {
       "Treating the optional Significant Hobbies account as mandatory or describing Hub synchronization as the only copy of the user's data",
     ],
   },
-  lastUpdated: "2026-09-19",
+  lastUpdated: "2026-09-28",
   legal: {
     privacy: {
       title: "The people and notes stay private.",
@@ -195,10 +196,18 @@ export const site: SiteConfig = {
           body: "The native app uses no advertising, IDFA, third-party analytics SDK, background address-book access, or cross-app tracking. If you use Apple’s contact picker, only the people you select are imported. Their names, birthdays, selected phone/email, organization and location details become local Kith content; approved content may also be copied to your signed-in Hub account. Apple, Google, Cloudflare, TestFlight, and the static marketing site may process service-level data under their own policies.",
         },
         {
+          title: "Kith website analytics",
+          body: "The marketing site uses App Health to count page visits and named actions such as opening the product guide or TestFlight status. It records a newsletter signup click only after a valid email and the separate explicit newsletter consent checkbox are present. Its browser tracker stores a random site-scoped identifier in local storage (not a cookie) and sends page paths without query strings or fragments, plus referrer hostnames. App Health does not receive Kith content, camera or contact data, email addresses, form values, or subscription records.",
+        },
+        {
+          title: "Email updates",
+          body: "If you opt in through the footer form, SaaS Maker receives your email address, newsletter type, footer source, and explicit consent record to manage Kith updates. The required checkbox starts unchecked; you can unsubscribe at any time.",
+        },
+        {
           title: "Deletion and care",
           body: "Removing a person also removes that person's notes from the local document. Because Kith is beta software with more than one private copy during transition, keep independent notes for information you cannot afford to lose and avoid including other people's private details in support screenshots.",
         },
-        { title: "Effective date", body: "Last updated 19 September 2026." },
+        { title: "Effective date", body: "Last updated 28 September 2026." },
       ],
     },
     support: {

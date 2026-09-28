@@ -3,9 +3,19 @@ import test from "node:test";
 
 import { appHealthConfigFor } from "../src/lib/app-health.mjs";
 
-const products = ["anchor", "calorie", "kith", "setline"];
+const products = [
+  "anchor",
+  "calorie",
+  "kith",
+  "setline",
+  "browserdaddy",
+  "contextdaddy",
+  "performancedaddy",
+  "motion",
+  "indulge",
+];
 
-test("each released native landing has a distinct App Health browser identity", () => {
+test("each configured landing has a distinct App Health browser identity", () => {
   const configs = products.map((product) => appHealthConfigFor(product));
   assert.ok(configs.every(Boolean));
   assert.equal(new Set(configs.map((config) => config.projectId)).size, products.length);

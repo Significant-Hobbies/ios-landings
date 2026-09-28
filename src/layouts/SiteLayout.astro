@@ -88,6 +88,7 @@ const portfolioProjectId = productId === "habits" ? "indulge" : productId;
 const clarityProjectId = clarityProjectIdFor(productId);
 const appHealth = appHealthConfigFor(productId);
 const newsletterCapture = site.newsletterCapture === true;
+const newsletterTheme = productId === "motion" ? "dark" : "light";
 const hasBlog = (await getPublishedPosts()).length > 0;
 ---
 <!doctype html>
@@ -136,28 +137,38 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           y.parentNode.insertBefore(t, y);
         })(window, document, "clarity", "script", clarityProjectId);
         window.clarity("set", "project_id", productId);
-        if (productId === "setline") {
-          const trackSetlineAction = (name) => {
+        if (["setline", "kith", "motion"].includes(productId)) {
+          const trackAppHealthEvent = (name) => {
             if (window.appHealth && typeof window.appHealth.track === "function") {
               window.appHealth.track(name);
+            } else {
+              document.getElementById("app-health-tracker")?.addEventListener("load", () => {
+                if (window.appHealth && typeof window.appHealth.track === "function") {
+                  window.appHealth.track(name);
+                }
+              }, { once: true });
             }
           };
           document.addEventListener("click", (event) => {
             const path = event.composedPath();
             const link = path.find((target) => target instanceof HTMLAnchorElement);
-            if (link?.matches(".header-beta[href='/testflight/'], .hero-actions > .button[href='/testflight/'], .closing .button[href='/testflight/'], .footer-links a[href='/testflight/']")) {
-              trackSetlineAction("testflight_status_opened");
-            } else if (link?.matches(".hero-actions .text-link[href='#look-inside']")) {
-              trackSetlineAction("product_preview_opened");
+            if (link?.getAttribute("href") === "/testflight/") {
+              trackAppHealthEvent("testflight_status_opened");
+            } else if (link?.getAttribute("href") === "/#how-it-works" && productId !== "setline") {
+              trackAppHealthEvent("how_it_works_opened");
+            } else if (link?.getAttribute("href") === "#look-inside" && productId === "setline") {
+              trackAppHealthEvent("product_preview_opened");
             }
             const newsletterSubmit = path.some((target) =>
               target instanceof HTMLButtonElement && target.type === "submit"
             );
-            const newsletterCapture = path.some((target) =>
+            const newsletterHost = path.find((target) =>
               target instanceof Element && target.localName === "saas-maker-newsletter-capture"
             );
-            if (newsletterSubmit && newsletterCapture) {
-              trackSetlineAction("newsletter_signup_clicked");
+            const consent = newsletterHost?.shadowRoot?.querySelector("input[name='consent']");
+            const email = newsletterHost?.shadowRoot?.querySelector("input[type='email']");
+            if (newsletterSubmit && consent?.checked && email?.validity.valid) {
+              trackAppHealthEvent("newsletter_signup_clicked");
             }
           });
         }
@@ -166,6 +177,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
     {appHealth ? (
       <script
         is:inline
+        id="app-health-tracker"
         defer
         src="https://health.sassmaker.com/tracker.js"
         data-key={appHealth.publicKey}
@@ -199,17 +211,17 @@ const hasBlog = (await getPublishedPosts()).length > 0;
     <footer class="site-footer">
       <div class:list={["shell", newsletterCapture && "has-newsletter"]}>
         {newsletterCapture ? (
-          <section class="footer-newsletter" aria-label="Setline email updates">
+          <section class="footer-newsletter" aria-label={`${site.name} email updates`}>
             <saas-maker-newsletter-capture
               product-name={site.name}
               catalog-id={productId}
               kind="newsletter"
               source="footer"
               privacy-url={links.privacy}
-              theme="light"
+              theme={newsletterTheme}
               data-clarity-mask="true"
             ></saas-maker-newsletter-capture>
-            <p>Occasional notes on Setline product changes and public availability. No update schedule is promised.</p>
+            <p>Occasional notes on {site.name} product changes and public availability. No update schedule is promised.</p>
           </section>
         ) : null}
         <div>

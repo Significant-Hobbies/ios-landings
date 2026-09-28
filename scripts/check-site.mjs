@@ -138,7 +138,7 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  const isNewsletterCapture = product === "setline" && (
+  const isNewsletterCapture = ["setline", "kith", "motion"].includes(product) && (
     attrs.includes(`src="${newsletterCaptureScript}"`) ||
     attrs.includes(`src='${newsletterCaptureScript}'`)
   );
@@ -172,24 +172,31 @@ const newsletterScripts = executableScripts.filter((match) => {
     attrs.includes(`src='${newsletterCaptureScript}'`);
 });
 const hasNewsletterElement = home.includes("<saas-maker-newsletter-capture");
-if (product === "setline") {
+if (["setline", "kith", "motion"].includes(product)) {
   if (newsletterScripts.length !== 1 || !hasNewsletterElement) {
-    throw new Error("setline: expected one shared newsletter capture element and loader.");
+    throw new Error(`${product}: expected one shared newsletter capture element and loader.`);
   }
   for (const fragment of [
-    'catalog-id="setline"',
+    `catalog-id="${product}"`,
     'kind="newsletter"',
     'source="footer"',
-    'privacy-url="https://setline.significanthobbies.com/privacy/"',
+    `privacy-url="${ai.url}/privacy/"`,
     'data-clarity-mask="true"',
     "testflight_status_opened",
-    "product_preview_opened",
-    "newsletter_signup_clicked"
+    ...(product === "setline" ? ["product_preview_opened"] : ["how_it_works_opened"]),
+    "newsletter_signup_clicked",
+    "consent?.checked && email?.validity.valid"
   ]) {
-    if (!home.includes(fragment)) throw new Error(`setline: landing is missing ${fragment}.`);
+    if (!home.includes(fragment)) throw new Error(`${product}: landing is missing ${fragment}.`);
+  }
+  const privacy = await readFile(`${dist}/privacy/index.html`, "utf8");
+  const privacyMarkdown = await readFile(`${dist}/privacy/index.md`, "utf8");
+  for (const fragment of ["App Health", "Email updates", "explicit consent", "subscription records"]) {
+    if (!privacy.includes(fragment)) throw new Error(`${product}: privacy page is missing ${fragment}.`);
+    if (!privacyMarkdown.includes(fragment)) throw new Error(`${product}: Markdown privacy page is missing ${fragment}.`);
   }
 } else if (newsletterScripts.length !== 0 || hasNewsletterElement) {
-  throw new Error(`${product}: the landing unexpectedly ships Setline's newsletter capture.`);
+  throw new Error(`${product}: the landing unexpectedly ships a newsletter capture form.`);
 }
 if (expectedClarityId) {
   if (unexpectedScripts.length !== 1) {
