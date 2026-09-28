@@ -195,6 +195,8 @@ const hasBlog = (await getPublishedPosts()).length > 0;
             ctaEvent = "source_opened";
           } else if (productId === "contextdaddy" && macDownloadUrl && href === macDownloadUrl) {
             ctaEvent = "download_opened";
+          } else if (productId === "contextdaddy" && href === "/release/") {
+            ctaEvent = "release_details_opened";
           } else if (["browserdaddy", "performancedaddy"].includes(productId) && macDownloadUrl && href === macDownloadUrl) {
             ctaEvent = "mac_download_clicked";
           }
