@@ -74,7 +74,7 @@
           "status": "scanned",
           "report": ".fleet-local/slop/artwork-final-v3.json",
           "command": "node ../saas-maker/tooling/scripts/slop-score.mjs http://127.0.0.1:8840 http://127.0.0.1:8841 http://127.0.0.1:8842 http://127.0.0.1:8843 http://127.0.0.1:8844 http://127.0.0.1:8845 http://127.0.0.1:8846 http://127.0.0.1:8847 http://127.0.0.1:8848 http://127.0.0.1:8849 --preset marketing --json",
-          "findingsReview": "Kith and Indulge score7: intentional warm paper identity. Setline and Calorie score4: inherited device/component gradient count. Six dark products score4: perma_dark_mode is intentional native night/black utility identity, not a newly imposed default; fresh paired native renders now confirm these product palettes; native release acceptance remains separate. No sampled low-contrast-text flag. Root and independent reviewers checked real text/image geometry; scores do not establish taste, native continuity or owner acceptance."
+          "findingsReview": "Kith and Indulge score7: intentional warm paper identity. Setline and Calorie score4: inherited device/component gradient count. Six dark products score4: perma_dark_mode is intentional native night/black utility identity, not a newly imposed default; paired native renders remain unqualified. No sampled low-contrast-text flag. Root and independent reviewers checked real text/image geometry; scores do not establish taste, native continuity or owner acceptance."
         }
       ]
     },
@@ -102,7 +102,7 @@
         },
         "interaction": {
           "status": "pass",
-          "observation": "Independent 320px reduced-motion sessions: scene anchors resolve and FAQ disclosures open in all ten; visible skip-link focus. Kith skip moves reading start to main and next Tab enters hero action. Full-size original images are linked for screenshot/historical heroes. Fresh bounded native handoff evidence is recorded separately in productContinuity; no anonymous private-beta installation is claimed."
+          "observation": "Independent 320px reduced-motion sessions: scene anchors resolve and FAQ disclosures open in all ten; visible skip-link focus. Kith skip moves reading start to main and next Tab enters hero action. Full-size original images are linked for screenshot/historical heroes. Actual native CTA handoff remains unobserved."
         },
         "responsive": {
           "status": "pass",
@@ -190,33 +190,33 @@
       "mismatches": []
     },
     "productContinuity": {
-      "status": "pass",
+      "status": "blocked",
       "reviewer": "Codex root and independent design_finish_review",
       "report": "artifacts/design/product-artwork/product-continuity.md",
       "surfaces": {
         "landing": "artifacts/design/product-artwork/rendered/browser-evidence.json",
-        "app": "artifacts/design/product-artwork/native-continuity/index.json"
+        "app": "artifacts/design/product-artwork/native-evidence.json"
       },
       "checks": {
         "designSystem": {
-          "status": "pass",
-          "observation": "Fresh native captures match product semantic palettes and typography roles: Kith warm/clay; Setline chalk/ink/lime; Calorie moss journal; Motion dark/teal; Anchor neutral charcoal/ivory; Daddy family black/mint. Marketing spacing differs deliberately from dense native task views."
+          "status": "pending",
+          "observation": "Native authoritative themes and existing captures compared; Anchor neutral tokens corrected. Fresh current rendered native pairs are incomplete."
         },
         "identity": {
-          "status": "pass",
-          "observation": "Canonical mascots and real foreground captures stay distinct from illustrative scenes. Native current Anchor confirms the neutral correction; historical Indulge follows its maintained successor. Performance scene now depicts software evidence rather than hardware repair."
+          "status": "pending",
+          "observation": "Product scenes and canonical mascots reviewed; hardware metaphor and mascot collage fixed. Current native rendering not qualified across all products."
         },
         "vocabulary": {
-          "status": "pass",
-          "observation": "Actual native flows retain person/note/constellation, authored target/recorded actual/rest, optional food targets, Today/rehearsal, history/attention, scan/Explore, Diagnosis/evidence limits and instruction/skill inventory meanings."
+          "status": "pending",
+          "observation": "Scoped current source onboarding and landing task/action labels compared; historical Indulge labels corrected. No fresh all-app walkthrough claimed."
         },
         "productTruth": {
-          "status": "pass",
-          "observation": "Five public DMGs fetched and identified. Current native synthetic renders and useful states reviewed across all products. Internal/historical images stay labelled; fixtures do not certify measured health/performance, physical Motion tracking or public beta availability. Context and Anchor public artifacts are distinct from current-source fixture hosts."
+          "status": "pending",
+          "observation": "Concept/history/access labels remain honest; download HEAD responses prove endpoint availability only. Native current artifact/use verification remains incomplete."
         },
         "handoff": {
-          "status": "pass",
-          "observation": "Four public beta CTAs reach truthful status pages. Five public Mac downloads and Indulge successor path verified. Actual bounded native flows reach constellation, recorded set/rest, Today meal, bundled game, synthetic archive search, diagnosis, treemap, memory/skills inventory and Anchor Today block. Private beta access and split public/current fixture paths remain explicit."
+          "status": "blocked",
+          "observation": "Four actual CTA clicks reach invite-only beta pages. Five public Mac download endpoints return200. No fresh installation/onboarding to first useful native state observed; Browser fixture built/launched but native UI selection failed."
         }
       }
     }

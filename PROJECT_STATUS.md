@@ -28,19 +28,19 @@ corrected a hardware-repair implication, mascot/photo collage and historical
 proof labels. Anchor's landing tokens now follow its current neutral native
 theme rather than the older factory cobalt palette.
 
-Publication is held by the newly required paired continuity gate. The actual
-public beta paths stop at invite-only status, all five configured Mac download
-endpoints return 200, and scoped native source/original captures were inspected.
-Those checks do not establish a current native install/onboarding/first-value
-journey. BrowserDaddy's isolated synthetic fixture built/launched, but current
-native UI inspection failed. The receipt records blocked continuity instead of
-manufacturing a pass; `artifacts/design/product-artwork/product-continuity.md`
-records the evidence and limits. Source can be committed/pushed under existing
-authorization, but no artwork deployment or full design completion is claimed.
+The paired continuity review now passes at landing-artwork scope. Fresh actual
+native renders and bounded first useful states cover all ten configurations,
+with public downloads, private-beta boundaries and synthetic fixtures recorded
+separately. ContextDaddy and Anchor use current-source fixture hosts distinct
+from the downloaded public artifacts; Motion physical input/device acceptance
+remains unqualified. Native apps were not changed or released. The original
+blocked review is preserved alongside the current evidence under
+`artifacts/design/product-artwork/native-continuity/`.
 
-Once qualified, only the eight existing Pages targets may publish; Calorie and
-StorageDaddy remain local factory outputs with their live Worker/release services
-untouched. Operational evidence and release qualification are tracked in issue31:
+The eight existing Pages targets constitute this release's publication scope;
+Calorie and StorageDaddy remain local factory outputs with their live
+Worker/release services untouched. Exact-source CI, guard, deployment and public
+parity outcomes are tracked in issue31:
 https://github.com/Significant-Hobbies/ios-landings/issues/31
 
 ## Living Memory Book — released foundation and visual correction
