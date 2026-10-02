@@ -10,6 +10,9 @@ import "../styles/landing.css";
 const illustration = site.illustration;
 const macDownload = verifiedMacDownloadUrl();
 const artworkHero = site.hero.kind === "artwork";
+const hasGallery = site.gallery.length > 0;
+const overviewHref = hasGallery ? "#look-inside" : "/#how-it-works";
+const overviewLabel = hasGallery ? (artworkHero ? "Explore the app" : "See the real app") : "Read how it works";
 const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero.image) : undefined;
 const story = site.story;
 const scenePhrases = site.chaptersTitle.match(/[^.!?]+[.!?]*/g)?.map((phrase) => phrase.trim()) ?? [site.chaptersTitle];
@@ -37,12 +40,12 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
           {macDownload ? (
             <>
               <a class="button" href={macDownload}>{site.macDownloadLabel ?? "Download for Mac"} <span aria-hidden="true">↓</span></a>
-              <a class="text-link" href={site.device === "desktop" ? "#look-inside" : "/testflight/"}>{site.device === "desktop" ? (artworkHero ? "Explore the app" : "See the real app") : "See iPhone and Watch beta status"} <span aria-hidden="true">→</span></a>
+              <a class="text-link" href={site.device === "desktop" ? overviewHref : "/testflight/"}>{site.device === "desktop" ? overviewLabel : "See iPhone and Watch beta status"} <span aria-hidden="true">→</span></a>
             </>
           ) : (
             <>
               <Cta />
-              <a class="text-link" href="#look-inside">{artworkHero ? "Explore the app" : "See the real app"} <span aria-hidden="true">↓</span></a>
+              <a class="text-link" href={overviewHref}>{hasGallery ? (artworkHero ? "Explore the app" : "See the real app") : overviewLabel} <span aria-hidden="true">↓</span></a>
             </>
           )}
         </div>

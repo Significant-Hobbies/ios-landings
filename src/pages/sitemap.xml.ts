@@ -1,7 +1,15 @@
 import { site } from "../site.config";
 import { getPublishedPosts, blogPath } from "../lib/blog";
 
-const pages = ["", "privacy/", "support/", "terms/", "accessibility/", site.device === "desktop" ? "release/" : "testflight/"];
+const pages = [
+  "",
+  "privacy/",
+  "support/",
+  "terms/",
+  "accessibility/",
+  site.device === "desktop" ? "release/" : "testflight/",
+  ...(import.meta.env.PRODUCT === "setline" ? ["changelog"] : [])
+];
 
 export const prerender = true;
 

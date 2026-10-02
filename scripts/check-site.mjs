@@ -42,6 +42,32 @@ const requiredFiles = [
 
 await Promise.all(requiredFiles.map((file) => access(file)));
 
+if (product === "setline") {
+  await access(`${dist}/changelog/index.html`);
+  await access(`${dist}/legal.css`);
+  const changelog = await readFile(`${dist}/changelog/index.html`, "utf8");
+  const changelogMarkdown = await readFile(`${dist}/changelog.md`, "utf8");
+  const sitemap = await readFile(`${dist}/sitemap.xml`, "utf8");
+  const agentCatalog = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
+  if (!changelog.includes('<link rel="canonical" href="https://setline.significanthobbies.com/changelog">')) {
+    throw new Error("setline: changelog canonical URL is missing or mismatched.");
+  }
+  if (!changelog.includes('<link rel="stylesheet" href="/legal.css">')) {
+    throw new Error("setline: changelog is missing its shared legal stylesheet.");
+  }
+  if (!changelogMarkdown.startsWith("# Setline changelog")) {
+    throw new Error("setline: Markdown changelog mirror is missing.");
+  }
+  if (!sitemap.includes("https://setline.significanthobbies.com/changelog")) {
+    throw new Error("setline: sitemap is missing the public changelog.");
+  }
+  if (!agentCatalog.surfaces.some((surface) =>
+    surface.id === "changelog" && surface.url === "/changelog" && surface.md === "/changelog.md"
+  )) {
+    throw new Error("setline: agent catalog is missing the changelog surface.");
+  }
+}
+
 const home = await readFile(`${dist}/index.html`, "utf8");
 const ai = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
 const name = ai.product?.name;
