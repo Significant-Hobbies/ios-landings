@@ -18,7 +18,21 @@ At tablet widths the same two-part structure tightens. On phones the promise and
 
 The factory retains `site.tokens` as the semantic color source. Optional story ink is an explicit product-owned campaign color, never a global overwrite of other product identities. Paper, field, text, soft text, accent and action contrast have separate roles. Dark products keep their dark tokens; marketing imagery never mechanically inverts an app's screens.
 
-Texture comes from high-resolution product-owned raster ingredients, not synthetic CSS noise. Physical coral cloth, ivory sheets, soft afternoon shadows and image fragments carry Kith's depth. The owner rejected the first stock-like café photograph and disconnected material collage. Kith now uses an unposed coastal-walk snapshot and the same coastal setting inside its notebook scene; a landscape print, restrained rotation and quiet paper texture connect them. Avoid posed smiling faces, giant coffee cups, competing lighting, thick photograph mats and opaque text patches over photography. Other products without story images use their field surface and authentic app artifact. Illustrative photos are identified as artwork and never imply customers or testimonials.
+Texture comes from high-resolution product-owned raster ingredients, not synthetic CSS noise. Physical coral cloth, ivory sheets, soft afternoon shadows and image fragments carry Kith's depth. The owner rejected the first stock-like café photograph and disconnected material collage. Kith now uses an unposed coastal-walk snapshot and the same coastal setting inside its notebook scene; a landscape print, restrained rotation and quiet paper texture connect them. Avoid posed smiling faces, giant coffee cups, competing lighting, thick photograph mats and opaque text patches over photography. Illustrative photos are identified as artwork and never imply customers or testimonials.
+
+Every current configuration now has its own material world. Optional `sceneArtwork` supplies one optimized landscape asset for the established semantic story scene and, for screenshot-led products, a decorative artifact backdrop. Setline uses authored workout cards, lime cloth and cast iron; Anchor uses a charcoal day folio and movable blocks; Motion uses tactile arcade movement; Indulge carries its red notebook into a graphite folio, reflecting its successor status; Calorie uses an ordinary meal and journal. StorageDaddy uses archive inspection and a tangible space map, PerformanceDaddy indexed software-evidence papers and a magnifying lens, BrowserDaddy a tab index and separate attention compass, and ContextDaddy bounded files with a separate preview overlay. Existing approved mascots retain their clean hero presentation instead of being pasted over photography. Indulge labels its original screens as historical captures.
+
+These subjects illustrate the product's work; they do not depict native functionality, customer data or results. Foreground app captures and honest actions stay first. Each scene has a calm text zone on desktop; compact layouts show the copy above the complete picture. Dark scenes are generated in the product's own palette. No filter inversion or per-product stylesheet is required. Exact prompts, retained originals and production sizes live under `artifacts/design/product-artwork/`.
+
+The native product's `DESIGN.md` is the identity authority: `../kith`,
+`../setline`, `../anchor`, `../motion`, `../calorie`, `../storagedaddy`,
+`../performancedaddy`, `../browserdaddy` and `../contextdaddy`. Indulge's maintained
+counterpart is Anchor. This factory owns the landing composition and does not
+replace native design authorities. Anchor's current neutral Theme.swift palette
+supersedes the older cobalt factory tokens. Spacious web storytelling and compact
+native task controls share product vocabulary and identity, with platform
+differences explained in the current paired continuity report. Current native
+render and first-value gaps remain explicit; landing scores cannot qualify them.
 
 ## Typography and shape
 

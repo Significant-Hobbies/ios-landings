@@ -19,8 +19,10 @@ export const site: SiteConfig = {
     accentSoft: "#ff98a7", lanternA: "#db293b", lanternB: "#fff7cf",
     lanternC: "#78a889", blush: "#f4d9dd", inkOnDark: "#fffaf5", inkOnAccent: "#fffaf5"
   },
+  sceneArtwork: { src: "/images/story/indulge-scene-v2.webp", alt: "A red notebook and ribbon carried inside a larger graphite planning folio", width: 1536, height: 1024, caption: "Illustrative artwork · an idea carried forward into Anchor" },
   colorScheme: "light",
   hero: {
+    kind: "historical",
     image: "/images/screens/onboarding.webp",
     alt: "The original Indulge onboarding, retained as product-history artwork",
     caption: "Its illustrated pattern choices now live inside Anchor’s onboarding."

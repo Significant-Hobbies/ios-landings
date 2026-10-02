@@ -19,6 +19,7 @@ export const site: SiteConfig = {
     accent: "#74d4a6", accentDark: "#8ce0b8", accentSoft: "#98e9c3", lanternA: "#74d4a6",
     lanternB: "#78cbd5", lanternC: "#d8c78b", blush: "#101d16", inkOnDark: "#f2f7f4", inkOnAccent: "#07150e"
   },
+  sceneArtwork: { src: "/images/story/storagedaddy-scene-v1.webp", alt: "An archive box, storage-map blocks and a separate review card on a dark workbench", width: 1536, height: 1024, caption: "Illustrative artwork · inspect the space before deciding what goes" },
   colorScheme: "dark",
   device: "desktop",
   hero: { image: "/images/storage-explorer.png", alt: "StorageDaddy storage explorer showing a sample folder tree and storage treemap", caption: "A real app capture of a sample folder. Scan results describe the selected area, not necessarily the entire volume.", width: 1405, height: 768 },

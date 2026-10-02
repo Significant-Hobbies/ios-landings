@@ -2,7 +2,48 @@
 
 Last updated: 2026-10-02
 
-## Living Memory Book — local implementation and visual correction
+## Product-owned artwork across current landings
+
+The owner requested bespoke artwork on every landing after the shared release.
+This preserve pass extends selected C, retaining its structure and each product's
+palette, original captures, approved mascots and truthful next action. Nine new
+optimized editorial scenes now cover Setline, Anchor, Motion, Indulge, Calorie,
+StorageDaddy, PerformanceDaddy, BrowserDaddy and ContextDaddy. Kith retains its
+corrected memory-book artwork. Journal and Habits remain archived source history.
+
+The optional typed `sceneArtwork` input reuses one asset as an illustrative hero
+setting for screenshot-led products and the established story scene. Mascot-led
+heroes retain their clean original presentation. Indulge labels its native
+captures as historical. Each material subject belongs to its
+product; all text remains semantic and native proof stays separate. The nine
+new production assets total 595,708 bytes, with no new runtime dependency or
+landing JavaScript. Exact built-in imagegen prompts, originals and manifests
+are under `artifacts/design/product-artwork/`. The three legacy product-local
+type copies now re-export the shared contract, preventing artwork-input drift.
+
+The current preserve receipt is `.fleet/design-review-product-artwork.json`.
+Final local `pnpm check` passes 23 tests and all twelve builds/surface checks;
+30 rendered views and 60 interaction/geometry checks pass. Independent review
+corrected a hardware-repair implication, mascot/photo collage and historical
+proof labels. Anchor's landing tokens now follow its current neutral native
+theme rather than the older factory cobalt palette.
+
+The paired continuity review now passes at landing-artwork scope. Fresh actual
+native renders and bounded first useful states cover all ten configurations,
+with public downloads, private-beta boundaries and synthetic fixtures recorded
+separately. ContextDaddy and Anchor use current-source fixture hosts distinct
+from the downloaded public artifacts; Motion physical input/device acceptance
+remains unqualified. Native apps were not changed or released. The original
+blocked review is preserved alongside the current evidence under
+`artifacts/design/product-artwork/native-continuity/`.
+
+The eight existing Pages targets constitute this release's publication scope;
+Calorie and StorageDaddy remain local factory outputs with their live
+Worker/release services untouched. Exact-source CI, guard, deployment and public
+parity outcomes are tracked in issue31:
+https://github.com/Significant-Hobbies/ios-landings/issues/31
+
+## Living Memory Book — released foundation and visual correction
 
 The owner rejected the first photograph and material coherence after reviewing
 the initial preview. That feedback supersedes the earlier visual approval in
@@ -52,11 +93,13 @@ are under `artifacts/design/uplift/`; `.fleet/design-review.json` records the
 selected direction and the first pass's historical gates. Existing external newsletter and analytics
 delivery was not qualified by these isolated local checks.
 
-Publication is in progress; local evidence alone does not prove a live release.
-The shared engine updates all twelve configured products; Kith alone has the
-bespoke memory-book artwork. ContextDaddy now joins the per-product CI matrix.
-Historical Journal and Habits configurations remain build-only and must not be
-deployed. Anonymous route and deployment-SHA proof will qualify publication.
+The foundation shipped from `a1edb467101a2c8fd285e2d4a1d4a4de2187063d` to all
+eight existing Pages targets. All thirteen exact-source CI jobs, six deployment
+guard gates, eighteen public-host checks,67 routes and live phone/desktop browser
+checks passed. The shared engine updates all twelve configurations. ContextDaddy
+joins the per-product CI matrix. Journal and Habits remain build-only; no native
+binary or excluded Worker target was released. This is the foundation release
+record; issue31 tracks the subsequent all-product artwork extension.
 Tracking: https://github.com/Significant-Hobbies/ios-landings/issues/30
 
 ## BrowserDaddy Tab Scout identity

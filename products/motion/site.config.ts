@@ -1,30 +1,5 @@
-export type Chapter = { name: string; title: string; copy: string; image: string; alt: string };
-export type Faq = { question: string; answer: string };
-export type LegalSection = { title: string; body: string };
-export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
-export type SiteConfig = {
-  name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
-  summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
-  colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string };
-  gallery: { src: string; alt: string }[];
-  galleryTitle?: [string, string];
-  applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store";
-  newsletterCapture?: boolean;
-  appStoreUrl?: string; appStoreId?: string; betaNote: string;
-  tension: { statement: string; title: string; copy: string };
-  chaptersKicker: string; chaptersTitle: string; chaptersLede: string; chapters: Chapter[];
-  fit: { kicker: string; title: string; yes: string; no: string };
-  privacy: { kicker: string; title: string; copy: string };
-  faqs: Faq[]; founder: { quote: string; credit: string; note: string }; closingTitle: [string, string];
-  footerFinePrint: string; capabilities: string[]; boundaries: string[];
-  agentFit?: { bestFit: string[]; notAFit: string[] }; agentCli?: string[];
-  lastUpdated: string;
-  legal: { privacy: LegalPage; support: LegalPage; terms: LegalPage; accessibility: LegalPage; testflight: LegalPage & { testing: string; notIncluded: string } };
-  requiredHomeCopy: string[]; prohibitedClaims: string[];
-};
+import type { SiteConfig } from "../../src/lib/types";
+export type { Chapter, Faq, LegalSection, LegalPage, SiteConfig } from "../../src/lib/types";
 
 export const site: SiteConfig = {
   name: "Motion",
@@ -44,6 +19,7 @@ export const site: SiteConfig = {
     accent: "#2dd4bf", accentDark: "#0f766e", accentSoft: "#5eead4", lanternA: "#2dd4bf", lanternB: "#38bdf8", lanternC: "#a78bfa",
     blush: "#111827", inkOnDark: "#e8eef7", inkOnAccent: "#05070d"
   },
+  sceneArtwork: { src: "/images/story/motion-scene-v1.webp", alt: "An orange ball following a mint paper path between indigo arcade obstacles", width: 1536, height: 1024, caption: "Illustrative artwork · movement becomes play" },
   colorScheme: "dark",
   hero: { image: "/images/screens/motion-maker-clean.webp", alt: "Motion Maker running in the internal iPhone build", caption: "The phone tracks the body and renders the game. Only that rendered screen is mirrored to a TV." },
   gallery: [

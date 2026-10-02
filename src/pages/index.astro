@@ -10,11 +10,15 @@ import "../styles/landing.css";
 const illustration = site.illustration;
 const macDownload = verifiedMacDownloadUrl();
 const artworkHero = site.hero.kind === "artwork";
+const historicalHero = site.hero.kind === "historical";
+const stageScene = artworkHero ? undefined : site.sceneArtwork;
 const hasGallery = site.gallery.length > 0;
 const overviewHref = hasGallery ? "#look-inside" : "/#how-it-works";
-const overviewLabel = hasGallery ? (artworkHero ? "Explore the app" : "See the real app") : "Read how it works";
+const overviewLabel = hasGallery ? (historicalHero ? "Explore the product history" : artworkHero ? "Explore the app" : "See the real app") : "Read how it works";
 const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero.image) : undefined;
 const story = site.story;
+const sceneArtwork = story?.scene ?? site.sceneArtwork;
+const sceneCaption = site.sceneArtwork?.caption ?? "Illustrative artwork · real product screens below";
 const scenePhrases = site.chaptersTitle.match(/[^.!?]+[.!?]*/g)?.map((phrase) => phrase.trim()) ?? [site.chaptersTitle];
 // Each capture earns one explanatory home. Keep the gallery for additional evidence.
 const galleryShots = site.gallery.filter((shot) => !site.chapters.some((chapter) => chapter.image === shot.src));
@@ -45,7 +49,7 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
           ) : (
             <>
               <Cta />
-              <a class="text-link" href={overviewHref}>{hasGallery ? (artworkHero ? "Explore the app" : "See the real app") : overviewLabel} <span aria-hidden="true">↓</span></a>
+              <a class="text-link" href={overviewHref}>{overviewLabel} <span aria-hidden="true">↓</span></a>
             </>
           )}
         </div>
@@ -53,14 +57,15 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
         {story && <p class="hero-margin" aria-hidden="true">{story.note}</p>}
       </div>
       <div class:list={["hero-stage", illustration && "has-illustration"]}>
-        <div class="artifact-stage">
+        <div class:list={["artifact-stage", stageScene && "has-scene"]}>
         {story && <img class="bookcloth" src={story.cover.src} alt="" width={story.cover.width} height={story.cover.height} fetchpriority="high" />}
+        {stageScene && <img class="stage-scene" src={stageScene.src} alt="" width={stageScene.width} height={stageScene.height} decoding="async" />}
         {story && <figure class="moment-photo">
           <img src={story.moment.src} alt={story.moment.alt} width={story.moment.width} height={story.moment.height} decoding="async" />
           <figcaption>{story.moment.caption}<small>Illustrative artwork</small></figcaption>
         </figure>}
         {!story && illustration && <img class="hero-illustration" src={illustration.src} alt={illustration.alt} />}
-        <span class="stage-label">{artworkHero ? "App artwork" : "The actual app"}</span>
+        <span class="stage-label">{historicalHero ? "Historical capture" : artworkHero ? "App artwork" : "The actual app"}</span>
         {artworkHero ? <img class="hero-artwork" src={site.hero.image} alt={site.hero.alt} width={heroMetadata!.width} height={heroMetadata!.height} fetchpriority="high" /> : <Phone
           src={site.hero.image}
           alt={site.hero.alt}
@@ -71,7 +76,7 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
           priority
         />}
         </div>
-        <p class="stage-note">{site.hero.caption}</p>
+        <p class="stage-note">{site.hero.caption}{stageScene && <small>Illustrative setting · {historicalHero ? "historical capture" : "original app capture"}</small>}</p>
       </div>
     </div>
     {site.chapters.length > 0 && <div class="shell proof-rail" aria-label="Product overview">
@@ -84,14 +89,14 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
     </div>}
   </section>
 
-  {story && <section class="memory-scene" aria-labelledby="scene-title">
-    <img class="scene-image" src={story.scene.src} alt="" width={story.scene.width} height={story.scene.height} loading="lazy" decoding="async" />
+  {sceneArtwork && <section class="memory-scene" aria-labelledby="scene-title">
+    <img class="scene-image" src={sceneArtwork.src} alt={sceneArtwork.alt} width={sceneArtwork.width} height={sceneArtwork.height} loading="lazy" decoding="async" />
     <div class="shell scene-copy">
       <h2 id="scene-title">{scenePhrases.map((phrase, index) => <><span>{phrase}</span>{index < scenePhrases.length - 1 && " "}</>)}</h2>
       <p>{site.chaptersLede}</p>
       <a class="text-link" href="#how-it-works">See how it works <span aria-hidden="true">↓</span></a>
     </div>
-    <span class="scene-caption">Illustrative artwork · real product screens below</span>
+    <span class="scene-caption">{sceneCaption}</span>
   </section>}
 
   {galleryShots.length > 0 && <section id="look-inside" class="gallery" aria-labelledby="gallery-title">

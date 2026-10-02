@@ -1,35 +1,5 @@
-export type Chapter = {
-  name: string;
-  title: string;
-  copy: string;
-  image: string;
-  alt: string;
-};
-export type Faq = { question: string; answer: string };
-export type LegalSection = { title: string; body: string };
-export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
-export type SiteConfig = {
-  name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
-  summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
-  colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string };
-  gallery: { src: string; alt: string }[];
-  applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store";
-  newsletterCapture?: boolean;
-  appStoreUrl?: string; appStoreId?: string; betaNote: string;
-  tension: { statement: string; title: string; copy: string };
-  chaptersKicker: string; chaptersTitle: string; chaptersLede: string; chapters: Chapter[];
-  fit: { kicker: string; title: string; yes: string; no: string };
-  privacy: { kicker: string; title: string; copy: string };
-  faqs: Faq[]; founder: { quote: string; credit: string; note: string }; closingTitle: [string, string];
-  footerFinePrint: string; capabilities: string[]; boundaries: string[];
-  agentFit: { bestFit: string[]; notAFit: string[] };
-  lastUpdated: string;
-  legal: { privacy: LegalPage; support: LegalPage; terms: LegalPage; accessibility: LegalPage; testflight: LegalPage & { testing: string; notIncluded: string } };
-  requiredHomeCopy: string[]; prohibitedClaims: string[];
-};
+import type { SiteConfig } from "../../src/lib/types";
+export type { Chapter, Faq, LegalSection, LegalPage, SiteConfig } from "../../src/lib/types";
 
 export const site: SiteConfig = {
   name: "Setline",
@@ -49,6 +19,7 @@ export const site: SiteConfig = {
     accent: "#b9e83f", accentDark: "#18262e", accentSoft: "#b9d8e8", lanternA: "#b9e83f", lanternB: "#b9d8e8", lanternC: "#ff614d",
     blush: "#dde1dc", inkOnDark: "#f7f6f0", inkOnAccent: "#18262e"
   },
+  sceneArtwork: { src: "/images/story/training-bench-v1.webp", alt: "A lime training log, ordered workout cards and a weight plate on a paper workbench", width: 1536, height: 1024, caption: "Illustrative artwork · an authored workout, one set at a time" },
   colorScheme: "light",
   hero: { image: "/images/screens/workout-player.webp", alt: "Setline workout player showing the current set", caption: "The current set owns the screen. Record it, then rest." },
   gallery: [

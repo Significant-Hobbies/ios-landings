@@ -46,8 +46,10 @@ export type SiteConfig = {
   };
   colorScheme: "light" | "dark";
   device?: "phone" | "desktop";
-  hero: { image: string; alt: string; caption: string; width?: number; height?: number; kind?: "screenshot" | "artwork" };
+  hero: { image: string; alt: string; caption: string; width?: number; height?: number; kind?: "screenshot" | "artwork" | "historical" };
   illustration?: { src: string; alt: string };
+  /** A product-owned editorial scene, separate from screenshots and app artwork. */
+  sceneArtwork?: StoryImage & { caption: string };
   /** Optional product-owned ingredients for the shared Living Memory Book system. */
   story?: {
     ink: string;

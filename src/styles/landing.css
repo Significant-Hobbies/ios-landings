@@ -23,16 +23,20 @@
 .hero-stage { min-width: 0; }
 .artifact-stage { position: relative; isolation: isolate; display: grid; justify-items: center; align-content: center; min-height: 460px; padding: 48px 24px 26px; background: var(--field); }
 .bookcloth { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.stage-scene { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: right center; }
+.artifact-stage.has-scene { box-shadow: 0 14px 32px color-mix(in srgb,var(--ink) 10%,transparent); }
 .has-story .artifact-stage { box-shadow: -7px 9px 0 color-mix(in srgb, var(--accent-dark) 30%, var(--field)), 0 22px 44px color-mix(in srgb, var(--ink) 14%, transparent); border-radius: 2px 4px 4px 2px; }
 .stage-label { color: var(--ink-soft); font-size: .72rem; margin-bottom: 14px; }
-.has-story .stage-label { background: var(--paper); color: var(--book-ink); padding: 6px 12px; border-radius: 2px; }
+.has-story .stage-label, .has-scene .stage-label { background: var(--paper); color: var(--book-ink); padding: 6px 12px; border-radius: 2px; }
 .device.device--hero { width: min(100%, 264px); max-width: none; animation: none; }
 .device-sheen { display: none; }
 .hero-artwork { width: min(100%, 410px); height: auto; }
+.artifact-stage:has(> .hero-artwork) { background: var(--paper); }
 .hero-illustration { width: min(70%, 220px); height: auto; margin-bottom: 20px; }
 .screen-link { color: var(--ink-soft); font-size: .78rem; }
-.has-story .artifact-stage .screen-link { width: fit-content; margin-inline: auto; padding-inline: 10px; color: var(--book-ink); background: var(--paper); text-decoration-color: currentColor; border-radius: 2px; }
+.has-story .artifact-stage .screen-link, .has-scene .screen-link { width: fit-content; margin-inline: auto; padding-inline: 10px; color: var(--book-ink); background: var(--paper); text-decoration-color: currentColor; border-radius: 2px; }
 .stage-note { margin-top: 20px; max-width: 60ch; font-size: .83rem; color: var(--ink-soft); }
+.stage-note small { display: block; margin-top: 6px; font-size: .72rem; }
 .moment-photo { position: absolute; z-index: 3; top: 32px; left: -100px; width: 190px; padding: 6px 6px 10px; background: var(--paper); color: var(--book-ink); transform: rotate(-4deg); box-shadow: 0 7px 14px #20243d1a; }
 .moment-photo img { width: 100%; height: auto; aspect-ratio: 1.5; object-fit: cover; }
 .moment-photo figcaption { padding: 9px 4px 0; font-size: .85rem; line-height: 1.35; }
@@ -42,7 +46,7 @@
 .proof-item > span { display: grid; flex: 0 0 28px; place-items: center; width: 28px; height: 28px; margin-top: 3px; border: 1px solid var(--line); border-radius: 50%; font-size: .78rem; }
 .proof-item p { font-size: .8rem; color: var(--ink-soft); }
 .proof-item strong { display: block; font-size: .87rem; color: var(--book-ink); }
-.memory-scene { position: relative; isolation: isolate; display: grid; align-items: center; min-height: min(640px, 55vw); margin: 18px 0 0; overflow: clip; color: var(--story-ink); background: var(--field); }
+.memory-scene { position: relative; isolation: isolate; display: grid; align-items: center; min-height: min(640px, 55vw); margin: 18px 0 0; overflow: clip; color: var(--story-ink, var(--ink)); background: var(--field); }
 .scene-image { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left top; }
 .scene-copy { padding: 96px clamp(32px,4vw,64px) 160px clamp(96px,8vw,128px); }
 .scene-copy h2 { max-width: min(16ch,52%); font-size: clamp(2.6rem, 4.6vw, 4.5rem); line-height: 1.06; }

@@ -1,27 +1,5 @@
-export type Chapter = { name: string; title: string; copy: string; image: string; alt: string; width?: number; height?: number };
-export type Faq = { question: string; answer: string };
-export type LegalSection = { title: string; body: string };
-export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
-export type SiteConfig = {
-  name: string; url: string; tagline: string; headline: [string, string]; lede: string; kicker: string;
-  summary: string; status: string; platforms: string[]; themeColor: string; mark: string; socialImage: string;
-  tokens: { paper: string; field: string; ink: string; inkSoft: string; inkFaint: string; accent: string; accentDark: string; accentSoft: string; lanternA: string; lanternB: string; lanternC: string; blush: string; inkOnDark: string; inkOnAccent?: string };
-  colorScheme: "light" | "dark";
-  hero: { image: string; alt: string; caption: string; width?: number; height?: number };
-  illustration?: { src: string; alt: string };
-  gallery: { src: string; alt: string; width?: number; height?: number }[];
-  applicationCategory: string;
-  availability: "unreleased" | "testflight" | "app-store";
-  appStoreUrl?: string; appStoreId?: string; macDownloadUrl?: string; macDownloadLabel?: string; betaNote: string;
-  tension: { statement: string; title: string; copy: string };
-  chaptersKicker: string; chaptersTitle: string; chaptersLede: string; chapters: Chapter[];
-  fit: { kicker: string; title: string; yes: string; no: string };
-  privacy: { kicker: string; title: string; copy: string };
-  faqs: Faq[]; founder: { quote: string; credit: string; note: string }; closingTitle: [string, string];
-  footerFinePrint: string; capabilities: string[]; boundaries: string[]; lastUpdated: string;
-  legal: { privacy: LegalPage; support: LegalPage; terms: LegalPage; accessibility: LegalPage; testflight: LegalPage & { testing: string; notIncluded: string } };
-  requiredHomeCopy: string[]; prohibitedClaims: string[];
-};
+import type { SiteConfig } from "../../src/lib/types";
+export type { Chapter, Faq, LegalSection, LegalPage, SiteConfig } from "../../src/lib/types";
 
 export const site: SiteConfig = {
   name: "Anchor",
@@ -33,14 +11,15 @@ export const site: SiteConfig = {
   summary: "A local-first day planner and focus timer for Mac, iPhone and Apple Watch that schedules the day, captures what pulled you away, and explains the gap between plan and reality.",
   status: "Invite-only TestFlight and notarized Mac beta",
   platforms: ["iPhone", "Mac", "Apple Watch"],
-  themeColor: "#0a0c10",
+  themeColor: "#0b0b0c",
   mark: "/images/brand/anchor-mark-v29.png",
   socialImage: "/images/brand/anchor-social-v29.png",
   tokens: {
-    paper: "#0a0c10", field: "#141922", ink: "#edf1f7", inkSoft: "#94a0b3", inkFaint: "rgba(255,255,255,0.08)",
-    accent: "#3b82f6", accentDark: "#60a5fa", accentSoft: "#7dd3fc", lanternA: "#3b82f6", lanternB: "#7dd3fc", lanternC: "#fb7185",
-    blush: "#1d2532", inkOnDark: "#edf1f7", inkOnAccent: "#0a0c10"
+    paper: "#0b0b0c", field: "#151515", ink: "#f2f0ea", inkSoft: "#aaa8a2", inkFaint: "rgba(255,255,255,0.09)",
+    accent: "#f2f0ea", accentDark: "#c7c4bd", accentSoft: "#c7c4bd", lanternA: "#f2f0ea", lanternB: "#e1ad4a", lanternC: "#e66a5c",
+    blush: "#202020", inkOnDark: "#f2f0ea", inkOnAccent: "#111111"
   },
+  sceneArtwork: { src: "/images/story/anchor-scene-v2.webp", alt: "A charcoal day folio with warm paper, a graphite bookmark and movable amber and coral schedule strips", width: 1536, height: 1024, caption: "Illustrative artwork · the plan can change, the record stays clear" },
   colorScheme: "dark",
   hero: { image: "/images/screens/today.webp", alt: "Anchor Today showing a chronological day plan and the usual-week schedule action", caption: "Draw the day first: see open time, build the usual week, and keep today-only changes explicit.", width: 402, height: 874 },
   illustration: { src: "/images/brand/day-doodle.svg", alt: "A hand-drawn character arranging the day while distractions wait in a basket" },

@@ -17,6 +17,7 @@ export const site: SiteConfig = {
   artwork: "/images/context-cart.png",
   socialImage: "/images/context-cart.png",
   tokens: storage.tokens,
+  sceneArtwork: { src: "/images/story/contextdaddy-scene-v1.webp", alt: "A context-file folio with tabbed sheets and a separate translucent preview overlay", width: 1536, height: 1024, caption: "Illustrative artwork · review the files, preview the change" },
   colorScheme: "dark",
   device: "desktop",
   newsletterCapture: true,
