@@ -30,6 +30,7 @@ export const site: SiteConfig = {
     inkOnDark: "#f7faf3",
     inkOnAccent: "#ffffff"
   },
+  sceneArtwork: { src: "/images/story/calorie-scene-v1.webp", alt: "A moss-green meal journal beside a simple grain-and-vegetable bowl and water glass", width: 1536, height: 1024, caption: "Illustrative artwork · ordinary meals, a record you can inspect" },
   colorScheme: "light",
   hero: {
     image: "/images/screens/today.webp",

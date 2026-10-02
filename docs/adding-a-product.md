@@ -12,8 +12,15 @@ and evidence. Each build remains one product per domain.
 - Optional `story` in the config: product-owned ink, material cover, illustrative
   photograph with caption, optional paper texture, a wide scene and a short margin note. These are
   ingredients, not a flattened image of the page. See Kith's `story` for a full
-  example. Omit it when lifestyle photography does not fit the app; the shared
-  engine uses the product's field surface and original artifact instead.
+  example.
+- Optional `sceneArtwork`: a single product-owned landscape image with `src`,
+  descriptive `alt`, intrinsic `width`/`height` and an honest illustrative
+  `caption`. It provides the wide story scene and a decorative hero setting for screenshot-led products
+  without introducing Kith's cloth, photograph or margin note. See Setline for
+  a light example and ContextDaddy for a dark example. Compose a clear left
+  writing zone and meaningful subject on the right; keep main text in HTML.
+  Optimize the image as WebP and retain its original and exact generation prompt.
+  Omit both options when illustration would weaken the product's identity.
 - `products/<id>/blog/*.md`: optional notes; see [blogs](blogs.md).
 
 Use Kith as the light/phone example and PerformanceDaddy as the dark/Mac example.

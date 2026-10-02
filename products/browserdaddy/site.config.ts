@@ -16,6 +16,7 @@ export const site: SiteConfig = {
   artwork: "/images/browserdaddy-scout-v1.png",
   socialImage: "/images/browserdaddy-scout-v1.png",
   tokens: storage.tokens,
+  sceneArtwork: { src: "/images/story/browserdaddy-scene-v1.webp", alt: "Blank browser-tab index cards beside a separate mint-and-brass attention compass", width: 1536, height: 1024, caption: "Illustrative artwork · a browsing trail and attention are different evidence" },
   colorScheme: "dark",
   device: "desktop",
   newsletterCapture: true,

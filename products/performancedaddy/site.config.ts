@@ -17,6 +17,7 @@ export const site: SiteConfig = {
   artwork: "/images/mark.png",
   socialImage: "/images/ports.png",
   tokens: storage.tokens,
+  sceneArtwork: { src: "/images/story/performancedaddy-scene-v2.webp", alt: "A magnifying lens over branching process relationships on indexed evidence papers", width: 1536, height: 1024, caption: "Illustrative artwork · following evidence, not guessing a cause" },
   colorScheme: "dark",
   device: "desktop",
   newsletterCapture: true,
