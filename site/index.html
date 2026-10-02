@@ -13,10 +13,13 @@
   h1 { font-size:2.4rem; line-height:1.1; letter-spacing:-0.01em; }
   .lede { color:var(--ink-soft); font-size:1.1rem; margin:16px 0 48px; }
   ul { list-style:none; padding:0; display:grid; gap:12px; }
-  a.card { display:flex; justify-content:space-between; align-items:baseline; padding:18px 20px; background:var(--field); border-radius:12px; text-decoration:none; color:var(--ink); border:1px solid rgba(58,36,24,.12); }
+  a.card { display:flex; justify-content:space-between; align-items:baseline; gap:12px; padding:18px 20px; background:var(--field); border-radius:12px; text-decoration:none; color:var(--ink); border:1px solid rgba(58,36,24,.12); }
   a.card:hover { border-color:var(--accent); }
   a.card strong { font-size:1.15rem; }
   a.card span { color:var(--ink-soft); font-size:.9rem; }
+  @media (max-width:600px) {
+    a.card { align-items:flex-start; flex-direction:column; gap:4px; }
+  }
   .email-updates { margin-top:48px; }
   .email-note { margin:12px 12px 0; color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
   footer { margin-top:56px; color:var(--ink-soft); font-size:.85rem; }

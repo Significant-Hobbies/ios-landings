@@ -10,7 +10,7 @@ export const site: SiteConfig = {
   kicker: "Browser history. Real attention.",
   summary: "BrowserDaddy is a native Mac browsing-intelligence app that archives readable browser history and compares visits with measured foreground attention. Optional external topic tagging requires consent.",
   status: "Public early-access beta · free to download",
-  platforms: ["macOS 14+", "Native Mac app"],
+  platforms: ["macOS 15+", "Native Mac app"],
   themeColor: "#000000",
   mark: "/images/browserdaddy-icon-v1.png",
   artwork: "/images/browserdaddy-scout-v1.png",
@@ -26,7 +26,7 @@ export const site: SiteConfig = {
   availability: "unreleased",
   macDownloadUrl: "https://browser.daddyrad.com/download",
   macDownloadLabel: "Download for Mac",
-  betaNote: "The public beta is a signed and notarized universal build for macOS 14 or later, free during early access. Browser access and active-tab evidence depend on macOS permissions and browser support. Private-window filtering is not yet release-qualified.",
+  betaNote: "The public beta is a signed and notarized universal build for macOS 15 or later, free during early access. Browser access and active-tab evidence depend on macOS permissions and browser support. Private-window filtering is not yet release-qualified.",
   tension: { statement: "A visit is not a minute of attention.", title: "Separate what opened from what held your focus.", copy: "History records where you went. Foreground and idle measurements add a different signal: when an app was active. BrowserDaddy keeps the two distinct instead of turning visit counts into guessed screen time." },
   chaptersKicker: "Know what the app can see",
   chaptersTitle: "Start with access. Keep the limits visible.",
@@ -46,7 +46,7 @@ export const site: SiteConfig = {
   closingTitle: ["See the pattern.", "Understand your attention."],
   footerFinePrint: "An independent Mac app from Significant Hobbies. Free during early access.",
   capabilities: ["Read-only browser-history collection into a local archive", "Chromium-profile, Firefox and Safari history discovery", "Search and browser filters", "Foreground and idle-aware attention measurements", "Browsing trends and source/date filters", "Permission visibility", "Consent-gated external topic tagging"],
-  boundaries: ["Requires macOS 14 or later", "Visits are not attention and past focus cannot be reconstructed", "Active-tab visibility depends on browser support and Automation permission", "Private-window filtering is not release-qualified", "Optional tagging transmits domain names, selected URL paths and page titles to classifier.dev", "No browser-history deletion, remote surveillance or device sync"],
+  boundaries: ["Requires macOS 15 or later", "Visits are not attention and past focus cannot be reconstructed", "Active-tab visibility depends on browser support and Automation permission", "Private-window filtering is not release-qualified", "Optional tagging transmits domain names, selected URL paths and page titles to classifier.dev", "No browser-history deletion, remote surveillance or device sync"],
   lastUpdated: "2026-09-28",
   legal: {
     privacy: { title: "Privacy", lede: "Understand local collection and optional external tagging before using the preview.", sections: [
