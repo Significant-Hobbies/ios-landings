@@ -208,7 +208,7 @@ PREMIUM: Space, typography, precise rules, and restraint — no decorative orb f
 .privacy-section { padding: 88px 0; background: var(--ink); color: var(--ink-on-dark); }
 .privacy-grid { display: grid; gap: 40px; }
 .privacy-mark { width: 124px; padding: 10px; border: 1px solid color-mix(in srgb, var(--ink-on-dark) 16%, transparent); border-radius: 30px; transform: rotate(-2deg); }
-.privacy-mark img { border-radius: 21px; }
+.privacy-mark img { width: 100%; height: auto; border-radius: 21px; }
 .privacy-section .chapter-kicker { color: var(--accent-soft); }
 .privacy-section p:not(.chapter-kicker) { max-width: 46ch; margin-top: 20px; color: color-mix(in srgb, var(--ink-on-dark) 76%, white); line-height: 1.75; }
 .privacy-section .text-link { margin-top: 24px; color: var(--ink-on-dark); }
@@ -290,7 +290,7 @@ html[data-product="anchor"] .closing {
   .fit-grid { grid-template-columns: 1fr .7fr; gap: 72px; }
   .privacy-grid { grid-template-columns: .36fr 1fr; gap: 80px; align-items: center; }
   .privacy-mark { width: min(100%, 240px); padding: 14px; border-radius: 42px; }
-  .privacy-mark img { border-radius: 30px; }
+  .privacy-mark img { width: 100%; height: auto; border-radius: 30px; }
   .faq { grid-template-columns: .62fr 1fr; gap: 90px; }
   .founder-grid { grid-template-columns: 1.05fr .5fr; gap: 72px; align-items: end; }
 }

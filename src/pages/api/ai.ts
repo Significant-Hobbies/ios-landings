@@ -23,6 +23,9 @@ export async function GET() {
       site.device === "desktop"
         ? { id: "release", url: "/release/", md: "/release/index.md", kind: "static" }
         : { id: "testflight", url: "/testflight/", md: "/testflight/index.md", kind: "static" },
+      ...(import.meta.env.PRODUCT === "setline"
+        ? [{ id: "changelog", url: "/changelog", md: "/changelog.md", kind: "static" }]
+        : []),
       ...(posts.length ? [{ id: "blog", url: "/blog/", md: "/blog/index.md", kind: "static" }] : []),
       ...posts.map(p => ({ id: `blog-${p.id.split("/")[1]}`, url: blogPath(p), md: `${blogPath(p)}index.md`, kind: "article" }))
     ],

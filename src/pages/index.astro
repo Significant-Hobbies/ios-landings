@@ -11,6 +11,9 @@ import "../styles/editorial.css";
 const illustration = site.illustration;
 const macDownload = verifiedMacDownloadUrl();
 const artworkHero = site.hero.kind === "artwork";
+const hasGallery = site.gallery.length > 0;
+const overviewHref = hasGallery ? "#look-inside" : "/#how-it-works";
+const overviewLabel = hasGallery ? "See the real app" : "Read how it works";
 const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero.image) : undefined;
 ---
 <SiteLayout>
@@ -24,12 +27,12 @@ const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero
           {macDownload ? (
             <>
               <a class="button" href={macDownload}>{site.macDownloadLabel ?? "Download for Mac"} <span aria-hidden="true">↓</span></a>
-              <a class="text-link" href={site.device === "desktop" ? "#look-inside" : "/testflight/"}>{site.device === "desktop" ? "See the real app" : "See iPhone and Watch beta status"} <span aria-hidden="true">→</span></a>
+              <a class="text-link" href={site.device === "desktop" ? overviewHref : "/testflight/"}>{site.device === "desktop" ? overviewLabel : "See iPhone and Watch beta status"} <span aria-hidden="true">→</span></a>
             </>
           ) : (
             <>
               <Cta />
-              <a class="text-link" href="#look-inside">{artworkHero ? "Explore the app" : "See the real app"} <span aria-hidden="true">↓</span></a>
+              <a class="text-link" href={overviewHref}>{hasGallery ? (artworkHero ? "Explore the app" : "See the real app") : overviewLabel} <span aria-hidden="true">↓</span></a>
             </>
           )}
         </div>
@@ -61,7 +64,7 @@ const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero
 
   <section id="look-inside" class="gallery" aria-labelledby="gallery-title">
     <div class="shell gallery-head">
-      <p class="chapter-kicker">Look inside</p>
+      <p class="chapter-kicker">{hasGallery ? "Look inside" : "Product overview"}</p>
       <h2 id="gallery-title">{site.galleryTitle?.[0] ?? "No mockups."}<br />{site.galleryTitle?.[1] ?? "The real product."}</h2>
       <p>{site.betaNote}</p>
     </div>
