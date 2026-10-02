@@ -79,11 +79,13 @@
     align-items: center;
     gap: 10px;
     font-family: var(--display);
-    font-size: 1.05rem;
+    font-size: 1.2rem;
     font-weight: 760;
     text-decoration: none;
   }
   .wordmark img { width: 38px; height: 38px; border-radius: 12px; }
+  .wordmark { min-width: 0; max-width: 100%; }
+  .wordmark span { min-width: 0; overflow-wrap: anywhere; }
   .nav-links { display: flex; align-items: center; gap: 22px; font-size: .93rem; font-weight: 650; }
   .nav-links a { display: inline-flex; min-height: 44px; align-items: center; text-decoration: none; }
   .nav-links a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -104,7 +106,7 @@
     gap: 8px;
     padding: 12px 20px;
     border: 0;
-    border-radius: 8px;
+    border-radius: 999px;
     background: var(--button-bg, var(--accent));
     color: var(--button-fg, var(--ink-on-accent));
     font-weight: 650;
@@ -113,6 +115,7 @@
     transition: transform .25s var(--ease-out), background .25s, box-shadow .25s;
   }
   .button:hover { background: var(--button-hover-bg, var(--accent-dark)); color: var(--button-hover-fg, var(--ink-on-accent)); transform: translateY(-2px); }
+  .button:active { transform: translateY(0); }
   .site-footer { padding: 46px 0; border-top: 1px solid var(--line); background: var(--paper); }
   .site-footer .shell { display: flex; align-items: start; justify-content: space-between; gap: 30px; }
   .site-footer .shell.has-newsletter { flex-wrap: wrap; }
@@ -135,7 +138,7 @@
   .footer-links a { display: inline-flex; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; text-underline-offset: 3px; }
   .fine-print { max-width: 58ch; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }
   .legal-main { padding: 56px 0 88px; }
-  .legal-main h1 { max-width: 18ch; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 600; line-height: 1.08; letter-spacing: -.03em; }
+  .legal-main h1 { max-width: 18ch; font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 720; line-height: 1.08; letter-spacing: -.03em; }
   .legal-lede { margin-top: 24px; color: var(--ink-soft); font-size: 1.15rem; line-height: 1.65; }
   .legal-copy { margin-top: 52px; padding-top: 34px; border-top: 1px solid var(--line); }
   .legal-copy section + section { margin-top: 34px; }

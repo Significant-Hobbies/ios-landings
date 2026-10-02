@@ -1,6 +1,63 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-09-20
+Last updated: 2026-10-02
+
+## Living Memory Book — local implementation and visual correction
+
+The owner rejected the first photograph and material coherence after reviewing
+the initial preview. That feedback supersedes the earlier visual approval in
+the historical agent review. A bounded correction preserves selected C:
+unposed coastal-walk artwork replaces the café faces; the notebook repeats the
+same setting with one modest coffee cup; photo mats, rotation and paper grain
+are quieter. Notebook text has explicit three-phrase pacing and stays on the
+clear left page on desktop. Compact layouts stack scene copy above the complete
+image, and prints enter normal flow below390px to keep the app unobscured.
+
+New evidence is separate under `artifacts/design/uplift/refinement/`, with the
+current v2 preserve receipt at `.fleet/design-review-coherence.json`. Preflight
+passed after the owner supplied the updated workflow, before remaining UI
+corrections. The previous v1 receipt and assets remain historical evidence.
+The owner has authorized committing, pushing and publishing the updated landings.
+This release covers the eight existing Pages targets after exact-source CI and
+the deployment guard pass. Native app binaries, Calorie's Worker, StorageDaddy's
+routes and retired Journal/Habits sites remain outside this release.
+
+The correction passes final `pnpm check` (23 tests, twelve builds/surface checks)
+and v2 receipt validation. Nine rendered widths and twelve local interaction
+checks pass; the independent normal/enlarged-text and reduced-motion diagnostic
+matrix reports no overlaps or clipped text. Current rubric judgments are33/40
+for visual review,17/20 for audit and92/100 for comprehension. They do not
+establish owner acceptance. The review retains a photographic-specificity
+caveat and the optional smaller-bookcloth recommendation. Built-in imagegen
+prompts and versioned final assets are recorded in the refinement evidence.
+
+The owner selected C — The Living Memory Book for the shared factory, with Kith
+as its first full showcase. The homepage now combines original app screens,
+product-owned paper and coral bookcloth, illustrated photographic keepsakes,
+a notebook scene, narrative chapters and a closing paper invitation. Motion is
+bounded CSS with complete static and reduced-motion states. The shared engine
+retains independent product builds, truthful availability and desktop/artwork
+frames; other products keep their own content and palettes.
+
+Optional typed story assets and reuse rules are documented in `DESIGN.md` and
+`docs/adding-a-product.md`. Repeated chapter captures no longer appear again in
+the gallery. Legal, beta/release, newsletter and consent paths remain connected.
+No new production dependency was added.
+
+`pnpm check` passed all 23 regression tests, Astro validation and all twelve
+product builds/public-surface checks. Local browser evidence covers Kith,
+PerformanceDaddy and BrowserDaddy at 390/768/1440px, keyboard navigation, FAQ,
+reduced motion and legal/beta/release routes. Independent review and screenshots
+are under `artifacts/design/uplift/`; `.fleet/design-review.json` records the
+selected direction and the first pass's historical gates. Existing external newsletter and analytics
+delivery was not qualified by these isolated local checks.
+
+Publication is in progress; local evidence alone does not prove a live release.
+The shared engine updates all twelve configured products; Kith alone has the
+bespoke memory-book artwork. ContextDaddy now joins the per-product CI matrix.
+Historical Journal and Habits configurations remain build-only and must not be
+deployed. Anonymous route and deployment-SHA proof will qualify publication.
+Tracking: https://github.com/Significant-Hobbies/ios-landings/issues/30
 
 ## BrowserDaddy Tab Scout identity
 
@@ -18,7 +75,7 @@ One Astro codebase that builds a separate static site for each
 Significant Hobbies iOS-first app. Each product keeps its own domain,
 privacy URL, support URL, tokens, and screenshots.
 
-In scope: the shared page engine, eleven product configs (including two retired
+In scope: the shared page engine, twelve product configs (including two retired
 compatibility configs), artwork/screenshot trees, Apple-gated CTAs, and agent surfaces.
 
 Out of scope: a combined multi-app homepage, App Store badges without a

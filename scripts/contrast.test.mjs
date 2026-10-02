@@ -15,14 +15,14 @@ test("normal and hover actions retain readable text on light and dark accents", 
   }
 });
 
-test("all page types inherit Editorial chrome without overriding action contrast", async () => {
+test("all page types inherit shared chrome without overriding action contrast", async () => {
   const global = await readFile(new URL("../src/styles/global.css", import.meta.url), "utf8");
-  const editorial = await readFile(new URL("../src/styles/editorial.css", import.meta.url), "utf8");
+  const landing = await readFile(new URL("../src/styles/landing.css", import.meta.url), "utf8");
   assert.match(global, /\.site-header\s*\{\s*position: relative;/);
   assert.match(global, /\.legal-copy a:not\(\.button\)/);
   assert.doesNotMatch(global, /\.legal-copy a\s*\{/);
-  assert.doesNotMatch(editorial, /\.site-header|\.wordmark|^\.button\s*\{/m);
+  assert.doesNotMatch(landing, /\.site-header|\.wordmark|^\.button\s*\{/m);
   for (const path of ["../src/pages/blog/index.astro", "../src/pages/blog/[slug]/index.astro"]) {
-    assert.doesNotMatch(await readFile(new URL(path, import.meta.url), "utf8"), /styles\/editorial\.css/);
+    assert.doesNotMatch(await readFile(new URL(path, import.meta.url), "utf8"), /styles\/(?:editorial|landing)\.css/);
   }
 });

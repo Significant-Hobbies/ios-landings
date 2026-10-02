@@ -7,3 +7,6 @@ dist/
 .agents/
 .claude/
 .grok/
+.fleet-local/
+artifacts/design/uplift/**/slop-score.json
+artifacts/design/uplift/slop-score.json

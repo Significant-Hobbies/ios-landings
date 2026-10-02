@@ -12,6 +12,7 @@ interface Props {
   priority?: boolean;
   tilt?: "left" | "right" | "none";
   size?: "hero" | "gallery" | "chapter" | "echo";
+  artwork?: boolean;
 }
 
 const {
@@ -19,15 +20,16 @@ const {
   alt,
   caption,
   priority = false,
+  artwork = false,
   tilt = "none",
   size = "chapter"
 } = Astro.props;
 const { width, height, frame } = await screenshotMetadata(productId, src);
 const desktop = site.device === "desktop" || frame === "desktop";
 ---
-<figure class:list={["device", `device--${size}`, desktop && "desktop", !desktop && tilt !== "none" && `tilt-${tilt}`]} data-frame={desktop ? "desktop" : "phone"}>
+<figure class:list={["device", `device--${size}`, desktop && "desktop", artwork && "artwork", !desktop && tilt !== "none" && `tilt-${tilt}`]} data-frame={artwork ? "artwork" : desktop ? "desktop" : "phone"}>
   <div class="device-shell">
-    {!desktop && <>
+    {!desktop && !artwork && <>
     <span class="device-island" aria-hidden="true"></span>
     <span class="device-side silent" aria-hidden="true"></span>
     <span class="device-side vol-up" aria-hidden="true"></span>
@@ -44,5 +46,5 @@ const desktop = site.device === "desktop" || frame === "desktop";
     {size === "hero" && !desktop ? <span class="device-sheen" aria-hidden="true"></span> : null}
   </div>
   {caption ? <figcaption>{caption}</figcaption> : null}
-  <a class="screen-link" href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size screenshot: ${alt} (new tab)`}>View full-size screenshot <span aria-hidden="true">↗</span></a>
+  <a class="screen-link" href={src} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size ${artwork ? "artwork" : "screenshot"}: ${alt} (new tab)`}>View full-size {artwork ? "artwork" : "screenshot"} <span aria-hidden="true">↗</span></a>
 </figure>

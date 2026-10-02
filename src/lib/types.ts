@@ -11,6 +11,7 @@ export type Chapter = {
 export type Faq = { question: string; answer: string };
 export type LegalSection = { title: string; body: string };
 export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
+export type StoryImage = { src: string; alt: string; width: number; height: number };
 
 export type SiteConfig = {
   name: string;
@@ -47,6 +48,15 @@ export type SiteConfig = {
   device?: "phone" | "desktop";
   hero: { image: string; alt: string; caption: string; width?: number; height?: number; kind?: "screenshot" | "artwork" };
   illustration?: { src: string; alt: string };
+  /** Optional product-owned ingredients for the shared Living Memory Book system. */
+  story?: {
+    ink: string;
+    paper?: StoryImage;
+    cover: StoryImage;
+    moment: StoryImage & { caption: string };
+    scene: StoryImage;
+    note: string;
+  };
   gallery: { src: string; alt: string; width?: number; height?: number }[];
   galleryTitle?: [string, string];
   applicationCategory: string;

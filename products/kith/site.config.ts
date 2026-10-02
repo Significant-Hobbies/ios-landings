@@ -18,9 +18,9 @@ export const site: SiteConfig = {
   tokens: {
     paper: "#fff6ea",
     field: "#f4e6d4",
-    ink: "#3a2418",
-    inkSoft: "#6a4a38",
-    inkFaint: "rgba(58, 36, 24, 0.15)",
+    ink: "#20243d",
+    inkSoft: "#4e5269",
+    inkFaint: "rgba(32, 36, 61, 0.16)",
     accent: "#c46a4a",
     accentDark: "#9a3f2a",
     accentSoft: "#e8a06a",
@@ -32,6 +32,20 @@ export const site: SiteConfig = {
     inkOnAccent: "#fff6ea",
   },
   colorScheme: "light",
+  story: {
+    ink: "#20243d",
+    paper: { src: "/images/story/paper.webp", alt: "", width: 768, height: 512 },
+    cover: { src: "/images/story/book-stage.webp", alt: "", width: 1024, height: 1536 },
+    moment: {
+      src: "/images/story/coastal-walk-v2.webp",
+      alt: "Illustrative candid scene of two friends walking together along a coastal path",
+      width: 760,
+      height: 507,
+      caption: "A little time together.",
+    },
+    scene: { src: "/images/story/memory-table-v2.webp", alt: "", width: 1536, height: 1024 },
+    note: "A small thing worth remembering.",
+  },
   hero: {
     image: "/images/screens/constellation.webp",
     alt: "Kith on iPhone showing a warm constellation of five people sized by chosen closeness",
@@ -95,7 +109,7 @@ export const site: SiteConfig = {
     {
       name: "Begin",
       title: "Start with one real person, not an import.",
-      copy: "First-run onboarding asks for a name, the circle and closeness you choose, and one thing worth remembering. It writes through the same local person and log services used by the rest of the app.",
+      copy: "Start with a name, choose their circle and closeness, and add one thing worth remembering. That first moment stays with the person, ready for you to return to.",
       image: "/images/screens/onboarding.webp",
       alt: "Kith first-run flow asking for one real person and a chosen closeness",
       width: 603,
@@ -111,7 +125,7 @@ export const site: SiteConfig = {
   privacy: {
     kicker: "Useful before sign-in",
     title: "The iPhone remains the working copy.",
-    copy: "Every edit lands first in one local JSON document and remains usable offline. A private CloudKit mirror stays available during the transition. If you choose a Significant Hobbies account with Apple or Google, structured people and dated notes also synchronize through the private Hub; sign-in never blocks local use. Separate from the app, this site uses App Health for page visits and named actions, and offers optional email updates only after explicit consent.",
+    copy: "Your edits are saved on your iPhone first, so you can keep using Kith offline. A private iCloud mirror remains during the sync transition. An optional Significant Hobbies account with Apple or Google also syncs your people and dated notes through the private Hub; local use never requires sign-in. This website separately uses App Health for visits and named actions, and offers email updates only after explicit consent.",
   },
   faqs: [
     {
@@ -173,7 +187,7 @@ export const site: SiteConfig = {
       "Treating the optional Significant Hobbies account as mandatory or describing Hub synchronization as the only copy of the user's data",
     ],
   },
-  lastUpdated: "2026-09-28",
+  lastUpdated: "2026-10-02",
   legal: {
     privacy: {
       title: "The people and notes stay private.",

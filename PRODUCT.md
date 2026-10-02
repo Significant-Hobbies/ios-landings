@@ -12,9 +12,11 @@ Someone who found one Significant Hobbies personal app and needs to decide
 whether it is for them, whether it is private, and how to open the web app,
 join a TestFlight, or open the App Store listing.
 
-The same page set is reused for Kith, Setline, Anchor, Motion, Indulge,
-Calorie, Journal, Habits, StorageDaddy and PerformanceDaddy. Each visitor sees
-one product. Mac-only products show uncropped desktop captures and release status.
+The same page engine is reused for Kith, Setline, Anchor, Motion, Indulge,
+Calorie, StorageDaddy, PerformanceDaddy, BrowserDaddy and ContextDaddy.
+Journal and Habits remain source history only and must not be deployed. Each
+visitor sees one product. Mac-only products show uncropped desktop captures
+or approved app artwork and release status.
 
 ## Product Purpose
 
@@ -63,7 +65,9 @@ availability.
 - One product per domain
 - Show the real phone before explaining it
 - Privacy and support are first-class, not footer afterthoughts
-- Config and screenshots are the only product-specific inputs
+- Product config, original screenshots and product-owned artwork are the inputs
+- Optional product-owned story assets supply material, photography and margin
+  notes; illustrative imagery never substitutes for actual product evidence
 - Honest about beta status
 
 ## Accessibility & Inclusion
