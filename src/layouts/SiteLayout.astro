@@ -219,7 +219,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           } else if (href === "#look-inside" && productId === "setline") {
             ctaEvent = "product_preview_opened";
           } else if (productId === "anchor" && macDownloadUrl && href === macDownloadUrl) {
-            ctaEvent = "mac_beta_downloaded";
+            ctaEvent = "mac_beta_download_clicked";
           } else if (productId === "browserdaddy" && href === "/release/") {
             ctaEvent = "release_status_opened";
           } else if (productId === "performancedaddy" && repositoryUrl && href === repositoryUrl) {

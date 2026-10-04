@@ -226,7 +226,7 @@ if (expectedAppHealth) {
   }
   if (["anchor", "browserdaddy", "contextdaddy", "performancedaddy"].includes(product)) {
     const expectedCtaEvents = {
-      anchor: ["mac_beta_downloaded", "testflight_status_opened"],
+      anchor: ["mac_beta_download_clicked", "testflight_status_opened"],
       browserdaddy: ["mac_download_clicked", "release_status_opened"],
       contextdaddy: ["download_opened", "release_details_opened"],
       performancedaddy: ["mac_download_clicked", "source_opened"]
