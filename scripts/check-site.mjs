@@ -69,6 +69,32 @@ if (product === "setline") {
 }
 
 const home = await readFile(`${dist}/index.html`, "utf8");
+const footerTheme = home.match(/\bdata-scheme="(light|dark)"/)?.[1];
+if (!footerTheme) throw new Error(`${product}: explicit native footer theme is missing.`);
+
+// Qualify authored closing semantics independently of hosted service availability.
+// All marketing/reading routes need one native host; real controls remain owned
+// by the shared loader and existing newsletter component, never fake factory UI.
+for (const route of ["index.html", "privacy/index.html", "support/index.html", "terms/index.html", "accessibility/index.html", "testflight/index.html", "blog/index.html"]) {
+  const page = await readFile(`${dist}/${route}`, "utf8");
+  const hosts = [...page.matchAll(/<fleet-footer-extension\b([^>]*)>/g)];
+  if (hosts.length !== 1) throw new Error(`${product}: ${route} needs exactly one authored closing host.`);
+  const attrs = hosts[0][1];
+  if (["indulge", "habits"].includes(product) && (!attrs.includes('art-src="https://sassmaker.com/footer-art/anchor.webp"') || !attrs.includes('maintained successor'))) throw new Error(`${product}: historical identity must use qualified Anchor successor art and attribution.`);
+  for (const fragment of [`product-name="`, `signature-name="`, `surface="${route === "index.html" ? "landing" : "app"}"`, `art-src="`, `font-base="https://sassmaker.com/fonts/fleet-footer-precise-v1/"`]) {
+    if (!attrs.includes(fragment)) throw new Error(`${product}: ${route} missing closing contract ${fragment}.`);
+  }
+  const closing = page.slice(page.indexOf("<fleet-footer-extension"), page.indexOf("</fleet-footer-extension>") + 25);
+  if (!closing.includes('slot="navigation"') || !closing.includes('data-fleet-footer-navigation')) throw new Error(`${product}: ${route} has no native route slot.`);
+  for (const href of ["/privacy/", "/support/", "/terms/", "/accessibility/"]) {
+    if (!closing.includes(`href="${href}"`)) throw new Error(`${product}: ${route} lost native closing link ${href}.`);
+  }
+  if (route === "index.html" && !closing.includes('slot="cta"')) throw new Error(`${product}: homepage lost its original closing CTA.`);
+  if (closing.includes("<details")) throw new Error(`${product}: actual updates must remain open in the closing.`);
+  const captureAttrs = closing.match(/<saas-maker-newsletter-capture\b([^>]*)>/)?.[1];
+  if (captureAttrs && (!captureAttrs.includes('layout="compact"') || !/\bintegrated(?:="(?:true|)")?(?:\s|$)/.test(captureAttrs))) throw new Error(`${product}: existing capture is not in the Precise service region.`);
+}
+
 const ai = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
 const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
@@ -142,10 +168,10 @@ const executableScripts = [...home.matchAll(/<script\b([^>]*)>/gi)].filter((matc
   return !/type=["']application\/ld\+json["']/i.test(attrs);
 });
 const approvedFooterScripts = [
-  "https://sassmaker.com/project-strip.js",
-  "https://sassmaker.com/ai-chat-footer.js"
+  "https://sassmaker.com/project-strip.js?v=precise-b0adaa67",
+  "https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67"
 ];
-const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js";
+const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js?v=precise-b0adaa67";
 const newsletterProducts = new Set([
   "setline",
   "kith",
@@ -163,6 +189,7 @@ for (const src of approvedFooterScripts) {
   if (matches.length !== 1) {
     throw new Error(`${product}: expected exactly one approved footer loader for ${src}.`);
   }
+  if (!matches[0][1].includes(`data-theme="${footerTheme}"`)) throw new Error(`${product}: ${src} must explicitly match its native ${footerTheme} theme.`);
 }
 
 const unexpectedScripts = executableScripts.filter((match) => {
@@ -172,7 +199,7 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  const isNewsletterCapture = newsletterProducts.has(product) && (
+  const isNewsletterCapture = (newsletterProducts.has(product) || product === "anchor") && (
     attrs.includes(`src="${newsletterCaptureScript}"`) ||
     attrs.includes(`src='${newsletterCaptureScript}'`)
   );
@@ -257,6 +284,10 @@ if (newsletterProducts.has(product)) {
   for (const fragment of ["App Health", "Email updates", "explicit consent", "subscription records"]) {
     if (!privacy.includes(fragment)) throw new Error(`${product}: privacy page is missing ${fragment}.`);
     if (!privacyMarkdown.includes(fragment)) throw new Error(`${product}: Markdown privacy page is missing ${fragment}.`);
+  }
+} else if (product === "anchor") {
+  if (newsletterScripts.length !== 1 || hasNewsletterElement) {
+    throw new Error(`${product}: expected only the cache-qualified module for catalog auto-capture, without a native form.`);
   }
 } else if (newsletterScripts.length !== 0 || hasNewsletterElement) {
   throw new Error(`${product}: the landing unexpectedly ships a newsletter capture form.`);

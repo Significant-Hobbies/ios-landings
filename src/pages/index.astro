@@ -198,12 +198,12 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
       </div>
     </div>
   </section>
-
-  <section class="closing">
+  </div>
+  <section slot="footer-cta" class="closing">
     {story && <img class="closing-cloth" src={story.cover.src} alt="" width={story.cover.width} height={story.cover.height} loading="lazy" decoding="async" />}
     <div class="shell">
       <p class="chapter-kicker">{site.name} · {site.platforms.join(" / ")}</p>
-      <h2>{site.closingTitle[0]}<br />{site.closingTitle[1]}</h2>
+      <h2>{site.closingTitle.join(" ")}</h2>
       {macDownload ? (
         <>
           <a class="button" href={macDownload}>{site.macDownloadLabel ?? "Download for Mac"} <span aria-hidden="true">↓</span></a>
@@ -213,5 +213,4 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
       <p class="closing-status">{site.status}</p>
     </div>
   </section>
-  </div>
 </SiteLayout>
