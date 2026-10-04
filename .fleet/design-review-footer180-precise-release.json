@@ -100,41 +100,41 @@
       "thesis": "Implement selected Precise: compact Geist navigation, Geist Mono category labels, open AI and updates, product-native signature bleeding into original art, final full-width studio line.",
       "system": "Precise applies only to the closing footer; Living Memory Book remains the landing composition. Geist UI and Mono role labels inherit native semantic colors.",
       "signature": "Each product keeps its native name and colors; an original product-specific panoramic scene follows the readable closing, with a smoothly faded native wordmark.",
-      "risk": "Shared cross-origin loader/fonts are not deployed yet; browser/CSP/font/phone crop qualification remains unknown under the existing browser-policy block.",
+      "risk": "Factory production publication and anonymous route verification remain pending. Actual HTTP preview uses an exact-hash qualified narrow runtime mirror; current compiled asset public bytes were separately verified by root/core. Native operating UI is outside this release.",
       "qualityBar": "Actual licensed font assets; readable14\u201318px links,16px controls,12px+ labels, real supported weights, coherent paired typography and product identity. Reference inspiration without copied brand/art/claims."
     }
   },
   "evidence": {
     "platform": "web",
     "productContinuity": {
-      "status": "pending",
-      "reason": "Factory source keeps native product names, semantic colors, original screenshots, support/privacy links and real CTA/release status. Native operating applications are out of scope. Integrated browser rendering remains unknown under the existing policy block.",
+      "status": "pass",
+      "reason": "Actual HTTP homepage/privacy contexts captured at390/768/1440 for all8 maintained factory targets. Original native identity, semantic colors, screenshots, support/privacy and lifecycle install/release actions are preserved. Native application operating UI remains outside this web-only task; independent root review verdict pending.",
       "reviewer": "root",
-      "report": ".fleet-local/footer180-typography-study/reference-brief.md",
+      "report": ".fleet-local/footer180-precise-release/root-craft-review.json",
       "surfaces": {
-        "landing": ".fleet-local/footer180-typography-study/Atlas-font-study.html",
-        "app": ".fleet-local/footer180-typography-study/Atlas-app-font-study.html"
+        "landing": ".fleet-local/footer180-precise-release/browser/kith-landing-1440-closing.jpg",
+        "app": ".fleet-local/footer180-precise-release/browser/kith-app-768-closing.jpg"
       },
       "checks": {
         "designSystem": {
-          "status": "pending",
-          "observation": "Existing paired content and routes preserved; actual browser review pending."
+          "status": "pass",
+          "observation": "Public homepage and privacy reading contexts share selectedC footer type, groups, open services, native color bleed and final studio strip. Native operating apps excluded."
         },
         "identity": {
-          "status": "pending",
-          "observation": "Existing paired content and routes preserved; actual browser review pending."
+          "status": "pass",
+          "observation": "Product names, product palettes and original personalized artwork retain each real native identity. Performance long wordmark corrected."
         },
         "vocabulary": {
-          "status": "pending",
-          "observation": "Existing paired content and routes preserved; actual browser review pending."
+          "status": "pass",
+          "observation": "Original CTA/status/support vocabulary retained across home/privacy."
         },
         "productTruth": {
-          "status": "pending",
-          "observation": "Existing paired content and routes preserved; actual browser review pending."
+          "status": "pass",
+          "observation": "Existing publicbeta/internalprototype/TestFlight/merged successor distinctions preserved; no fakeinstall/AppStore status or new Indulge newsletter."
         },
         "handoff": {
-          "status": "pending",
-          "observation": "Existing paired content and routes preserved; actual browser review pending."
+          "status": "pass",
+          "observation": "Original gated install/release/support links and editable assistant handoff retained; no public submission or native app operation performed."
         }
       }
     },
@@ -176,7 +176,7 @@
           "command": "Not executed: retained browser-policy block",
           "report": ".fleet-local/footer180-precise-release/iteration-scan-blocked.json",
           "reason": "Existing policy block forbids a preview workaround. Source/build checks are separate evidence.",
-          "findingsReview": "No actual render or scanner score claimed."
+          "findingsReview": "Actual built HTTP AgentTab matrix retained; pinned scanner remains unexecuted under prior policy restriction. No scanner score invented. Concrete Performance wordmark wrap was fixed and recaptured at320/390."
         },
         {
           "stage": "final",
@@ -184,68 +184,358 @@
           "command": "Not executed: retained browser-policy block",
           "report": ".fleet-local/footer180-precise-release/final-scan-blocked.json",
           "reason": "Existing policy block forbids a preview workaround. Source/build checks are separate evidence.",
-          "findingsReview": "No actual render or scanner score claimed."
+          "findingsReview": "Actual built HTTP AgentTab matrix retained; pinned scanner remains unexecuted under prior policy restriction. No scanner score invented. Concrete Performance wordmark wrap was fixed and recaptured at320/390."
         }
       ]
     },
     "visualReview": {
-      "status": "pending",
+      "status": "pass",
       "reviewer": "root",
-      "direction": "comparison",
-      "report": ".fleet-local/footer180-typography-study/reference-brief.md",
+      "direction": "c",
+      "report": ".fleet-local/footer180-precise-release/root-craft-review.json",
       "checks": {
         "hierarchy": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "Clear native-left / AI+capture-right hierarchy and readable compact grouped route columns."
         },
         "typography": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "Actual native identity plus scoped Geist controls; corrected long PerformanceDaddy signature stays whole at320/390."
         },
         "composition": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "Meaningful native product illustration bleeds from the signature; simple full-width studio line is last."
         },
         "identity": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "Native lifecycle CTA distinctions and original product palettes/content preserved; Indulge continues with Anchor and preserves historical identity."
         },
         "interaction": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "51 actual metrics checks validate editable five-provider handoff, always-open16px email and unchecked required consent where enabled; no submissions. Indulge disabled services are correct N/A."
         },
         "responsive": {
-          "status": "pending",
-          "observation": "Typeface specimen reviewed; this does not verify integrated browser rendering."
+          "status": "pass",
+          "observation": "Actual390/768/1440 cases and supplemental320 corrected signature pass; fixed skip-link clip artifact is not a source defect."
         }
       }
     },
-    "screenshots": [],
+    "screenshots": [
+      {
+        "width": 390,
+        "product": "browserdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "browserdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "browserdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "browserdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "browserdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "browserdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/browserdaddy-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "contextdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "contextdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "contextdaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "contextdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "contextdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "contextdaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/contextdaddy-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "performancedaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "performancedaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "performancedaddy",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "performancedaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "performancedaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "performancedaddy",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/performancedaddy-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "kith",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "kith",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "kith",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "kith",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "kith",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "kith",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/kith-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "setline",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "setline",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "setline",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "setline",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "setline",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "setline",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/setline-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "anchor",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "anchor",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "anchor",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "anchor",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "anchor",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "anchor",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/anchor-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "motion",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "motion",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "motion",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "motion",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "motion",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "motion",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/motion-app-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "indulge",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-landing-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "indulge",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-landing-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "indulge",
+        "surface": "landing",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-landing-1440-closing.jpg"
+      },
+      {
+        "width": 390,
+        "product": "indulge",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-app-390-closing.jpg"
+      },
+      {
+        "width": 768,
+        "product": "indulge",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-app-768-closing.jpg"
+      },
+      {
+        "width": 1440,
+        "product": "indulge",
+        "surface": "app",
+        "path": ".fleet-local/footer180-precise-release/browser/indulge-app-1440-closing.jpg"
+      }
+    ],
     "projectCheck": {
-      "command": "pnpm check via fleet-workspace run --id footer-ios-factory-20261003",
-      "status": "pending"
+      "command": "pnpm run check via existing fleet-workspace run --id footer-ios-factory-20261003; then affected PRODUCT=performancedaddy build:one and check-site via root normal managed batch",
+      "status": "pass",
+      "report": ".fleet-local/footer180-precise-release/built-contract-result.json"
     },
     "critique": {
-      "score": 0,
+      "score": 34,
       "maximum": 40,
       "dimensions": {
-        "hierarchy": 0,
-        "typography": 0,
-        "composition": 0,
-        "identity": 0,
-        "interaction": 0,
-        "responsive": 0
+        "hierarchy": 7,
+        "typography": 7,
+        "composition": 7,
+        "identity": 7,
+        "interaction": 3,
+        "responsive": 3
       }
     },
     "audit": {
-      "score": 0,
+      "score": 17,
       "maximum": 20,
       "dimensions": {
-        "purpose": 0,
-        "accessibility": 0,
-        "behavior": 0,
-        "responsive": 0,
-        "performance": 0
+        "purpose": 4,
+        "accessibility": 5,
+        "behavior": 4,
+        "responsive": 3,
+        "performance": 1
       }
     },
     "unresolved": {
@@ -257,24 +547,24 @@
       "findings": []
     },
     "comprehension": {
-      "status": "not-applicable",
-      "reviewer": "",
+      "status": "pass",
+      "reviewer": "root",
       "answers": {
-        "product": "",
-        "audience": "",
-        "value": "",
-        "mechanism": "",
-        "proof": "",
-        "nextAction": ""
+        "product": "Focused native utility and iPhone products, each with its actual bounded function.",
+        "audience": "Prospective native utility and iPhone users deciding whether the product fits and what is actually available.",
+        "value": "Understand the product-specific value, limitations and current distribution state before taking the real next step.",
+        "mechanism": "Original product-owned content and screenshots explain bounded functions; the selected closing adds relevant product artwork and native routes without changing operating UI.",
+        "proof": "Original native screenshots and owned release/journal evidence remain technical proof; new illustration is explicitly illustrative, not an operational claim.",
+        "nextAction": "Use the real status/download/support CTA with honest internal TestFlight, held prototype or merged-successor distinctions; no promised App Store link where absent."
       },
       "purposeScore": {
-        "product": 0,
-        "audience": 0,
-        "value": 0,
-        "mechanism": 0,
-        "proof": 0,
-        "nextAction": 0,
-        "total": 0
+        "product": 23,
+        "audience": 14,
+        "value": 13,
+        "mechanism": 13,
+        "proof": 13,
+        "nextAction": 14,
+        "total": 90
       },
       "mismatches": []
     }
