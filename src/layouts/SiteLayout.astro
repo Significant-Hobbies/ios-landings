@@ -266,8 +266,9 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         data-endpoint="https://ingest.sassmaker.com/v1/browser"
       />
     ) : null}
-    {newsletterCapture ? (
-      <script is:inline type="module" src="https://sassmaker.com/newsletter-capture.js"></script>
+    {/* Cache-qualified module for Anchor catalog auto-capture; does not create a native form. */}
+    {newsletterCapture || productId === "anchor" ? (
+      <script is:inline type="module" src="https://sassmaker.com/newsletter-capture.js?v=precise-b0adaa67"></script>
     ) : null}
     <title>{title}</title>
   </head>
@@ -337,14 +338,14 @@ const hasBlog = (await getPublishedPosts()).length > 0;
     </fleet-footer-extension>
     <script
       is:inline
-      src="https://sassmaker.com/project-strip.js"
+      src="https://sassmaker.com/project-strip.js?v=precise-b0adaa67"
       data-project={portfolioProjectId}
       data-theme={scheme}
       defer
     ></script>
     <script
       is:inline
-      src="https://sassmaker.com/ai-chat-footer.js"
+      src="https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67"
       data-name={site.name}
       data-theme={scheme}
       defer

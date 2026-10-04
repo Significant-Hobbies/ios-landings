@@ -100,7 +100,7 @@
       "thesis": "Implement selected Precise: compact Geist navigation, Geist Mono category labels, open AI and updates, product-native signature bleeding into original art, final full-width studio line.",
       "system": "Precise applies only to the closing footer; Living Memory Book remains the landing composition. Geist UI and Mono role labels inherit native semantic colors.",
       "signature": "Each product keeps its native name and colors; an original product-specific panoramic scene follows the readable closing, with a smoothly faded native wordmark.",
-      "risk": "Factory production publication and anonymous route verification remain pending. Actual HTTP preview uses an exact-hash qualified narrow runtime mirror; current compiled asset public bytes were separately verified by root/core. Native operating UI is outside this release.",
+      "risk": "Factory production publication and anonymous candidate-route/browser verification remain pending. Explicit three script modules use stable precise-b0adaa67 cache revision; Anchor adds module definition only for existing catalog auto-capture. Actual previous HTTP renders use identical immutable52 runtime bytes. Native operating UI remains outside this release.",
       "qualityBar": "Actual licensed font assets; readable14\u201318px links,16px controls,12px+ labels, real supported weights, coherent paired typography and product identity. Reference inspiration without copied brand/art/claims."
     }
   },
@@ -511,7 +511,7 @@
       }
     ],
     "projectCheck": {
-      "command": "pnpm run check via existing fleet-workspace run --id footer-ios-factory-20261003; then affected PRODUCT=performancedaddy build:one and check-site via root normal managed batch",
+      "command": "pnpm run check via normal fleet-workspace run --id footer-ios-factory-20261003 at final versioned source;23tests+12builds+264surfaces",
       "status": "pass",
       "report": ".fleet-local/footer180-precise-release/built-contract-result.json"
     },

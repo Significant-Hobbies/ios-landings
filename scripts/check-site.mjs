@@ -168,10 +168,10 @@ const executableScripts = [...home.matchAll(/<script\b([^>]*)>/gi)].filter((matc
   return !/type=["']application\/ld\+json["']/i.test(attrs);
 });
 const approvedFooterScripts = [
-  "https://sassmaker.com/project-strip.js",
-  "https://sassmaker.com/ai-chat-footer.js"
+  "https://sassmaker.com/project-strip.js?v=precise-b0adaa67",
+  "https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67"
 ];
-const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js";
+const newsletterCaptureScript = "https://sassmaker.com/newsletter-capture.js?v=precise-b0adaa67";
 const newsletterProducts = new Set([
   "setline",
   "kith",
@@ -199,7 +199,7 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  const isNewsletterCapture = newsletterProducts.has(product) && (
+  const isNewsletterCapture = (newsletterProducts.has(product) || product === "anchor") && (
     attrs.includes(`src="${newsletterCaptureScript}"`) ||
     attrs.includes(`src='${newsletterCaptureScript}'`)
   );
@@ -284,6 +284,10 @@ if (newsletterProducts.has(product)) {
   for (const fragment of ["App Health", "Email updates", "explicit consent", "subscription records"]) {
     if (!privacy.includes(fragment)) throw new Error(`${product}: privacy page is missing ${fragment}.`);
     if (!privacyMarkdown.includes(fragment)) throw new Error(`${product}: Markdown privacy page is missing ${fragment}.`);
+  }
+} else if (product === "anchor") {
+  if (newsletterScripts.length !== 1 || hasNewsletterElement) {
+    throw new Error(`${product}: expected only the cache-qualified module for catalog auto-capture, without a native form.`);
   }
 } else if (newsletterScripts.length !== 0 || hasNewsletterElement) {
   throw new Error(`${product}: the landing unexpectedly ships a newsletter capture form.`);
