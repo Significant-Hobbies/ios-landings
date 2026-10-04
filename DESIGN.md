@@ -51,3 +51,20 @@ Reduced Motion retains every layer in its final position, disables material chor
 Product evaluation leads to truthful beta/release/download gates, plain-language privacy and support. Consent and analytics identifiers remain unchanged. Blog routes keep their existing reader-focused layout and do not import homepage styles. Retired Journal and Habits are retained source history and never deployment targets.
 
 No invented App Store badges, native availability, testimonials, customer counts or screenshots. No Kith artwork on unrelated products. No core text rasterized into scene imagery. No new runtime dependency solely for decoration.
+
+## Selected Precise closing region
+
+The 4 October 2026 Fleet-wide owner selection replaces only the closing footer
+with Precise C; Living Memory Book remains the page system. The original native
+CTA and compact Explore / Resources / Connect routes occupy the left. Editable
+AI question handoff and the existing always-open email capture occupy the right,
+using Geist UI and Geist Mono labels from first-party licensed footer fonts.
+Native product colors supply the concrete canvas, ink, focus and action roles.
+The signature fades into original per-product panoramic art, then one full-width
+studio line is the final content. Public legal/support/release routes use the
+same identity at a shallower reading density. App screenshots, install status
+and native application UI are untouched.
+
+Shared loader/font publication and integrated browser/CSP/mobile rendering are
+separate release evidence. The receipt retains the original browser-policy
+block; static builds never claim visual acceptance or native-app qualification.

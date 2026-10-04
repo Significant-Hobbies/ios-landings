@@ -41,7 +41,9 @@ Product app repos stay independently buildable. Deploys are manual.
 - Routes: `/`, `/privacy/`, `/support/`, `/terms/`, `/accessibility/`,
   `/testflight/`, `/index.md`, `/llms.txt`, `/api/ai`
 - No invented App Store badge, Smart App Banner, or TestFlight URL
-- No executable client JavaScript on the landing
+- Core marketing content is static. The closing footer uses the existing hosted
+  assistant handoff, explicit opt-in newsletter and studio discovery components;
+  no native app runtime or form backend is added by the factory.
 - Screenshots must be the real app
 - Product copy, legal text, and tokens live in each product config
 - Per-product Markdown journals provide HTML, Markdown, RSS, sitemap and agent
@@ -75,3 +77,14 @@ availability.
 VoiceOver-readable structure, 44px targets, visible focus, and
 `prefers-reduced-motion` that removes decorative tilt. Color is never
 the only signal.
+
+## Precise closing footer
+
+The owner selected Precise C for all applicable Fleet browser footers. The
+factory preserves native product actions and route destinations on the left,
+with editable assistant handoff and each existing email-capture child on the
+right. Updates remain open, retain required unchecked consent, and use their
+existing configuration and service. No product lifecycle or release availability
+is changed. Original product-specific artwork and a large native identity sit
+below; the single studio line is last. Native operating applications and the
+factory deployment allowlist remain unchanged.
