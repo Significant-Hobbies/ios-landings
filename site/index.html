@@ -8,8 +8,8 @@
 <style>
   :root { --paper:#fff6ea; --ink:#3a2418; --ink-soft:#6a4a38; --accent:#c46a4a; --field:#f4e6d4; }
   * { margin:0; box-sizing:border-box; }
-  body { font-family: Georgia, 'Iowan Old Style', serif; background:var(--paper); color:var(--ink); padding:64px 24px; }
-  main { max-width:720px; margin:0 auto; }
+  body { font-family: Georgia, 'Iowan Old Style', serif; background:var(--paper); color:var(--ink); }
+  main { max-width:768px; margin:0 auto; padding:64px 24px; }
   h1 { font-size:2.4rem; line-height:1.1; letter-spacing:-0.01em; }
   .lede { color:var(--ink-soft); font-size:1.1rem; margin:16px 0 48px; }
   ul { list-style:none; padding:0; display:grid; gap:12px; }
@@ -20,9 +20,14 @@
   @media (max-width:600px) {
     a.card { align-items:flex-start; flex-direction:column; gap:4px; }
   }
-  .email-updates { margin-top:48px; }
-  .email-note { margin:12px 12px 0; color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
-  footer { margin-top:56px; color:var(--ink-soft); font-size:.85rem; }
+  fleet-footer-extension { --fleet-footer-max-width:1120px; }
+  .footer-routes { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1.5rem; }
+  .footer-routes section { min-width:0; }
+  .footer-routes h2 { margin:0 0 .75rem; }
+  .footer-routes a { color:inherit; text-decoration:none; }
+  .footer-routes a:hover { text-decoration:underline; text-underline-offset:.25em; }
+  .footer-note { grid-column:1/-1; color:var(--ink-soft); font-size:.85rem; }
+  .email-note { margin:12px 0 0; color:var(--ink-soft); font-size:.88rem; line-height:1.5; }
 </style>
 </head>
 <body>
@@ -39,14 +44,36 @@
     <li><a class="card" href="https://performance.daddyrad.com"><strong>PerformanceDaddy</strong><span>Mac performance investigator</span></a></li>
     <li><a class="card" href="https://indulge.significanthobbies.com"><strong>Indulge</strong><span>Earlier planner build (archived)</span></a></li>
   </ul>
-  <section class="email-updates" aria-label="iOS Landings email updates">
-    <saas-maker-newsletter-capture product-name="iOS Landings" catalog-id="ios-landings" kind="newsletter" source="footer" privacy-url="https://sassmaker.com/privacy"></saas-maker-newsletter-capture>
+</main>
+<fleet-footer-extension role="contentinfo" aria-label="iOS Landings footer" data-fleet-footer-project="ios-landings" product-name="iOS Landings" signature-name="iOS Landings" theme="light" surface="landing" font-base="https://sassmaker.com/fonts/fleet-footer-precise-v1/" art-src="/footer-art/ios-landings.webp" art-alt="A pixel-print workshop with one shared page frame and a row of distinct blank product folios, illustrating the landing factory." art-width="2172" art-height="724" art-position="50% 50%" art-credit="Original illustration for iOS Landings">
+  <nav slot="navigation" data-fleet-footer-navigation class="footer-routes" aria-label="App landing links">
+    <section>
+      <h2 data-fleet-footer-group-label>Focused apps</h2>
+      <ul>
+        <li><a data-fleet-footer-primary href="https://anchor.significanthobbies.com">Anchor</a></li>
+        <li><a href="https://kith.significanthobbies.com">Kith</a></li>
+        <li><a href="https://setline.significanthobbies.com">Setline</a></li>
+        <li><a href="https://motion.significanthobbies.com">Motion</a></li>
+        <li><a href="https://indulge.significanthobbies.com">Indulge (archived)</a></li>
+      </ul>
+    </section>
+    <section>
+      <h2 data-fleet-footer-group-label>Mac tools</h2>
+      <ul>
+        <li><a data-fleet-footer-primary href="https://browser.daddyrad.com">BrowserDaddy</a></li>
+        <li><a href="https://context.daddyrad.com">ContextDaddy</a></li>
+        <li><a href="https://performance.daddyrad.com">PerformanceDaddy</a></li>
+      </ul>
+    </section>
+    <p class="footer-note">A Significant Hobbies project.</p>
+  </nav>
+  <section slot="capture" aria-label="iOS Landings email updates">
+    <saas-maker-newsletter-capture product-name="iOS Landings" catalog-id="ios-landings" kind="newsletter" source="footer" privacy-url="https://sassmaker.com/privacy" layout="compact" integrated></saas-maker-newsletter-capture>
     <p class="email-note">Occasional notes when the factory adds a product landing or shared capability. No update schedule is promised.</p>
   </section>
-  <footer>A Significant Hobbies project.</footer>
-</main>
-<script defer src="https://sassmaker.com/project-strip.js" data-project="ios-landings"></script>
-<script defer src="https://sassmaker.com/ai-chat-footer.js" data-name="iOS Landings" data-capture="false"></script>
+</fleet-footer-extension>
+<script defer src="https://sassmaker.com/project-strip.js?v=precise-b0adaa67" data-project="ios-landings" data-theme="light" data-host-only="true"></script>
+<script defer src="https://sassmaker.com/ai-chat-footer.js?v=precise-b0adaa67" data-name="iOS Landings" data-project="ios-landings" data-theme="light" data-host-only="true" data-capture="false"></script>
 <script type="module" src="https://sassmaker.com/newsletter-capture.js"></script>
 </body>
 </html>
