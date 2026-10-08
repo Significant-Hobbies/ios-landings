@@ -46,6 +46,7 @@ export const site: SiteConfig = {
   ],
   applicationCategory: "HealthApplication",
   availability: "unreleased",
+  heroCtaEvents: { primary: "cta_testflight", overview: "cta_look_inside" },
   betaNote: "The native journal is available to invited internal testers. There is no public TestFlight or App Store link yet.",
   tension: {
     statement: "A calorie total cannot explain your day.",
@@ -157,7 +158,11 @@ export const site: SiteConfig = {
         },
         {
           title: "Account and service data",
-          body: "Signed-in mode stores the account identifier and service records needed for authentication, synchronization, reliability, and abuse prevention. The static marketing pages never receive the contents of a local-only journal. Website analytics is disclosed separately and is not included in the native app."
+          body: "Signed-in mode stores the account identifier and service records needed for authentication, synchronization, reliability, and abuse prevention. The static marketing pages never receive the contents of a local-only journal. Website analytics is disclosed separately and is not included in the native app.",
+          paragraphs: [
+            "When the optional service ingestion key is configured, App Health may receive a generic account-created event with the fixed title “New account created” and no account or profile properties.",
+            "The same optional key enables endpoint health measurements for API performance: the HTTP method, matched route template, response status, duration, declared response size, and timestamp. Route parameters are represented by their template placeholders. These endpoint measurements do not include account or user identifiers, food or health records, request or response bodies, headers, cookies, or query values. Without the key, endpoint monitoring is disabled. Both App Health signals are separate from the marketing site's Microsoft Clarity analytics."
+          ]
         },
         {
           title: "Your controls",

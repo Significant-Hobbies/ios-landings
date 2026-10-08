@@ -4,6 +4,7 @@ import Phone from "../components/Phone.astro";
 import SiteLayout from "../layouts/SiteLayout.astro";
 import { verifiedMacDownloadUrl } from "../lib/distribution";
 import { productId, site } from "../site.config";
+import { heroCtaTrackingScript } from "../lib/hero-cta-tracking";
 import { screenshotMetadata } from "../lib/screenshot-metadata.mjs";
 import "../styles/landing.css";
 
@@ -48,8 +49,8 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
             </>
           ) : (
             <>
-              <Cta />
-              <a class="text-link" href={overviewHref}>{overviewLabel} <span aria-hidden="true">↓</span></a>
+              <Cta event={site.heroCtaEvents?.primary} />
+              <a class="text-link" data-cta={site.heroCtaEvents?.overview} href={overviewHref}>{overviewLabel} <span aria-hidden="true">↓</span></a>
             </>
           )}
         </div>
@@ -213,4 +214,5 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
       <p class="closing-status">{site.status}</p>
     </div>
   </section>
+  {site.heroCtaEvents && <script slot="body-end" is:inline set:html={heroCtaTrackingScript} />}
 </SiteLayout>

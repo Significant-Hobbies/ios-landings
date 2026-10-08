@@ -350,5 +350,6 @@ const hasBlog = (await getPublishedPosts()).length > 0;
       data-theme={scheme}
       defer
     ></script>
+    <slot name="body-end" />
   </body>
 </html>

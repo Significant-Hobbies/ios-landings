@@ -22,6 +22,7 @@ const clarityProjectId = clarityProjectIdFor(productId);
     <section>
       <h2>{section.title}</h2>
       <p>{section.body}</p>
+      {section.paragraphs?.map((paragraph) => <p>{paragraph}</p>)}
     </section>
   ))}
   {productId === "setline" ? (
