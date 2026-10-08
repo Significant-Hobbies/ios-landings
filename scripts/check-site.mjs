@@ -16,6 +16,11 @@ const clarityProjectIds = {
 };
 const expectedClarityId = clarityProjectIds[product];
 const expectedAppHealth = appHealthConfigFor(product);
+// Products whose site config sets `heroCtaEvents`: hero data-cta names plus one inline tracker.
+const heroCtaEvents = {
+  calorie: ["cta_testflight", "cta_look_inside"]
+};
+const expectedHeroCtaEvents = heroCtaEvents[product] ?? [];
 
 const requiredFiles = [
   `${dist}/index.html`,
@@ -292,8 +297,17 @@ if (newsletterProducts.has(product)) {
 } else if (newsletterScripts.length !== 0 || hasNewsletterElement) {
   throw new Error(`${product}: the landing unexpectedly ships a newsletter capture form.`);
 }
+for (const event of expectedHeroCtaEvents) {
+  if (!home.includes(`data-cta="${event}"`)) throw new Error(`${product}: hero is missing data-cta="${event}".`);
+}
+if (expectedHeroCtaEvents.length > 0 && !home.includes('closest("[data-cta]")')) {
+  throw new Error(`${product}: landing is missing the hero CTA tracker.`);
+}
+if (expectedHeroCtaEvents.length === 0 && home.includes("data-cta=")) {
+  throw new Error(`${product}: landing ships data-cta without a hero CTA tracker.`);
+}
 if (expectedClarityId) {
-  const expectedInlineScripts = 1 + Number(Boolean(expectedAppHealth));
+  const expectedInlineScripts = 1 + Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0);
   if (unexpectedScripts.length !== expectedInlineScripts) {
     throw new Error(`${product}: expected ${expectedInlineScripts} inline analytics loaders.`);
   }
@@ -323,7 +337,7 @@ if (expectedClarityId) {
       if (!privacyMarkdown.includes(fragment)) throw new Error(`setline: Markdown privacy page is missing ${fragment}.`);
     }
   }
-} else if (unexpectedScripts.length !== Number(Boolean(expectedAppHealth)) || home.includes("www.clarity.ms/tag")) {
+} else if (unexpectedScripts.length !== Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0) || home.includes("www.clarity.ms/tag")) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);
 }
 

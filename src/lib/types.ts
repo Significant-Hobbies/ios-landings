@@ -9,7 +9,8 @@ export type Chapter = {
 };
 
 export type Faq = { question: string; answer: string };
-export type LegalSection = { title: string; body: string };
+/** `paragraphs` follow `body` as further paragraphs in the same section. */
+export type LegalSection = { title: string; body: string; paragraphs?: string[] };
 export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
 export type StoryImage = { src: string; alt: string; width: number; height: number };
 
@@ -68,6 +69,12 @@ export type SiteConfig = {
   appStoreId?: string;
   appUrl?: string;
   appCtaLabel?: string;
+  /**
+   * App Health event names for the landing hero CTAs. When set, the hero links
+   * carry `data-cta` and the landing tracks clicks, flushing before same-tab
+   * navigation.
+   */
+  heroCtaEvents?: { primary: string; overview: string };
   macDownloadUrl?: string;
   macDownloadLabel?: string;
   betaNote: string;
