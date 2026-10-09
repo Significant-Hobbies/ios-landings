@@ -13,6 +13,14 @@
   BrowserDaddy and PerformanceDaddy have explicitly scoped Pages targets.
   StorageDaddy has no deploy target here. Its existing Worker owns
   `/download` and `/updates/*`; a future landing cutover must preserve those routes.
+- `sites/<id>/` holds Worker-site targets registered in `scripts/worker-sites.mjs`:
+  prebuilt static sites that keep their own Worker, routes, headers and
+  404/HEAD handling. `sites/daddyrad/` is the DaddyRad umbrella (`daddyrad.com`,
+  `www` 301 to apex), moved verbatim from `Significant-Hobbies/daddyrad@bfdd8a8`.
+  Do not restyle it or port it to Astro as part of factory work. It owns no
+  download or update feed; each Daddy app's own Worker keeps `/download`,
+  `/updates/*` and the `significanthobbies.com` 308s.
+  Deploy only with `pnpm run deploy:daddyrad`; it is never part of `pnpm run deploy`.
 - Calorie is a native-app landing. Its internal TestFlight build has no public
   invitation URL, so its CTA stays on the honest beta-status page.
 - Build output is `dist/<id>`. Never merge the five sites into one

@@ -10,3 +10,4 @@ dist/
 .fleet-local/
 artifacts/design/uplift/**/slop-score.json
 artifacts/design/uplift/slop-score.json
+.wrangler/
