@@ -12,7 +12,7 @@ Someone who found one Significant Hobbies personal app and needs to decide
 whether it is for them, whether it is private, and how to open the web app,
 join a TestFlight, or open the App Store listing.
 
-The same page engine is reused for Kith, Setline, Anchor, Motion, Indulge,
+The same page engine is reused for Kith, Setline, Anchor, Motion,
 Calorie, StorageDaddy, PerformanceDaddy, BrowserDaddy and ContextDaddy.
 Journal and Habits remain source history only and must not be deployed. Each
 visitor sees one product. Mac-only products show uncropped desktop captures

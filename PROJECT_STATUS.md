@@ -1,23 +1,22 @@
 # iOS landings — PROJECT STATUS
 
-Last updated: 2026-10-02
+Last updated: 2026-10-09
 
 ## Product-owned artwork across current landings
 
 The owner requested bespoke artwork on every landing after the shared release.
 This preserve pass extends selected C, retaining its structure and each product's
-palette, original captures, approved mascots and truthful next action. Nine new
-optimized editorial scenes now cover Setline, Anchor, Motion, Indulge, Calorie,
+palette, original captures, approved mascots and truthful next action. Eight retained
+optimized editorial scenes cover Setline, Anchor, Motion, Calorie,
 StorageDaddy, PerformanceDaddy, BrowserDaddy and ContextDaddy. Kith retains its
 corrected memory-book artwork. Journal and Habits remain archived source history.
 
 The optional typed `sceneArtwork` input reuses one asset as an illustrative hero
 setting for screenshot-led products and the established story scene. Mascot-led
-heroes retain their clean original presentation. Indulge labels its native
-captures as historical. Each material subject belongs to its
-product; all text remains semantic and native proof stays separate. The nine
-new production assets total 595,708 bytes, with no new runtime dependency or
-landing JavaScript. Exact built-in imagegen prompts, originals and manifests
+heroes retain their clean original presentation. Each material subject belongs to its
+product; all text remains semantic and native proof stays separate. The original
+nine-asset pass totaled 595,708 bytes, with no new runtime dependency or landing
+JavaScript. Exact built-in imagegen prompts, originals and manifests
 are under `artifacts/design/product-artwork/`. The three legacy product-local
 type copies now re-export the shared contract, preventing artwork-input drift.
 
@@ -181,6 +180,12 @@ live listing, and Pace / Significant Hobbies marketing.
 
 ## Timeline
 
+- 2026-10-09 — Indulge removed from the factory after its retirement into Anchor
+  on 2026-08-24. No page or redirect site is retained. Its Pages project
+  `indulge` and domain `indulge.significanthobbies.com` still exist live and were
+  not touched; the owner is to decide their fate. Habits remains buildable
+  source history, not deployed.
+
 - 2026-09-12 — Added accessible repository icons for Anchor, Kith, Setline and
   Motion after verifying their source repositories are public. Their Markdown
   summaries and agent metadata expose the same repository URL. This does not
@@ -284,11 +289,11 @@ live listing, and Pace / Significant Hobbies marketing.
 
 ## Products
 
-- Cloudflare Pages: `kith`, `setline`, `motion`, `indulge`, `anchor-landing`,
+- Cloudflare Pages: `kith`, `setline`, `motion`, `anchor-landing`,
   `journal`, `habits`
 - Public hosts: `kith.significanthobbies.com`,
   `setline.significanthobbies.com`, `anchor.significanthobbies.com`,
-  `motion.significanthobbies.com`, `indulge.significanthobbies.com`,
+  `motion.significanthobbies.com`,
   `journal.significanthobbies.com`, `habits.significanthobbies.com`
 - Local trees also at `dist/<id>`, including Calorie for its Worker-hosted
   native product landing
@@ -299,12 +304,11 @@ live listing, and Pace / Significant Hobbies marketing.
 - Per-product `site.config.ts` plus screenshots
 - Gated TestFlight and official App Store badge rules
 - `llms.txt`, `/index.md`, `/api/ai`, robots, and sitemap on every build
-- Indulge on the shared template (static site, no analytics script)
 - Shared `Phone` frame, mapped product tokens for light and dark, and
   status/platform line in the hero
 - Journal configuration with real screenshots and no invented App Store or
   TestFlight claims
-- Habits and Indulge compatibility configurations that point to Anchor without
+- Habits source-history configuration that points to Anchor without
   pretending a separate native release remains planned
 - Native-only Calorie landing with an honest internal-beta status and no web
   journal CTA
@@ -312,7 +316,7 @@ live listing, and Pace / Significant Hobbies marketing.
   Setline, with matching privacy disclosures and no analytics on the other
   factory products
 - CSS-only hero sheen and float, breathing lanterns, gallery hover lift
-- Cloudflare Pages deploy for Kith, Setline, Anchor, Motion, and Indulge
+- Cloudflare Pages deploy for Kith, Setline, Anchor, and Motion
 
 ## Work queue
 

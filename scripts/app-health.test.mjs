@@ -12,7 +12,6 @@ const products = [
   "contextdaddy",
   "performancedaddy",
   "motion",
-  "indulge",
 ];
 
 test("each configured landing has a distinct App Health browser identity", () => {

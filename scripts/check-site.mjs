@@ -82,8 +82,8 @@ const footerTheme = templateHome
   ? (await readFile(`${dist}/privacy/index.html`, "utf8")).match(/\bdata-scheme="(light|dark)"/)?.[1]
   : home.match(/\bdata-scheme="(light|dark)"/)?.[1];
 if (!footerTheme) throw new Error(`${product}: explicit native footer theme is missing.`);
-// The catalog identity a footer reports: Indulge's maintained successor is Anchor.
-const footerCatalogId = ["indulge", "habits"].includes(product) ? "anchor" : product;
+// The catalog identity a footer reports: Habits' maintained successor is Anchor.
+const footerCatalogId = product === "habits" ? "anchor" : product;
 if (templateHome) {
   const footers = [...home.matchAll(/<footer\b[^>]*data-fleet-footer="studio"[^>]*>/g)];
   if (footers.length !== 1 || !footers[0][0].includes(`data-catalog-id="${footerCatalogId}"`)) {
@@ -115,7 +115,7 @@ for (const route of [...(templateHome ? [] : ["index.html"]), "privacy/index.htm
   const hosts = [...page.matchAll(/<fleet-footer-extension\b([^>]*)>/g)];
   if (hosts.length !== 1) throw new Error(`${product}: ${route} needs exactly one authored closing host.`);
   const attrs = hosts[0][1];
-  if (["indulge", "habits"].includes(product) && (!attrs.includes('art-src="https://sassmaker.com/footer-art/anchor.webp"') || !attrs.includes('maintained successor'))) throw new Error(`${product}: historical identity must use qualified Anchor successor art and attribution.`);
+  if (product === "habits" && (!attrs.includes('art-src="https://sassmaker.com/footer-art/anchor.webp"') || !attrs.includes('maintained successor'))) throw new Error(`${product}: historical identity must use qualified Anchor successor art and attribution.`);
   for (const fragment of [`product-name="`, `signature-name="`, `surface="${route === "index.html" ? "landing" : "app"}"`, `art-src="`, `font-base="https://sassmaker.com/fonts/fleet-footer-precise-v1/"`]) {
     if (!attrs.includes(fragment)) throw new Error(`${product}: ${route} missing closing contract ${fragment}.`);
   }
@@ -465,7 +465,6 @@ const others = [
   "Setline",
   "Anchor",
   "Motion",
-  "Indulge",
   "Calorie",
   "Journal",
   "Habits",

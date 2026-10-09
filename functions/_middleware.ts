@@ -1,5 +1,5 @@
 // CF Pages Functions middleware for ios-landings multi-product deployments.
-// Each product (kith, setline, anchor, motion, indulge, journal, habits) deploys
+// Each product (kith, setline, anchor, motion, journal, habits) deploys
 // to its own Pages project with its own domain. This middleware is generic —
 // it derives the site URL from the request origin.
 //

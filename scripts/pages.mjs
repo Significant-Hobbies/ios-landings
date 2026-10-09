@@ -30,10 +30,6 @@ export const PRODUCT_PAGES = {
     project: "motion",
     domain: "motion.significanthobbies.com"
   },
-  indulge: {
-    project: "indulge",
-    domain: "indulge.significanthobbies.com"
-  },
 };
 
 export const PRODUCT_IDS = Object.keys(PRODUCT_PAGES);
