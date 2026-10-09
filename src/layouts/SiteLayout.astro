@@ -1,12 +1,11 @@
 ---
 import "../styles/global.css";
-import { clarityProjectIdFor } from "../lib/clarity";
-import { appHealthConfigFor } from "../lib/app-health.mjs";
-import { primaryCta, verifiedAppStoreUrl } from "../lib/distribution";
+import SiteHead from "../components/SiteHead.astro";
+import { primaryCta } from "../lib/distribution";
 import { links, productId, site } from "../site.config";
 import { getPublishedPosts } from "../lib/blog";
 import { actionColors } from "../lib/contrast.mjs";
-import { screenshotMetadata } from "../lib/screenshot-metadata.mjs";
+import { defaultTitle } from "../lib/page-title";
 
 interface Props {
   title?: string;
@@ -18,51 +17,10 @@ interface Props {
   includeStructuredData?: boolean;
 }
 
-const productTitle = `${site.name} — ${site.tagline}`;
-const conciseProductTitle = `${site.name} — ${site.headline.join(" ")}`;
-const {
-  title = productTitle.length <= 60 ? productTitle : conciseProductTitle,
-  description = site.seoDescription ?? site.lede,
-  canonicalPath = "/",
-  image = site.socialImage,
-  robots = "index,follow",
-  markdownAlternatePath,
-  includeStructuredData = true
-} = Astro.props;
-const canonical = new URL(canonicalPath, Astro.site);
-const markdownPath = markdownAlternatePath ?? (canonicalPath === "/" ? "/index.md" : `${canonicalPath}index.md`);
-const markdownAlternate = new URL(markdownPath, Astro.site);
-const socialImage = new URL(image, Astro.site);
-const socialDimensions = image.startsWith("/images/") ? await screenshotMetadata(productId, image) : { width: 1200, height: 630 };
+const { title = defaultTitle(), canonicalPath = "/" } = Astro.props;
 const cta = primaryCta();
-const storeUrl = verifiedAppStoreUrl();
 const t = site.tokens;
 const action = actionColors(t);
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      name: "Significant Hobbies",
-      url: "https://significanthobbies.com"
-    },
-    {
-      "@type": "WebSite",
-      name: site.name,
-      url: site.url,
-      description: site.summary,
-      image: new URL(site.socialImage, site.url).href
-    },
-    ...(canonicalPath === "/" ? [{
-      "@type": "FAQPage",
-      mainEntity: site.faqs.map((faq) => ({
-        "@type": "Question",
-        name: faq.question,
-        acceptedAnswer: { "@type": "Answer", text: faq.answer }
-      }))
-    }] : [])
-  ]
-};
 const tokenStyle = [
   `--button-bg:${action.background}`,
   `--button-fg:${action.foreground}`,
@@ -116,8 +74,6 @@ const footerArtwork = isHistoricalSuccessor ? {
 const footerArtSrc = privateFooterArt[footerArtId]
   ? `/footer-art/${footerArtId}.webp`
   : `https://sassmaker.com/footer-art/${footerArtId}.webp`;
-const clarityProjectId = clarityProjectIdFor(productId);
-const appHealth = appHealthConfigFor(productId);
 const newsletterCapture = site.newsletterCapture === true;
 const newsletterTheme = scheme;
 const hasBlog = (await getPublishedPosts()).length > 0;
@@ -127,149 +83,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <meta name="description" content={description} />
-    <meta name="theme-color" content={site.themeColor} />
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" type="text/markdown" href={markdownAlternate} />
-    {hasBlog && <link rel="alternate" type="application/rss+xml" title={`${site.name} journal`} href="/blog/rss.xml" />}
-    {site.device === "desktop" ? <link rel="icon" type="image/png" href={site.mark} /> : <>
-      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-      <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
-    </>}
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content={site.name} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content={String(socialDimensions.width)} />
-    <meta property="og:image:height" content={String(socialDimensions.height)} />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={socialImage} />
-    <meta name="robots" content={robots} />
-    {site.appStoreId && storeUrl ? (
-      <meta name="apple-itunes-app" content={`app-id=${site.appStoreId}`} />
-    ) : null}
-    {includeStructuredData ? (
-      <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-    ) : null}
-    {clarityProjectId ? (
-      <script is:inline define:vars={{ clarityProjectId, productId }}>
-        (function(c, l, a, r, i, t, y) {
-          c[a] = c[a] || function() { (c[a].q = c[a].q || []).push(arguments); };
-          t = l.createElement(r);
-          t.async = 1;
-          t.src = "https://www.clarity.ms/tag/" + i;
-          y = l.getElementsByTagName(r)[0];
-          y.parentNode.insertBefore(t, y);
-        })(window, document, "clarity", "script", clarityProjectId);
-        window.clarity("set", "project_id", productId);
-      </script>
-    ) : null}
-    {appHealth ? (
-      <script is:inline define:vars={{ productId, macDownloadUrl: site.macDownloadUrl ?? "", repositoryUrl: links.repository ?? "" }}>
-        const trackAppHealthEvent = (name, afterFlush) => {
-          let continued = false;
-          let navigationTimer;
-          const continueOnce = () => {
-            if (continued) return;
-            continued = true;
-            if (navigationTimer !== undefined) window.clearTimeout(navigationTimer);
-            afterFlush?.();
-          };
-          const send = () => {
-            const tracker = window.appHealth;
-            if (!tracker || typeof tracker.track !== "function") {
-              continueOnce();
-              return;
-            }
-            tracker.track(name);
-            if (afterFlush && typeof tracker.flush === "function") {
-              void tracker.flush().catch(() => {}).finally(continueOnce);
-            } else {
-              continueOnce();
-            }
-          };
-          if (window.appHealth && typeof window.appHealth.track === "function") {
-            send();
-          } else {
-            const trackerScript = document.getElementById("app-health-tracker");
-            if (!trackerScript) {
-              continueOnce();
-              return;
-            }
-            trackerScript.addEventListener("load", send, { once: true });
-            trackerScript.addEventListener("error", continueOnce, { once: true });
-          }
-          if (afterFlush && !continued) navigationTimer = window.setTimeout(continueOnce, 3000);
-        };
-        document.addEventListener("click", (event) => {
-          const path = event.composedPath();
-          const link = path.find((target) => target instanceof HTMLAnchorElement);
-          const href = link?.getAttribute("href");
-          let ctaEvent;
-          if (href === "/testflight/" && ["anchor", "kith", "motion", "setline"].includes(productId)) {
-            ctaEvent = "testflight_status_opened";
-          } else if (href === "/#how-it-works" && productId !== "setline") {
-            ctaEvent = "how_it_works_opened";
-          } else if (href === "#look-inside" && productId === "setline") {
-            ctaEvent = "product_preview_opened";
-          } else if (productId === "anchor" && macDownloadUrl && href === macDownloadUrl) {
-            ctaEvent = "mac_beta_download_clicked";
-          } else if (productId === "browserdaddy" && href === "/release/") {
-            ctaEvent = "release_status_opened";
-          } else if (productId === "performancedaddy" && repositoryUrl && href === repositoryUrl) {
-            ctaEvent = "source_opened";
-          } else if (productId === "contextdaddy" && macDownloadUrl && href === macDownloadUrl) {
-            ctaEvent = "download_opened";
-          } else if (productId === "contextdaddy" && href === "/release/") {
-            ctaEvent = "release_details_opened";
-          } else if (["browserdaddy", "performancedaddy"].includes(productId) && macDownloadUrl && href === macDownloadUrl) {
-            ctaEvent = "mac_download_clicked";
-          }
-          const delayNavigation = ctaEvent && link && event.button === 0 &&
-            !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey &&
-            (!link.target || link.target === "_self") && link.origin === window.location.origin;
-          if (delayNavigation) {
-            event.preventDefault();
-            trackAppHealthEvent(ctaEvent, () => window.location.assign(link.href));
-          } else if (ctaEvent) {
-            trackAppHealthEvent(ctaEvent);
-          }
-          const newsletterSubmit = path.some((target) =>
-            target instanceof HTMLButtonElement && target.type === "submit"
-          );
-          const newsletterHost = path.find((target) =>
-            target instanceof Element && target.localName === "saas-maker-newsletter-capture"
-          );
-          const consent = newsletterHost?.shadowRoot?.querySelector("input[name='consent']");
-          const email = newsletterHost?.shadowRoot?.querySelector("input[type='email']");
-          if (newsletterSubmit && consent?.checked && email?.validity.valid) {
-            trackAppHealthEvent("newsletter_signup_clicked");
-          }
-        });
-      </script>
-    ) : null}
-    {appHealth ? (
-      <script
-        is:inline
-        id="app-health-tracker"
-        defer
-        src="https://health.sassmaker.com/tracker.js"
-        data-key={appHealth.publicKey}
-        data-project={appHealth.projectId}
-        data-identity="persistent"
-        data-endpoint="https://ingest.sassmaker.com/v1/browser"
-      />
-    ) : null}
-    {/* Cache-qualified module for Anchor catalog auto-capture; does not create a native form. */}
-    {newsletterCapture || productId === "anchor" ? (
-      <script is:inline type="module" src="https://sassmaker.com/newsletter-capture.js?v=precise-b0adaa67"></script>
-    ) : null}
+    <SiteHead {...Astro.props} title={title} />
     <title>{title}</title>
   </head>
   <body>

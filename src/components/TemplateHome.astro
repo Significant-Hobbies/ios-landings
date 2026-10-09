@@ -1,0 +1,20 @@
+---
+// Home page rendered from the product's SaaS Maker UI-library content file.
+// Head tags (canonical, Open Graph, JSON-LD, Clarity, App Health) come from the
+// factory's SiteHead so they match every other route; the template supplies
+// layout, the StudioFooter and its sign-up, feedback and Ask AI.
+import Base from "@saas-maker/templates/Base.astro";
+import { GalleryPage } from "@saas-maker/templates/gallery-page";
+import { WorkbenchPage } from "@saas-maker/templates/workbench-page";
+import { baseProps } from "@saas-maker/templates/page";
+import SiteHead from "./SiteHead.astro";
+import { defaultTitle } from "../lib/page-title";
+import { loadTemplateContent } from "../lib/template-content";
+
+const content = await loadTemplateContent();
+const { theme, mode, tokens, motion } = baseProps(content);
+---
+<Base title={defaultTitle()} theme={theme} mode={mode} tokens={tokens} motion={motion}>
+  <SiteHead slot="head" studioFooter />
+  {content.template === "gallery" ? <GalleryPage content={content} /> : <WorkbenchPage content={content} />}
+</Base>
