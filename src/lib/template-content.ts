@@ -81,6 +81,7 @@ export async function loadTemplateContent(): Promise<ProductContent> {
   }
   includeSiteFaqs(content);
   if (content.footer) {
+    content.footer.privacyUrl = "/privacy/";
     const required = await requiredFooterLinks();
     if (content.template === "gallery") {
       content.footer.links = withMissing(content.footer.links, required);
