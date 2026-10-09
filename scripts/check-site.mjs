@@ -74,13 +74,43 @@ if (product === "setline") {
 }
 
 const home = await readFile(`${dist}/index.html`, "utf8");
-const footerTheme = home.match(/\bdata-scheme="(light|dark)"/)?.[1];
+// Products with products/<id>/content.json render their home page through the
+// SaaS Maker UI-library template and its StudioFooter; other routes keep the
+// Precise closing.
+const templateHome = await access(`products/${product}/content.json`).then(() => true, () => false);
+const footerTheme = templateHome
+  ? (await readFile(`${dist}/privacy/index.html`, "utf8")).match(/\bdata-scheme="(light|dark)"/)?.[1]
+  : home.match(/\bdata-scheme="(light|dark)"/)?.[1];
 if (!footerTheme) throw new Error(`${product}: explicit native footer theme is missing.`);
+// The catalog identity a footer reports: Indulge's maintained successor is Anchor.
+const footerCatalogId = ["indulge", "habits"].includes(product) ? "anchor" : product;
+if (templateHome) {
+  const footers = [...home.matchAll(/<footer\b[^>]*data-fleet-footer="studio"[^>]*>/g)];
+  if (footers.length !== 1 || !footers[0][0].includes(`data-catalog-id="${footerCatalogId}"`)) {
+    throw new Error(`${product}: template home needs one StudioFooter with data-catalog-id="${footerCatalogId}".`);
+  }
+  const closing = home.slice(footers[0].index);
+  for (const href of ["/", "/privacy/", "/support/", "/terms/", "/accessibility/"]) {
+    if (!closing.includes(`href="${href}"`)) throw new Error(`${product}: template footer lost route ${href}.`);
+  }
+  if (home.includes("<fleet-footer-extension")) throw new Error(`${product}: template home must not also render the Precise closing.`);
+  // FAQPage structured data must describe questions that are visible on the page.
+  const ld = JSON.parse(home.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1] ?? "{}");
+  const questions = (ld["@graph"] ?? []).filter((node) => node["@type"] === "FAQPage").flatMap((node) => node.mainEntity.map((entry) => entry.name));
+  const visible = home.replace(/<script[\s\S]*?<\/script>/g, "").replace(/&#x27;|&#39;/g, "'").replace(/&quot;/g, '"').replace(/&amp;/g, "&");
+  for (const question of questions) {
+    if (!visible.includes(question)) throw new Error(`${product}: FAQ structured data question is not on the page: ${question}`);
+  }
+  const targets = new Set([...home.matchAll(/\sid="([^"]+)"/g)].map((match) => match[1]));
+  for (const match of home.matchAll(/href="\/?#([^"]+)"/g)) {
+    if (!targets.has(match[1])) throw new Error(`${product}: in-page link #${match[1]} has no target.`);
+  }
+}
 
 // Qualify authored closing semantics independently of hosted service availability.
 // All marketing/reading routes need one native host; real controls remain owned
 // by the shared loader and existing newsletter component, never fake factory UI.
-for (const route of ["index.html", "privacy/index.html", "support/index.html", "terms/index.html", "accessibility/index.html", "testflight/index.html", "blog/index.html"]) {
+for (const route of [...(templateHome ? [] : ["index.html"]), "privacy/index.html", "support/index.html", "terms/index.html", "accessibility/index.html", "testflight/index.html", "blog/index.html"]) {
   const page = await readFile(`${dist}/${route}`, "utf8");
   const hosts = [...page.matchAll(/<fleet-footer-extension\b([^>]*)>/g)];
   if (hosts.length !== 1) throw new Error(`${product}: ${route} needs exactly one authored closing host.`);
@@ -104,11 +134,13 @@ const ai = JSON.parse(await readFile(`${dist}/api/ai`, "utf8"));
 const name = ai.product?.name;
 if (!name) throw new Error(`${product}: AI product surface is missing a name.`);
 if (!home.includes(name)) throw new Error(`${product}: landing does not name the product.`);
-const hasInstallCta = home.includes('class="button"') || home.includes('class="store-badge"');
+const hasInstallCta = templateHome
+  ? /href="(?:\/testflight\/|https:\/\/apps\.apple\.com\/[^"]+|https:\/\/testflight\.apple\.com\/[^"]+|https:\/\/[a-z.]+\/download|https:\/\/[^"]+\.dmg|https:\/\/anchor\.significanthobbies\.com\/?)"/.test(home)
+  : home.includes('class="button"') || home.includes('class="store-badge"');
 const desktopProducts = ["storagedaddy", "performancedaddy", "browserdaddy", "contextdaddy"];
 if (desktopProducts.includes(product)) {
   for (const path of ["release/index.html", "release/index.md"]) await access(`${dist}/${path}`);
-  if (!home.includes('data-device="desktop"') || home.includes('class="device-island"')) {
+  if ((!templateHome && !home.includes('data-device="desktop"')) || home.includes('class="device-island"')) {
     throw new Error(`${product}: desktop screenshots must not render phone hardware.`);
   }
   if (home.includes('href="/testflight/"') || home.includes("See iPhone and Watch")) {
@@ -160,7 +192,9 @@ if (product === "browserdaddy") {
   }
 }
 
-if (!home.includes('id="look-inside"') && !home.includes("id='look-inside'")) {
+if (templateHome) {
+  if (!/<img\b[^>]*src="\/images\//.test(home)) throw new Error(`${product}: template home shows no product-owned image.`);
+} else if (!home.includes('id="look-inside"') && !home.includes("id='look-inside'")) {
   throw new Error(`${product}: landing is missing the screenshot gallery.`);
 }
 
@@ -186,7 +220,7 @@ const newsletterProducts = new Set([
   "performancedaddy"
 ]);
 const appHealthTracker = "https://health.sassmaker.com/tracker.js";
-for (const src of approvedFooterScripts) {
+for (const src of templateHome ? [] : approvedFooterScripts) {
   const matches = executableScripts.filter((match) => {
     const attrs = match[1] ?? "";
     return attrs.includes(`src="${src}"`) || attrs.includes(`src='${src}'`);
@@ -204,7 +238,10 @@ const unexpectedScripts = executableScripts.filter((match) => {
   );
   const isAppHealth = attrs.includes(`src="${appHealthTracker}"`) ||
     attrs.includes(`src='${appHealthTracker}'`);
-  const isNewsletterCapture = (newsletterProducts.has(product) || product === "anchor") && (
+  // The template's bundled scroll-motion module (Base.astro).
+  const isTemplateMotion = templateHome && /^\s*type="module" src="\/_astro\/Base\.astro_[^"]+\.js"\s*$/.test(attrs);
+  if (isTemplateMotion) return false;
+  const isNewsletterCapture = !templateHome && (newsletterProducts.has(product) || product === "anchor") && (
     attrs.includes(`src="${newsletterCaptureScript}"`) ||
     attrs.includes(`src='${newsletterCaptureScript}'`)
   );
@@ -267,7 +304,27 @@ const newsletterScripts = executableScripts.filter((match) => {
     attrs.includes(`src='${newsletterCaptureScript}'`);
 });
 const hasNewsletterElement = home.includes("<saas-maker-newsletter-capture");
-if (newsletterProducts.has(product)) {
+const studioSubscribe = home.match(/<form\b[^>]*data-subscribe=""[^>]*>/)?.[0];
+if (templateHome) {
+  if (newsletterScripts.length !== 0 || hasNewsletterElement) {
+    throw new Error(`${product}: template home must use the StudioFooter sign-up, not the hosted capture module.`);
+  }
+  if (newsletterProducts.has(product) || product === "anchor") {
+    if (!studioSubscribe || !studioSubscribe.includes('data-kind="newsletter"') || !studioSubscribe.includes(`data-catalog="${footerCatalogId}"`)) {
+      throw new Error(`${product}: StudioFooter newsletter sign-up for ${footerCatalogId} is missing.`);
+    }
+    for (const fragment of [
+      'hasAttribute("data-subscribe")',
+      "newsletter_signup_clicked",
+      "consent?.checked && email?.validity.valid",
+      ...(expectedAppHealth && product !== "anchor" && !desktopProducts.includes(product) ? ["testflight_status_opened"] : [])
+    ]) {
+      if (!home.includes(fragment)) throw new Error(`${product}: landing is missing ${fragment}.`);
+    }
+  } else if (studioSubscribe) {
+    throw new Error(`${product}: the landing unexpectedly ships a newsletter sign-up.`);
+  }
+} else if (newsletterProducts.has(product)) {
   if (newsletterScripts.length !== 1 || !hasNewsletterElement) {
     throw new Error(`${product}: expected one shared newsletter capture element and loader.`);
   }
@@ -307,7 +364,7 @@ if (expectedHeroCtaEvents.length === 0 && home.includes("data-cta=")) {
   throw new Error(`${product}: landing ships data-cta without a hero CTA tracker.`);
 }
 if (expectedClarityId) {
-  const expectedInlineScripts = 1 + Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0);
+  const expectedInlineScripts = 1 + Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0) + Number(templateHome);
   if (unexpectedScripts.length !== expectedInlineScripts) {
     throw new Error(`${product}: expected ${expectedInlineScripts} inline analytics loaders.`);
   }
@@ -337,7 +394,7 @@ if (expectedClarityId) {
       if (!privacyMarkdown.includes(fragment)) throw new Error(`setline: Markdown privacy page is missing ${fragment}.`);
     }
   }
-} else if (unexpectedScripts.length !== Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0) || home.includes("www.clarity.ms/tag")) {
+} else if (unexpectedScripts.length !== Number(Boolean(expectedAppHealth)) + Number(expectedHeroCtaEvents.length > 0) + Number(templateHome) || home.includes("www.clarity.ms/tag")) {
   throw new Error(`${product}: the static landing unexpectedly ships client-side JavaScript.`);
 }
 
@@ -369,6 +426,18 @@ for (const match of home.matchAll(/<div class="device-screen">\s*(<img\b[^>]*>)/
   const actual = await imageMetadata(await readFile(`${dist}${src}`), src);
   if (width !== actual.width || height !== actual.height) {
     throw new Error(`${product}: incorrect screenshot dimensions for ${src}: ${width}x${height}, actual ${actual.width}x${actual.height}.`);
+  }
+}
+if (templateHome) {
+  // Template screens must declare their real pixel size (phone screens default to 603x1311).
+  for (const match of home.matchAll(/<img\b[^>]*src="(\/images\/[^"?#]+)"[^>]*>/g)) {
+    const width = Number(match[0].match(/\bwidth="(\d+)"/)?.[1]);
+    const height = Number(match[0].match(/\bheight="(\d+)"/)?.[1]);
+    if (!width || !height || width <= 64) continue;
+    const actual = await imageMetadata(await readFile(`${dist}${match[1]}`), match[1]);
+    if (Math.abs(width / height - actual.width / actual.height) > 0.02) {
+      throw new Error(`${product}: ${match[1]} declares ${width}x${height}, actual ${actual.width}x${actual.height}.`);
+    }
   }
 }
 if (/<figure\b[^>]*class="[^"]*\bdevice (?:hero|gallery|chapter)\b/.test(home)) {
