@@ -20,6 +20,8 @@ See [adding a product](docs/adding-a-product.md) and [writing blog posts](docs/b
 | PerformanceDaddy | `performancedaddy` | https://performancedaddy.significanthobbies.com | `performancedaddy-landing` | Release status |
 | BrowserDaddy | `browserdaddy` | https://browserdaddy.significanthobbies.com | `browserdaddy-landing` | Development status |
 
+| DaddyRad umbrella | Worker site `sites/daddyrad` | https://daddyrad.com | `daddyrad` Worker | Links to each Daddy app |
+
 A product is a `site.config.ts` plus screenshots in
 `products/<id>/public`. The shared engine lives in `src/`.
 
@@ -41,6 +43,21 @@ pnpm run deploy:habits   # one product
 
 Each command builds that product and uploads `dist/<id>` to its Cloudflare
 Pages project. Calorie is not in this deploy because it remains on its Worker.
+
+## Worker sites
+
+`scripts/worker-sites.mjs` registers static sites that keep their own Worker
+(routes, security headers, 404 and HEAD handling) instead of the Astro engine.
+DaddyRad's umbrella landing lives in `sites/daddyrad/`, moved unchanged from
+`Significant-Hobbies/daddyrad` at `bfdd8a8`. `pnpm check` runs its Worker
+tests and a Wrangler dry-run; `pnpm check:worker-sites` runs only those.
+
+```bash
+pnpm run deploy:daddyrad   # checks, then wrangler deploy of the existing daddyrad Worker
+```
+
+The registry's `renderer` field is the seam for producing a site's assets from
+a UI-library content file later; the Worker and its contracts stay the same.
 
 ## Rules
 
