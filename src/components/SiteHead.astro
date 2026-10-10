@@ -116,7 +116,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         y.parentNode.insertBefore(t, y);
       }
       events.forEach(function(event) { c.addEventListener(event, go, { passive: true, once: true }); });
-      var timer = setTimeout(go, 30000);
+      var timer = setTimeout(go, 90000);
     })(window, document, "clarity", "script", clarityProjectId);
     window.clarity("set", "project_id", productId);
   </script>
