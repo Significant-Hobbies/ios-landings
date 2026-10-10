@@ -17,6 +17,7 @@ const hasGallery = site.gallery.length > 0;
 const overviewHref = hasGallery ? "#look-inside" : "/#how-it-works";
 const overviewLabel = hasGallery ? (historicalHero ? "Explore the product history" : artworkHero ? "Explore the app" : "See the real app") : "Read how it works";
 const heroMetadata = artworkHero ? await screenshotMetadata(productId, site.hero.image) : undefined;
+const privacyMetadata = await screenshotMetadata(productId, site.artwork ?? site.mark);
 const story = site.story;
 const sceneArtwork = story?.scene ?? site.sceneArtwork;
 const sceneCaption = site.sceneArtwork?.caption ?? "Illustrative artwork · real product screens below";
@@ -167,7 +168,7 @@ FORM: Asymmetric physical spread followed by a wide notebook scene and alternati
   <section id="privacy" class="privacy-section" aria-labelledby="privacy-title">
     <div class="shell privacy-grid">
       <div class="privacy-mark" aria-hidden="true">
-        <img src={site.artwork ?? site.mark} width="660" height="660" alt="" loading="lazy" decoding="async" />
+        <img src={site.artwork ?? site.mark} width={privacyMetadata.width} height={privacyMetadata.height} style="height:auto;align-self:start" alt="" loading="lazy" decoding="async" />
       </div>
       <div>
         <p class="chapter-kicker">{site.privacy.kicker}</p>
