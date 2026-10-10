@@ -3,6 +3,18 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import { runInNewContext } from "node:vm";
 import { optimizeImageTags } from "../src/lib/image-delivery.mjs";
+import { prepareKithImages, kithImageVariant } from "../src/lib/kith-image-delivery.mjs";
+
+test("Kith defers decorative backgrounds while preserving their crop and motion wrappers", async () => {
+  const html = '<head></head><main><section><div class="motion-parallax size-full bg-cover bg-[center_30%]" style="background-image:url(/images/story/book-stage.webp)"></div></section><section><div aria-hidden="true" class="motion-drift absolute inset-0" style="background-image:url(/images/story/memory-table-v2.webp)"></div></section></main>';
+  const output = await optimizeImageTags(prepareKithImages(html), src => ({ src, width: 1024, height: 1536 }), options => kithImageVariant(options, async variant => ({ src: `/optimized/${variant.quality}-${variant.width}.webp` })));
+  assert.ok(!output.includes("background-image:url"));
+  assert.match(output, /class="motion-parallax size-full bg-cover bg-\[center_30%\]"/);
+  assert.match(output, /<img[^>]*height="1536"[^>]*width="1024"[^>]*loading="lazy" decoding="async"[^>]*object-position:center 30%/);
+  assert.match(output, /60-768.webp 768w/);
+  assert.match(output, /80-768.webp 768w/);
+  assert.match(output, /@media\(min-width:768px\).*object-position:center 60%/);
+});
 
 test("responsive delivery preserves markup, reserves geometry and prioritizes the hero", async () => {
   const assets = {

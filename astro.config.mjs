@@ -1,4 +1,5 @@
 import { existsSync } from "node:fs";
+import { readFile, readdir, unlink } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import react from "@astrojs/react";
 import tailwindcss from "@tailwindcss/vite";
@@ -18,7 +19,21 @@ export default defineConfig({
   trailingSlash: "ignore",
   publicDir: `./products/${productId}/public`,
   outDir: `./dist/${productId}`,
-  integrations: [react()],
+  integrations: [react(), ...(productId === "kith" ? [{
+    name: "kith-unused-artwork",
+    hooks: {
+      "astro:build:done": async ({ dir }) => {
+        // Astro emits imported originals alongside responsive variants. Retain
+        // public fallback URLs, but omit unreferenced copies of the story art.
+        const files = await readdir(dir, { recursive: true });
+        const html = (await Promise.all(files.filter(file => file.endsWith(".html"))
+          .map(file => readFile(new URL(file, dir), "utf8")))).join("\n");
+        for (const file of files.filter(file => /^_astro\/(book-stage|coastal-walk-v2|memory-table-v2)\.[^.]+\.webp$/.test(file))) {
+          if (!html.includes(`/${file}`)) await unlink(new URL(file, dir));
+        }
+      }
+    }
+  }] : [])],
   build: {
     format: "directory",
     inlineStylesheets: "always"
