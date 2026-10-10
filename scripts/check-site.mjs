@@ -260,7 +260,8 @@ if (expectedAppHealth) {
     `data-key="${expectedAppHealth.publicKey}"`,
     `data-project="${expectedAppHealth.projectId}"`,
     'data-identity="persistent"',
-    'data-endpoint="https://ingest.sassmaker.com/v1/browser"'
+    'data-endpoint="https://ingest.sassmaker.com/v1/browser"',
+    "data-vitals"
   ]) {
     if (!home.includes(fragment)) {
       throw new Error(`${product}: App Health output is missing ${fragment}.`);
