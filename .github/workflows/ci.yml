@@ -38,7 +38,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        product: [kith, setline, anchor, motion, indulge, calorie, journal, habits, storagedaddy, performancedaddy, browserdaddy, contextdaddy]
+        product: [kith, setline, anchor, motion, calorie, journal, habits, storagedaddy, performancedaddy, browserdaddy, contextdaddy]
     env:
       PRODUCT: ${{ matrix.product }}
     steps:

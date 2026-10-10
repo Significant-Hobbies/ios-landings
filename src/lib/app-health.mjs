@@ -31,10 +31,6 @@ const APP_HEALTH_CONFIG = Object.freeze({
     projectId: "app-import-60cb3bd9053732d2e6f2d4c47381a65bc2378249b995225f739b16e1075646fd",
     publicKey: "ahk_pub_8e1a0c74f74de2ce27e6bc7fd33cf9bde268c5770dc298aa08d14084f78c38d1",
   }),
-  indulge: Object.freeze({
-    projectId: "app-f5f71a17-e02f-4862-ba46-9b46a1ba3fbd",
-    publicKey: "ahk_pub_c1dc4c49d868cf1fcaf3b9b37987e2184cc0884103704d885356293bc311b7d2",
-  }),
 });
 
 export function appHealthConfigFor(productId) {

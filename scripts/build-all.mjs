@@ -5,7 +5,6 @@ const PRODUCT_IDS = [
   "setline",
   "anchor",
   "motion",
-  "indulge",
   "calorie",
   "journal",
   "habits",

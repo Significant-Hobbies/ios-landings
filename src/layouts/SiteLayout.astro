@@ -42,8 +42,8 @@ const tokenStyle = [
   `--site-ink-on-accent:${t.inkOnAccent ?? "#ffffff"}`
 ].join(";");
 const scheme = site.colorScheme ?? "light";
-const portfolioProjectId = productId === "habits" ? "indulge" : productId;
-const isHistoricalSuccessor = productId === "indulge" || productId === "habits";
+const portfolioProjectId = productId === "habits" ? "anchor" : productId;
+const isHistoricalSuccessor = productId === "habits";
 const footerArtId = isHistoricalSuccessor ? "anchor" : portfolioProjectId;
 const privateFooterArt: Record<string, { alt: string; width: number; height: number; credit: string; focalX: number; focalY: number }> = {
   "journal": {
@@ -64,10 +64,10 @@ const privateFooterArt: Record<string, { alt: string; width: number; height: num
   }
 };
 const footerArtwork = isHistoricalSuccessor ? {
-  alt: "Anchor: A day-planning terrace centers the crossing between a planned stepping-stone path and a real-life detour. A pause bench, simple clock, task tokens and end-of-day notebook make interruptions ordinary. Indulge and Habits remain historical identities; their maintained successor is Anchor.",
+  alt: "Anchor: A day-planning terrace centers the crossing between a planned stepping-stone path and a real-life detour. A pause bench, simple clock, task tokens and end-of-day notebook make interruptions ordinary. Habits remains a historical identity; its maintained successor is Anchor.",
   width: 2171,
   height: 724,
-  credit: "Original illustration for Anchor, the maintained successor to Indulge and Habits",
+  credit: "Original illustration for Anchor, the maintained successor to Habits",
   focalX: 50,
   focalY: 50
 } : privateFooterArt[footerArtId];

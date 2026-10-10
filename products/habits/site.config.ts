@@ -63,7 +63,7 @@ export const site: SiteConfig = {
     { question: "Is Habits still a separate product?", answer: "No. It was superseded by Anchor on 24 August 2026 and has no active roadmap." },
     { question: "What moved into Anchor?", answer: "The onboarding hero, 24 illustrated behavior patterns, eight life directions, intentional-versus-automatic framing, and non-scoring replacement suggestions." },
     { question: "Was my historical data deleted?", answer: "No. Existing Apple storage identities and Hub habits records remain compatibility resources." },
-    { question: "Where should new work happen?", answer: "In Anchor. The old Habits/Indulge repository is retained only as recoverable source history." }
+    { question: "Where should new work happen?", answer: "In Anchor. The old Habits repository is retained only as recoverable source history." }
   ],
   founder: {
     quote: "I wanted the plan, the interruption, and the pattern behind it to live in one honest loop.",

@@ -3,8 +3,10 @@
 - Read `PROJECT_STATUS.md` before broad work.
 - This repo is the marketing factory for focused Significant Hobbies apps.
   It is not the apps themselves.
-- One Astro codebase. `PRODUCT=kith|setline|anchor|motion|indulge|calorie|journal|habits|contextdaddy`
+- One Astro codebase. `PRODUCT=kith|setline|anchor|motion|calorie|journal|habits|contextdaddy`
   selects `products/<id>/site.config.ts` and `products/<id>/public`.
+  Indulge was retired into Anchor on 2026-08-24 and removed from the factory;
+  no Indulge page or redirect site is retained.
   `journal` and `habits` are retained for source history only — they are not in
   `scripts/pages.mjs` (`PRODUCT_PAGES`) and must not be deployed.
   `storagedaddy`, `performancedaddy` and `browserdaddy` are Mac-only factory products; use their
