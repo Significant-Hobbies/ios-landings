@@ -219,6 +219,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
     data-key={appHealth.publicKey}
     data-project={appHealth.projectId}
     data-identity="persistent"
+    data-vitals
     data-endpoint="https://ingest.sassmaker.com/v1/browser"
   />
 ) : null}
