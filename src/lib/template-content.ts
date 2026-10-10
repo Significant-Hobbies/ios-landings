@@ -75,7 +75,7 @@ export async function loadTemplateContent(): Promise<ProductContent> {
   const content = productContent.parse(raw);
   const cta = primaryCta();
   if (cta.kind === "testflight") {
-    const swap = (link: Link) => (link.href === "/testflight/" ? { ...link, href: cta.href, label: cta.label } : link);
+    const swap = (link: Link | undefined) => (link?.href === "/testflight/" ? { ...link, href: cta.href, label: cta.label } : link);
     content.hero.primary = swap(content.hero.primary);
     if (content.template === "gallery") content.closing.primary = swap(content.closing.primary);
   }
