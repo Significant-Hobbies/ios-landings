@@ -43,7 +43,7 @@ test("Clarity queues immediately and injects once after either interaction or ti
         createElement: () => ({}),
         getElementsByTagName: () => [{ parentNode: { insertBefore: script => inserted.push(script) } }]
       },
-      setTimeout(fn, delay) { assert.equal(delay, 30000); timer = fn; return 1; },
+      setTimeout(fn, delay) { assert.equal(delay, 90000); timer = fn; return 1; },
       clearTimeout() {}
     });
     assert.equal(inserted.length, 0);

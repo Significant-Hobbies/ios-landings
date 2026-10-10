@@ -371,7 +371,7 @@ if (expectedClarityId) {
   for (const fragment of [
     `const clarityProjectId = "${expectedClarityId}"`,
     "https://www.clarity.ms/tag/",
-    "setTimeout(go, 30000)",
+    "setTimeout(go, 90000)",
     "passive: true, once: true",
     `const productId = "${product}"`,
     'window.clarity("set", "project_id", productId)'
