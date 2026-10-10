@@ -23,6 +23,8 @@
   download or update feed; each Daddy app's own Worker keeps `/download`,
   `/updates/*` and the `significanthobbies.com` 308s.
   Deploy only with `pnpm run deploy:daddyrad`; it is never part of `pnpm run deploy`.
+- Calorie's public home is built in the calorie repo (`landing/`, UI library);
+  `scripts/sync-calorie-marketing.sh` is retired and must not overwrite it.
 - Calorie is a native-app landing. Its internal TestFlight build has no public
   invitation URL, so its CTA stays on the honest beta-status page.
 - Build output is `dist/<id>`. Never merge the five sites into one

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
-# Copy the Calorie landing snapshot into the public Calorie repo.
+# Retired 2026-10-10: Calorie's home is now built in the calorie repo from
+# landing/ (SaaS Maker UI library; `pnpm landing:build` there). This snapshot
+# sync would overwrite marketing/index.html, so it refuses to run.
 set -euo pipefail
+echo "sync-calorie-marketing is retired: edit calorie/landing and run pnpm landing:build in the calorie repo" >&2
+exit 1
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 DEST="${1:-$ROOT/../calorie/marketing}"
