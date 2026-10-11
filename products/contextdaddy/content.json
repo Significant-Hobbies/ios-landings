@@ -4,12 +4,21 @@
     "title": "ContextDaddy — See what your agents can see",
     "description": "A Mac app for reviewing coding-agent skills, project context, usage history and verified OpenTelemetry signals, with previewed local changes you explicitly apply.",
     "theme": "gallery",
-    "mode": "light",
+    "mode": "dark",
     "tokens": {
       "--brand": "#74d4a6",
-      "--brand-ink": "#1f7a52",
+      "--brand-ink": "#8ce0b8",
       "--brand-foreground": "#07150e",
-      "--brand-soft": "#d9f4e7"
+      "--brand-soft": "rgb(116 212 166 / 0.14)",
+      "--background": "#000000",
+      "--foreground": "#f2f7f4",
+      "--surface": "#09120e",
+      "--card": "#09120e",
+      "--popover": "#101d16",
+      "--muted": "#101d16",
+      "--secondary": "#101d16",
+      "--accent": "#101d16",
+      "--muted-foreground": "#afc1b7"
     },
     "icon": "images/icon.png",
     "assetBase": "/"
