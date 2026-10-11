@@ -11,16 +11,16 @@ export const site: SiteConfig = {
   summary: "An iOS-native training tracker that runs a written strength, cardio and mobility programme one set at a time and measures each exercise against an authored target.",
   status: "Internal TestFlight only. No public invite or App Store listing.",
   platforms: ["iPhone"],
-  themeColor: "#f7f6f0",
+  themeColor: "#0f181d",
   mark: "/images/brand/mark.webp",
   socialImage: "/images/brand/social.png",
   tokens: {
-    paper: "#ffffff", field: "#f7f6f0", ink: "#18262e", inkSoft: "rgba(24,38,46,0.72)", inkFaint: "rgba(24,38,46,0.12)",
-    accent: "#b9e83f", accentDark: "#18262e", accentSoft: "#b9d8e8", lanternA: "#b9e83f", lanternB: "#b9d8e8", lanternC: "#ff614d",
-    blush: "#dde1dc", inkOnDark: "#f7f6f0", inkOnAccent: "#18262e"
+    paper: "#18262e", field: "#0f181d", ink: "#f7f6f0", inkSoft: "rgba(247,246,240,0.72)", inkFaint: "rgba(247,246,240,0.12)",
+    accent: "#b9e83f", accentDark: "#f7f6f0", accentSoft: "#b9d8e8", lanternA: "#b9e83f", lanternB: "#b9d8e8", lanternC: "#ff614d",
+    blush: "#2a373e", inkOnDark: "#f7f6f0", inkOnAccent: "#18262e"
   },
   sceneArtwork: { src: "/images/story/training-bench-v1.webp", alt: "A lime training log, ordered workout cards and a weight plate on a paper workbench", width: 1536, height: 1024, caption: "Illustrative artwork · an authored workout, one set at a time" },
-  colorScheme: "light",
+  colorScheme: "dark",
   hero: { image: "/images/screens/workout-player.webp", alt: "Setline workout player showing the current set", caption: "The current set owns the screen. Record it, then rest." },
   gallery: [
     { src: "/images/screens/today.webp", alt: "Setline Today screen with the session for this day" },

@@ -4,14 +4,27 @@
     "title": "Setline — Run every workout exactly as written",
     "description": "A native iPhone workout player that runs a written strength, cardio and mobility programme one set at a time.",
     "theme": "gallery",
-    "tokens": {
-      "--brand": "#b9e83f",
-      "--brand-ink": "#4a6a10",
-      "--brand-foreground": "#18262e",
-      "--brand-soft": "#eef8d2"
-    },
     "icon": "images/brand/mark.webp",
-    "assetBase": "/"
+    "assetBase": "/",
+    "mode": "dark",
+    "fromApp": {
+      "background": "#0f181d",
+      "foreground": "#f7f6f0",
+      "card": "#18262e",
+      "surface": "#1f2f38",
+      "muted": "#2a373e",
+      "mutedForeground": "#b1b3b1",
+      "border": "#2f373b",
+      "brand": "#b9e83f",
+      "brandForeground": "#18262e",
+      "destructive": "#ff614d",
+      "radius": "10px"
+    },
+    "fonts": {
+      "display": "ui-rounded",
+      "text": "ui-rounded",
+      "accentStyle": "normal"
+    }
   },
   "product": "Setline",
   "url": "https://setline.significanthobbies.com",
@@ -54,7 +67,7 @@
     "backdrop": "images/story/setline-hero-v3.webp",
     "screen": {
       "src": "images/screens/workout-player.jpg",
-      "alt": "Setline workout player showing the current set: a front squat target of 40 kg × 8, fields for recorded actuals, and the session rail"
+      "alt": "Setline workout player showing the current set: an easy cardio target of 5 minutes, the set timer, fields for recorded actuals, and the session rail"
     }
   },
   "sections": [
