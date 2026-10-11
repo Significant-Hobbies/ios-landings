@@ -41,7 +41,7 @@
       "href": "/#how-it-works"
     },
     "note": "Internal TestFlight only. No public invite or App Store listing.",
-    "backdrop": "images/story/book-stage.webp",
+    "backdrop": "images/story/kith-hero-v3.webp",
     "screen": {
       "src": "images/screens/constellation.webp",
       "alt": "Kith on iPhone showing a warm constellation of people sized by chosen closeness",
@@ -203,7 +203,7 @@
       "href": "/testflight/"
     },
     "note": "Internal TestFlight only. No public invite or App Store listing.",
-    "image": "images/story/memory-table-v2.webp",
+    "image": "images/story/kith-closing-v3.webp",
     "credit": "Illustrative artwork"
   },
   "footer": {
@@ -244,7 +244,7 @@
     ],
     "legal": "© 2026 Sarthak Agrawal",
     "art": {
-      "src": "images/story/book-stage.webp",
+      "src": "images/story/kith-hero-v3.webp",
       "alt": "",
       "position": "100% 45%"
     },

@@ -68,7 +68,7 @@
       "href": "/#how-it-works"
     },
     "note": "Held internal prototype. No public TestFlight invite or App Store listing.",
-    "backdrop": "images/story/motion-scene-v1.webp",
+    "backdrop": "images/story/motion-hero-v3.webp",
     "screen": {
       "src": "images/screens/motion-maker-clean.webp",
       "alt": "Motion Maker running in the internal iPhone build"
@@ -154,7 +154,7 @@
       "href": "/testflight/"
     },
     "note": "The internal build runs on an iPhone, but physical control feel and fun remain unproven. Work is on hold until one control loop can be tested properly on a real device.",
-    "image": "footer-art/motion.webp",
+    "image": "footer-art/motion-v3.webp",
     "credit": "Illustrative artwork"
   },
   "footer": {
@@ -192,7 +192,7 @@
     ],
     "legal": "A held internal game prototype, not a public beta or console. © 2026 Sarthak Agrawal.",
     "art": {
-      "src": "images/story/motion-scene-v1.webp",
+      "src": "images/story/motion-hero-v3.webp",
       "alt": "",
       "position": "100% 50%"
     },
