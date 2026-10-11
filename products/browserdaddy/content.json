@@ -4,6 +4,7 @@
     "title": "BrowserDaddy — See where your browsing time goes",
     "description": "Bring browser history together on your Mac. Compare visits with measured foreground attention, find patterns across browsers, and revisit what mattered.",
     "theme": "ink",
+    "mode": "light",
     "icon": "images/browserdaddy-icon-v1.png",
     "tokens": {
       "--brand": "#74d4a6",

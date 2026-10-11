@@ -17,9 +17,9 @@ const GalleryPage = !workbench
   ? (await import("@saas-maker/templates/gallery-page")).GalleryPage : undefined;
 const WorkbenchPage = workbench
   ? (await import("@saas-maker/templates/workbench-page")).WorkbenchPage : undefined;
-const { theme, mode, tokens, motion } = baseProps(content);
+const { theme, mode, tokens, motion, fonts, surface, fromApp } = baseProps(content);
 ---
-<Base title={defaultTitle()} theme={theme} mode={mode} tokens={tokens} motion={motion}>
+<Base title={defaultTitle()} theme={theme} mode={mode} fonts={fonts} surface={surface} fromApp={fromApp} tokens={tokens} motion={motion}>
   <SiteHead slot="head" studioFooter />
   {content.template === "gallery" && GalleryPage && <GalleryPage content={content} />}
   {content.template === "workbench" && WorkbenchPage && <WorkbenchPage content={content} />}

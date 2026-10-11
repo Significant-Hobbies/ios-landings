@@ -4,14 +4,27 @@
     "title": "Anchor — Plan the day. Learn what moved it.",
     "description": "A private day planner and focus timer for Mac, iPhone and Apple Watch.",
     "theme": "gallery",
-    "tokens": {
-      "--brand": "#e1ad4a",
-      "--brand-ink": "#8a6114",
-      "--brand-foreground": "#111111",
-      "--brand-soft": "#f6e7c6"
-    },
     "icon": "images/brand/anchor-mark-v29.png",
-    "assetBase": "/"
+    "assetBase": "/",
+    "mode": "dark",
+    "fromApp": {
+      "background": "#0B0B0C",
+      "foreground": "#F2F0EA",
+      "card": "#151515",
+      "surface": "#202020",
+      "muted": "#202020",
+      "mutedForeground": "#AAA8A2",
+      "border": "#212122",
+      "brand": "#E1AD4A",
+      "brandForeground": "#111111",
+      "destructive": "#E66A5C",
+      "radius": "20px"
+    },
+    "fonts": {
+      "display": "ui-rounded",
+      "text": "ui-rounded",
+      "accentStyle": "normal"
+    }
   },
   "product": "Anchor",
   "url": "https://anchor.significanthobbies.com",
@@ -51,11 +64,11 @@
       "href": "/testflight/"
     },
     "note": "Invite-only TestFlight and notarized Mac beta. Requires macOS 26 or later.",
-    "backdrop": "images/story/anchor-hero-v3.webp",
     "screen": {
       "src": "images/screens/today.webp",
       "alt": "Anchor Today on iPhone: draw the day, build your usual week, and give the day one anchor"
-    }
+    },
+    "backdrop": "images/story/anchor-hero-v3.webp"
   },
   "sections": [
     {

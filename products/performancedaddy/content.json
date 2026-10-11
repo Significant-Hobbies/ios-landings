@@ -4,6 +4,7 @@
     "title": "PerformanceDaddy — See what is slowing your Mac",
     "description": "Inspect Mac background apps, processes, listening ports and RAM. PerformanceDaddy records slowdown evidence and reviews targets before stopping work.",
     "theme": "ink",
+    "mode": "light",
     "icon": "images/icon.png",
     "tokens": {
       "--brand": "#74d4a6",
