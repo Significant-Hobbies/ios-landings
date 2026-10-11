@@ -51,7 +51,7 @@
       "href": "#how-it-works"
     },
     "note": "Internal TestFlight only. No public invite or App Store listing.",
-    "backdrop": "images/story/training-bench-v1.webp",
+    "backdrop": "images/story/setline-hero-v3.webp",
     "screen": {
       "src": "images/screens/workout-player.jpg",
       "alt": "Setline workout player showing the current set: a front squat target of 40 kg × 8, fields for recorded actuals, and the session rail"
@@ -134,7 +134,7 @@
       "href": "/testflight/"
     },
     "note": "Internal TestFlight only. No public invite or App Store listing.",
-    "image": "images/story/training-bench-v1.webp",
+    "image": "images/story/setline-closing-v3.webp",
     "credit": "Illustrative artwork"
   },
   "footer": {

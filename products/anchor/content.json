@@ -51,7 +51,7 @@
       "href": "/testflight/"
     },
     "note": "Invite-only TestFlight and notarized Mac beta. Requires macOS 26 or later.",
-    "backdrop": "images/story/anchor-scene-v2.webp",
+    "backdrop": "images/story/anchor-hero-v3.webp",
     "screen": {
       "src": "images/screens/today.webp",
       "alt": "Anchor Today on iPhone: draw the day, build your usual week, and give the day one anchor"
@@ -132,7 +132,7 @@
       "href": "https://anchor.significanthobbies.com/downloads/Anchor-1.0.dmg"
     },
     "note": "Invite-only TestFlight and notarized Mac beta. Not listed on the App Store yet.",
-    "image": "images/story/anchor-scene-v2.webp",
+    "image": "images/story/anchor-closing-v3.webp",
     "credit": "Illustrative artwork"
   },
   "footer": {
