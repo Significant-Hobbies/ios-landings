@@ -15,8 +15,8 @@ export const site: SiteConfig = {
   mark: "/images/brand/mark.png",
   socialImage: "/images/brand/social.png",
   tokens: {
-    paper: "#1e281f",
-    field: "#121813",
+    paper: "#121813",
+    field: "#1e281f",
     ink: "#ecf4eb",
     inkSoft: "#94979b",
     inkFaint: "rgba(236, 244, 235, 0.14)",
