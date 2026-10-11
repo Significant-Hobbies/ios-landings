@@ -4,7 +4,7 @@ import { site as storage } from "../storagedaddy/site.config";
 export const site: SiteConfig = {
   name: "ContextDaddy",
   url: "https://context.daddyrad.com",
-  tagline: "See what your agents can see.",
+  tagline: "Coding-agent skills, context and usage",
   seoDescription: "A Mac app for reviewing coding-agent skills, project context, usage history and verified OpenTelemetry signals, with previewed local changes you explicitly apply. Signed and notarized for Apple silicon.",
   headline: ["Your agents' context.", "Made visible."],
   lede: "ContextDaddy shows what the coding agents on your Mac can discover, invoke and consume. Review skill access, project context, local usage history and verified OpenTelemetry signals. Supported local skill and context-file changes require a preview and your explicit apply action.",

@@ -1,7 +1,7 @@
 {
   "template": "gallery",
   "page": {
-    "title": "ContextDaddy — See what your agents can see",
+    "title": "ContextDaddy — Coding-agent skills, context and usage",
     "description": "A Mac app for reviewing coding-agent skills, project context, usage history and verified OpenTelemetry signals, with previewed local changes you explicitly apply.",
     "theme": "gallery",
     "mode": "dark",
