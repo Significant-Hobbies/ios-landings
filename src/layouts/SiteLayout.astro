@@ -163,6 +163,26 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         <p class="fine-print footer-legal" data-fleet-footer-legal>{site.footerFinePrint}</p>
       </footer>
     </fleet-footer-extension>
+    {anchorContent && <script is:inline>
+      (() => {
+        const footer = document.querySelector("fleet-footer-extension.precise-footer");
+        if (!footer) return;
+        const styleCapture = () => {
+          const capture = footer.querySelector("saas-maker-newsletter-capture");
+          if (!capture) return false;
+          const tokens = getComputedStyle(document.documentElement);
+          capture.style.setProperty("--newsletter-capture-action", tokens.getPropertyValue("--brand").trim());
+          capture.style.setProperty("--newsletter-capture-action-text", tokens.getPropertyValue("--brand-foreground").trim());
+          capture.style.setProperty("--newsletter-capture-focus", tokens.getPropertyValue("--brand-ink").trim());
+          return true;
+        };
+        if (styleCapture()) return;
+        const observer = new MutationObserver(() => {
+          if (styleCapture()) observer.disconnect();
+        });
+        observer.observe(footer, { childList: true });
+      })();
+    </script>}
     <script
       is:inline
       src="https://sassmaker.com/project-strip.js?v=precise-b0adaa67"
