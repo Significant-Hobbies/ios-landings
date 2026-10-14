@@ -1,5 +1,6 @@
 ---
 title: "Why focus timers should derive elapsed time from the wall clock"
+seoTitle: "Why focus timers use the wall clock | Anchor"
 description: "Learn why robust focus timers rely on absolute wall-clock timestamps rather than incrementing tick counts to survive device sleep, sync, and app backgrounding."
 author: "Significant Hobbies"
 published: "2026-09-20"

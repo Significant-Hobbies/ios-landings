@@ -15,10 +15,15 @@
       "muted": "#202020",
       "mutedForeground": "#AAA8A2",
       "border": "#212122",
-      "brand": "#E1AD4A",
+      "brand": "#F2F0EA",
       "brandForeground": "#111111",
       "destructive": "#E66A5C",
       "radius": "20px"
+    },
+    "tokens": {
+      "--brand-ink": "#E1AD4A",
+      "--accent-ink": "#E1AD4A",
+      "--ring": "#E1AD4A"
     },
     "fonts": {
       "display": "ui-rounded",

@@ -1,5 +1,6 @@
 ---
 title: "Comparing a planned day with the day that actually happened"
+seoTitle: "Comparing your planned day with reality | Anchor"
 description: "Learn how to compare your daily schedule with reality by treating divergence as data. Separate interruptions, estimation errors, and deliberate changes."
 author: "Significant Hobbies"
 published: "2026-09-20"

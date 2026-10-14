@@ -5,8 +5,11 @@ import { site } from "../site.config";
 import { productId } from "../site.config";
 const page = site.legal.privacy;
 const clarityProjectId = clarityProjectIdFor(productId);
+const description = productId === "anchor"
+  ? "Anchor keeps plans and distraction notes on your device or in your private iCloud. The website uses limited analytics; the native app has none."
+  : page.lede;
 ---
-<LegalPage title={page.title} lede={page.lede} path="/privacy/">
+<LegalPage title={page.title} lede={page.lede} description={description} path="/privacy/">
   {clarityProjectId ? (
     <section>
       <h2>Marketing-site analytics</h2>

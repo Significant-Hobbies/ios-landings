@@ -1,5 +1,6 @@
 ---
 title: "Combining habits, planning, and focus without extra gates"
+seoTitle: "Habits, planning, and focus in one daily loop | Anchor"
 description: "How combining habits, schedule planning, and focus timing into a single operational loop creates a more realistic day plan and reduces friction."
 author: "Significant Hobbies"
 published: "2026-09-20"

@@ -1,5 +1,6 @@
 ---
 title: "Preserving unknown time instead of inventing an explanation"
+seoTitle: "Why unknown time belongs in your day review | Anchor"
 description: "Discover why embracing explicitly unknown gaps in your schedule leads to better planning, honest reflection, and less guilt."
 author: "Significant Hobbies"
 published: "2026-09-20"

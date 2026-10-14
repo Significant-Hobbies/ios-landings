@@ -1,6 +1,7 @@
 ---
 title: "Capturing Interruptions at the Moment They Happen"
 description: "Learn how to capture daily interruptions exactly when they happen. Discover strategies for parking distractions, pausing effectively, and protecting your attention."
+seoDescription: "Capture interruptions as they happen, park distractions, and return to the block you meant to protect."
 author: "Significant Hobbies"
 published: "2026-09-20"
 draft: false
