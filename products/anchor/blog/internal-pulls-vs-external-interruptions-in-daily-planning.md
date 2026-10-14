@@ -1,6 +1,8 @@
 ---
 title: "Internal pulls vs external interruptions in daily planning"
+seoTitle: "Internal pulls vs. external interruptions | Anchor"
 description: "Understand the difference between external interruptions and internal pulls in daily planning. Learn how separating the two helps create a more realistic schedule."
+seoDescription: "Distinguish internal pulls from external interruptions to plan a day that fits how focus actually changes."
 author: "Significant Hobbies"
 published: "2026-09-20"
 draft: false

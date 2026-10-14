@@ -1,6 +1,7 @@
 ---
 title: "How to plan a realistic day instead of an ideal one"
 description: "Discover how to move past perfect schedules. Learn to plan realistically, capture interruptions, and understand why your lived day diverges from your planned one."
+seoDescription: "Make a realistic day plan, capture interruptions, and see why the lived day diverged from the schedule."
 author: "Significant Hobbies"
 published: "2026-09-20"
 draft: false

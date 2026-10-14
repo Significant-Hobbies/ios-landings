@@ -1,5 +1,6 @@
 ---
 title: "Non-moralizing language for personal productivity review"
+seoTitle: "Review productivity without moralizing | Anchor"
 description: "Learn how to review your daily schedule using non-moralizing language. A neutral, evidence-based approach helps you manage interruptions without guilt."
 author: "Significant Hobbies"
 published: "2026-09-20"

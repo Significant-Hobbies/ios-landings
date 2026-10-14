@@ -1,6 +1,7 @@
 ---
 title: "Designing an honest end-of-day schedule review"
 description: "Learn how to conduct an end-of-day schedule review that separates estimation errors, deliberate changes, and external interruptions without relying on moralizing adherence scores."
+seoDescription: "Review the day honestly by separating estimation errors, deliberate changes, and interruptions without scoring yourself."
 author: "Significant Hobbies"
 published: "2026-09-20"
 draft: false

@@ -14,9 +14,11 @@ const { Content, headings } = await render(post);
 const cover = post.data.cover;
 const dimensions = cover ? await screenshotMetadata(productId, cover.src) : null;
 const readingMinutes = Math.max(1, Math.ceil((post.body ?? "").split(/\s+/).length / 220));
+const seoTitle = post.data.seoTitle ?? `${post.data.title} — ${site.name}`;
+const seoDescription = post.data.seoDescription ?? post.data.description;
 const schema = { "@context": "https://schema.org", "@type": "BlogPosting", headline: post.data.title, description: post.data.description, datePublished: post.data.published, dateModified: post.data.updated ?? post.data.published, author: { "@type": "Organization", name: post.data.author }, publisher: { "@type": "Organization", name: "Significant Hobbies" }, mainEntityOfPage: new URL(blogPath(post), site.url).href, ...(cover ? { image: new URL(cover.src, site.url).href } : {}) };
 ---
-<SiteLayout title={`${post.data.title} — ${site.name}`} description={post.data.description} canonicalPath={blogPath(post)} image={cover?.src} includeStructuredData={false}>
+<SiteLayout title={seoTitle} description={seoDescription} canonicalPath={blogPath(post)} image={cover?.src} includeStructuredData={false}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(schema).replace(/</g, "\\u003c")} />
   <article class="shell blog-article">
     <a class="blog-back" href="/blog/">← {site.name} journal</a>

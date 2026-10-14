@@ -26,6 +26,7 @@ const anchorContent = productId === "anchor" ? (await import("../../products/anc
 const AnchorFactoryHeader = productId === "anchor" ? (await import("../components/AnchorFactoryHeader")).default : undefined;
 const anchorTheme = anchorContent ? {
   ...tokensFromApp(anchorContent.page.fromApp),
+  ...anchorContent.page.tokens,
   "--font-sans": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
   "--font-display": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
   "--font-text": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
