@@ -189,12 +189,15 @@ fleet-footer-extension.precise-footer {
   color: var(--ink);
 }
 
-/* Gallery uses --accent for a dark hover surface; factory focus keeps Anchor's amber brand. */
+/* Gallery uses --accent for a dark hover surface; factory focus keeps Anchor's amber ink. */
 html[data-product="anchor"] fleet-footer-extension.precise-footer {
-  --fleet-footer-focus: var(--brand);
+  --fleet-footer-focus: var(--brand-ink);
 }
-html[data-product="anchor"] .footer-newsletter saas-maker-newsletter-capture {
-  --newsletter-capture-focus: var(--brand);
+html[data-product="anchor"] portfolio-project-strip {
+  --portfolio-strip-focus: var(--brand-ink);
+}
+html[data-product="anchor"] ai-chat-footer {
+  --ai-footer-focus: var(--brand-ink);
 }
 html[data-product="anchor"] .article-copy blockquote { border-left-color: var(--brand); }
 .precise-footer > .precise-navigation { padding: 0; border: 0; background: transparent; }

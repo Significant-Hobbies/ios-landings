@@ -33,6 +33,9 @@ const anchorTheme = anchorContent ? {
   "--display": "var(--font-display)",
   "--body": "var(--font-text)",
 } : {};
+const anchorNewsletterStyle = anchorContent
+  ? `--newsletter-capture-action:${anchorContent.page.fromApp.brand};--newsletter-capture-action-text:${anchorContent.page.fromApp.brandForeground};--newsletter-capture-focus:${anchorContent.page.tokens["--brand-ink"]}`
+  : undefined;
 const tokenStyle = [
   `--button-bg:${action.background}`,
   `--button-fg:${action.foreground}`,
@@ -121,6 +124,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
       {newsletterCapture ? (
           <section slot="capture" class="footer-newsletter" aria-label={`${site.name} email updates`}>
             <saas-maker-newsletter-capture
+              style={anchorNewsletterStyle}
               product-name={site.name}
               catalog-id={productId}
               kind="newsletter"
