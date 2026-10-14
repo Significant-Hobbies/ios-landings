@@ -33,9 +33,6 @@ const anchorTheme = anchorContent ? {
   "--display": "var(--font-display)",
   "--body": "var(--font-text)",
 } : {};
-const anchorNewsletterStyle = anchorContent
-  ? `--newsletter-capture-action:${anchorContent.page.fromApp.brand};--newsletter-capture-action-text:${anchorContent.page.fromApp.brandForeground};--newsletter-capture-focus:${anchorContent.page.tokens["--brand-ink"]}`
-  : undefined;
 const tokenStyle = [
   `--button-bg:${action.background}`,
   `--button-fg:${action.foreground}`,
@@ -124,7 +121,6 @@ const hasBlog = (await getPublishedPosts()).length > 0;
       {newsletterCapture ? (
           <section slot="capture" class="footer-newsletter" aria-label={`${site.name} email updates`}>
             <saas-maker-newsletter-capture
-              style={anchorNewsletterStyle}
               product-name={site.name}
               catalog-id={productId}
               kind="newsletter"
@@ -167,6 +163,26 @@ const hasBlog = (await getPublishedPosts()).length > 0;
         <p class="fine-print footer-legal" data-fleet-footer-legal>{site.footerFinePrint}</p>
       </footer>
     </fleet-footer-extension>
+    {anchorContent && <script is:inline>
+      (() => {
+        const footer = document.querySelector("fleet-footer-extension.precise-footer");
+        if (!footer) return;
+        const styleCapture = () => {
+          const capture = footer.querySelector("saas-maker-newsletter-capture");
+          if (!capture) return false;
+          const tokens = getComputedStyle(document.documentElement);
+          capture.style.setProperty("--newsletter-capture-action", tokens.getPropertyValue("--brand").trim());
+          capture.style.setProperty("--newsletter-capture-action-text", tokens.getPropertyValue("--brand-foreground").trim());
+          capture.style.setProperty("--newsletter-capture-focus", tokens.getPropertyValue("--brand-ink").trim());
+          return true;
+        };
+        if (styleCapture()) return;
+        const observer = new MutationObserver(() => {
+          if (styleCapture()) observer.disconnect();
+        });
+        observer.observe(footer, { childList: true });
+      })();
+    </script>}
     <script
       is:inline
       src="https://sassmaker.com/project-strip.js?v=precise-b0adaa67"
