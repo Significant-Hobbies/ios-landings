@@ -188,6 +188,15 @@ fleet-footer-extension.precise-footer {
   background: var(--paper);
   color: var(--ink);
 }
+
+/* Gallery uses --accent for a dark hover surface; factory focus keeps Anchor's amber brand. */
+html[data-product="anchor"] fleet-footer-extension.precise-footer {
+  --fleet-footer-focus: var(--brand);
+}
+html[data-product="anchor"] .footer-newsletter saas-maker-newsletter-capture {
+  --newsletter-capture-focus: var(--brand);
+}
+html[data-product="anchor"] .article-copy blockquote { border-left-color: var(--brand); }
 .precise-footer > .precise-navigation { padding: 0; border: 0; background: transparent; }
 .precise-footer .footer-identity { margin: 0 0 22px; font: 500 14px/1.5 var(--fleet-footer-ui-font); }
 .precise-footer .footer-identity a { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; }

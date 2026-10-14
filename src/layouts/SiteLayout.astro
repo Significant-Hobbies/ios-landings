@@ -6,6 +6,7 @@ import { links, productId, site } from "../site.config";
 import { getPublishedPosts } from "../lib/blog";
 import { actionColors } from "../lib/contrast.mjs";
 import { defaultTitle } from "../lib/page-title";
+import { tokensFromApp } from "@saas-maker/templates/tokensFromApp";
 
 interface Props {
   title?: string;
@@ -21,6 +22,16 @@ const { title = defaultTitle(), canonicalPath = "/" } = Astro.props;
 const cta = primaryCta();
 const t = site.tokens;
 const action = actionColors(t);
+const anchorContent = productId === "anchor" ? (await import("../../products/anchor/content.json")).default : undefined;
+const AnchorFactoryHeader = productId === "anchor" ? (await import("../components/AnchorFactoryHeader")).default : undefined;
+const anchorTheme = anchorContent ? {
+  ...tokensFromApp(anchorContent.page.fromApp),
+  "--font-sans": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
+  "--font-display": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
+  "--font-text": 'ui-rounded, "SF Pro Rounded", Nunito, Figtree, system-ui, sans-serif',
+  "--display": "var(--font-display)",
+  "--body": "var(--font-text)",
+} : {};
 const tokenStyle = [
   `--button-bg:${action.background}`,
   `--button-fg:${action.foreground}`,
@@ -39,7 +50,8 @@ const tokenStyle = [
   `--site-lantern-c:${t.lanternC}`,
   `--site-blush:${t.blush}`,
   `--site-ink-on-dark:${t.inkOnDark}`,
-  `--site-ink-on-accent:${t.inkOnAccent ?? "#ffffff"}`
+  `--site-ink-on-accent:${t.inkOnAccent ?? "#ffffff"}`,
+  ...Object.entries(anchorTheme).map(([name, value]) => `${name}:${value}`)
 ].join(";");
 const scheme = site.colorScheme ?? "light";
 const portfolioProjectId = productId === "habits" ? "anchor" : productId;
@@ -79,7 +91,7 @@ const newsletterTheme = scheme;
 const hasBlog = (await getPublishedPosts()).length > 0;
 ---
 <!doctype html>
-<html lang="en" data-product={productId} data-device={site.device ?? "phone"} data-scheme={scheme} style={tokenStyle}>
+<html lang="en" data-product={productId} data-device={site.device ?? "phone"} data-scheme={scheme} data-theme={anchorContent ? "gallery" : undefined} data-mode={anchorContent ? "dark" : undefined} style={tokenStyle}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
@@ -88,7 +100,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
   </head>
   <body>
     <a class="skip-link" href="#content">Skip to content</a>
-    <header class="site-header">
+    {AnchorFactoryHeader ? <AnchorFactoryHeader /> : <header class="site-header">
       <div class="shell">
         <a class="wordmark" href="/" aria-label={`${site.name} home`}>
           <img src={site.mark} width="38" height="38" alt="" />
@@ -101,7 +113,7 @@ const hasBlog = (await getPublishedPosts()).length > 0;
           <a class="header-beta" href={cta.href}>{cta.kind === "status" ? (site.device === "desktop" ? "Release status" : "Beta status") : cta.label}</a>
         </nav>
       </div>
-    </header>
+    </header>}
     <main id="content"><slot /></main>
     <fleet-footer-extension style={productId === "browserdaddy" ? "--fleet-footer-mobile-signature-size:clamp(2rem,10.2vw,2.75rem);--fleet-footer-app-mobile-signature-size:clamp(1.625rem,9vw,2.25rem)" : productId === "performancedaddy" ? "--fleet-footer-mobile-signature-size:clamp(1.625rem,8.6vw,2.15rem);--fleet-footer-app-mobile-signature-size:clamp(1.625rem,8.2vw,2rem)" : undefined} class="precise-footer" product-name={site.name} signature-name={site.name} font-base="https://sassmaker.com/fonts/fleet-footer-precise-v1/" surface={canonicalPath === "/" ? "landing" : "app"} art-src={footerArtSrc} art-alt={footerArtwork?.alt} art-width={footerArtwork?.width} art-height={footerArtwork?.height} art-credit={footerArtwork?.credit} art-position={footerArtwork ? `${footerArtwork.focalX}% ${footerArtwork.focalY}%` : undefined} theme={scheme}>
       {Astro.slots.has("footer-cta") && <div slot="cta" data-fleet-footer-cta><slot name="footer-cta" /></div>}
