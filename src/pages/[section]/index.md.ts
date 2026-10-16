@@ -63,6 +63,8 @@ export function GET({ params }: { params: { section: string } }) {
   for (const entry of page.sections) {
     lines.push(`## ${entry.title}`, "", entry.body, "");
     for (const paragraph of entry.paragraphs ?? []) lines.push(paragraph, "");
+    for (const link of entry.links ?? []) lines.push(`- [${link.label}](${link.href})`);
+    if (entry.links?.length) lines.push("");
   }
 
   if (section === "privacy" && productId === "setline") {
