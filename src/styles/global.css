@@ -37,6 +37,7 @@
 @layer base {
   html { background: var(--paper); color: var(--ink); font-family: var(--body); }
   body { min-width: 320px; overflow-x: hidden; }
+  html[data-product="kith"] body { background: var(--paper); color: var(--ink); }
   a { color: inherit; }
   :focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
   ::selection { background: var(--accent); color: var(--ink-on-accent); }

@@ -10,7 +10,12 @@ export type Chapter = {
 
 export type Faq = { question: string; answer: string };
 /** `paragraphs` follow `body` as further paragraphs in the same section. */
-export type LegalSection = { title: string; body: string; paragraphs?: string[] };
+export type LegalSection = {
+  title: string;
+  body: string;
+  paragraphs?: string[];
+  links?: { label: string; href: string }[];
+};
 export type LegalPage = { title: string; lede: string; sections: LegalSection[] };
 export type StoryImage = { src: string; alt: string; width: number; height: number };
 

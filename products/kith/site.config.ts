@@ -187,7 +187,7 @@ export const site: SiteConfig = {
       "Treating the optional Significant Hobbies account as mandatory or describing Hub synchronization as the only copy of the user's data",
     ],
   },
-  lastUpdated: "2026-10-02",
+  lastUpdated: "2026-10-16",
   legal: {
     privacy: {
       title: "The people and notes stay private.",
@@ -226,19 +226,28 @@ export const site: SiteConfig = {
     },
     support: {
       title: "Support, without exposing someone else's story.",
-      lede: "Report the behavior, build, and sync state—not the private note itself.",
+      lede: "Kith is a private iPhone app for remembering the people you care about. Ask general questions in public; send private beta details through TestFlight.",
       sections: [
         {
-          title: "Send useful context",
-          body: "Use TestFlight's Send Beta Feedback action. Name the screen, action, current build, whether you were offline, and whether the Connection screen showed signed in, syncing, waiting changes, a last success, or an error. Replace names and note text with neutral examples.",
+          title: "Public questions and issues",
+          body: "For a general question or a reproducible problem that contains no personal data, open a public GitHub issue. Replace names and note text with neutral examples; never post screenshots that expose another person's story.",
+          links: [{ label: "Ask a public question on GitHub", href: "https://github.com/Significant-Hobbies/kith/issues/new" }],
+        },
+        {
+          title: "Private beta feedback",
+          body: "If you are an invited internal tester, use TestFlight's Send Beta Feedback action. Name the screen, action, current build, whether you were offline, and whether the Connection screen showed signed in, syncing, waiting changes, a last success, or an error. Replace names and note text with neutral examples.",
         },
         {
           title: "Protect the local copy",
           body: "Do not remove a person, delete the app, or clear device data as a first troubleshooting step. A failed CloudKit or Hub sync should not stop local use; record the visible recovery guidance and try Sync now after connectivity returns.",
         },
         {
-          title: "Current availability",
-          body: "Kith is available only to internal TestFlight testers. There is no public invitation, App Store listing, paid support plan, or guaranteed response time. Public work remains tracked in the GitHub repository.",
+          title: "Current availability and privacy",
+          body: "Kith is available only to internal TestFlight testers. There is no public invitation, App Store listing, paid support plan, or guaranteed response time. Read the current access status and privacy policy before sharing feedback.",
+          links: [
+            { label: "Current access status", href: "/testflight/" },
+            { label: "Privacy policy", href: "/privacy/" },
+          ],
         },
       ],
     },
